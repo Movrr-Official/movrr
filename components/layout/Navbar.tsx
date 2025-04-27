@@ -2,6 +2,8 @@ import React from "react";
 import { FiGithub } from "react-icons/fi";
 import Link from "next/link";
 
+import { ModeToggle } from "../ModeToggle";
+
 const Navbar = () => {
   return (
     <header className="w-full py-6 px-4 sm:px-6 lg:px-8">
@@ -26,6 +28,9 @@ const Navbar = () => {
           >
             <FiGithub className="w-5 h-5" />
           </Link>
+
+          {/* Mode Toggle Button */}
+          <ModeToggle />
         </div>
       </nav>
     </header>

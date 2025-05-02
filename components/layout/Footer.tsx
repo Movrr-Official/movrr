@@ -35,13 +35,13 @@ const Footer = () => {
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link
-              href="#"
+              href="https://github.com/ggg6r34t/nextui-starter-kit"
               className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
             >
               <FiGithub className="w-5 h-5" />
             </Link>
             <Link
-              href="#"
+              href="/docs"
               className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
             >
               <FiExternalLink className="w-5 h-5" />

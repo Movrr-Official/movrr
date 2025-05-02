@@ -2,7 +2,10 @@ import React from "react";
 import { FiGithub } from "react-icons/fi";
 import Link from "next/link";
 
+import { Button } from "../ui/button";
 import { ModeToggle } from "../ModeToggle";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import UserButton from "../UserButton";
 
 const Navbar = () => {
   return (
@@ -22,7 +25,7 @@ const Navbar = () => {
             Documentation
           </Link>
           <Link
-            href="https://github.com/yourusername/template-repo"
+            href="https://github.com/ggg6r34t/nextui-starter-kit"
             target="_blank"
             className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800"
           >
@@ -31,6 +34,22 @@ const Navbar = () => {
 
           {/* Mode Toggle Button */}
           <ModeToggle />
+
+          {/* User Button */}
+          <div className="ml-28">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <Button
+                asChild
+                variant="outline"
+                className="border-muted hover:bg-accent/50"
+              >
+                <Link href="/auth/sign-in">Sign In</Link>
+              </Button>
+            </SignedOut>
+          </div>
         </div>
       </nav>
     </header>

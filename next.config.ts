@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -11,9 +10,6 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co",
       },
     ],
-  },
-  experimental: {
-    clientInstrumentationHook: true,
   },
   output:
     process.env.NEXT_OUTPUT_MODE === "standalone" ? "standalone" : undefined,

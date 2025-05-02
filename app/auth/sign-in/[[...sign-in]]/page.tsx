@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { SignInForm } from "@/components/forms/SignInForm";
+// import { OAuthButtons } from "@/components/OAuthButtons";
 
 export default async function SignInPage() {
   const { userId } = await auth();
@@ -24,6 +25,17 @@ export default async function SignInPage() {
               </p>
             </div>
             <div className="flex-auto p-6">
+              {/* <OAuthButtons />
+              <div className="relative flex w-full items-center justify-center">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase py-6">
+                  <span className="bg-background dark:bg-gray-800 px-2 text-muted-foreground">
+                    OR CONTINUE WITH
+                  </span>
+                </div>
+              </div> */}
               <SignInForm />
             </div>
           </div>

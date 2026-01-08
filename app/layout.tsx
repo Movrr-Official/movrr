@@ -1,29 +1,59 @@
+import React from "react";
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import QueryClientProvider from "@/QueryClientProvider";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Suspense } from "react";
 
 import "./globals.css";
+import Analytics from "@/components/Analytics";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import Navbar from "@/components/layout/Navbar";
+import { ReduxProvider } from "@/providers/ReduxProvider";
+import QueryClientProvider from "@/providers/QueryClientProvider";
+import { FAB } from "@/components/FAB";
+import { Pointer } from "@/components/Pointer";
+import Footer from "@/components/layout/Footer";
+import CookieBanner from "./legal/cookie-policy/components/CookieBanner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "NextUI Template",
-    template: "%s | NextUI Starter",
-  },
+  title: "Movrr | Sustainable Bicycle Advertising Platform",
   description:
-    "Next.js starter template with Shadcn UI, TypeScript, and Tailwind CSS",
+    "Connect with riders to advertise your brand sustainably through bicycle advertising across the city.",
+  keywords: [
+    "bicycle advertising",
+    "sustainable marketing",
+    "outdoor advertising",
+    "green marketing",
+  ],
+  authors: [{ name: "Movrr" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://movrr.vercel.app",
+    title: "Movrr | Sustainable Bicycle Advertising Platform",
+    description:
+      "Connect with riders to advertise your brand sustainably through bicycle advertising across the city.",
+    siteName: "Movrr",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Movrr | Sustainable Bicycle Advertising Platform",
+    description:
+      "Connect with riders to advertise your brand sustainably through bicycle advertising across the city.",
+  },
+  generator: "v0.dev",
 };
 
 export default function RootLayout({
@@ -32,30 +62,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark, // Optional: matches dark mode
-        variables: {
-          colorPrimary: "#3b82f6", // Brand color
-        },
-      }}
-    >
+    <ReduxProvider>
       <QueryClientProvider>
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={cn(
+              "min-h-screen bg-background font-sans antialiased scroll-smooth",
+              inter.variable,
+              jetbrainsMono.variable
+            )}
           >
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange
+              storageKey="movrr-theme"
             >
-              <main className="flex-1">{children}</main>
+              <div className="relative flex min-h-screen flex-col">
+                <Navbar />
+                {/* Main content area with suspense for lazy loading */}
+                <Suspense>
+                  <main className="flex-1">{children}</main>
+                </Suspense>
+                <FAB />
+                {/* Cookie Banner */}
+                <CookieBanner />
+                <Footer />
+              </div>
+              <Pointer className="fill-[#00a234]" />
+              <Analytics />
             </ThemeProvider>
           </body>
         </html>
       </QueryClientProvider>
-    </ClerkProvider>
+    </ReduxProvider>
   );
 }

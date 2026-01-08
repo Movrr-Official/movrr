@@ -1,11 +1,7 @@
 "use server";
 
-import { z } from "zod";
-
-import { contactSchema } from "@/schema";
+import { ContactFormData, contactSchema } from "@/schema";
 import { sendConfirmationEmail, sendNotificationEmail } from "@/lib/mail";
-
-export type ContactFormData = z.infer<typeof contactSchema>;
 
 export async function contact(values: ContactFormData) {
   try {

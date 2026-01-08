@@ -1,243 +1,326 @@
 "use client";
 
-import React, { useTransition } from "react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import z from "zod";
-
-import { Button } from "@/components/ui/button";
-import { contact, ContactFormData } from "@/app/actions/contact";
-import { contactSchema } from "@/schema";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
-import { showErrorToast, showSuccessToast } from "../CustomToast";
 import { Textarea } from "@/components/ui/textarea";
-import { useLanguage } from "@/app/hooks/useLanguage";
-import { LanguageKeys } from "@/types/types";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CheckCircle } from "lucide-react";
+import { MagneticButton } from "../ui/magnetic-button";
 
-// Form content for NL and ENG language
-const formContent = {
-  en: {
-    fullNameLabel: "Your Name",
-    emailLabel: "Your Email",
-    phoneLabel: "Phone Number",
-    companyLabel: "Company Name",
-    subjectLabel: "Subject",
-    subjectPlaceholder: "Enter the subject of your message",
-    messageLabel: "Your Message",
-    messagePlaceholder: "Tell us about your business and financial goals",
-    sendButton: "Send Message",
-    sendingButton: "Sending Message...",
-    termsText: "By using this form, you agree to our",
-    termsLink: "Terms of Service",
-    privacyLink: "Privacy Policy",
-    successTitle: "Message Sent",
-    successDescription:
-      "Thank you for your message. We'll get back to you as soon as possible.",
-    errorTitle: "Sending Failed",
-    errorDescription:
-      "Something went wrong while sending your message. Please try again.",
-  },
-  nl: {
-    fullNameLabel: "Uw Naam",
-    emailLabel: "Uw E-mail",
-    phoneLabel: "Telefoonnummer",
-    companyLabel: "Bedrijfsnaam",
-    subjectLabel: "Onderwerp",
-    subjectPlaceholder: "Voer het onderwerp van je bericht in",
-    messageLabel: "Uw Bericht",
-    messagePlaceholder: "Vertel ons over uw bedrijf en financiële doelen",
-    sendButton: "Verstuur Bericht",
-    sendingButton: "Bezig met verzenden...",
-    termsText: "Door dit formulier te gebruiken, gaat u akkoord met onze",
-    termsLink: "Servicevoorwaarden",
-    privacyLink: "Privacybeleid",
-    successTitle: "Bericht verzonden",
-    successDescription:
-      "Bedankt voor je bericht. We nemen zo snel mogelijk contact met je op.",
-    errorTitle: "Verzenden mislukt",
-    errorDescription:
-      "Er ging iets mis bij het versturen van je bericht. Probeer het opnieuw.",
-  },
-};
+interface Option {
+  value: string;
+  label: string;
+}
 
-const ContactForm = () => {
-  const [isPending, startTransition] = useTransition();
-  const { language } = useLanguage();
+interface ContactFormProps {
+  type?: "general" | "advertiser" | "rider" | "government";
+}
 
-  const form = useForm<z.infer<typeof contactSchema>>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-      company: "",
-      subject: "",
-      message: "",
-      consent: true,
-    },
-  });
+export function ContactForm({ type = "general" }: ContactFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const { reset } = form;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const onSubmit = (values: ContactFormData) => {
-    startTransition(() => {
-      contact(values)
-        .then((data) => {
-          if (data.success) {
-            showSuccessToast(content.successTitle, content.successDescription);
-            reset();
-          } else if (data.error) {
-            showErrorToast(content.errorTitle, content.errorDescription);
-          }
-        })
-        .catch(() =>
-          showErrorToast(content.errorTitle, content.errorDescription)
-        );
-    });
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1500);
   };
 
-  // Get the content based on the current language
-  const content = formContent[language as LanguageKeys];
+  const formVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-  const {
-    fullNameLabel,
-    emailLabel,
-    phoneLabel,
-    companyLabel,
-    subjectLabel,
-    subjectPlaceholder,
-    messageLabel,
-    messagePlaceholder,
-    sendButton,
-    sendingButton,
-    termsText,
-    termsLink,
-    privacyLink,
-  } = content;
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
+  const getSelectionOptions = (): Option[] => {
+    switch (type) {
+      case "rider":
+        return [
+          { value: "become-rider", label: "Become a Rider" },
+          { value: "equipment", label: "Equipment Questions" },
+          { value: "earnings", label: "Earnings Information" },
+          { value: "other", label: "Other" },
+        ];
+      case "government":
+        return [
+          { value: "partnership", label: "Partnership Inquiry" },
+          { value: "data-services", label: "Data Services" },
+          { value: "presentation", label: "Request Presentation" },
+          { value: "other", label: "Other" },
+        ];
+      default:
+        return [
+          { value: "general", label: "General Inquiry" },
+          { value: "support", label: "Support" },
+          { value: "press", label: "Press Inquiry" },
+          { value: "careers", label: "Careers" },
+          { value: "other", label: "Other" },
+        ];
+    }
+  };
+
+  const getAdvertiserOptions = (field: "budget" | "timeline"): Option[] => {
+    if (type !== "advertiser") return [];
+
+    const options = {
+      budget: [
+        { value: "1000-3000", label: "€1,000 - €3,000" },
+        { value: "3000-5000", label: "€3,000 - €5,000" },
+        { value: "5000-10000", label: "€5,000 - €10,000" },
+        { value: "10000+", label: "€10,000+" },
+      ],
+      timeline: [
+        { value: "2-weeks", label: "2 weeks" },
+        { value: "1-months", label: "1 month" },
+        { value: "3-months", label: "3 months" },
+        { value: "6-months", label: "6 months" },
+        { value: "ongoing", label: "Ongoing" },
+      ],
+    };
+
+    return options[field];
+  };
+
+  if (isSubmitted) {
+    return (
+      <motion.div
+        className="border-2 border-border bg-background p-10 lg:p-12 text-center"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="w-20 h-20 border-2 border-primary bg-primary/5 flex items-center justify-center mx-auto mb-8">
+          <CheckCircle className="h-10 w-10 text-primary" />
+        </div>
+        <h3 className="text-4xl font-black mb-4">Thank You!</h3>
+        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+          {`Your message has been received. We'll get back to you as soon as possible.`}
+        </p>
+        <MagneticButton
+          size="xl"
+          onClick={() => setIsSubmitted(false)}
+          className="h-14 px-8 text-base font-bold rounded-none border-2 border-primary bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.1em]"
+        >
+          Send Another Message
+        </MagneticButton>
+      </motion.div>
+    );
+  }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid gap-6 md:grid-cols-2">
-          <FormField
-            control={form.control}
-            name="fullName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{fullNameLabel}</FormLabel>
-                <FormControl>
-                  <Input placeholder="Willem De Jong" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{emailLabel}</FormLabel>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="willem.d@example.com"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{phoneLabel}</FormLabel>
-              <FormControl>
-                <Input type="tel" placeholder="+31 20 1234567" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{companyLabel}</FormLabel>
-              <FormControl>
-                <Input placeholder="Adyen" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="subject"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{subjectLabel}</FormLabel>
-              <FormControl>
-                <Input placeholder={subjectPlaceholder} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{messageLabel}</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder={messagePlaceholder}
-                  className="min-h-[200px] resize-none"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" className="w-full text-lg hover:bg-[#00332c]">
-          {isPending ? sendingButton : sendButton}
-        </Button>
-        <p className="text-sm text-gray-600 text-center">
-          {termsText}{" "}
-          <Link
-            href="/terms-of-service"
-            className="text-[#2c7a7b] hover:underline"
+    <motion.form
+      initial="hidden"
+      animate="visible"
+      variants={formVariants}
+      onSubmit={handleSubmit}
+      className="space-y-6"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div variants={itemVariants} className="space-y-2">
+          <Label
+            htmlFor="firstName"
+            className="text-sm font-bold uppercase tracking-[0.05em]"
           >
-            {termsLink}
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="/privacy-policy"
-            className="text-[#2c7a7b] hover:underline"
+            First Name
+          </Label>
+          <Input
+            id="firstName"
+            required
+            placeholder="Enter your first name"
+            className="rounded-none border-2"
+          />
+        </motion.div>
+        <motion.div variants={itemVariants} className="space-y-2">
+          <Label
+            htmlFor="lastName"
+            className="text-sm font-bold uppercase tracking-[0.05em]"
           >
-            {privacyLink}
-          </Link>
-          .
-        </p>
-      </form>
-    </Form>
-  );
-};
+            Last Name
+          </Label>
+          <Input
+            id="lastName"
+            required
+            placeholder="Enter your last name"
+            className="rounded-none border-2"
+          />
+        </motion.div>
+      </div>
 
-export default ContactForm;
+      <motion.div variants={itemVariants} className="space-y-2">
+        <Label
+          htmlFor="email"
+          className="text-sm font-bold uppercase tracking-[0.05em]"
+        >
+          Email
+        </Label>
+        <Input
+          id="email"
+          type="email"
+          required
+          placeholder="Enter your email address"
+          className="rounded-none border-2"
+        />
+      </motion.div>
+
+      <motion.div variants={itemVariants} className="space-y-2">
+        <Label
+          htmlFor="phone"
+          className="text-sm font-bold uppercase tracking-[0.05em]"
+        >
+          Phone (Optional)
+        </Label>
+        <Input
+          id="phone"
+          type="tel"
+          placeholder="Enter your phone number"
+          className="rounded-none border-2"
+        />
+      </motion.div>
+
+      {type !== "advertiser" && (
+        <motion.div variants={itemVariants} className="space-y-2">
+          <Label
+            htmlFor="subject"
+            className="text-sm font-bold uppercase tracking-[0.05em]"
+          >
+            Subject
+          </Label>
+          <Select>
+            <SelectTrigger className="w-full rounded-none border-2">
+              <SelectValue placeholder="Select a subject" />
+            </SelectTrigger>
+            <SelectContent>
+              {getSelectionOptions().map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </motion.div>
+      )}
+
+      {type === "advertiser" && (
+        <div className="grid gap-6 md:grid-cols-2">
+          <motion.div variants={itemVariants} className="w-full space-y-2">
+            <Label
+              htmlFor="budget"
+              className="text-sm font-bold uppercase tracking-[0.05em]"
+            >
+              Budget
+            </Label>
+            <Select>
+              <SelectTrigger className="w-full rounded-none border-2">
+                <SelectValue placeholder="Select budget range" />
+              </SelectTrigger>
+              <SelectContent>
+                {getAdvertiserOptions("budget").map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="space-y-2">
+            <Label
+              htmlFor="timeline"
+              className="text-sm font-bold uppercase tracking-[0.05em]"
+            >
+              Timeline
+            </Label>
+            <Select>
+              <SelectTrigger className="w-full rounded-none border-2">
+                <SelectValue placeholder="Select timeline" />
+              </SelectTrigger>
+              <SelectContent>
+                {getAdvertiserOptions("timeline").map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </motion.div>
+        </div>
+      )}
+
+      {type === "advertiser" && (
+        <motion.div variants={itemVariants} className="space-y-2 mt-6">
+          <Label
+            htmlFor="locations"
+            className="text-sm font-bold uppercase tracking-[0.05em]"
+          >
+            Target Locations
+          </Label>
+          <Input
+            id="locations"
+            placeholder="e.g., Haag City Center, Schenvinegen, Dam Square"
+            className="rounded-none border-2"
+          />
+        </motion.div>
+      )}
+
+      <motion.div variants={itemVariants} className="space-y-2 mt-6">
+        <Label
+          htmlFor="message"
+          className="text-sm font-bold uppercase tracking-[0.05em]"
+        >
+          {type === "advertiser" ? "Campaign Details" : "Message"}
+        </Label>
+        <Textarea
+          id="message"
+          rows={10}
+          required
+          placeholder={
+            type === "advertiser"
+              ? "Tell us about your campaign goals, target audience, and any specific requirements."
+              : "Type your message here"
+          }
+          className="min-h-[120px] rounded-none border-2"
+        />
+      </motion.div>
+
+      <motion.div variants={itemVariants} className="mt-6">
+        <MagneticButton
+          type="submit"
+          size="xl"
+          className="w-full h-14 text-base font-bold rounded-full border-2 border-primary bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.1em]"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Sending..." : "Send Message"}
+        </MagneticButton>
+      </motion.div>
+    </motion.form>
+  );
+}

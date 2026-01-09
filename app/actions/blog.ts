@@ -5,6 +5,10 @@ import { createSupabaseServerClient } from "@/supabase/server";
 import { blogSchema, updateBlogSchema } from "@/schema";
 import { slugify, calculateReadTime } from "@/lib/utils";
 import { Post } from "@/types/types";
+import { logger } from "@/lib/logger";
+import { sanitizeHtml, sanitizeText } from "@/lib/sanitize";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { headers } from "next/headers";
 
 export type BlogFormData = z.infer<typeof blogSchema>;
 export type UpdateBlogFormData = z.infer<typeof updateBlogSchema>;
@@ -61,7 +65,9 @@ export const getBlogPosts = async (): Promise<Post[]> => {
       .order("created_at", { ascending: false });
 
     if (error) {
-      console.error("Error fetching posts:", error);
+      logger.errorWithContext("Error fetching posts", error, {
+        action: "getBlogPosts",
+      });
       return [];
     }
 
@@ -71,7 +77,9 @@ export const getBlogPosts = async (): Promise<Post[]> => {
 
     return data.map(transformPost);
   } catch (error) {
-    console.error("Error fetching posts:", error);
+    logger.errorWithContext("Error fetching posts", error, {
+      action: "getBlogPosts",
+    });
     return [];
   }
 };
@@ -172,7 +180,42 @@ export async function getRecentBlogPosts(limit: number = 3): Promise<Post[]> {
 
 export async function blogPost(values: BlogFormData) {
   try {
-    const validation = blogSchema.safeParse(values);
+    // Rate limiting - get headers from Next.js
+    try {
+      const headersList = await headers();
+      const forwardedFor = headersList.get("x-forwarded-for");
+      const realIP = headersList.get("x-real-ip");
+      const clientIP = forwardedFor?.split(",")[0].trim() || realIP || "unknown";
+
+      const rateLimitResult = checkRateLimit(clientIP, {
+        windowMs: 60 * 60 * 1000, // 1 hour
+        maxRequests: 10, // 10 posts per hour
+        identifier: "blog-post",
+      });
+
+      if (!rateLimitResult.allowed) {
+        return {
+          error: "Too many requests",
+          details: "Please wait before creating another post.",
+          status: 429,
+        };
+      }
+    } catch (rateLimitError) {
+      // If rate limiting fails, log but continue (fail open)
+      logger.warn("Rate limiting check failed", rateLimitError);
+    }
+
+    // Sanitize input
+    const sanitizedValues = {
+      title: sanitizeText(values.title),
+      excerpt: sanitizeText(values.excerpt),
+      author: sanitizeText(values.author),
+      category: sanitizeText(values.category),
+      imageUrl: values.imageUrl, // URL validation handled by schema
+      content: sanitizeHtml(values.content), // HTML content needs HTML sanitization
+    };
+
+    const validation = blogSchema.safeParse(sanitizedValues);
 
     if (!validation.success) {
       return {
@@ -215,7 +258,10 @@ export async function blogPost(values: BlogFormData) {
     });
 
     if (error) {
-      console.error("Error creating post:", error);
+      logger.errorWithContext("Error creating post", error, {
+        action: "blogPost",
+        title: data.title,
+      });
       return {
         error: "Failed to create post",
         status: 500,
@@ -224,7 +270,9 @@ export async function blogPost(values: BlogFormData) {
 
     return { success: "Post created successfully", status: 200 };
   } catch (error) {
-    console.error("Error submitting post:", error);
+    logger.errorWithContext("Error submitting post", error, {
+      action: "blogPost",
+    });
     return { error: "Internal Server Error", status: 500 };
   }
 }

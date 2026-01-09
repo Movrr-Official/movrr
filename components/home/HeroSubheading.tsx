@@ -11,7 +11,7 @@ export function HeroSubheading() {
   return (
     <TooltipProvider delayDuration={200}>
       <p className="max-w-4xl text-muted-foreground text-xl md:text-2xl leading-relaxed">
-        Bicycle ads aren't new, but how we deploy them is. Movrr's{" "}
+        Bicycle ads aren&apos;t new, but how we deploy them is. Movrr&apos;s{" "}
         <Tooltip>
           <TooltipTrigger asChild>
             <span className="underline underline-offset-4 decoration-2 decoration-primary cursor-help font-bold text-foreground">

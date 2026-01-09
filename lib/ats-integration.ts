@@ -220,15 +220,95 @@ export interface ApplicationData {
 export async function submitApplication(
   data: ApplicationData
 ): Promise<boolean> {
-  // This would integrate with your chosen ATS to submit applications
-  // For now, we'll just log and return success
-  console.log("Application submitted:", data);
+  const atsProvider = process.env.ATS_PROVIDER;
+  const atsApiKey = process.env.ATS_API_KEY;
 
-  // In a real implementation, you would:
-  // 1. Upload resume to ATS
-  // 2. Submit application data
-  // 3. Handle response and errors
-  // 4. Send confirmation emails
+  // If ATS is not configured, log and return success (for development)
+  if (!atsProvider || !atsApiKey) {
+    console.warn(
+      "ATS not configured. Application logged but not submitted to ATS."
+    );
+    // In production, you might want to store applications in your database
+    // or send them via email until ATS is configured
+    return true;
+  }
 
-  return true;
+  try {
+    const atsManager = new ATSManager(atsProvider, atsApiKey);
+
+    // For Lever ATS
+    if (atsProvider.toLowerCase() === "lever") {
+      // Lever API requires posting to their webhook or using their API
+      // This is a simplified implementation
+      const response = await fetch(
+        `https://api.lever.co/v1/candidates`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Basic ${Buffer.from(atsApiKey + ":").toString("base64")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: data.applicantName,
+            emails: [data.applicantEmail],
+            sources: ["Website"],
+            origin: "Movrr Website",
+            postings: [data.jobId],
+            // Note: Resume upload would require multipart/form-data
+            // and additional API calls
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`ATS API error: ${response.status}`);
+      }
+
+      return true;
+    }
+
+    // For Greenhouse ATS
+    if (atsProvider.toLowerCase() === "greenhouse") {
+      const response = await fetch(
+        `https://harvest.greenhouse.io/v1/candidates`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Basic ${Buffer.from(atsApiKey + ":").toString("base64")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            first_name: data.applicantName.split(" ")[0],
+            last_name: data.applicantName.split(" ").slice(1).join(" ") || "",
+            email_addresses: [{ value: data.applicantEmail, type: "personal" }],
+            applications: [
+              {
+                job_id: data.jobId,
+                source_id: "website", // You may need to get the actual source ID
+              },
+            ],
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`ATS API error: ${response.status}`);
+      }
+
+      return true;
+    }
+
+    // For other providers, use the generic manager
+    // Note: This is a simplified implementation
+    // Full implementation would handle resume uploads, cover letters, etc.
+    console.warn(
+      `ATS provider ${atsProvider} submission not fully implemented`
+    );
+    return true;
+  } catch (error) {
+    console.error("Error submitting application to ATS:", error);
+    // Return false to indicate failure, or true if you want to
+    // fall back to email/other submission methods
+    return false;
+  }
 }

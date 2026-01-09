@@ -4,14 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 const useCases = [
   {
     title: "Event Domination",
@@ -87,7 +79,7 @@ const UseCases = () => {
               className="text-xl md:text-2xl text-muted-foreground leading-relaxed"
             >
               Our campaign models are flexible tools for your marketing
-              objectives. Here's how you can use them.
+              objectives. Here&apos;s how you can use them.
             </motion.p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -103,11 +95,15 @@ const UseCases = () => {
                     />
                   </div>
                   <div className="p-10 lg:p-12 flex-grow">
-                    <h3 className="text-2xl font-black tracking-tight mb-2">{useCase.title}</h3>
+                    <h3 className="text-2xl font-black tracking-tight mb-2">
+                      {useCase.title}
+                    </h3>
                     <p className="text-sm font-bold text-primary uppercase tracking-[0.1em] mb-4">
                       {useCase.model}
                     </p>
-                    <p className="text-lg text-muted-foreground leading-relaxed">{useCase.description}</p>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      {useCase.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>

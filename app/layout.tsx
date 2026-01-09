@@ -14,6 +14,7 @@ import { FAB } from "@/components/FAB";
 import { Pointer } from "@/components/Pointer";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "./legal/cookie-policy/components/CookieBanner";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,19 +80,21 @@ export default function RootLayout({
               disableTransitionOnChange
               storageKey="movrr-theme"
             >
-              <div className="relative flex min-h-screen flex-col">
-                <Navbar />
-                {/* Main content area with suspense for lazy loading */}
-                <Suspense>
-                  <main className="flex-1">{children}</main>
-                </Suspense>
-                <FAB />
-                {/* Cookie Banner */}
-                <CookieBanner />
-                <Footer />
-              </div>
-              <Pointer className="fill-[#00a234]" />
-              <Analytics />
+              <ErrorBoundary>
+                <div className="relative flex min-h-screen flex-col">
+                  <Navbar />
+                  {/* Main content area with suspense for lazy loading */}
+                  <Suspense>
+                    <main className="flex-1">{children}</main>
+                  </Suspense>
+                  <FAB />
+                  {/* Cookie Banner */}
+                  <CookieBanner />
+                  <Footer />
+                </div>
+                <Pointer className="fill-[#00a234]" />
+                <Analytics />
+              </ErrorBoundary>
             </ThemeProvider>
           </body>
         </html>

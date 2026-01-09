@@ -61,7 +61,7 @@ const helpfulLinks = [
   { href: "/careers", label: "Careers" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/legal/privacy-policy", label: "Privacy Policy" },
 ];
 
 export default function NotFoundPage() {

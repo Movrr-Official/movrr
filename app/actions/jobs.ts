@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { getJobsFromATS } from "@/lib/ats-integration";
+import { getJobsFromATS, type JobPosting } from "@/lib/ats-integration";
+import { Job } from "@/types/types";
+import { logger } from "@/lib/logger";
 
 // Cache jobs for 1 hour to avoid hitting ATS API too frequently
-let jobsCache: any[] = [];
+let jobsCache: Job[] = [];
 let lastFetch = 0;
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
 
@@ -16,7 +18,22 @@ export async function GET() {
     }
 
     // Fetch fresh jobs from ATS
-    const jobs = await getJobsFromATS();
+    const jobPostings = await getJobsFromATS();
+
+    // Map JobPosting to Job type with required fields
+    const jobs: Job[] = jobPostings.map((posting: JobPosting) => ({
+      id: posting.id,
+      title: posting.title,
+      department: posting.department,
+      location: posting.location,
+      type: posting.type,
+      description: posting.description,
+      benefits: [], // ATS doesn't provide this, will be empty
+      requirements: posting.requirements || [],
+      responsibilities: [], // ATS doesn't provide this, will be empty
+      posted: posting.posted,
+      atsUrl: posting.atsUrl || "", // Provide default empty string if undefined
+    }));
 
     // Update cache
     jobsCache = jobs;
@@ -24,7 +41,9 @@ export async function GET() {
 
     return NextResponse.json({ jobs });
   } catch (error) {
-    console.error("Error fetching jobs:", error);
+    logger.errorWithContext("Error fetching jobs", error, {
+      action: "getJobs",
+    });
     return NextResponse.json(
       { error: "Failed to fetch jobs" },
       { status: 500 }
@@ -35,7 +54,23 @@ export async function GET() {
 // Force refresh cache
 export async function POST() {
   try {
-    const jobs = await getJobsFromATS();
+    const jobPostings = await getJobsFromATS();
+
+    // Map JobPosting to Job type with required fields
+    const jobs: Job[] = jobPostings.map((posting: JobPosting) => ({
+      id: posting.id,
+      title: posting.title,
+      department: posting.department,
+      location: posting.location,
+      type: posting.type,
+      description: posting.description,
+      benefits: [], // ATS doesn't provide this, will be empty
+      requirements: posting.requirements || [],
+      responsibilities: [], // ATS doesn't provide this, will be empty
+      posted: posting.posted,
+      atsUrl: posting.atsUrl || "", // Provide default empty string if undefined
+    }));
+
     jobsCache = jobs;
     lastFetch = Date.now();
 
@@ -44,7 +79,9 @@ export async function POST() {
       jobs,
     });
   } catch (error) {
-    console.error("Error refreshing jobs cache:", error);
+    logger.errorWithContext("Error refreshing jobs cache", error, {
+      action: "refreshJobsCache",
+    });
     return NextResponse.json(
       { error: "Failed to refresh jobs cache" },
       { status: 500 }

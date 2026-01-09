@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { BarChart3, Globe, Users, Zap } from "lucide-react";
-import SectionHeader from "./shared/SectionHeader";
 
 const features = [
   {
@@ -30,15 +29,6 @@ const features = [
       "Partner with vetted, reliable riders who deliver your message consistently across key urban routes.",
   },
 ];
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -71,8 +61,8 @@ export function Features() {
               A better way to build your brand
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-              Movrr isn't just advertising; it's a platform that helps brands
-              create genuine connections with communities on the move.
+              Movrr isn&apos;t just advertising; it&apos;s a platform that helps
+              brands create genuine connections with communities on the move.
             </p>
           </div>
 

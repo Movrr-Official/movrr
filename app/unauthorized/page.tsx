@@ -170,7 +170,10 @@ export default function UnauthorizedPage() {
         variants={textVariants}
         className="mt-8 text-center text-gray-500 text-sm max-w-md"
       >
-        Need immediate assistance? Call our support team at 0612345678
+        Need immediate assistance?{" "}
+        <Link href="/contact" className="text-primary hover:underline">
+          Contact our support team
+        </Link>
       </motion.div>
     </motion.div>
   );

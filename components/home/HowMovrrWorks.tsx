@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Target, Bike, BarChart } from "lucide-react";
-import SectionHeader from "@/components/shared/SectionHeader";
 
 const processSteps = {
   destination: [

@@ -13,7 +13,8 @@ export default clerkMiddleware(async (auth, req) => {
     return NextResponse.redirect(new URL("/auth/sign-in", req.url));
   }
 
-  return NextResponse.next(); // Continue processing the request for authenticated users
+  // Apply security headers to all responses
+  return securityHeadersMiddleware(req);
 });
 
 export function securityHeadersMiddleware(request: NextRequest) {

@@ -29,11 +29,26 @@ export function useCookiebotIntegration() {
       return;
     }
 
+    const cookiebotId = process.env.NEXT_PUBLIC_CBID;
+    
+    // Only load Cookiebot if ID is configured
+    if (!cookiebotId || cookiebotId.trim() === "") {
+      console.warn(
+        "Cookiebot ID not configured. Set NEXT_PUBLIC_CBID environment variable to enable cookie consent management."
+      );
+      return;
+    }
+
     const script = document.createElement("script");
     script.src = "https://consent.cookiebot.com/uc.js";
-    script.setAttribute("data-cbid", `${process.env.NEXT_PUBLIC_CBID}`); // <-- REPLACE THIS
+    script.setAttribute("data-cbid", cookiebotId);
     script.setAttribute("data-blockingmode", "auto");
     script.async = true;
+    
+    script.onerror = () => {
+      console.error("Failed to load Cookiebot script");
+    };
+    
     document.head.appendChild(script);
 
     script.onload = () => {

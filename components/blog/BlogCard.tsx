@@ -21,9 +21,13 @@ const BlogCard = ({ post }: Props) => {
         </div>
         <div className="flex flex-col flex-1 p-6">
           <div className="flex items-center justify-between mb-4">
-            <Badge className="rounded-none border-2 border-primary/30 text-primary bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider">
-              {post.category}
-            </Badge>
+            {post.category ? (
+              <Badge className="rounded-none border-2 border-primary/30 text-primary bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                {post.category}
+              </Badge>
+            ) : (
+              <span />
+            )}
             <span className="text-xs text-muted-foreground font-medium">
               {post.date.toLocaleDateString()}
             </span>
@@ -31,9 +35,11 @@ const BlogCard = ({ post }: Props) => {
           <h3 className="text-xl md:text-2xl font-black tracking-tight mb-3 group-hover:text-primary transition-colors leading-[1.2] line-clamp-2">
             {post.title}
           </h3>
-          <p className="text-muted-foreground text-sm mb-6 line-clamp-2 leading-relaxed flex-1">
-            {post.excerpt}
-          </p>
+          {post.excerpt && (
+            <p className="text-muted-foreground text-sm mb-6 line-clamp-2 leading-relaxed flex-1">
+              {post.excerpt}
+            </p>
+          )}
           <div className="flex items-center pt-4 border-t-2 border-border">
             <div className="relative w-10 h-10 border-2 border-border bg-muted/50 flex items-center justify-center flex-shrink-0 mr-3">
               <Image

@@ -1,4 +1,5 @@
 import { getBlogPosts } from "@/app/actions/blog";
+import { Post } from "@/types/types";
 
 export async function getPosts({
   category,
@@ -8,7 +9,7 @@ export async function getPosts({
   category: string;
   page: number;
   postsPerPage: number;
-}) {
+}): Promise<{ posts: Post[]; featuredPost: Post | undefined }> {
   const allPosts = await getBlogPosts();
 
   let filtered = allPosts;
@@ -39,7 +40,7 @@ export async function getCategories(): Promise<string[]> {
   return Array.from(categories);
 }
 
-export async function getFeaturedPost() {
+export async function getFeaturedPost(): Promise<Post | null> {
   const allPosts = await getBlogPosts();
   const featured = allPosts.find((post) => post.featured === true);
   if (featured) return featured;

@@ -29,17 +29,21 @@ const FeaturedPost = ({ post }: Props) => {
               </div>
               {/* Content Column */}
               <div className="col-span-12 lg:col-span-6 bg-card border-2 border-border p-6 md:p-8 lg:p-12 flex flex-col justify-center">
-                <div className="mb-6">
-                  <Badge className="rounded-none border-2 border-primary/30 text-primary bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider">
-                    {post.category}
-                  </Badge>
-                </div>
+                {post.category && (
+                  <div className="mb-6">
+                    <Badge className="rounded-none border-2 border-primary/30 text-primary bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                      {post.category}
+                    </Badge>
+                  </div>
+                )}
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mb-6 group-hover:text-primary transition-colors leading-[1.1]">
                   {post.title}
                 </h2>
-                <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  {post.excerpt}
-                </p>
+                {post.excerpt && (
+                  <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                )}
                 <div className="flex items-center mb-8 pb-8 border-b-2 border-border">
                   <div className="relative w-12 h-12 border-2 border-border bg-muted/50 flex items-center justify-center flex-shrink-0 mr-4">
                     <Image

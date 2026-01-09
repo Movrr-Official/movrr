@@ -13,7 +13,7 @@ interface Props {
   categories: string[];
   initialCategory: string;
   initialPage: number;
-  featuredPost: Post;
+  featuredPost: Post | null;
   postsPerPage: number;
 }
 
@@ -92,7 +92,7 @@ export default function BlogUI({
 
   return (
     <>
-      <FeaturedPost post={featuredPost} />
+      {featuredPost && <FeaturedPost post={featuredPost} />}
       <CategoryFilter
         categories={categories}
         selected={category}

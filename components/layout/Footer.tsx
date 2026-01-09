@@ -199,7 +199,7 @@ const FooterBottom = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white border-t-2 border-white/10">
+    <footer className="bg-secondary dark:bg-background text-white border-t-2 border-white/10">
       {/* OUTFRONT-style full-width container */}
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-[1400px] mx-auto py-16 md:py-24">

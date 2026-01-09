@@ -12,9 +12,9 @@ export async function POST(request: NextRequest) {
       coverLetter: formData.get("coverLetter") as string,
       resume: formData.get("resume") as File,
       customFields: {
-        phone: formData.get("phone"),
-        linkedin: formData.get("linkedin"),
-        portfolio: formData.get("portfolio"),
+        phone: (formData.get("phone") as string | null) || "",
+        linkedin: (formData.get("linkedin") as string | null) || "",
+        portfolio: (formData.get("portfolio") as string | null) || "",
       },
     };
 

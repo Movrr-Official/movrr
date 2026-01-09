@@ -1,4 +1,4 @@
-import { posts } from "@/app/blog/page";
+import { getBlogPosts } from "@/app/actions/blog";
 
 export async function getPosts({
   category,
@@ -9,7 +9,9 @@ export async function getPosts({
   page: number;
   postsPerPage: number;
 }) {
-  let filtered = posts;
+  const allPosts = await getBlogPosts();
+
+  let filtered = allPosts;
 
   if (category !== "All") {
     filtered = filtered.filter((p) => p.category === category);
@@ -27,17 +29,23 @@ export async function getPosts({
 }
 
 export async function getCategories() {
-  const categories = new Set(["All", ...posts.map((p) => p.category)]);
+  const allPosts = await getBlogPosts();
+  const categories = new Set([
+    "All",
+    ...allPosts.map((p) => p.category).filter(Boolean),
+  ]);
   return Array.from(categories);
 }
 
 export async function getFeaturedPost() {
-  const featured = posts.find((post) => post.featured === true);
+  const allPosts = await getBlogPosts();
+  const featured = allPosts.find((post) => post.featured === true);
   if (featured) return featured;
 
   // fallback to latest by date
-  return posts.reduce(
+  if (allPosts.length === 0) return null;
+  return allPosts.reduce(
     (latest, post) => (post.date > latest.date ? post : latest),
-    posts[0]
+    allPosts[0]
   );
 }

@@ -8,7 +8,7 @@ import {
   CookiePreferences,
   useCookiePreferences,
 } from "@/app/hooks/useCookiePreferences";
-import { cookieTypes } from "../page";
+import { cookieTypes } from "../constants";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import {
   Tooltip,

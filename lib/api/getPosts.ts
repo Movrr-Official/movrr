@@ -28,11 +28,13 @@ export async function getPosts({
   return { posts: paginated, featuredPost };
 }
 
-export async function getCategories() {
+export async function getCategories(): Promise<string[]> {
   const allPosts = await getBlogPosts();
   const categories = new Set([
     "All",
-    ...allPosts.map((p) => p.category).filter(Boolean),
+    ...allPosts
+      .map((p) => p.category)
+      .filter((cat): cat is string => Boolean(cat)),
   ]);
   return Array.from(categories);
 }

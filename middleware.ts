@@ -21,7 +21,7 @@ export function securityHeadersMiddleware(request: NextRequest) {
   // Security headers
   const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com;
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' blob: data: https:;
   font-src 'self';

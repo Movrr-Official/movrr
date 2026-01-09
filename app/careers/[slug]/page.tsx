@@ -66,13 +66,13 @@ const jobData: Record<string, Job> = {
 };
 
 interface JobPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: JobPageProps) {
-  const { slug } = await Promise.resolve(params);
+  const { slug } = await params;
 
   const job = jobData[slug];
 
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: JobPageProps) {
 }
 
 export default async function JobPage({ params }: JobPageProps) {
-  const { slug } = await Promise.resolve(params);
+  const { slug } = await params;
 
   const job = jobData[slug];
 

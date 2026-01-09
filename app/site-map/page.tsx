@@ -44,7 +44,7 @@ const siteStructure = [
   {
     category: "Resources",
     icon: FileText,
-    pages: [{ name: "Sitemap", path: "/sitemap" }],
+    pages: [{ name: "Sitemap", path: "/site-map" }],
   },
 ];
 

@@ -47,7 +47,7 @@ const legalLinks = [
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
   { label: "Terms of Service", href: "/legal/terms-of-service" },
   { label: "Cookie Policy", href: "/legal/cookie-policy" },
-  { label: "Sitemap", href: "/sitemap" },
+  { label: "Sitemap", href: "/site-map" },
 ];
 
 // Sub-components - OUTFRONT style

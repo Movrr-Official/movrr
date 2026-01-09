@@ -65,25 +65,43 @@ export class LeverIntegration {
 
       const data = await response.json();
 
-      return data.data.map((posting: any) => ({
-        id: posting.id,
-        title: posting.text,
-        department: posting.categories.department || "General",
-        location: posting.categories.location || "Remote",
-        type: posting.categories.commitment || "Full-time",
-        description: posting.content.description || "",
-        requirements: this.parseRequirements(posting.content.lists),
-        posted: posting.createdAt,
-        atsUrl: posting.hostedUrl,
-        atsId: posting.id,
-      }));
+      return data.data.map(
+        (posting: {
+          id: string;
+          text: string;
+          categories: {
+            department: string;
+            location: string;
+            commitment: string;
+          };
+          content: {
+            description: string;
+            lists: { text: string; content: string[] }[];
+          };
+          createdAt: string;
+          hostedUrl: string;
+        }) => ({
+          id: posting.id,
+          title: posting.text,
+          department: posting.categories.department || "General",
+          location: posting.categories.location || "Remote",
+          type: posting.categories.commitment || "Full-time",
+          description: posting.content.description || "",
+          requirements: this.parseRequirements(posting.content.lists),
+          posted: posting.createdAt,
+          atsUrl: posting.hostedUrl,
+          atsId: posting.id,
+        })
+      );
     } catch (error) {
       console.error("Error fetching jobs from Lever:", error);
       return [];
     }
   }
 
-  private parseRequirements(lists: any[]): string[] {
+  private parseRequirements(
+    lists: { text: string; content: string[] }[]
+  ): string[] {
     if (!lists) return [];
 
     const requirementsList = lists.find(
@@ -121,18 +139,27 @@ export class GreenhouseIntegration {
 
       const jobs = await response.json();
 
-      return jobs.map((job: any) => ({
-        id: job.id.toString(),
-        title: job.name,
-        department: job.departments[0]?.name || "General",
-        location: job.offices[0]?.name || "Remote",
-        type: "Full-time", // Greenhouse doesn't always provide this
-        description: job.content || "",
-        requirements: [], // Would need to parse from content
-        posted: job.created_at,
-        atsUrl: `https://boards.greenhouse.io/movrr/jobs/${job.id}`,
-        atsId: job.id.toString(),
-      }));
+      return jobs.map(
+        (job: {
+          id: string;
+          name: string;
+          departments: { name: string }[];
+          offices: { name: string }[];
+          content: string;
+          created_at: string;
+        }) => ({
+          id: job.id.toString(),
+          title: job.name,
+          department: job.departments[0]?.name || "General",
+          location: job.offices[0]?.name || "Remote",
+          type: "Full-time", // Greenhouse doesn't always provide this
+          description: job.content || "",
+          requirements: [], // Would need to parse from content
+          posted: job.created_at,
+          atsUrl: `https://boards.greenhouse.io/movrr/jobs/${job.id}`,
+          atsId: job.id.toString(),
+        })
+      );
     } catch (error) {
       console.error("Error fetching jobs from Greenhouse:", error);
       return [];
@@ -187,7 +214,7 @@ export interface ApplicationData {
   applicantEmail: string;
   resume?: File;
   coverLetter?: string;
-  customFields?: Record<string, any>;
+  customFields?: Record<string, string>;
 }
 
 export async function submitApplication(

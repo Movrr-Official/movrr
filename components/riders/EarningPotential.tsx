@@ -1,5 +1,4 @@
 import React from "react";
-import { CheckCircle } from "lucide-react";
 
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import ScrollLink from "@/components/ScrollLink";
@@ -61,22 +60,30 @@ const RiderTier = ({ tier }: { tier: Tier }) => (
     <div className="border-2 border-border bg-background p-10 lg:p-12">
       <div className="space-y-6">
         <div className="pb-6 border-b-2 border-border">
-          <h3 className="text-3xl font-black tracking-tight mb-4">{tier.title}</h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">{tier.description}</p>
+          <h3 className="text-3xl font-black tracking-tight mb-4">
+            {tier.title}
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {tier.description}
+          </p>
         </div>
         <div className="flex justify-center py-6 border-b-2 border-border">
           <div className="text-center">
             <span className="text-5xl font-black text-primary">
               {tier.earnings}
             </span>
-            <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.1em] mt-2">Weekly Earnings</p>
+            <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.1em] mt-2">
+              Weekly Earnings
+            </p>
           </div>
         </div>
         <ul className="space-y-4">
           {tier.perks.map((perk, i) => (
             <li key={i} className="flex items-start gap-3">
               <div className="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0" />
-              <span className="text-base text-foreground leading-relaxed">{perk}</span>
+              <span className="text-base text-foreground leading-relaxed">
+                {perk}
+              </span>
             </li>
           ))}
         </ul>
@@ -110,8 +117,8 @@ const EarningPotential = () => {
             <Tabs defaultValue="casual" className="w-full">
               <TabsList className="grid w-full grid-cols-3 h-14 border-2 border-border bg-card mb-0">
                 {tiers.map((tier) => (
-                  <TabsTrigger 
-                    key={tier.value} 
+                  <TabsTrigger
+                    key={tier.value}
                     value={tier.value}
                     className="h-full text-sm font-bold uppercase tracking-[0.1em] data-[state=active]:bg-background data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none"
                   >
@@ -126,8 +133,8 @@ const EarningPotential = () => {
             </Tabs>
             <div className="flex justify-center mt-10">
               <ScrollLink to="#rider-contact">
-                <MagneticButton 
-                  variant="default" 
+                <MagneticButton
+                  variant="default"
                   size="xl"
                   className="h-14 px-8 text-base font-bold rounded-none border-2 border-primary bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.1em]"
                 >
@@ -139,8 +146,8 @@ const EarningPotential = () => {
             <p className="text-sm text-muted-foreground mt-8 text-center leading-relaxed">
               *These figures reflect typical earnings during our early-stage
               rollout. Actual earnings depend on campaign availability, time on
-              the road, and route selection. As Movrr grows in your city, so will
-              your opportunities to earn more.
+              the road, and route selection. As Movrr grows in your city, so
+              will your opportunities to earn more.
             </p>
           </div>
         </div>

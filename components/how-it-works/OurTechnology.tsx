@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { Check } from "lucide-react";
 
 const OurTechnology = () => {
   const features = [
@@ -27,17 +26,19 @@ const OurTechnology = () => {
                 Built for Reach. Designed for Results.
               </h2>
               <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                From smart routing to real-time analytics, Movrr's platform is built
-                to deliver precision, transparency, and impact. Our technology
-                empowers brands to target more effectively and gives riders the
-                tools to perform and get rewarded.
+                From smart routing to real-time analytics, Movrr&apos;s platform
+                is built to deliver precision, transparency, and impact. Our
+                technology empowers brands to target more effectively and gives
+                riders the tools to perform and get rewarded.
               </p>
 
               <ul className="space-y-5">
                 {features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0" />
-                    <span className="text-lg text-foreground leading-relaxed">{feature}</span>
+                    <span className="text-lg text-foreground leading-relaxed">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>

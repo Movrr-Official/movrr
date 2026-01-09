@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Building, Bike, Check } from "lucide-react";
+import { Building, Bike } from "lucide-react";
 
 const Benefits = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,7 +58,10 @@ const Benefits = () => {
   ];
 
   return (
-    <section ref={ref} className="w-full py-32 md:py-40 bg-background border-b-2 border-border">
+    <section
+      ref={ref}
+      className="w-full py-32 md:py-40 bg-background border-b-2 border-border"
+    >
       {/* OUTFRONT-style full-width container */}
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-[1400px] mx-auto">
@@ -120,7 +123,9 @@ const Benefits = () => {
                   {group.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0" />
-                      <span className="text-base text-foreground leading-relaxed">{benefit}</span>
+                      <span className="text-base text-foreground leading-relaxed">
+                        {benefit}
+                      </span>
                     </li>
                   ))}
                 </ul>

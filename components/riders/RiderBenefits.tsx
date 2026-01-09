@@ -71,19 +71,22 @@ const RiderBenefits = () => {
   ];
 
   return (
-    <section ref={ref} className="w-full py-32 md:py-40 bg-background border-b-2 border-border">
+    <section
+      ref={ref}
+      className="w-full py-32 md:py-40 bg-background border-b-2 border-border"
+    >
       {/* OUTFRONT-style full-width container */}
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="max-w-[1400px] mx-auto">
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-            className="grid grid-cols-12 gap-8 lg:gap-12 items-center mb-20"
-        >
-            {/* Content - OUTFRONT style */}
           <motion.div
-            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="grid grid-cols-12 gap-8 lg:gap-12 items-center mb-20"
+          >
+            {/* Content - OUTFRONT style */}
+            <motion.div
+              variants={itemVariants}
               className="col-span-12 lg:col-span-6"
             >
               <div className="inline-block border-b-2 border-primary pb-2 mb-6">
@@ -92,58 +95,65 @@ const RiderBenefits = () => {
                 </span>
               </div>
               <h2 className="text-5xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
-                What's in It for You as a Movrr Rider?
-            </h2>
+                What&apos;s in It for You as a Movrr Rider?
+              </h2>
               <div className="space-y-6">
                 <p className="text-xl text-muted-foreground leading-relaxed">
-              Turn your everyday rides into a reliable way to earn extra income.
-              Movrr pays you to carry lightweight ad panels on your bike as you
-              go about your regular routes.
-            </p>
+                  Turn your everyday rides into a reliable way to earn extra
+                  income. Movrr pays you to carry lightweight ad panels on your
+                  bike as you go about your regular routes.
+                </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-              Ride on your own terms — no fixed hours or detours. The more you
-              ride, the more you earn, with payouts sent directly to your
-              account.
-            </p>
+                  Ride on your own terms — no fixed hours or detours. The more
+                  you ride, the more you earn, with payouts sent directly to
+                  your account.
+                </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-              We provide training, safety gear, and ongoing support to keep you
-              equipped, protected, and confident on the road.
-            </p>
+                  We provide training, safety gear, and ongoing support to keep
+                  you equipped, protected, and confident on the road.
+                </p>
               </div>
-          </motion.div>
+            </motion.div>
             {/* Image - OUTFRONT style */}
-            <motion.div variants={itemVariants} className="col-span-12 lg:col-span-6">
-              <div className="relative h-[500px] border-2 border-border bg-card overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=800&width=600"
-                alt="Movrr rider with advertising"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border"
-        >
-          {benefits.map((benefit, index) => (
             <motion.div
-              key={index}
               variants={itemVariants}
-                className="bg-background p-10 lg:p-12 border-r border-b border-border last:border-r-0 group hover:bg-card/30 transition-colors duration-200"
+              className="col-span-12 lg:col-span-6"
             >
+              <div className="relative h-[500px] border-2 border-border bg-card overflow-hidden">
+                <Image
+                  src="/placeholder.svg?height=800&width=600"
+                  alt="Movrr rider with advertising"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border"
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-background p-10 lg:p-12 border-r border-b border-border last:border-r-0 group hover:bg-card/30 transition-colors duration-200"
+              >
                 <div className="w-14 h-14 border-2 border-primary/30 bg-primary/5 flex items-center justify-center mb-8">
                   {benefit.icon}
                 </div>
-                <h3 className="text-2xl font-black tracking-tight mb-4">{benefit.title}</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+                <h3 className="text-2xl font-black tracking-tight mb-4">
+                  {benefit.title}
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

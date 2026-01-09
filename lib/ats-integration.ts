@@ -234,8 +234,6 @@ export async function submitApplication(
   }
 
   try {
-    const atsManager = new ATSManager(atsProvider, atsApiKey);
-
     // For Lever ATS
     if (atsProvider.toLowerCase() === "lever") {
       // Lever API requires posting to their webhook or using their API

@@ -1,6 +1,5 @@
 import { PageHeader } from "@/components/shared/PageHeader";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { FiFacebook, FiInstagram, FiYoutube, FiLinkedin } from "react-icons/fi";
@@ -119,10 +118,10 @@ export default function ContactPage() {
                   Get In Touch
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                  Whether you're looking to launch impactful urban advertising
-                  campaigns, join our rider community to earn on your bike, or
-                  explore partnership opportunities, our dedicated team is here
-                  to guide you every step of the way.
+                  Whether you&apos;re looking to launch impactful urban
+                  advertising campaigns, join our rider community to earn on
+                  your bike, or explore partnership opportunities, our dedicated
+                  team is here to guide you every step of the way.
                 </p>
 
                 <div className="grid grid-cols-1 gap-px bg-border mb-8">

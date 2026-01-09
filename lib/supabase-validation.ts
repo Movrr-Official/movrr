@@ -7,22 +7,24 @@ import { createSupabaseServerClient } from "@/supabase/server";
 
 /**
  * Expected columns for the posts table
+ * Note: This is kept for documentation purposes
+ * Full schema validation would require querying information_schema
  */
-const POSTS_TABLE_SCHEMA = {
-  id: "uuid",
-  title: "text",
-  slug: "text",
-  excerpt: "text",
-  author: "text",
-  category: "text",
-  content: "text",
-  featured: "boolean",
-  image_url: "text",
-  read_time: "integer",
-  date: "timestamp",
-  created_at: "timestamp",
-  updated_at: "timestamp",
-} as const;
+// const POSTS_TABLE_SCHEMA = {
+//   id: "uuid",
+//   title: "text",
+//   slug: "text",
+//   excerpt: "text",
+//   author: "text",
+//   category: "text",
+//   content: "text",
+//   featured: "boolean",
+//   image_url: "text",
+//   read_time: "integer",
+//   date: "timestamp",
+//   created_at: "timestamp",
+//   updated_at: "timestamp",
+// } as const;
 
 /**
  * Validates that the posts table exists and has the expected schema
@@ -38,10 +40,7 @@ export async function validatePostsTableSchema(): Promise<{
     const supabase = await createSupabaseServerClient();
 
     // Try to query the table to see if it exists
-    const { data, error } = await supabase
-      .from("posts")
-      .select("id")
-      .limit(1);
+    const { error } = await supabase.from("posts").select("id").limit(1);
 
     if (error) {
       // Check if it's a "relation does not exist" error

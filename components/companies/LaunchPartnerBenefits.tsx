@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Megaphone, Percent, Rocket } from "lucide-react";
 
-import { Card } from "@/components/ui/card";
 
 const benefits = [
   {

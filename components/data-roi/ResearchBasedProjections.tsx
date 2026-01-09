@@ -90,7 +90,7 @@ export function ResearchBasedProjections() {
                 The Data Behind Our Vision
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-                {`Our projections aren't just optimistic guesses—they're based on
+                {`Our projections aren&apos;t just optimistic guesses—they&apos;re based on
                 extensive secondary research into Dutch cycling culture,
                 advertising effectiveness, and market dynamics.`}
               </p>

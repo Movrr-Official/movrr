@@ -13,14 +13,24 @@ import {
 } from "@react-email/components";
 import { getFirstName } from "@/lib/utils";
 
-const ContactTemplate = ({ fullName }: { fullName: string }) => {
+interface Props {
+  fullName: string;
+  email: string;
+  city?: string;
+}
+
+const RiderApplicationConfirmationTemplate = ({
+  fullName,
+  email,
+  city,
+}: Props) => {
   return (
     <Html lang="en">
       <Head>
-        <title>Thank you for your message | Movrr</title>
+        <title>Rider Application Received | Movrr</title>
       </Head>
       <Preview>
-        We have received your message and will get back to you soon
+        We have received your rider application and will review it within 48 hours
       </Preview>
       <Tailwind>
         <Body className="bg-gray-50 font-sans">
@@ -67,7 +77,7 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 letterSpacing: "0.05em",
               }}
             >
-              Hello {getFirstName(fullName) || "there"},
+              Application Received!
             </Heading>
 
             <Text
@@ -78,8 +88,20 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 marginBottom: "24px",
               }}
             >
-              Thank you for reaching out to Movrr! We appreciate your interest
-              in our city-scale bicycle advertising intelligence platform.
+              Hello {getFirstName(fullName) || "there"},
+            </Text>
+
+            <Text
+              style={{
+                color: "#374151",
+                fontSize: "16px",
+                lineHeight: "1.6",
+                marginBottom: "24px",
+              }}
+            >
+              Thank you for your interest in becoming a Movrr rider! We have
+              received your application and are excited about the possibility of
+              you joining our network of advertising cyclists.
             </Text>
 
             <Section
@@ -98,13 +120,39 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                   color: "#374151",
                   fontSize: "14px",
                   lineHeight: "1.6",
+                  marginBottom: "8px",
                 }}
               >
-                Our team will respond to your message within{" "}
-                <strong>1-2 business days</strong>. We will get back to you as
-                soon as possible.
+                <strong>What happens next?</strong>
+              </Text>
+              <Text
+                style={{
+                  color: "#374151",
+                  fontSize: "14px",
+                  lineHeight: "1.6",
+                }}
+              >
+                Our team will review your application and contact you within{" "}
+                <strong>48 hours</strong>. We'll reach out via email or phone to
+                discuss next steps, including background checks, training, and
+                equipment setup.
               </Text>
             </Section>
+
+            {city && (
+              <Text
+                style={{
+                  color: "#374151",
+                  fontSize: "16px",
+                  lineHeight: "1.6",
+                  marginBottom: "24px",
+                }}
+              >
+                We've noted that you're based in <strong>{city}</strong>. We'll
+                prioritize your application based on campaign availability in
+                your area.
+              </Text>
+            )}
 
             <Text
               style={{
@@ -114,14 +162,13 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 marginBottom: "32px",
               }}
             >
-              In the meantime, we invite you to learn more about how Movrr is
-              transforming urban advertising through sustainable bicycle
-              advertising solutions.
+              In the meantime, feel free to explore our website to learn more
+              about how Movrr works and what to expect as a rider.
             </Text>
 
             <Section style={{ textAlign: "center", marginBottom: "40px" }}>
               <Link
-                href="https://movrr.com"
+                href="https://movrr.com/riders"
                 rel="noopener noreferrer"
                 target="_blank"
                 style={{
@@ -137,7 +184,7 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                   fontSize: "14px",
                 }}
               >
-                Visit Movrr
+                Learn More About Riding
               </Link>
             </Section>
 
@@ -159,10 +206,10 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
               </Text>
               <Text style={{ marginBottom: "4px" }}>
                 <Link
-                  href="mailto:contact@movrr.com"
+                  href="mailto:riders@movrr.com"
                   style={{ color: "#23b245", textDecoration: "none" }}
                 >
-                  contact@movrr.com
+                  riders@movrr.com
                 </Link>
               </Text>
               <Text>
@@ -176,4 +223,4 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
   );
 };
 
-export default ContactTemplate;
+export default RiderApplicationConfirmationTemplate;

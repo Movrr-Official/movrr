@@ -13,14 +13,24 @@ import {
 } from "@react-email/components";
 import { getFirstName } from "@/lib/utils";
 
-const ContactTemplate = ({ fullName }: { fullName: string }) => {
+interface Props {
+  applicantName: string;
+  email: string;
+  jobTitle: string;
+}
+
+const JobApplicationConfirmationTemplate = ({
+  applicantName,
+  email,
+  jobTitle,
+}: Props) => {
   return (
     <Html lang="en">
       <Head>
-        <title>Thank you for your message | Movrr</title>
+        <title>Job Application Received | Movrr</title>
       </Head>
       <Preview>
-        We have received your message and will get back to you soon
+        We have received your application for {jobTitle} and will review it soon
       </Preview>
       <Tailwind>
         <Body className="bg-gray-50 font-sans">
@@ -67,7 +77,7 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 letterSpacing: "0.05em",
               }}
             >
-              Hello {getFirstName(fullName) || "there"},
+              Application Received!
             </Heading>
 
             <Text
@@ -78,8 +88,20 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 marginBottom: "24px",
               }}
             >
-              Thank you for reaching out to Movrr! We appreciate your interest
-              in our city-scale bicycle advertising intelligence platform.
+              Hello {getFirstName(applicantName) || "there"},
+            </Text>
+
+            <Text
+              style={{
+                color: "#374151",
+                fontSize: "16px",
+                lineHeight: "1.6",
+                marginBottom: "24px",
+              }}
+            >
+              Thank you for your interest in joining the Movrr team! We have
+              received your application for the <strong>{jobTitle}</strong>{" "}
+              position and are excited to learn more about you.
             </Text>
 
             <Section
@@ -98,11 +120,21 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                   color: "#374151",
                   fontSize: "14px",
                   lineHeight: "1.6",
+                  marginBottom: "8px",
                 }}
               >
-                Our team will respond to your message within{" "}
-                <strong>1-2 business days</strong>. We will get back to you as
-                soon as possible.
+                <strong>What happens next?</strong>
+              </Text>
+              <Text
+                style={{
+                  color: "#374151",
+                  fontSize: "14px",
+                  lineHeight: "1.6",
+                }}
+              >
+                Our hiring team will review your application and resume. If your
+                background aligns with what we're looking for, we'll reach out
+                within <strong>1-2 weeks</strong> to schedule an interview.
               </Text>
             </Section>
 
@@ -114,14 +146,14 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                 marginBottom: "32px",
               }}
             >
-              In the meantime, we invite you to learn more about how Movrr is
-              transforming urban advertising through sustainable bicycle
-              advertising solutions.
+              We appreciate your interest in Movrr and our mission to transform
+              urban advertising through sustainable bicycle advertising
+              solutions.
             </Text>
 
             <Section style={{ textAlign: "center", marginBottom: "40px" }}>
               <Link
-                href="https://movrr.com"
+                href="https://movrr.com/careers"
                 rel="noopener noreferrer"
                 target="_blank"
                 style={{
@@ -137,7 +169,7 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
                   fontSize: "14px",
                 }}
               >
-                Visit Movrr
+                View Other Openings
               </Link>
             </Section>
 
@@ -159,10 +191,10 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
               </Text>
               <Text style={{ marginBottom: "4px" }}>
                 <Link
-                  href="mailto:contact@movrr.com"
+                  href="mailto:careers@movrr.com"
                   style={{ color: "#23b245", textDecoration: "none" }}
                 >
-                  contact@movrr.com
+                  careers@movrr.com
                 </Link>
               </Text>
               <Text>
@@ -176,4 +208,4 @@ const ContactTemplate = ({ fullName }: { fullName: string }) => {
   );
 };
 
-export default ContactTemplate;
+export default JobApplicationConfirmationTemplate;

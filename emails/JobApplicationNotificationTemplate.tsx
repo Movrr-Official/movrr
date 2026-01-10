@@ -15,30 +15,34 @@ import {
 } from "@react-email/components";
 
 interface Props {
-  fullName: string;
-  email: string;
-  subject: string;
-  phone: string;
-  company: string;
-  message: string;
-  consent: boolean;
+  applicantName: string;
+  applicantEmail: string;
+  jobId: string;
+  jobTitle: string;
+  coverLetter?: string;
+  phone?: string;
+  linkedin?: string;
+  portfolio?: string;
 }
 
-const ContactNotificationTemplate = ({
-  fullName,
-  email,
-  subject,
+const JobApplicationNotificationTemplate = ({
+  applicantName,
+  applicantEmail,
+  jobId,
+  jobTitle,
+  coverLetter,
   phone,
-  company,
-  message,
-  consent,
+  linkedin,
+  portfolio,
 }: Props) => {
   return (
     <Html>
       <Head>
-        <title>{`New Contact: ${fullName} | Movrr`}</title>
+        <title>{`New Job Application: ${applicantName} | Movrr`}</title>
       </Head>
-      <Preview>{`New contact form submission from ${fullName} - ${subject}`}</Preview>
+      <Preview>
+        {`New application for ${jobTitle} from ${applicantName}`}
+      </Preview>
       <Tailwind>
         <Body className="bg-gray-50 font-sans">
           {/* Header with Branding - OUTFRONT style */}
@@ -96,15 +100,15 @@ const ContactNotificationTemplate = ({
                   letterSpacing: "0.1em",
                 }}
               >
-                New Contact Request
+                New Job Application
               </Heading>
               <Text style={{ color: "#374151", fontSize: "14px" }}>
-                Please respond within <strong>24 hours</strong> for best
-                customer experience.
+                Please review and respond within <strong>1-2 weeks</strong> for
+                best candidate experience.
               </Text>
             </Section>
 
-            {/* Contact Card - OUTFRONT style */}
+            {/* Position Information */}
             <Section
               style={{
                 border: "2px solid #e5e7eb",
@@ -122,7 +126,40 @@ const ContactNotificationTemplate = ({
                   letterSpacing: "0.05em",
                 }}
               >
-                {subject}
+                {jobTitle}
+              </Heading>
+              <Text
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "700",
+                  color: "#6b7280",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                Job ID: {jobId}
+              </Text>
+            </Section>
+
+            {/* Applicant Details - OUTFRONT style */}
+            <Section
+              style={{
+                border: "2px solid #e5e7eb",
+                padding: "24px",
+                marginBottom: "32px",
+              }}
+            >
+              <Heading
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "900",
+                  color: "#111827",
+                  marginBottom: "24px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                Applicant Information
               </Heading>
 
               <Row style={{ marginBottom: "16px" }}>
@@ -136,7 +173,7 @@ const ContactNotificationTemplate = ({
                       letterSpacing: "0.1em",
                     }}
                   >
-                    From
+                    Name
                   </Text>
                 </Column>
                 <Column style={{ width: "67%" }}>
@@ -147,49 +184,7 @@ const ContactNotificationTemplate = ({
                       color: "#111827",
                     }}
                   >
-                    {fullName}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Row style={{ marginBottom: "16px" }}>
-                <Column style={{ width: "33%" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#6b7280",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    Phone Number
-                  </Text>
-                </Column>
-                <Column style={{ width: "67%" }}>
-                  <Text style={{ fontSize: "16px", color: "#111827" }}>
-                    {phone || "Not specified"}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Row style={{ marginBottom: "16px" }}>
-                <Column style={{ width: "33%" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#6b7280",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    Company
-                  </Text>
-                </Column>
-                <Column style={{ width: "67%" }}>
-                  <Text style={{ fontSize: "16px", color: "#111827" }}>
-                    {company || "Not specified"}
+                    {applicantName}
                   </Text>
                 </Column>
               </Row>
@@ -210,20 +205,103 @@ const ContactNotificationTemplate = ({
                 </Column>
                 <Column style={{ width: "67%" }}>
                   <Link
-                    href={`mailto:${email}`}
+                    href={`mailto:${applicantEmail}`}
                     style={{
                       fontSize: "16px",
                       color: "#23b245",
                       textDecoration: "none",
                     }}
                   >
-                    {email}
+                    {applicantEmail}
                   </Link>
                 </Column>
               </Row>
 
-              <Row>
-                <Column style={{ width: "33%" }}>
+              {phone && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Phone
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Text style={{ fontSize: "16px", color: "#111827" }}>
+                      {phone}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
+
+              {linkedin && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      LinkedIn
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Link
+                      href={linkedin}
+                      style={{
+                        fontSize: "16px",
+                        color: "#23b245",
+                        textDecoration: "none",
+                      }}
+                    >
+                      View Profile
+                    </Link>
+                  </Column>
+                </Row>
+              )}
+
+              {portfolio && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Portfolio
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Link
+                      href={portfolio}
+                      style={{
+                        fontSize: "16px",
+                        color: "#23b245",
+                        textDecoration: "none",
+                      }}
+                    >
+                      View Portfolio
+                    </Link>
+                  </Column>
+                </Row>
+              )}
+
+              <Row style={{ marginTop: "16px", paddingTop: "16px", borderTop: "2px solid #e5e7eb" }}>
+                <Column>
                   <Text
                     style={{
                       fontSize: "12px",
@@ -231,62 +309,58 @@ const ContactNotificationTemplate = ({
                       color: "#6b7280",
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
+                      marginBottom: "8px",
                     }}
                   >
-                    Consent
+                    Resume
                   </Text>
-                </Column>
-                <Column style={{ width: "67%" }}>
-                  <Text
-                    style={{
-                      fontSize: "16px",
-                      color: consent ? "#23b245" : "#f59e0b",
-                      fontWeight: "700",
-                    }}
-                  >
-                    {consent ? "✓ Granted" : "✗ Not granted"}
+                  <Text style={{ fontSize: "14px", color: "#374151" }}>
+                    Resume has been attached to this application. Check your
+                    ATS or application management system to view.
                   </Text>
                 </Column>
               </Row>
             </Section>
 
-            {/* Message Content - OUTFRONT style */}
-            <Section style={{ marginBottom: "32px" }}>
-              <Heading
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "900",
-                  color: "#374151",
-                  marginBottom: "12px",
-                  paddingBottom: "8px",
-                  borderBottom: "2px solid #e5e7eb",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                Message
-              </Heading>
-              <Text
-                style={{
-                  color: "#111827",
-                  backgroundColor: "#f9fafb",
-                  padding: "16px",
-                  border: "2px solid #e5e7eb",
-                  whiteSpace: "pre-wrap",
-                  fontSize: "14px",
-                  lineHeight: "1.6",
-                }}
-              >
-                {message}
-              </Text>
-            </Section>
+            {/* Cover Letter */}
+            {coverLetter && (
+              <Section style={{ marginBottom: "32px" }}>
+                <Heading
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "900",
+                    color: "#374151",
+                    marginBottom: "12px",
+                    paddingBottom: "8px",
+                    borderBottom: "2px solid #e5e7eb",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  Cover Letter
+                </Heading>
+                <Text
+                  style={{
+                    color: "#111827",
+                    backgroundColor: "#f9fafb",
+                    padding: "16px",
+                    border: "2px solid #e5e7eb",
+                    whiteSpace: "pre-wrap",
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  {coverLetter}
+                </Text>
+              </Section>
+            )}
 
             {/* Quick Actions - OUTFRONT style */}
             <Section style={{ textAlign: "center", marginBottom: "32px" }}>
               <Row>
                 <Column>
                   <Link
-                    href={`mailto:${email}?subject=Re: ${subject}`}
+                    href={`mailto:${applicantEmail}?subject=Re: Your Application for ${jobTitle}`}
                     style={{
                       display: "inline-block",
                       backgroundColor: "#23b245",
@@ -301,12 +375,12 @@ const ContactNotificationTemplate = ({
                       marginRight: "8px",
                     }}
                   >
-                    Reply Directly
+                    Reply to Applicant
                   </Link>
                 </Column>
                 <Column>
                   <Link
-                    href="https://movrr.com"
+                    href="https://movrr.com/careers"
                     style={{
                       display: "inline-block",
                       backgroundColor: "#ffffff",
@@ -320,7 +394,7 @@ const ContactNotificationTemplate = ({
                       fontSize: "12px",
                     }}
                   >
-                    Visit Movrr
+                    View Careers Page
                   </Link>
                 </Column>
               </Row>
@@ -337,8 +411,8 @@ const ContactNotificationTemplate = ({
               }}
             >
               <Text style={{ marginBottom: "4px" }}>
-                This message was generated automatically from the Movrr contact
-                form.
+                This message was generated automatically from the Movrr job
+                application system.
               </Text>
               <Text>
                 Received at{" "}
@@ -360,4 +434,4 @@ const ContactNotificationTemplate = ({
   );
 };
 
-export default ContactNotificationTemplate;
+export default JobApplicationNotificationTemplate;

@@ -17,28 +17,34 @@ import {
 interface Props {
   fullName: string;
   email: string;
-  subject: string;
   phone: string;
-  company: string;
-  message: string;
-  consent: boolean;
+  city: string;
+  postCode?: string;
+  availability?: string;
+  bikeType?: string;
+  ridingFrequency?: string;
+  additionalInfo?: string;
+  why?: string;
 }
 
-const ContactNotificationTemplate = ({
+const RiderApplicationNotificationTemplate = ({
   fullName,
   email,
-  subject,
   phone,
-  company,
-  message,
-  consent,
+  city,
+  postCode,
+  availability,
+  bikeType,
+  ridingFrequency,
+  additionalInfo,
+  why,
 }: Props) => {
   return (
     <Html>
       <Head>
-        <title>{`New Contact: ${fullName} | Movrr`}</title>
+        <title>{`New Rider Application: ${fullName} | Movrr`}</title>
       </Head>
-      <Preview>{`New contact form submission from ${fullName} - ${subject}`}</Preview>
+      <Preview>{`New rider application from ${fullName} in ${city}`}</Preview>
       <Tailwind>
         <Body className="bg-gray-50 font-sans">
           {/* Header with Branding - OUTFRONT style */}
@@ -96,15 +102,15 @@ const ContactNotificationTemplate = ({
                   letterSpacing: "0.1em",
                 }}
               >
-                New Contact Request
+                New Rider Application
               </Heading>
               <Text style={{ color: "#374151", fontSize: "14px" }}>
-                Please respond within <strong>24 hours</strong> for best
-                customer experience.
+                Please review and respond within <strong>48 hours</strong> for
+                best candidate experience.
               </Text>
             </Section>
 
-            {/* Contact Card - OUTFRONT style */}
+            {/* Applicant Details - OUTFRONT style */}
             <Section
               style={{
                 border: "2px solid #e5e7eb",
@@ -122,7 +128,7 @@ const ContactNotificationTemplate = ({
                   letterSpacing: "0.05em",
                 }}
               >
-                {subject}
+                Applicant Information
               </Heading>
 
               <Row style={{ marginBottom: "16px" }}>
@@ -136,7 +142,7 @@ const ContactNotificationTemplate = ({
                       letterSpacing: "0.1em",
                     }}
                   >
-                    From
+                    Name
                   </Text>
                 </Column>
                 <Column style={{ width: "67%" }}>
@@ -148,48 +154,6 @@ const ContactNotificationTemplate = ({
                     }}
                   >
                     {fullName}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Row style={{ marginBottom: "16px" }}>
-                <Column style={{ width: "33%" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#6b7280",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    Phone Number
-                  </Text>
-                </Column>
-                <Column style={{ width: "67%" }}>
-                  <Text style={{ fontSize: "16px", color: "#111827" }}>
-                    {phone || "Not specified"}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Row style={{ marginBottom: "16px" }}>
-                <Column style={{ width: "33%" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#6b7280",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    Company
-                  </Text>
-                </Column>
-                <Column style={{ width: "67%" }}>
-                  <Text style={{ fontSize: "16px", color: "#111827" }}>
-                    {company || "Not specified"}
                   </Text>
                 </Column>
               </Row>
@@ -222,7 +186,7 @@ const ContactNotificationTemplate = ({
                 </Column>
               </Row>
 
-              <Row>
+              <Row style={{ marginBottom: "16px" }}>
                 <Column style={{ width: "33%" }}>
                   <Text
                     style={{
@@ -233,60 +197,180 @@ const ContactNotificationTemplate = ({
                       letterSpacing: "0.1em",
                     }}
                   >
-                    Consent
+                    Phone
                   </Text>
                 </Column>
                 <Column style={{ width: "67%" }}>
-                  <Text
-                    style={{
-                      fontSize: "16px",
-                      color: consent ? "#23b245" : "#f59e0b",
-                      fontWeight: "700",
-                    }}
-                  >
-                    {consent ? "✓ Granted" : "✗ Not granted"}
+                  <Text style={{ fontSize: "16px", color: "#111827" }}>
+                    {phone}
                   </Text>
                 </Column>
               </Row>
+
+              <Row style={{ marginBottom: "16px" }}>
+                <Column style={{ width: "33%" }}>
+                  <Text
+                    style={{
+                      fontSize: "12px",
+                      fontWeight: "700",
+                      color: "#6b7280",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    Location
+                  </Text>
+                </Column>
+                <Column style={{ width: "67%" }}>
+                  <Text style={{ fontSize: "16px", color: "#111827" }}>
+                    {city}
+                    {postCode && `, ${postCode}`}
+                  </Text>
+                </Column>
+              </Row>
+
+              {availability && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Availability
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Text style={{ fontSize: "16px", color: "#111827" }}>
+                      {availability}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
+
+              {bikeType && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Bike Type
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Text style={{ fontSize: "16px", color: "#111827" }}>
+                      {bikeType}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
+
+              {ridingFrequency && (
+                <Row style={{ marginBottom: "16px" }}>
+                  <Column style={{ width: "33%" }}>
+                    <Text
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: "700",
+                        color: "#6b7280",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      Riding Frequency
+                    </Text>
+                  </Column>
+                  <Column style={{ width: "67%" }}>
+                    <Text style={{ fontSize: "16px", color: "#111827" }}>
+                      {ridingFrequency}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
             </Section>
 
-            {/* Message Content - OUTFRONT style */}
-            <Section style={{ marginBottom: "32px" }}>
-              <Heading
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "900",
-                  color: "#374151",
-                  marginBottom: "12px",
-                  paddingBottom: "8px",
-                  borderBottom: "2px solid #e5e7eb",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                Message
-              </Heading>
-              <Text
-                style={{
-                  color: "#111827",
-                  backgroundColor: "#f9fafb",
-                  padding: "16px",
-                  border: "2px solid #e5e7eb",
-                  whiteSpace: "pre-wrap",
-                  fontSize: "14px",
-                  lineHeight: "1.6",
-                }}
-              >
-                {message}
-              </Text>
-            </Section>
+            {/* Additional Information */}
+            {additionalInfo && (
+              <Section style={{ marginBottom: "32px" }}>
+                <Heading
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "900",
+                    color: "#374151",
+                    marginBottom: "12px",
+                    paddingBottom: "8px",
+                    borderBottom: "2px solid #e5e7eb",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  Routes & Riding Habits
+                </Heading>
+                <Text
+                  style={{
+                    color: "#111827",
+                    backgroundColor: "#f9fafb",
+                    padding: "16px",
+                    border: "2px solid #e5e7eb",
+                    whiteSpace: "pre-wrap",
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  {additionalInfo}
+                </Text>
+              </Section>
+            )}
+
+            {/* Why Join Movrr */}
+            {why && (
+              <Section style={{ marginBottom: "32px" }}>
+                <Heading
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "900",
+                    color: "#374151",
+                    marginBottom: "12px",
+                    paddingBottom: "8px",
+                    borderBottom: "2px solid #e5e7eb",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  Why They Want to Join
+                </Heading>
+                <Text
+                  style={{
+                    color: "#111827",
+                    backgroundColor: "#f9fafb",
+                    padding: "16px",
+                    border: "2px solid #e5e7eb",
+                    whiteSpace: "pre-wrap",
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  {why}
+                </Text>
+              </Section>
+            )}
 
             {/* Quick Actions - OUTFRONT style */}
             <Section style={{ textAlign: "center", marginBottom: "32px" }}>
               <Row>
                 <Column>
                   <Link
-                    href={`mailto:${email}?subject=Re: ${subject}`}
+                    href={`mailto:${email}?subject=Re: Your Movrr Rider Application`}
                     style={{
                       display: "inline-block",
                       backgroundColor: "#23b245",
@@ -301,7 +385,7 @@ const ContactNotificationTemplate = ({
                       marginRight: "8px",
                     }}
                   >
-                    Reply Directly
+                    Reply to Applicant
                   </Link>
                 </Column>
                 <Column>
@@ -320,7 +404,7 @@ const ContactNotificationTemplate = ({
                       fontSize: "12px",
                     }}
                   >
-                    Visit Movrr
+                    View Dashboard
                   </Link>
                 </Column>
               </Row>
@@ -337,8 +421,8 @@ const ContactNotificationTemplate = ({
               }}
             >
               <Text style={{ marginBottom: "4px" }}>
-                This message was generated automatically from the Movrr contact
-                form.
+                This message was generated automatically from the Movrr rider
+                application form.
               </Text>
               <Text>
                 Received at{" "}
@@ -360,4 +444,4 @@ const ContactNotificationTemplate = ({
   );
 };
 
-export default ContactNotificationTemplate;
+export default RiderApplicationNotificationTemplate;

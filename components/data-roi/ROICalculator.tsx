@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -35,7 +35,7 @@ import { useLaunchWaitlist } from "@/app/hooks/useLaunchWaitlist";
 import { LaunchWaitlistModal } from "@/components/LaunchWaitlistModal";
 
 // --- helper functions (hoisted) ----------------------------
-function getCityName(cityKey: string) {
+function getCityName(cityKey: string): string {
   const names = {
     "the-hague": "The Hague",
     rotterdam: "Rotterdam",
@@ -43,10 +43,10 @@ function getCityName(cityKey: string) {
     utrecht: "Utrecht",
     eindhoven: "Eindhoven",
   } as const;
-  return names[cityKey as keyof typeof names];
+  return names[cityKey as keyof typeof names] || "Unknown City";
 }
 
-function getAreaName(areaKey: string) {
+function getAreaName(areaKey: string): string {
   const names = {
     "city-center": "City Center",
     "business-district": "Business District",
@@ -54,8 +54,24 @@ function getAreaName(areaKey: string) {
     university: "University District",
     shopping: "Shopping Areas",
   } as const;
-  return names[areaKey as keyof typeof names];
+  return names[areaKey as keyof typeof names] || "Unknown Area";
 }
+
+// Formatting functions (moved outside component for performance)
+const formatNumber = (num: number): string => {
+  if (!isFinite(num) || num < 0) return "0";
+  return new Intl.NumberFormat("nl-NL").format(Math.round(num));
+};
+
+const formatCurrency = (num: number): string => {
+  if (!isFinite(num) || num < 0) return "€0";
+  return new Intl.NumberFormat("nl-NL", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(Math.round(num));
+};
 
 // Enhanced visual components
 const MetricCard = ({
@@ -128,138 +144,228 @@ const ROICalculator = () => {
   const [targetArea, setTargetArea] = useState("city-center");
   const [showResults, setShowResults] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
+  const [calculationError, setCalculationError] = useState<string | null>(null);
 
   const { isModalOpen, openModal, closeModal } = useLaunchWaitlist();
 
+  // Input validation handlers
+  const handleBudgetChange = useCallback((value: number[]) => {
+    const newBudget = Math.max(1000, Math.min(15000, value[0]));
+    setBudget(newBudget);
+    setCalculationError(null);
+  }, []);
+
+  const handleDurationChange = useCallback((value: number[]) => {
+    const newDuration = Math.max(2, Math.min(12, Math.round(value[0])));
+    setDuration(newDuration);
+    setCalculationError(null);
+  }, []);
+
+  const handleCityChange = useCallback((value: string) => {
+    const validCities = [
+      "the-hague",
+      "rotterdam",
+      "amsterdam",
+      "utrecht",
+      "eindhoven",
+    ];
+    if (validCities.includes(value)) {
+      setCity(value);
+      setCalculationError(null);
+    }
+  }, []);
+
+  const handleTargetAreaChange = useCallback((value: string) => {
+    const validAreas = [
+      "city-center",
+      "business-district",
+      "residential",
+      "university",
+      "shopping",
+    ];
+    if (validAreas.includes(value)) {
+      setTargetArea(value);
+      setCalculationError(null);
+    }
+  }, []);
+
   // Enhanced calculation with more detailed metrics
-  const calculateCampaignMetrics = () => {
-    const cityData = {
-      "the-hague": {
-        dailyCyclists: 15000,
-        population: 550000,
-        cyclePaths: 600,
-        avgSpeed: 18,
-        peakHours: 8,
-        businessDensity: 1.2,
-      },
-      rotterdam: {
-        dailyCyclists: 12000,
-        population: 650000,
-        cyclePaths: 550,
-        avgSpeed: 16,
-        peakHours: 9,
-        businessDensity: 1.1,
-      },
-      amsterdam: {
-        dailyCyclists: 25000,
-        population: 900000,
-        cyclePaths: 800,
-        avgSpeed: 15,
-        peakHours: 10,
-        businessDensity: 1.4,
-      },
-      utrecht: {
-        dailyCyclists: 18000,
-        population: 360000,
-        cyclePaths: 400,
-        avgSpeed: 17,
-        peakHours: 7,
-        businessDensity: 1.0,
-      },
-      eindhoven: {
-        dailyCyclists: 8000,
-        population: 235000,
-        cyclePaths: 300,
-        avgSpeed: 19,
-        peakHours: 6,
-        businessDensity: 0.9,
-      },
-    };
+  const calculateCampaignMetrics = useCallback(() => {
+    try {
+      // Validate inputs
+      const safeBudget = Math.max(0, budget);
+      const safeDuration = Math.max(1, duration);
 
-    const areaMultipliers = {
-      "city-center": { exposure: 1.3, cost: 1.1, engagement: 1.2 },
-      "business-district": { exposure: 1.1, cost: 1.0, engagement: 1.0 },
-      residential: { exposure: 0.8, cost: 0.9, engagement: 0.8 },
-      university: { exposure: 1.2, cost: 1.0, engagement: 1.3 },
-      shopping: { exposure: 1.4, cost: 1.2, engagement: 1.1 },
-    };
+      const cityData = {
+        "the-hague": {
+          dailyCyclists: 15000,
+          population: 550000,
+          cyclePaths: 600,
+          avgSpeed: 18,
+          peakHours: 8,
+          businessDensity: 1.2,
+        },
+        rotterdam: {
+          dailyCyclists: 12000,
+          population: 650000,
+          cyclePaths: 550,
+          avgSpeed: 16,
+          peakHours: 9,
+          businessDensity: 1.1,
+        },
+        amsterdam: {
+          dailyCyclists: 25000,
+          population: 900000,
+          cyclePaths: 800,
+          avgSpeed: 15,
+          peakHours: 10,
+          businessDensity: 1.4,
+        },
+        utrecht: {
+          dailyCyclists: 18000,
+          population: 360000,
+          cyclePaths: 400,
+          avgSpeed: 17,
+          peakHours: 7,
+          businessDensity: 1.0,
+        },
+        eindhoven: {
+          dailyCyclists: 8000,
+          population: 235000,
+          cyclePaths: 300,
+          avgSpeed: 19,
+          peakHours: 6,
+          businessDensity: 0.9,
+        },
+      };
 
-    const selectedCity = cityData[city as keyof typeof cityData];
-    const areaData =
-      areaMultipliers[targetArea as keyof typeof areaMultipliers];
+      const areaMultipliers = {
+        "city-center": { exposure: 1.3, cost: 1.1, engagement: 1.2 },
+        "business-district": { exposure: 1.1, cost: 1.0, engagement: 1.0 },
+        residential: { exposure: 0.8, cost: 0.9, engagement: 0.8 },
+        university: { exposure: 1.2, cost: 1.0, engagement: 1.3 },
+        shopping: { exposure: 1.4, cost: 1.2, engagement: 1.1 },
+      };
 
-    // More sophisticated calculations
-    const costPerRiderPerWeek = 175 * areaData.cost;
-    const ridersNeeded = Math.ceil(budget / (duration * costPerRiderPerWeek));
+      const selectedCity = cityData[city as keyof typeof cityData];
+      const areaData =
+        areaMultipliers[targetArea as keyof typeof areaMultipliers];
 
-    // Exposure calculations
-    const baseExposurePerRider = Math.round(
-      selectedCity.dailyCyclists * 0.12 * areaData.exposure
-    );
-    const totalDailyExposure = baseExposurePerRider * ridersNeeded;
-    const totalCampaignExposure = totalDailyExposure * duration * 7;
+      // Validate city and area data
+      if (!selectedCity || !areaData) {
+        throw new Error("Invalid city or target area selected");
+      }
 
-    // Coverage and reach
-    const coverageRadius = Math.round(Math.sqrt(ridersNeeded * 20));
-    const estimatedReach = Math.round(
-      selectedCity.population * 0.25 * areaData.exposure
-    );
+      // More sophisticated calculations with division by zero protection
+      const costPerRiderPerWeek = 175 * areaData.cost;
+      const ridersNeeded =
+        safeDuration > 0 && costPerRiderPerWeek > 0
+          ? Math.max(
+              1,
+              Math.ceil(safeBudget / (safeDuration * costPerRiderPerWeek))
+            )
+          : 0;
 
-    // Engagement metrics
-    const engagementRate = 0.08 * areaData.engagement;
-    const estimatedEngagements = Math.round(
-      totalCampaignExposure * engagementRate
-    );
+      // Exposure calculations
+      const baseExposurePerRider = Math.round(
+        selectedCity.dailyCyclists * 0.12 * areaData.exposure
+      );
+      const totalDailyExposure = baseExposurePerRider * ridersNeeded;
+      const totalCampaignExposure = totalDailyExposure * safeDuration * 7;
 
-    // Cost efficiency
-    const costPerThousandExposures = Math.round(
-      (budget / totalCampaignExposure) * 1000
-    );
-    const costPerEngagement = Math.round(budget / estimatedEngagements);
+      // Coverage and reach
+      const coverageRadius = Math.round(
+        Math.sqrt(Math.max(0, ridersNeeded * 20))
+      );
+      const estimatedReach = Math.round(
+        selectedCity.population * 0.25 * areaData.exposure
+      );
 
-    // Time-based metrics
-    const hoursOfVisibility = duration * 7 * selectedCity.peakHours;
-    const kmCovered = Math.round(
-      ridersNeeded * duration * 7 * selectedCity.avgSpeed * 2
-    ); // 2 trips per day avg
+      // Engagement metrics
+      const engagementRate = 0.08 * areaData.engagement;
+      const estimatedEngagements = Math.round(
+        totalCampaignExposure * engagementRate
+      );
 
-    return {
-      ridersNeeded,
-      dailyExposure: totalDailyExposure,
-      totalExposure: totalCampaignExposure,
-      coverageRadius,
-      estimatedReach,
-      engagementRate: Math.round(engagementRate * 100),
-      estimatedEngagements,
-      costPerThousandExposures,
-      costPerEngagement,
-      hoursOfVisibility,
-      kmCovered,
-      peakHourCoverage: selectedCity.peakHours,
-      cityName: getCityName(city),
-      areaType: getAreaName(targetArea),
-    };
-  };
+      // Cost efficiency with division by zero protection
+      const costPerThousandExposures =
+        totalCampaignExposure > 0
+          ? Math.round((safeBudget / totalCampaignExposure) * 1000)
+          : 0;
+      const costPerEngagement =
+        estimatedEngagements > 0
+          ? Math.round(safeBudget / estimatedEngagements)
+          : 0;
 
-  const results = calculateCampaignMetrics();
+      // Time-based metrics
+      const hoursOfVisibility = safeDuration * 7 * selectedCity.peakHours;
+      const kmCovered = Math.round(
+        ridersNeeded * safeDuration * 7 * selectedCity.avgSpeed * 2
+      ); // 2 trips per day avg
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowResults(true), 300);
-    return () => clearTimeout(timer);
+      // Validate results
+      const results = {
+        ridersNeeded,
+        dailyExposure: totalDailyExposure,
+        totalExposure: totalCampaignExposure,
+        coverageRadius,
+        estimatedReach,
+        engagementRate: Math.round(engagementRate * 100),
+        estimatedEngagements,
+        costPerThousandExposures,
+        costPerEngagement,
+        hoursOfVisibility,
+        kmCovered,
+        peakHourCoverage: selectedCity.peakHours,
+        cityName: getCityName(city),
+        areaType: getAreaName(targetArea),
+      };
+
+      // Validate all results are finite numbers
+      for (const [key, value] of Object.entries(results)) {
+        if (typeof value === "number" && (!isFinite(value) || value < 0)) {
+          throw new Error(`Invalid calculation result for ${key}: ${value}`);
+        }
+      }
+
+      return results;
+    } catch (error) {
+      console.error("Calculation error:", error);
+      setCalculationError(
+        error instanceof Error
+          ? error.message
+          : "An error occurred during calculation"
+      );
+      // Return safe defaults
+      return {
+        ridersNeeded: 0,
+        dailyExposure: 0,
+        totalExposure: 0,
+        coverageRadius: 0,
+        estimatedReach: 0,
+        engagementRate: 0,
+        estimatedEngagements: 0,
+        costPerThousandExposures: 0,
+        costPerEngagement: 0,
+        hoursOfVisibility: 0,
+        kmCovered: 0,
+        peakHourCoverage: 0,
+        cityName: getCityName(city),
+        areaType: getAreaName(targetArea),
+      };
+    }
   }, [budget, duration, city, targetArea]);
 
-  const formatNumber = (num: number) => {
-    return new Intl.NumberFormat("nl-NL").format(num);
-  };
+  const results = useMemo(
+    () => calculateCampaignMetrics(),
+    [calculateCampaignMetrics]
+  );
 
-  const formatCurrency = (num: number) => {
-    return new Intl.NumberFormat("nl-NL", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(num);
-  };
+  useEffect(() => {
+    setShowResults(false);
+    const timer = setTimeout(() => setShowResults(true), 100);
+    return () => clearTimeout(timer);
+  }, [budget, duration, city, targetArea]);
 
   return (
     <div id="roi-calculator" className="space-y-8">
@@ -276,11 +382,12 @@ const ROICalculator = () => {
               </CardTitle>
             </div>
             <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-              Configure your campaign parameters to see projected performance
+              Configure your campaign parameters to explore research-based
+              projections
             </p>
             <Badge
               variant="outline"
-              className="w-fit bg-amber-50 text-amber-700 border-2 border-amber-200 rounded-none"
+              className="w-fit bg-muted dark:bg-muted/50 text-foreground dark:text-foreground border-2 border-primary/20 dark:border-primary/30 rounded-none"
             >
               Research-Based Projections
             </Badge>
@@ -301,11 +408,15 @@ const ROICalculator = () => {
               </div>
               <Slider
                 value={[budget]}
-                onValueChange={(value) => setBudget(value[0])}
+                onValueChange={handleBudgetChange}
                 max={15000}
                 min={1000}
                 step={250}
                 className="w-full"
+                aria-label="Campaign budget in euros"
+                aria-valuemin={1000}
+                aria-valuemax={15000}
+                aria-valuenow={budget}
               />
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>€1,000</span>
@@ -330,11 +441,15 @@ const ROICalculator = () => {
               </div>
               <Slider
                 value={[duration]}
-                onValueChange={(value) => setDuration(value[0])}
+                onValueChange={handleDurationChange}
                 max={12}
                 min={2}
                 step={1}
                 className="w-full"
+                aria-label="Campaign duration in weeks"
+                aria-valuemin={2}
+                aria-valuemax={12}
+                aria-valuenow={duration}
               />
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>2 weeks</span>
@@ -361,7 +476,7 @@ const ROICalculator = () => {
               >
                 Target City
               </Label>
-              <Select value={city} onValueChange={setCity}>
+              <Select value={city} onValueChange={handleCityChange}>
                 <SelectTrigger className="rounded-none border-2">
                   <SelectValue />
                 </SelectTrigger>
@@ -424,7 +539,7 @@ const ROICalculator = () => {
               >
                 Target Area
               </Label>
-              <Select value={targetArea} onValueChange={setTargetArea}>
+              <Select value={targetArea} onValueChange={handleTargetAreaChange}>
                 <SelectTrigger className="rounded-none border-2">
                   <SelectValue />
                 </SelectTrigger>
@@ -473,19 +588,44 @@ const ROICalculator = () => {
               </Select>
             </div>
 
+            {/* Error Display */}
+            {calculationError && (
+              <div className="bg-red-50 border-2 border-red-200 p-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 border-2 border-red-300 bg-red-100 flex items-center justify-center flex-shrink-0">
+                    <AlertCircle className="h-4 w-4 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-red-800 mb-1 uppercase tracking-[0.05em]">
+                      Calculation Error
+                    </p>
+                    <p className="text-red-700 leading-relaxed">
+                      {calculationError}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Methodology Note */}
-            <div className="bg-blue-50 border-2 border-blue-200 p-6 text-sm">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 p-6 text-sm">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 border-2 border-blue-300 bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Info className="h-4 w-4 text-blue-600" />
+                <div className="w-8 h-8 border-2 border-blue-300 dark:border-blue-700 bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
+                  <Info className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <p className="font-bold text-blue-800 mb-2 uppercase tracking-[0.05em]">
+                  <p className="font-bold text-blue-800 dark:text-blue-200 mb-2 uppercase tracking-[0.05em]">
                     Research-Based Estimates
                   </p>
-                  <p className="text-blue-700 leading-relaxed">
-                    Calculations based on CBS cycling data and outdoor
-                    advertising benchmarks.
+                  <p className="text-blue-700 dark:text-blue-300 leading-relaxed mb-2">
+                    These calculations are based on CBS cycling data and outdoor
+                    advertising industry benchmarks. As we continue to run
+                    campaigns and gather performance data, we&apos;ll refine
+                    these projections with actual results.
+                  </p>
+                  <p className="text-blue-700 dark:text-blue-300 leading-relaxed text-xs">
+                    Actual campaign results may vary based on numerous factors
+                    including timing, creative, and market conditions.
                   </p>
                 </div>
               </div>
@@ -501,17 +641,18 @@ const ROICalculator = () => {
                 <BarChart3 className="h-5 w-5 text-primary" />
               </div>
               <CardTitle className="text-2xl font-black">
-                Campaign Performance Projection
+                Potential Campaign Performance
               </CardTitle>
             </div>
             <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-              Projected performance for {results.cityName} • {results.areaType}
+              Research-based projections for {results.cityName} •{" "}
+              {results.areaType}
             </p>
             <Badge
               variant="outline"
-              className="w-fit bg-amber-50 text-amber-700 border-2 border-amber-200 rounded-none"
+              className="w-fit bg-muted dark:bg-muted/50 text-foreground dark:text-foreground border-2 border-primary/20 dark:border-primary/30 rounded-none"
             >
-              Estimates Only - Not Guaranteed
+              Research-Based Estimates • Not Guaranteed
             </Badge>
           </CardHeader>
           <CardContent className="relative p-8">
@@ -528,7 +669,7 @@ const ROICalculator = () => {
                     onValueChange={setActiveTab}
                     className="w-full"
                   >
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 gap-2">
                       <TabsTrigger value="overview">Overview</TabsTrigger>
                       <TabsTrigger value="coverage">Coverage</TabsTrigger>
                       <TabsTrigger value="efficiency">Efficiency</TabsTrigger>
@@ -536,7 +677,7 @@ const ROICalculator = () => {
 
                     <TabsContent value="overview" className="space-y-6 mt-6">
                       {/* Key Metrics Grid */}
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <MetricCard
                           icon={<Users className="h-4 w-4 text-primary" />}
                           value={results.ridersNeeded.toString()}
@@ -557,13 +698,13 @@ const ROICalculator = () => {
                         <div className="flex items-center gap-2 mb-4">
                           <TrendingUp className="h-5 w-5 text-primary" />
                           <span className="font-medium">
-                            Projected Campaign Impact
+                            Potential Campaign Impact
                           </span>
                         </div>
                         <div className="space-y-4">
                           <div className="flex justify-between items-center">
                             <span className="text-muted-foreground">
-                              Total Exposures:
+                              Projected Total Exposures:
                             </span>
                             <span className="font-bold text-xl">
                               {formatNumber(results.totalExposure)}
@@ -579,13 +720,17 @@ const ROICalculator = () => {
                           </div>
                           <div className="flex justify-between items-center">
                             <span className="text-muted-foreground">
-                              Expected Engagements:
+                              Potential Engagements:
                             </span>
                             <span className="font-medium text-green-600">
                               {formatNumber(results.estimatedEngagements)}
                             </span>
                           </div>
                         </div>
+                        <p className="text-xs text-muted-foreground mt-4 pt-4 border-t border-primary/20">
+                          * Based on industry benchmarks. Actual results may
+                          vary.
+                        </p>
                       </div>
 
                       {/* Engagement Rate Visualization */}
@@ -593,18 +738,19 @@ const ROICalculator = () => {
                         <ProgressBar
                           value={results.engagementRate}
                           max={15}
-                          label={`Projected Engagement Rate: ${results.engagementRate}%`}
+                          label={`Estimated Engagement Rate: ${results.engagementRate}%`}
                           color="green"
                         />
                         <p className="text-xs text-muted-foreground">
                           Based on research with Dutch cyclists and outdoor
-                          advertising benchmarks
+                          advertising benchmarks. Not based on actual Movrr
+                          performance data.
                         </p>
                       </div>
                     </TabsContent>
 
                     <TabsContent value="coverage" className="space-y-6 mt-6">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <MetricCard
                           icon={<MapPin className="h-4 w-4 text-blue-600" />}
                           value={`${results.coverageRadius}km²`}
@@ -629,7 +775,7 @@ const ROICalculator = () => {
                         </h4>
 
                         {/* Simplified Map Representation */}
-                        <div className="relative bg-white rounded-lg p-4 border border-blue-200 h-64">
+                        <div className="relative bg-white rounded-lg p-4 border border-blue-200 h-48 md:h-64 lg:h-80">
                           <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-blue-100 opacity-30 rounded-lg" />
 
                           {/* City Center */}
@@ -906,7 +1052,7 @@ const ROICalculator = () => {
                     </TabsContent>
 
                     <TabsContent value="efficiency" className="space-y-6 mt-6">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <MetricCard
                           icon={<Zap className="h-4 w-4 text-yellow-600" />}
                           value={formatCurrency(
@@ -991,22 +1137,21 @@ const ROICalculator = () => {
       </div>
 
       {/* Transparency & Methodology Section - OUTFRONT style */}
-      <Card className="bg-amber-50 border-2 border-amber-200 rounded-none">
+      <Card className="bg-muted dark:bg-muted/50 border-2 border-primary/20 dark:border-primary/30 rounded-none">
         <CardContent className="p-8">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 border-2 border-amber-300 bg-amber-100 flex items-center justify-center flex-shrink-0">
-              <AlertCircle className="h-5 w-5 text-amber-600" />
+            <div className="w-10 h-10 border-2 border-primary/30 dark:border-primary/40 bg-primary/5 dark:bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <AlertCircle className="h-5 w-5 text-primary dark:text-primary" />
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-black text-amber-800">
+              <h3 className="text-2xl font-black text-foreground dark:text-foreground">
                 Methodology & Transparency
               </h3>
-              <p className="text-sm text-amber-700">
-                These are research-based projections for a new advertising
-                medium. Movrr is pre-launch and these represent potential
-                outcomes, not guaranteed results. Our calculations use:
+              <p className="text-sm text-muted-foreground dark:text-muted-foreground">
+                These research-based projections represent potential outcomes
+                for bicycle advertising campaigns. Our calculations use:
               </p>
-              <ul className="text-sm text-amber-700 space-y-1 ml-4">
+              <ul className="text-sm text-muted-foreground dark:text-muted-foreground space-y-1 ml-4">
                 <li>• CBS official cycling traffic data for Dutch cities</li>
                 <li>
                   • Outdoor advertising industry benchmarks and pricing data
@@ -1014,11 +1159,10 @@ const ROICalculator = () => {
                 <li>• Academic studies on mobile advertising effectiveness</li>
                 <li>• Conservative assumptions to avoid overpromising</li>
               </ul>
-              <p className="text-sm text-amber-700 font-medium">
-                {`As we launch and gather real performance data, we'll
-                continuously refine our projections and share actual results
-                with our partners. Actual campaign performance will vary based
-                on numerous factors.`}
+              <p className="text-sm text-muted-foreground dark:text-muted-foreground font-medium">
+                {`As we continue to run campaigns and gather performance data, we&apos;ll
+                continuously refine these projections with actual results. Actual campaign performance will vary based
+                on numerous factors including timing, creative, target audience, and market conditions.`}
               </p>
             </div>
           </div>

@@ -118,8 +118,13 @@ export function ResearchBasedProjections() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-3">
-                              <h4 className="font-black text-lg">{research.source}</h4>
-                              <Badge variant="outline" className="text-xs border-2 border-border rounded-none">
+                              <h4 className="font-black text-lg">
+                                {research.source}
+                              </h4>
+                              <Badge
+                                variant="outline"
+                                className="text-xs border-2 border-border rounded-none"
+                              >
                                 {research.credibility}
                               </Badge>
                             </div>
@@ -171,11 +176,11 @@ export function ResearchBasedProjections() {
             </div>
 
             {/* Methodology Transparency - OUTFRONT style */}
-            <Card className="bg-gradient-to-r from-blue-50 to-green-50 border-2 border-blue-200 rounded-none">
-              <CardHeader className="border-b-2 border-blue-200">
+            <Card className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-none">
+              <CardHeader className="border-b-2 border-blue-200 dark:border-blue-800">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 border-2 border-blue-300 bg-blue-100 flex items-center justify-center">
-                    <FileText className="h-5 w-5 text-blue-600" />
+                  <div className="w-10 h-10 border-2 border-blue-300 dark:border-blue-700 bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                    <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-2xl font-black">
                     Research Methodology & Transparency
@@ -199,17 +204,20 @@ export function ResearchBasedProjections() {
                   </p>
                 </div>
 
-                <div className="bg-white/50 p-6 border-2 border-blue-200">
-                  <p className="text-base text-blue-800 mb-4 leading-relaxed">
-                    <strong className="font-black">Conservative Approach:</strong> Our projections use
-                    the lower end of research findings and assume slower
-                    adoption rates to avoid overpromising to early partners.
+                <div className="bg-white/50 dark:bg-white/5 p-6 border-2 border-blue-200 dark:border-blue-800">
+                  <p className="text-base text-blue-800 dark:text-blue-200 mb-4 leading-relaxed">
+                    <strong className="font-black">
+                      Conservative Approach:
+                    </strong>{" "}
+                    Our projections use the lower end of research findings and
+                    assume slower adoption rates to avoid overpromising to early
+                    partners.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="text-blue-700 border-2 border-blue-300 bg-transparent rounded-none uppercase tracking-[0.05em] font-bold"
+                      className="text-blue-700 dark:text-blue-300 border-2 border-blue-300 dark:border-blue-700 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-950/50 rounded-none uppercase tracking-[0.05em] font-bold"
                       onClick={() => setIsModalOpen(true)}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />

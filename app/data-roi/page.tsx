@@ -6,9 +6,9 @@ import ROICalculator from "@/components/data-roi/ROICalculator";
 import { ResearchBasedProjections } from "@/components/data-roi/ResearchBasedProjections";
 
 export const metadata = {
-  title: "Data & ROI - Movrr",
+  title: "Data & Projections - Movrr",
   description:
-    "Explore research-based projections and calculate the potential ROI of your bicycle advertising campaign with Movrr in the Netherlands.",
+    "Explore research-based projections for bicycle advertising in the Netherlands. These estimates are based on industry benchmarks and cycling data to help you understand potential campaign impact.",
 };
 
 export default function DataRoiPage() {
@@ -16,7 +16,7 @@ export default function DataRoiPage() {
     <div>
       <PageHeader
         title="Data-Driven Advertising"
-        description="Our approach is grounded in research. Explore the data behind our model and calculate the potential impact for your brand."
+        description="Our approach is grounded in research. Explore the data behind our model and potential projections for bicycle advertising in the Netherlands. These estimates are based on industry benchmarks and cycling data."
       />
 
       <section
@@ -27,15 +27,17 @@ export default function DataRoiPage() {
           <div className="max-w-6xl mx-auto mb-16">
             <div className="inline-block border border-border bg-card px-3 py-1.5 mb-4">
               <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                ROI Calculator
+                Campaign Projection Tool
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
-              Estimate Your Campaign Potential
+              Explore Potential Campaign Impact
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-              Use our interactive calculator to explore projected outcomes based
-              on your budget, duration, and target area.
+              Use our interactive tool to explore research-based projections for
+              bicycle advertising campaigns. These estimates are based on
+              industry benchmarks and cycling data to help you understand
+              potential market impact.
             </p>
           </div>
           <ROICalculator />
@@ -44,7 +46,7 @@ export default function DataRoiPage() {
 
       <ResearchBasedProjections />
 
-      <section className="w-full bg-secondary py-32 md:py-40 border-t-2 border-white/10">
+      <section className="w-full bg-secondary dark:bg-background py-32 md:py-40 border-t-2 border-white/10">
         <div className="container max-w-[1400px] xl:px-12 text-center">
           <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6 text-white">
             Ready to See the Results?

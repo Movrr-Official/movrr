@@ -11,9 +11,9 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const faqs = [
   {
-    question: "How much can I earn as a rider?",
+    question: "How do Verified Impact Rewards work?",
     answer:
-      "Earnings vary based on your riding habits, location, and campaign demand. Our goal is to build a platform where consistent riders can earn meaningful, flexible income over time.",
+      "Riders earn Movrr Points by completing verified campaign rides. Points are tracked transparently in the app and can be redeemed for cash rewards (when available), gift cards, gear, or partner offers. Rewards vary by campaign and availability. No guaranteed hourly pay.",
   },
   {
     question: "What kind of bicycle do I need?",
@@ -23,12 +23,12 @@ const faqs = [
   {
     question: "Do I have to follow specific routes?",
     answer:
-      "Nope! You ride your usual routes. We’ll suggest zones with higher ad visibility, but how and when you ride is up to you. More traffic = more earnings.",
+      "You ride your usual routes. We'll suggest campaign zones with active campaigns, but how and when you ride is up to you. Complete verified campaign rides to earn Movrr Points.",
   },
   {
-    question: "How do I get paid?",
+    question: "How do I redeem my Movrr Points?",
     answer:
-      "We pay weekly through direct deposit or payment apps like PayPal or Venmo. Your pay is based on time spent riding, areas covered, and bonuses from campaigns.",
+      "Points can be redeemed through the Movrr app for available rewards including cash (when available), gift cards, gear, or partner offers. Rewards are processed based on availability and campaign terms. All redemptions are tracked transparently in your account.",
   },
   {
     question: "Can I choose which ads I carry?",
@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Is there a minimum time commitment?",
     answer:
-      "Nope. Ride when it works for you — mornings, weekends, or all day. Riders who are consistent tend to get access to higher-paying campaigns.",
+      "No. Ride when it works for you — mornings, weekends, or all day. Riders who complete more verified campaign rides tend to accumulate more Movrr Points and have access to more reward options.",
   },
 ];
 
@@ -86,7 +86,7 @@ const RiderFAQ = () => {
             <div className="mt-12 text-center">
               <p className="text-xl text-muted-foreground mb-6">
                 Got more questions? We&apos;re here to help you start riding and
-                earning with confidence.
+                earning rewards with confidence.
               </p>
               <Link href="/contact">
                 <MagneticButton

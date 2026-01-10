@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { Clock, MapPin, Shield, Users, Award, Euro } from "lucide-react";
+import { Clock, MapPin, Shield, Users, Award } from "lucide-react";
 
 const RiderBenefits = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,10 +33,10 @@ const RiderBenefits = () => {
 
   const benefits = [
     {
-      icon: <Euro className="h-10 w-10 text-primary" />,
-      title: "Earn Extra Income",
+      icon: <Award className="h-10 w-10 text-primary" />,
+      title: "Earn Verified Impact Rewards",
       description:
-        "Make €15-25 per hour riding your bike. Get paid weekly, no complicated processes.",
+        "Complete verified campaign rides, earn Movrr Points, and redeem them for real rewards — all transparently tracked in the app.",
     },
     {
       icon: <Clock className="h-10 w-10 text-primary" />,
@@ -99,14 +99,13 @@ const RiderBenefits = () => {
               </h2>
               <div className="space-y-6">
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Turn your everyday rides into a reliable way to earn extra
-                  income. Movrr pays you to carry lightweight ad panels on your
-                  bike as you go about your regular routes.
+                  Movrr rewards riders based on real, verified campaign impact,
+                  not time logged or hours worked. Complete verified campaign
+                  rides, earn Movrr Points, and redeem them for rewards.
                 </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Ride on your own terms — no fixed hours or detours. The more
-                  you ride, the more you earn, with payouts sent directly to
-                  your account.
+                  Ride on your own terms, no fixed hours or detours. Every ride
+                  is verified. Every reward is traceable. No hidden rules.
                 </p>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   We provide training, safety gear, and ongoing support to keep

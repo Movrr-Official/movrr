@@ -16,7 +16,7 @@ const benefits = [
   },
   {
     title: "Start Immediately",
-    description: "Get riding and earning as soon as your gear arrives.",
+    description: "Get riding and earning rewards as soon as your gear arrives.",
   },
 ];
 
@@ -45,11 +45,10 @@ const RiderContact = () => {
                   </span>
                 </div>
                 <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.1] text-white">
-                  Ready to Start Earning?
+                  Ready to Start Earning Rewards?
                 </h2>
                 <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-                  Start earning money by turning your daily bike rides into a
-                  paid opportunity. Sign up now, and we&apos;ll guide you
+                  Start earning Verified Impact Rewards by turning your daily bike rides into verified campaign opportunities. Sign up now, and we&apos;ll guide you
                   through the next steps to get set up quickly.
                 </p>
               </motion.div>

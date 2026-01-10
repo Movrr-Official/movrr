@@ -1,96 +1,51 @@
 import React from "react";
-
+import { Award, MapPin, CheckCircle, Gift } from "lucide-react";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import ScrollLink from "@/components/ScrollLink";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type Tier = {
-  value: string;
-  label: string;
-  title: string;
-  description: string;
-  earnings: string;
-  perks: string[];
-};
-
-const tiers: Tier[] = [
+const rewardSources = [
   {
-    value: "casual",
-    label: "Casual Rider",
-    title: "Casual Rider",
+    icon: <MapPin className="h-8 w-8 text-primary" />,
+    title: "Verified Campaign Rides",
     description:
-      "Ride casually during your daily errands or weekend trips. Perfect if you cycle a few hours a week.",
-    earnings: "€20–€75",
-    perks: [
-      "5–10 hours of riding per week",
-      "Flexible schedule, no minimum commitment",
-      "Participate in short-term or one-off campaigns",
-    ],
+      "Complete assigned campaign routes and earn Movrr Points for each verified ride.",
   },
   {
-    value: "regular",
-    label: "Regular Rider",
-    title: "Regular Rider",
+    icon: <CheckCircle className="h-8 w-8 text-primary" />,
+    title: "Active Movement in Campaign Zones",
     description:
-      "Commute by bike most weekdays or ride regularly. Ideal if you're cycling around town for work or school.",
-    earnings: "€50–€150",
-    perks: [
-      "10–20 hours of riding per week",
-      "Increased campaign matching",
-      "Bonuses for riding during peak hours",
-    ],
+      "Ride through designated campaign zones during active periods to earn points.",
   },
   {
-    value: "dedicated",
-    label: "Dedicated Rider",
-    title: "Dedicated Rider",
+    icon: <Award className="h-8 w-8 text-primary" />,
+    title: "Completed Routes",
     description:
-      "You’re a courier, delivery rider, or someone who spends a lot of time on a bike and wants to maximize earnings.",
-    earnings: "€100–€250+",
-    perks: [
-      "20+ hours of riding per week",
-      "Priority access to high-visibility campaigns",
-      "Extra incentives for long-distance or busy routes",
-    ],
+      "Finish full campaign routes as specified to maximize your reward points.",
   },
 ];
 
-const RiderTier = ({ tier }: { tier: Tier }) => (
-  <TabsContent value={tier.value} className="p-0 mt-0">
-    <div className="border-2 border-border bg-background p-10 lg:p-12">
-      <div className="space-y-6">
-        <div className="pb-6 border-b-2 border-border">
-          <h3 className="text-3xl font-black tracking-tight mb-4">
-            {tier.title}
-          </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {tier.description}
-          </p>
-        </div>
-        <div className="flex justify-center py-6 border-b-2 border-border">
-          <div className="text-center">
-            <span className="text-5xl font-black text-primary">
-              {tier.earnings}
-            </span>
-            <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.1em] mt-2">
-              Weekly Earnings
-            </p>
-          </div>
-        </div>
-        <ul className="space-y-4">
-          {tier.perks.map((perk, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <div className="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0" />
-              <span className="text-base text-foreground leading-relaxed">
-                {perk}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </TabsContent>
-);
+const redemptionOptions = [
+  {
+    icon: <Gift className="h-8 w-8 text-primary" />,
+    title: "Cash Rewards",
+    description: "Redeem points for cash when available through the app.",
+  },
+  {
+    icon: <Gift className="h-8 w-8 text-primary" />,
+    title: "Gift Cards",
+    description: "Exchange points for gift cards from partner retailers.",
+  },
+  {
+    icon: <Gift className="h-8 w-8 text-primary" />,
+    title: "Gear",
+    description: "Use points to get cycling gear and equipment.",
+  },
+  {
+    icon: <Gift className="h-8 w-8 text-primary" />,
+    title: "Partner Offers",
+    description: "Access exclusive offers and discounts from Movrr partners.",
+  },
+];
 
 const EarningPotential = () => {
   return (
@@ -101,54 +56,111 @@ const EarningPotential = () => {
           <div className="mb-20 text-center">
             <div className="inline-block border-b-2 border-primary pb-2 mb-6">
               <span className="text-xs font-bold text-foreground uppercase tracking-[0.15em]">
-                Earnings
+                Rewards System
               </span>
             </div>
             <h2 className="text-5xl md:text-6xl font-black tracking-tight mb-6 leading-[1.1]">
-              Earning Potential
+              How Rewards Work
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Whether you ride occasionally or cycle every day, Movrr gives you
-              a way to earn extra income doing what you already love.
+              Earn Movrr Points for verified campaign rides and redeem them for
+              real rewards all transparently tracked in the app.
             </p>
           </div>
 
-          <div className="mx-auto max-w-5xl">
-            <Tabs defaultValue="casual" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 h-14 border-2 border-border bg-card mb-0">
-                {tiers.map((tier) => (
-                  <TabsTrigger
-                    key={tier.value}
-                    value={tier.value}
-                    className="h-full text-sm font-bold uppercase tracking-[0.1em] data-[state=active]:bg-background data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none"
+          <div className="grid grid-cols-12 gap-px bg-border mb-16">
+            {/* Earn Points Section */}
+            <div className="col-span-12 lg:col-span-6 bg-card border-2 border-border p-8 lg:p-12">
+              <h3 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
+                Earn Movrr Points
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Riders earn Movrr Points from:
+              </p>
+              <div className="space-y-6">
+                {rewardSources.map((source, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 pb-6 border-b-2 border-border last:border-b-0 last:pb-0"
                   >
-                    {tier.label}
-                  </TabsTrigger>
+                    <div className="w-12 h-12 border-2 border-primary/30 bg-primary/5 flex items-center justify-center flex-shrink-0">
+                      {source.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-black tracking-tight mb-2">
+                        {source.title}
+                      </h4>
+                      <p className="text-base text-muted-foreground leading-relaxed">
+                        {source.description}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </TabsList>
-
-              {tiers.map((tier) => (
-                <RiderTier key={tier.value} tier={tier} />
-              ))}
-            </Tabs>
-            <div className="flex justify-center mt-10">
-              <ScrollLink to="#rider-contact">
-                <MagneticButton
-                  variant="default"
-                  size="xl"
-                  className="h-14 px-8 text-base font-bold rounded-none border-2 border-primary bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.1em]"
-                >
-                  Start Earning with Movrr
-                </MagneticButton>
-              </ScrollLink>
+              </div>
             </div>
 
-            <p className="text-sm text-muted-foreground mt-8 text-center leading-relaxed">
-              *These figures reflect typical earnings during our early-stage
-              rollout. Actual earnings depend on campaign availability, time on
-              the road, and route selection. As Movrr grows in your city, so
-              will your opportunities to earn more.
+            {/* Redeem Points Section */}
+            <div className="col-span-12 lg:col-span-6 bg-card border-2 border-border p-8 lg:p-12">
+              <h3 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
+                Redeem for Rewards
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Points can be redeemed for:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {redemptionOptions.map((option, index) => (
+                  <div
+                    key={index}
+                    className="border-2 border-border bg-background p-6"
+                  >
+                    <div className="w-10 h-10 border-2 border-primary/30 bg-primary/5 flex items-center justify-center mb-4">
+                      {option.icon}
+                    </div>
+                    <h4 className="text-lg font-black tracking-tight mb-2">
+                      {option.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {option.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Statement */}
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <div className="border-2 border-border bg-card p-8 lg:p-12">
+              <p className="text-xl md:text-2xl font-black tracking-tight mb-4">
+                Every ride is verified. Every reward is traceable. No hidden
+                rules.
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Transparent tracking means you always know how many points
+                you&apos;ve earned and what rewards are available.
+              </p>
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="max-w-4xl mx-auto">
+            <p className="text-sm text-muted-foreground text-center leading-relaxed border-t-2 border-border pt-8">
+              Rewards vary by campaign and availability. No guaranteed hourly
+              pay. Movrr Points are earned through verified campaign rides and
+              can be redeemed for available rewards as specified in the app.
             </p>
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <ScrollLink to="#rider-contact">
+              <MagneticButton
+                variant="default"
+                size="xl"
+                className="h-14 px-8 text-base font-bold rounded-none border-2 border-primary bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-[0.1em]"
+              >
+                Start Earning Rewards
+              </MagneticButton>
+            </ScrollLink>
           </div>
         </div>
       </div>

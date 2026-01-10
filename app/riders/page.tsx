@@ -10,7 +10,7 @@ import EarningPotential from "@/components/riders/EarningPotential";
 export const metadata = {
   title: "Riders | Movrr",
   description:
-    "Earn money while you ride by carrying advertisements on your bicycle with Movrr.",
+    "Earn rewards for verified impact by carrying advertisements on your bicycle with Movrr's Verified Impact Rewards system.",
 };
 
 export default function RidersPage() {
@@ -18,7 +18,7 @@ export default function RidersPage() {
     <div>
       <PageHeader
         title="Ride, Earn, and Connect with Your City"
-        description="Join Movrr riders earning money by carrying eye-catching ads on their bikes while you go about your usual routes — flexible, simple, and rewarding."
+        description="Join Movrr riders earning Verified Impact Rewards by carrying eye-catching ads on their bikes while you go about your usual routes — flexible, simple, and transparently tracked."
       />
 
       {/* Benefits Section */}

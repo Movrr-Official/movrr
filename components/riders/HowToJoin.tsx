@@ -61,9 +61,9 @@ const HowToJoin = () => {
     },
     {
       icon: <CreditCard className="h-12 w-12 text-primary" />,
-      title: "4. Start Earning",
+      title: "4. Start Earning Rewards",
       description:
-        "Choose campaigns that fit your route and get paid weekly. The more you ride, the more you earn.",
+        "Choose campaigns that fit your route and start earning Movrr Points. Complete verified rides to accumulate points redeemable for rewards.",
       image: "/placeholder.svg?height=600&width=800",
     },
   ];

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -97,22 +98,14 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 pb-12 lg:pb-24 border-b border-movrr-text-inverse/10">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-5">
-              <div className="w-7 h-7 rounded-md bg-movrr-text-inverse/10 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="w-4 h-4 text-movrr-text-inverse"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
+            <Link href="/" className="flex items-center gap-3 mb-5">
+              <Image
+                src="/logo/icon-no-bg-white.png"
+                alt="MOVRR icon"
+                width={30}
+                height={30}
+                className="h-[1.7rem] w-[1.7rem] object-contain"
+              />
               <span className="text-lg font-semibold text-movrr-text-inverse tracking-tight">
                 MOVRR
               </span>

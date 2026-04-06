@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -46,25 +47,18 @@ export function Navbar() {
             }`}
           >
             <Link href="/" className="flex items-center gap-3">
-              <div
-                className={`flex items-center justify-center rounded-xl border border-movrr-text-inverse/12 bg-movrr-text-inverse/8 transition-all duration-400 ${
-                  isScrolled ? "h-9 w-9" : "h-10 w-10"
-                }`}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className={`h-4 w-4 ${isScrolled ? "text-movrr-green-text" : "text-movrr-text-inverse"}`}
-                  strokeWidth="2"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
+              <Image
+                src={
+                  isScrolled
+                    ? "/logo/icon-no-bg-green.png"
+                    : "/logo/icon-no-bg-white.png"
+                }
+                alt="MOVRR icon"
+                width={30}
+                height={30}
+                priority
+                className="h-[1.7rem] w-[1.7rem] object-contain lg:h-[1.9rem] lg:w-[1.9rem]"
+              />
               <span
                 className={`text-[1.02rem] font-semibold tracking-[-0.03em] ${isScrolled ? "text-movrr-green-text" : "text-movrr-text-inverse"}`}
               >

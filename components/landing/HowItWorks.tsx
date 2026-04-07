@@ -5,23 +5,50 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
+    label: "Riders",
+    title: "Ride and earn",
+    description:
+      "Verified kilometres earn rewards. Carry a brand on your bike to earn more. Your choice.",
+    side: "left",
+  },
+  {
+    number: "01",
+    label: "Brands",
     title: "Set your direction",
     description:
-      "Define your audience, set your budget, shape your strategy. Everything up front, nothing hidden.",
+      "Define your audience, set your budget, shape your strategy. Everything up front.",
     side: "right",
   },
   {
     number: "02",
+    label: "Riders",
+    title: "Opt in, earn more",
+    description:
+      "Choose to carry brand campaigns on your rides. Entirely optional — but when you do, rewards stack.",
+    side: "left",
+  },
+  {
+    number: "02",
+    label: "Brands",
     title: "Go live",
     description:
-      "Your campaign hits the streets. Riders earn. Your brand moves with them.",
+      "Your campaign hits the streets. Cyclists earn. Your brand moves with them.",
+    side: "right",
+  },
+  {
+    number: "03",
+    label: "Riders",
+    title: "Collect your rewards",
+    description:
+      "Rewards accumulate with every authenticated ride. Yours to keep, however you earned them.",
     side: "left",
   },
   {
     number: "03",
+    label: "Brands",
     title: "Watch it work",
     description:
-      "Live data. Real engagement. Refine on the fly.",
+      "Live data. Real engagement. Verified outcomes. Refine on the fly.",
     side: "right",
   },
 ];
@@ -42,13 +69,13 @@ export function HowItWorks() {
           className="mb-20 lg:mb-32"
         >
           <h2 className="max-w-md text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-            Three steps.
+            Two sides.
             <br />
-            <span className="text-movrr-text-inverse/50">That's it.</span>
+            <span className="text-movrr-text-inverse/50">One platform.</span>
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
-            Rider or brand — the path is the same.
-            Clear, fast, and built around how you move.
+            Left: how it works for cyclists.
+            Right: how it works for brands.
           </p>
         </motion.div>
 
@@ -80,6 +107,9 @@ export function HowItWorks() {
               <div className="flex items-center justify-end pr-12 lg:pr-20">
                 {step.side === "left" && (
                   <div className="max-w-xs text-right lg:max-w-sm">
+                    <p className="mb-3 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-success-soft/60">
+                      {step.label}
+                    </p>
                     <h3 className="mb-4 text-[2.4rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3rem]">
                       {step.title}
                     </h3>
@@ -99,6 +129,9 @@ export function HowItWorks() {
               <div className="flex items-center justify-start pl-12 lg:pl-20">
                 {step.side === "right" && (
                   <div className="max-w-xs lg:max-w-sm">
+                    <p className="mb-3 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-success-soft/60">
+                      {step.label}
+                    </p>
                     <h3 className="mb-4 text-[2.4rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3rem]">
                       {step.title}
                     </h3>

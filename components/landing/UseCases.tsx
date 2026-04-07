@@ -8,7 +8,7 @@ const useCases = [
     title: "Rewarded everyday movement",
     category: "Rider rewards",
     description:
-      "Ride your route. Earn your reward. Redeem with brands you love.",
+      "Ride to earn. Opt in to brand campaigns for more. Your movement, your choice.",
     image:
       "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=2070&auto=format&fit=crop",
   },

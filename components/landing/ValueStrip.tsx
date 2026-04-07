@@ -12,7 +12,7 @@ const values = [
   {
     title: "Earn with every ride",
     description:
-      "Authenticated rides. Genuine rewards. Nothing simulated.",
+      "Ride to earn. Carry a brand on your bike to earn more. Entirely your call.",
   },
   {
     title: "Campaigns that move",
@@ -74,8 +74,8 @@ export function ValueStrip() {
             className="flex items-center"
           >
             <p className="max-w-lg text-base leading-relaxed text-movrr-text-inverse/60 lg:text-lg">
-              Movement that earns. Campaigns that perform.
-              One platform, built for both.
+              A rewards platform for cyclists. Earn by riding.
+              Brands reach people already in motion.
             </p>
           </motion.div>
         </div>

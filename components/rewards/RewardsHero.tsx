@@ -13,7 +13,6 @@ const stats = [
 export function RewardsHero() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-0 pt-44 lg:pt-56">
-
       {/* Centered headline block */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mx-auto max-w-3xl text-center">
@@ -31,17 +30,25 @@ export function RewardsHero() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.2,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mx-auto mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/55"
           >
-            Ride and earn. Carry a brand to earn more.
-            Rewards that reflect the distance you actually cover.
+            Ride and earn. Carry a brand to earn more. Rewards that reflect the
+            distance you actually cover.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.3,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-10"
           >
             <Link
@@ -49,7 +56,7 @@ export function RewardsHero() {
               className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
             >
               Start earning
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
           </motion.div>
         </div>

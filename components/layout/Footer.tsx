@@ -89,7 +89,7 @@ export function Footer({ cta = true }: FooterProps) {
                 >
                   <Link href="#get-started">
                     Start earning
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                   </Link>
                 </Button>
                 <Button

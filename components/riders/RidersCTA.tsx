@@ -29,7 +29,7 @@ export function RidersCTA() {
               className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-brand/25 bg-movrr-bg-primary px-7 text-sm font-semibold text-movrr-text-inverse transition-colors duration-200 hover:bg-movrr-bg-secondary"
             >
               Get the app
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
             <Link
               href="/rewards"

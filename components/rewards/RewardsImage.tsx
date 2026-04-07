@@ -7,10 +7,10 @@ export function RewardsImage() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="relative aspect-video w-full overflow-hidden lg:aspect-21/9"
       >
         <Image

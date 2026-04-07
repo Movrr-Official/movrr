@@ -66,10 +66,10 @@ export function Platform() {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex flex-col gap-8 rounded-2xl border border-movrr-text-brand/8 bg-movrr-bg-canvas p-10 lg:p-12"
+              className="group flex flex-col gap-8 rounded-2xl border border-movrr-text-brand/8 bg-movrr-bg-canvas p-10 transition-colors duration-500 hover:bg-movrr-bg-primary lg:p-12"
             >
               {/* Icon */}
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-movrr-text-brand/6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-movrr-text-brand/6 transition-colors duration-500 group-hover:bg-movrr-text-brand/10">
                 <pillar.icon
                   className="h-[0.95rem] w-[0.95rem] text-movrr-success-strong"
                   strokeWidth={1.5}

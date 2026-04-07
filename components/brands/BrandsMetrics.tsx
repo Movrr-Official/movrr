@@ -38,8 +38,21 @@ export function BrandsMetrics() {
             }}
             className="flex flex-col px-10 py-20 lg:px-14 lg:py-24"
           >
-            {/* Accent line */}
-            <div className="mb-10 h-px w-12 bg-movrr-success/35" />
+            {/* Accent line — draws in on scroll */}
+            <div className="mb-10 w-12 overflow-hidden">
+              <motion.div
+                className="h-px w-full bg-movrr-success/35"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                style={{ transformOrigin: "left" }}
+                transition={{
+                  delay: index * 0.12,
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              />
+            </div>
 
             {/* Value */}
             <p className="mb-4 text-[clamp(1.75rem,3vw,3.5rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-brand">

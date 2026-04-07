@@ -9,30 +9,37 @@ export function BrandsCTA() {
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-40 lg:py-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid gap-16 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
+            >
               Your brand,
               <br />
               <span className="text-movrr-text-inverse/45">in motion.</span>
-            </h2>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/50">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.12, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/50"
+            >
               Talk to the team. We'll walk you through reach, cost, and what a
               verified movement-based campaign looks like for your brand.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{
-              delay: 0.1,
-              duration: 0.65,
+              delay: 0.22,
+              duration: 0.6,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="flex shrink-0 flex-col gap-3"

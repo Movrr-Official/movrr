@@ -69,8 +69,14 @@ export function ForBrands() {
 
         {/* Horizontal connected timeline */}
         <div className="relative">
-          {/* Connecting line — desktop only, runs through node centres */}
-          <div className="absolute left-5 right-5 top-5 hidden h-px bg-movrr-text-inverse/10 lg:block" />
+          {/* Connecting line — draws in left to right on scroll */}
+          <motion.div
+            className="absolute left-5 right-5 top-5 hidden h-px origin-left bg-movrr-text-inverse/10 lg:block"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          />
 
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3 lg:gap-10">
             {steps.map((step, index) => (

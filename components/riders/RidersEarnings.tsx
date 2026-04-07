@@ -74,10 +74,21 @@ export function RidersEarnings() {
               }}
               className={`grid grid-cols-1 gap-6 lg:grid-cols-[auto_1fr_minmax(0,24rem)] lg:items-center lg:gap-14 ${item.py}`}
             >
-              {/* Escalating accent line */}
-              <div
-                className={`hidden h-px shrink-0 bg-movrr-success/40 lg:block ${item.accentWidth}`}
-              />
+              {/* Escalating accent line — draws in on scroll */}
+              <div className={`hidden shrink-0 overflow-hidden lg:block ${item.accentWidth}`}>
+                <motion.div
+                  className="h-px w-full bg-movrr-success/40"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  style={{ transformOrigin: "left" }}
+                  transition={{
+                    delay: index * 0.12,
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                />
+              </div>
 
               {/* Title + label */}
               <div>

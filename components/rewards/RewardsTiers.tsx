@@ -67,8 +67,21 @@ export function RewardsTiers() {
                 index === 0 ? "py-12 lg:py-14" : index === 1 ? "py-14 lg:py-18" : "py-16 lg:py-22"
               }`}
             >
-              {/* Escalating accent line */}
-              <div className={`hidden h-px shrink-0 bg-movrr-success/40 lg:block ${tier.accentWidth}`} />
+              {/* Escalating accent line — draws in on scroll */}
+              <div className={`hidden shrink-0 overflow-hidden lg:block ${tier.accentWidth}`}>
+                <motion.div
+                  className="h-px w-full bg-movrr-success/40"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  style={{ transformOrigin: "left" }}
+                  transition={{
+                    delay: index * 0.12,
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                />
+              </div>
 
               {/* Title — grows with tier */}
               <div>

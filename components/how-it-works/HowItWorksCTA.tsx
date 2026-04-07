@@ -8,7 +8,6 @@ export function HowItWorksCTA() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Two-column CTA */}
         <div className="grid grid-cols-1 gap-px bg-movrr-text-inverse/8 overflow-hidden rounded-3xl lg:grid-cols-2">
           {/* Riders */}
@@ -37,7 +36,7 @@ export function HowItWorksCTA() {
                 className="group/btn inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/25 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
               >
                 Get the app
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:rotate-45" />
               </Link>
             </div>
           </motion.div>
@@ -47,7 +46,11 @@ export function HowItWorksCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.1,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="group flex flex-col bg-movrr-bg-card-dark px-10 py-14 transition-colors duration-500 hover:bg-movrr-bg-tertiary lg:px-14 lg:py-20"
           >
             <p className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35">
@@ -68,12 +71,11 @@ export function HowItWorksCTA() {
                 className="group/btn inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/25 bg-transparent px-7 text-sm font-semibold text-movrr-text-inverse/80 transition-colors duration-200 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
               >
                 Talk to sales
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:rotate-45" />
               </Link>
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

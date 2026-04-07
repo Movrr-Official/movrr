@@ -37,8 +37,8 @@ export function BrandsReach() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 flex items-center justify-between border-b border-movrr-border-soft pb-8 lg:mb-20"
@@ -64,13 +64,23 @@ export function BrandsReach() {
               }}
               className="relative overflow-hidden py-14 lg:py-18"
             >
-              {/* Ghost icon — large, decorative */}
-              <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.06] lg:right-4">
+              {/* Ghost icon — reveals after text, drifts in from right */}
+              <motion.div
+                className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 lg:right-4"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 0.06, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1 + 0.25,
+                  duration: 0.9,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
                 <item.icon
                   className="h-44 w-44 text-movrr-success lg:h-56 lg:w-56"
                   strokeWidth={0.75}
                 />
-              </div>
+              </motion.div>
 
               {/* Content */}
               <div className="relative grid grid-cols-1 gap-6 lg:grid-cols-[1fr_minmax(0,26rem)] lg:items-center lg:gap-20">

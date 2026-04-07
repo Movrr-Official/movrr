@@ -33,8 +33,8 @@ export function RidersProposition() {
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       {/* Compact inline header bar */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="border-b border-movrr-border-soft"
@@ -54,12 +54,11 @@ export function RidersProposition() {
         {props.map((prop, index) => (
           <motion.div
             key={prop.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -24 : 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{
-              delay: index * 0.1,
-              duration: 0.65,
+              duration: 0.75,
               ease: [0.22, 1, 0.36, 1],
             }}
           >

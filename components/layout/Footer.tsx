@@ -10,35 +10,35 @@ const footerLinks = {
   platform: {
     title: "Platform",
     links: [
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Rewards", href: "#rewards" },
-      { label: "For brands", href: "#brands" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "How it works", href: "/how-it-works" },
+      { label: "Rewards", href: "/#rewards" },
+      { label: "Brands", href: "/brands" },
+      { label: "Riders", href: "/riders" },
     ],
   },
   company: {
     title: "Company",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Careers", href: "#careers" },
-      { label: "Press", href: "#press" },
-      { label: "Contact", href: "#contact" },
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Press", href: "/press" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   resources: {
     title: "Resources",
     links: [
-      { label: "Help center", href: "#help" },
-      { label: "Documentation", href: "#docs" },
-      { label: "Partners", href: "#partners" },
+      { label: "Help center", href: "/help" },
+      { label: "Documentation", href: "/docs" },
+      { label: "Partners", href: "/partners" },
     ],
   },
   legal: {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#privacy" },
-      { label: "Terms", href: "#terms" },
-      { label: "Cookies", href: "#cookies" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Cookies", href: "/cookies" },
     ],
   },
 };

@@ -8,7 +8,6 @@ export function BrandsCTA() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-40 lg:py-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         <div className="grid gap-16 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -16,9 +15,6 @@ export function BrandsCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-8 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30">
-              Activate
-            </p>
             <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse">
               Your brand,
               <br />
@@ -34,7 +30,11 @@ export function BrandsCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.1,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="flex shrink-0 flex-col gap-3"
           >
             <Link
@@ -52,7 +52,6 @@ export function BrandsCTA() {
             </Link>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

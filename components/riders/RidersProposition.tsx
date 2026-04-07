@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VerifiedIcon, PrivacyIcon, SafeIcon } from "@/components/icons/MovrrIcons";
+import {
+  VerifiedIcon,
+  PrivacyIcon,
+  SafeIcon,
+} from "@/components/icons/MovrrIcons";
 
 const props = [
   {
@@ -14,7 +18,7 @@ const props = [
     icon: SafeIcon,
     title: "Your choice, always",
     description:
-      "Carrying a brand is optional. You ride, you earn. The advertising layer is yours to activate or ignore.",
+      "Carrying a brand is entirely your call — activate it when you want, ride without it when you don't.",
   },
   {
     icon: PrivacyIcon,
@@ -27,7 +31,6 @@ const props = [
 export function RidersProposition() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
-
       {/* Compact inline header bar */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -38,10 +41,7 @@ export function RidersProposition() {
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="flex items-center justify-between py-10">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/50">
-              The proposition
-            </p>
-            <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand">
+            <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand ml-auto">
               Your ride.{" "}
               <span className="text-movrr-text-brand/40">Your terms.</span>
             </h2>
@@ -73,9 +73,9 @@ export function RidersProposition() {
               >
                 {/* Icon — left on odd rows, right on even rows */}
                 {index % 2 === 1 && (
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-movrr-success/8 lg:h-24 lg:w-24">
+                  <div className="flex h-36 w-36 shrink-0 items-center justify-center rounded-3xl bg-movrr-success/8 lg:h-44 lg:w-44">
                     <prop.icon
-                      className="h-8 w-8 text-movrr-success-strong/60"
+                      className="h-14 w-14 text-movrr-success-strong/60"
                       strokeWidth={1.25}
                     />
                   </div>
@@ -96,9 +96,9 @@ export function RidersProposition() {
 
                 {/* Icon — right on even rows */}
                 {index % 2 === 0 && (
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-movrr-success/8 lg:h-24 lg:w-24">
+                  <div className="flex h-36 w-36 shrink-0 items-center justify-center rounded-3xl bg-movrr-success/8 lg:h-44 lg:w-44">
                     <prop.icon
-                      className="h-8 w-8 text-movrr-success-strong/60"
+                      className="h-14 w-14 text-movrr-success-strong/60"
                       strokeWidth={1.25}
                     />
                   </div>
@@ -108,7 +108,6 @@ export function RidersProposition() {
           </motion.div>
         ))}
       </div>
-
     </section>
   );
 }

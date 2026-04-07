@@ -8,37 +8,37 @@ import { ArrowRight } from "lucide-react";
 export function RidersHero() {
   return (
     <section className="overflow-hidden border-b border-movrr-text-inverse/10 bg-movrr-bg-primary">
-
       {/* Full-viewport grid — text left, image right */}
       <div className="grid min-h-[88vh] grid-cols-1 lg:grid-cols-[1fr_minmax(0,40vw)]">
-
         {/* Text column */}
         <div className="flex flex-col justify-between px-6 pb-20 pt-44 lg:px-12 lg:pb-16 lg:pt-52">
           <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35"
-            >
-              For riders
-            </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                delay: 0.1,
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="text-[clamp(3rem,6vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
             >
               Ride the city.
               <br />
-              <span className="text-movrr-text-inverse/45">Own the reward.</span>
+              <span className="text-movrr-text-inverse/45">
+                Own the reward.
+              </span>
             </motion.h1>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.25,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-16"
           >
             <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
@@ -85,25 +85,6 @@ export function RidersHero() {
           <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-primary/20 via-transparent to-transparent" />
         </motion.div>
       </div>
-
-      {/* Divider strip */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="border-t border-movrr-text-inverse/10"
-      >
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="flex items-center justify-between py-8">
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/25">
-              Movement that earns
-            </span>
-            <span className="tabular-nums text-[0.65rem] tracking-widest text-movrr-text-inverse/18">
-              01
-            </span>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

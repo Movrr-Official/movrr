@@ -40,22 +40,6 @@ export function Platform() {
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
 
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 flex items-center justify-between border-b border-movrr-text-brand/8 pb-8 lg:mb-20"
-        >
-          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-            The platform
-          </span>
-          <span className="tabular-nums text-[0.65rem] tracking-widest text-movrr-text-brand/18">
-            02
-          </span>
-        </motion.div>
-
         {/* Section heading — standalone, not split */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

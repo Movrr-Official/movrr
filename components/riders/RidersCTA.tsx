@@ -8,16 +8,12 @@ export function RidersCTA() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-40 lg:py-56">
       <div className="mx-auto max-w-2xl px-6 text-center">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-8 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35">
-            Join MOVRR
-          </p>
           <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
             Your next ride
             <br />
@@ -43,7 +39,6 @@ export function RidersCTA() {
             </Link>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

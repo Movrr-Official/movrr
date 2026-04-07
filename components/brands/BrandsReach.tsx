@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VerifiedIcon, BroadcastIcon, UrbanIcon } from "@/components/icons/MovrrIcons";
+import {
+  VerifiedIcon,
+  BroadcastIcon,
+  UrbanIcon,
+} from "@/components/icons/MovrrIcons";
 
 const reach = [
   {
@@ -31,7 +35,6 @@ export function BrandsReach() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -40,10 +43,7 @@ export function BrandsReach() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 flex items-center justify-between border-b border-movrr-border-soft pb-8 lg:mb-20"
         >
-          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-            Why MOVRR
-          </span>
-          <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand">
+          <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand ml-auto">
             Not display.{" "}
             <span className="text-movrr-text-brand/40">Movement.</span>
           </h2>
@@ -65,7 +65,7 @@ export function BrandsReach() {
               className="relative overflow-hidden py-14 lg:py-18"
             >
               {/* Ghost icon — large, decorative */}
-              <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.04] lg:right-4">
+              <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-[0.06] lg:right-4">
                 <item.icon
                   className="h-44 w-44 text-movrr-success lg:h-56 lg:w-56"
                   strokeWidth={0.75}
@@ -89,7 +89,6 @@ export function BrandsReach() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

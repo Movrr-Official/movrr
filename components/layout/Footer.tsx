@@ -94,7 +94,7 @@ export function Footer({ cta = true }: FooterProps) {
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                  className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10 hover:text-movrr-green-text transition-colors"
                   asChild
                 >
                   <Link href="#contact">Talk to sales</Link>
@@ -107,7 +107,7 @@ export function Footer({ cta = true }: FooterProps) {
 
       {/* Main Footer Content */}
       <div className="px-6 lg:px-12 pt-14 pb-9 lg:pt-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 pb-12 lg:pb-24 border-b border-movrr-text-inverse/10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 pb-16 lg:pb-42 border-b border-movrr-text-inverse/10">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-5">

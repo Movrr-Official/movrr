@@ -116,22 +116,6 @@ export function Safety() {
       {/* ── Trust columns — dark panel, three-up ── */}
       <div className="border-t border-movrr-text-inverse/6 bg-movrr-bg-primary">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          {/* Eyebrow strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center justify-between border-b border-movrr-text-inverse/8 py-7"
-          >
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30">
-              Trust &amp; integrity
-            </span>
-            <span className="tabular-nums text-[0.65rem] tracking-widest text-movrr-text-inverse/18">
-              03
-            </span>
-          </motion.div>
-
           {/* Section heading */}
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -142,7 +126,7 @@ export function Safety() {
               delay: 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="max-w-xl pt-14 text-[clamp(2rem,3.2vw,3.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse/80 lg:pt-20"
+            className="max-w-xl pt-14 text-[clamp(2rem,3.2vw,3.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse/80 lg:pt-27"
           >
             Built on integrity
           </motion.h2>

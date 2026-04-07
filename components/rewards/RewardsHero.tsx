@@ -5,9 +5,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "By default", label: "No activation required" },
-  { value: "Per kilometre", label: "Tied to verified distance" },
-  { value: "Boosted", label: "Opt in to carry a brand, earn more" },
+  { value: "Automatic", label: "No activation required" },
+  { value: "Every km", label: "Tied to verified distance" },
+  { value: "Earn more", label: "Opt in to carry a brand" },
 ];
 
 export function RewardsHero() {
@@ -17,15 +17,6 @@ export function RewardsHero() {
       {/* Centered headline block */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mx-auto max-w-3xl text-center">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-8 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35"
-          >
-            Rewards
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

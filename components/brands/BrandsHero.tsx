@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -8,17 +9,6 @@ export function BrandsHero() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-0 pt-44 lg:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
-        {/* Eyebrow */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35"
-        >
-          For brands
-        </motion.p>
-
         {/* Full-width massive headline */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
@@ -58,26 +48,25 @@ export function BrandsHero() {
             </Link>
           </div>
         </motion.div>
-
       </div>
 
-      {/* Divider strip */}
+      {/* Full-bleed image — proves the claim */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-20 border-t border-movrr-text-inverse/10"
+        transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="relative mt-14 aspect-video w-full overflow-hidden lg:aspect-21/9"
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="flex items-center justify-between py-8">
-            <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/25">
-              Premium urban reach
-            </span>
-            <span className="tabular-nums text-[0.65rem] tracking-widest text-movrr-text-inverse/18">
-              01
-            </span>
-          </div>
-        </div>
+        <Image
+          src="/app-preview-02.png"
+          alt="Brand campaign carried through the city by cyclists"
+          fill
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/25 via-transparent to-transparent" />
       </motion.div>
     </section>
   );

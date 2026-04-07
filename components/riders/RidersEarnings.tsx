@@ -46,22 +46,6 @@ export function RidersEarnings() {
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
 
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 flex items-center justify-between border-b border-movrr-text-inverse/8 pb-8 lg:mb-20"
-        >
-          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30">
-            How you earn
-          </span>
-          <span className="tabular-nums text-[0.65rem] tracking-widest text-movrr-text-inverse/18">
-            02
-          </span>
-        </motion.div>
-
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

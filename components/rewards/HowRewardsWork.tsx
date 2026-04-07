@@ -27,7 +27,6 @@ export function HowRewardsWork() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Section header */}
         <div className="mb-20 grid gap-12 lg:mb-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
           <motion.div
@@ -36,24 +35,27 @@ export function HowRewardsWork() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/50">
-              How rewards work
-            </p>
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
               Ride earns.
               <br />
-              <span className="text-movrr-text-brand/40">Choice earns more.</span>
+              <span className="text-movrr-text-brand/40">
+                Choice earns more.
+              </span>
             </h2>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.1,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="self-end text-base leading-relaxed text-movrr-text-brand/55 lg:max-w-sm"
           >
-            Rewards are tied directly to verified movement.
-            The more you ride, the more you earn — with or without a brand.
+            Rewards are tied directly to verified movement. The more you ride,
+            the more you earn — with or without a brand.
           </motion.p>
         </div>
 
@@ -92,7 +94,6 @@ export function HowRewardsWork() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

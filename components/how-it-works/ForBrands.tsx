@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VerifiedIcon, BroadcastIcon, UrbanIcon } from "@/components/icons/MovrrIcons";
+import {
+  VerifiedIcon,
+  BroadcastIcon,
+  UrbanIcon,
+} from "@/components/icons/MovrrIcons";
 
 const steps = [
   {
@@ -31,7 +35,6 @@ export function ForBrands() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Section header */}
         <div className="mb-20 grid gap-12 lg:mb-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
           <motion.div
@@ -40,24 +43,27 @@ export function ForBrands() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35">
-              For brands
-            </p>
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
               Campaigns that
               <br />
-              <span className="text-movrr-text-inverse/45">move with people.</span>
+              <span className="text-movrr-text-inverse/45">
+                move with people.
+              </span>
             </h2>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.1,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="self-end text-base leading-relaxed text-movrr-text-inverse/50 lg:max-w-sm"
           >
-            Real-world reach. Verified engagement. An audience already in motion,
-            already paying attention.
+            Real-world reach. Verified engagement. An audience already in
+            motion, already paying attention.
           </motion.p>
         </div>
 
@@ -106,7 +112,6 @@ export function ForBrands() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

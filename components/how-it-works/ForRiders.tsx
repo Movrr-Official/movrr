@@ -27,7 +27,6 @@ export function ForRiders() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Section header — inline, single row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,18 +36,17 @@ export function ForRiders() {
           className="mb-20 flex flex-col gap-6 border-b border-movrr-border-soft pb-12 lg:mb-28 lg:flex-row lg:items-end lg:justify-between lg:gap-20"
         >
           <div>
-            <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/50">
-              For riders
-            </p>
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
               Ride to earn.
               <br />
-              <span className="text-movrr-text-brand/40">Nothing else required.</span>
+              <span className="text-movrr-text-brand/40">
+                Nothing else required.
+              </span>
             </h2>
           </div>
           <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/55 lg:pb-1">
-            Ride and earn. Opt in to brand campaigns to earn more.
-            Your movement, your choice — nothing required beyond the ride.
+            Ride and earn. Opt in to brand campaigns to earn more. Your
+            movement, your choice — nothing required beyond the ride.
           </p>
         </motion.div>
 
@@ -84,7 +82,6 @@ export function ForRiders() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

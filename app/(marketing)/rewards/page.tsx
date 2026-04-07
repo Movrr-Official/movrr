@@ -4,6 +4,7 @@ import { RewardsHero } from "@/components/rewards/RewardsHero";
 import { HowRewardsWork } from "@/components/rewards/HowRewardsWork";
 import { RewardsTiers } from "@/components/rewards/RewardsTiers";
 import { RewardsCTA } from "@/components/rewards/RewardsCTA";
+import { RewardsImage } from "@/components/rewards/RewardsImage";
 
 export const metadata = {
   title: "Rewards — MOVRR",
@@ -17,6 +18,7 @@ export default function RewardsPage() {
       <Navbar />
       <RewardsHero />
       <HowRewardsWork />
+      <RewardsImage />
       <RewardsTiers />
       <RewardsCTA />
       <Footer cta={false} />

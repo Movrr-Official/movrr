@@ -51,7 +51,7 @@ export function HowItWorksHero() {
               For riders
             </span>
           </div>
-          <ArrowRight className="h-5 w-5 text-movrr-text-inverse/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-movrr-text-inverse/60" />
+          <ArrowRight className="h-5 w-5 text-movrr-text-inverse/25 transition-all duration-300 group-hover:translate-x-1 group-hover:rotate-45 group-hover:text-movrr-text-inverse/60" />
         </Link>
 
         {/* Brands */}
@@ -67,7 +67,7 @@ export function HowItWorksHero() {
               For brands
             </span>
           </div>
-          <ArrowRight className="h-5 w-5 text-movrr-text-inverse/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-movrr-text-inverse/60" />
+          <ArrowRight className="h-5 w-5 text-movrr-text-inverse/25 transition-all duration-300 group-hover:translate-x-1 group-hover:rotate-45 group-hover:text-movrr-text-inverse/60" />
         </Link>
       </motion.div>
     </section>

@@ -8,7 +8,7 @@ const useCases = [
     title: "Rewarded everyday movement",
     category: "Rider rewards",
     description:
-      "Turn your daily rides into earnings. Track verified movement, accumulate points, and redeem with partner brands.",
+      "Ride your route. Earn your reward. Redeem with brands you love.",
     image:
       "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=2070&auto=format&fit=crop",
   },
@@ -16,7 +16,7 @@ const useCases = [
     title: "Sponsored community rides",
     category: "Brand activations",
     description:
-      "Launch high-visibility campaigns that engage people in motion with verified exposure and real engagement.",
+      "Your brand, in motion. Authentic exposure across active urban networks.",
     image:
       "https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?q=80&w=2031&auto=format&fit=crop",
   },
@@ -24,7 +24,7 @@ const useCases = [
     title: "City and brand initiatives",
     category: "Urban partnerships",
     description:
-      "Support sustainable mobility goals with data-driven programs across communities and urban centres.",
+      "Data-led programs that move communities. Built for cities that want to lead.",
     image:
       "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop",
   },
@@ -32,30 +32,26 @@ const useCases = [
 
 export function UseCases() {
   return (
-    <section
-      id="rewards"
-      className="bg-movrr-bg-surface py-24 lg:py-32 border-b border-movrr-border-soft"
-    >
+    <section id="rewards" className="bg-movrr-bg-surface py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14 lg:mb-16"
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-movrr-text-brand leading-[1.06] tracking-[-0.02em] max-w-2xl">
-            From everyday movement
+          <h2 className="max-w-2xl text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
+            One platform.
             <br />
             <span className="text-movrr-text-brand/40">
-              to high-impact campaigns.
+              Every use case.
             </span>
           </h2>
-          <p className="mt-6 text-base text-movrr-text-brand/60 leading-relaxed max-w-2xl">
-            MOVRR supports individuals earning through movement, brands
-            launching visibility campaigns, and cities driving sustainable
-            initiatives.
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-movrr-text-brand/60">
+            Ride to earn. Activate at scale. Shape how a city moves.
+            MOVRR is built for all three.
           </p>
         </motion.div>
 
@@ -67,7 +63,11 @@ export function UseCases() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="group"
             >
               {/* Image — tall portrait, full-bleed rounded */}
@@ -78,7 +78,7 @@ export function UseCases() {
                   fill
                   quality={88}
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
-                  className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/28 via-transparent to-transparent" />
                 {/* Category badge — top left overlay */}

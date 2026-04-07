@@ -7,8 +7,7 @@ import Image from "next/image";
 export function AppPreview() {
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ minHeight: "108vh" }}
+      className="relative min-h-[108vh] overflow-hidden"
     >
       {/* Full-bleed handlebar image — no overlay, raw */}
       <div className="absolute inset-0">
@@ -28,14 +27,13 @@ export function AppPreview() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center bg-[#2c2c2a]/92 backdrop-blur-md rounded-xl overflow-hidden"
-          style={{ width: "min(600px, 90vw)" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex w-[min(600px,90vw)] items-center rounded-xl bg-movrr-bg-overlay/92 backdrop-blur-md overflow-hidden"
         >
           {/* Green icon block — square, flush left, full card height */}
-          <div className="w-20 h-20 bg-[#0f2e1c] flex items-center justify-center shrink-0">
+          <div className="w-20 h-20 bg-movrr-bg-ink flex items-center justify-center shrink-0">
             {/* Pebble/blob outline shape — MOVRR logo */}
-            <svg viewBox="0 0 36 36" className="w-9 h-9" fill="none">
+            <svg viewBox="0 0 36 36" className="w-9 h-9 text-movrr-success-soft" fill="none">
               <path
                 d="M18 6
                    C13 6 8 10 8 16
@@ -46,7 +44,7 @@ export function AppPreview() {
                    C24 27 24 24.5 24 24.5
                    C26.5 22.5 28 19.5 28 16
                    C28 10 23 6 18 6 Z"
-                stroke="#4ade80"
+                stroke="currentColor"
                 strokeWidth="1.4"
                 strokeLinejoin="round"
                 strokeLinecap="round"
@@ -56,17 +54,17 @@ export function AppPreview() {
 
           {/* Route info */}
           <div className="flex-1 min-w-0 px-5">
-            <p className="text-white text-[13px] font-semibold tracking-[0.12em] uppercase leading-none mb-1.5">
+            <p className="text-movrr-text-inverse text-[13px] font-semibold tracking-[0.12em] uppercase leading-none mb-1.5">
               Rotterdam Central Tour
             </p>
-            <p className="text-white/45 text-[13px] tracking-[0.08em] font-normal">
+            <p className="text-movrr-text-inverse/45 text-[13px] tracking-[0.08em] font-normal">
               5 KM &nbsp;—&nbsp; 45 MIN
             </p>
           </div>
 
           {/* Chevron */}
           <div className="pr-5">
-            <ChevronDown className="w-5 h-5 text-white/40" />
+            <ChevronDown className="w-5 h-5 text-movrr-text-inverse/40" />
           </div>
         </motion.div>
       </div>

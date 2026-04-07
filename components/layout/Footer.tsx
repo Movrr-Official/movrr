@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const footerLinks = {
   platform: {
@@ -61,35 +61,41 @@ export function Footer() {
     >
       {/* CTA Strip */}
       <div className="border-b border-movrr-text-inverse/10">
-        <div className="px-6 lg:px-12 py-14 lg:py-18">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-7 lg:gap-10">
-            <div className="max-w-xl">
-              <h3 className="text-2xl lg:text-3xl font-semibold text-movrr-text-inverse mb-2">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+          >
+            <div>
+              <h3 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
                 Ready to move with MOVRR?
               </h3>
-              <p className="text-movrr-text-inverse/62 leading-relaxed">
-                Join the movement-based rewards ecosystem today.
+              <p className="mt-4 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
+                The streets are waiting.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex shrink-0 flex-wrap gap-3">
               <Button
-                className="bg-movrr-bg-glass font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated px-6 h-11 text-sm group rounded-lg border border-movrr-text-inverse/30"
+                className="group h-12 rounded-lg border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
                 asChild
               >
                 <Link href="#get-started">
                   Start earning
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="border-movrr-text-inverse/20 text-movrr-text-inverse hover:bg-movrr-text-inverse/10 font-medium px-6 h-11 text-sm rounded-lg bg-transparent"
+                className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
                 asChild
               >
                 <Link href="#contact">Talk to sales</Link>
               </Button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -111,8 +117,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-movrr-text-inverse/60 leading-relaxed max-w-xs mb-7">
-              Turning movement into value. A rewards platform connecting
-              verified real-world movement with measurable impact.
+              Movement that earns. Campaigns that perform. Built for the city.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (

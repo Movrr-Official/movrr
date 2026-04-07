@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-svh bg-movrr-bg-primary overflow-hidden border-b border-movrr-text-inverse/10">
+    <section className="relative min-h-svh overflow-hidden border-b border-movrr-text-inverse/10 bg-movrr-bg-primary">
       {/* Full-width background image */}
       <div className="absolute inset-0">
         <Image
@@ -17,29 +18,32 @@ export function Hero() {
           fetchPriority="high"
           quality={90}
           sizes="100vw"
-          className="object-cover object-center scale-[1.015]"
+          className="scale-[1.015] object-cover object-center"
         />
-        {/* Strong gradient left → right for text legibility */}
         <div className="absolute inset-0 bg-linear-to-r from-movrr-bg-secondary/95 via-movrr-bg-secondary/74 to-movrr-bg-secondary/15" />
         <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-secondary/58 via-movrr-bg-secondary/10 to-transparent" />
         <div className="absolute inset-0 bg-linear-to-b from-movrr-bg-backdrop/20 via-transparent to-transparent" />
       </div>
 
       {/* Text block — left-aligned, vertically centered */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 h-full">
-        <div className="flex flex-col justify-center min-h-svh pt-28 pb-20 lg:pt-32 lg:pb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl"
-          >
+      <div className="relative z-10 mx-auto h-full max-w-7xl px-6 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="flex min-h-svh flex-col justify-center pb-20 pt-28 lg:pb-24 lg:pt-32"
+        >
+          <div className="max-w-2xl">
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-[6.5rem] font-semibold text-movrr-text-inverse leading-[0.94] tracking-[-0.03em]"
+              transition={{
+                delay: 0.15,
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
             >
               Movement,
               <br />
@@ -50,29 +54,38 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.6 }}
-              className="mt-8 text-base lg:text-[1.05rem] text-movrr-text-inverse/70 leading-relaxed max-w-xl"
+              transition={{
+                delay: 0.3,
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="mt-8 max-w-xl text-base leading-relaxed text-movrr-text-inverse/70 lg:text-[1.05rem]"
             >
-              MOVRR turns verified rides and real-world movement into rewards
-              for people and measurable activation for brands.
+              Ride the city. Earn with every kilometre. For brands, it's reach
+              that actually moves people.
             </motion.p>
 
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-11"
+              transition={{
+                delay: 0.45,
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="mt-10"
             >
               <Link
                 href="#get-started"
-                className="inline-flex items-center gap-2 bg-movrr-bg-surface text-movrr-text-brand hover:bg-movrr-bg-elevated font-semibold text-sm px-7 py-3.5 rounded-xl transition-colors border border-movrr-text-inverse/30"
+                className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-surface px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
               >
                 Become a founding partner
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </motion.div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

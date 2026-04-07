@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Plan and strategise",
+    title: "Set your direction",
     description:
-      "Define your movement campaign goals. Choose your target audience, set budget parameters, and design your activation strategy.",
+      "Define your audience, set your budget, shape your strategy. Everything up front, nothing hidden.",
     side: "right",
   },
   {
     number: "02",
-    title: "Launch and going live",
+    title: "Go live",
     description:
-      "Deploy your campaign across verified rider networks. Connect with engaged audiences through real-world movement experiences.",
+      "Your campaign hits the streets. Riders earn. Your brand moves with them.",
     side: "left",
   },
   {
     number: "03",
-    title: "Monitor and optimise",
+    title: "Watch it work",
     description:
-      "Track performance in real-time. Access verified engagement data and optimise your campaign for maximum impact.",
+      "Live data. Real engagement. Refine on the fly.",
     side: "right",
   },
 ];
@@ -30,7 +30,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-movrr-bg-primary py-24 lg:py-36 border-y border-movrr-text-inverse/10"
+      className="border-y border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-48"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section header */}
@@ -38,24 +38,30 @@ export function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20 lg:mb-28"
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-20 lg:mb-32"
         >
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-movrr-text-inverse leading-[1.06] tracking-[-0.02em] max-w-lg">
-            Launch in three
+          <h2 className="max-w-md text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
+            Three steps.
             <br />
-            <span className="text-movrr-text-inverse/50">simple steps.</span>
+            <span className="text-movrr-text-inverse/50">That's it.</span>
           </h2>
-          <p className="mt-5 text-base text-movrr-text-inverse/60 leading-relaxed max-w-lg">
-            Whether you&apos;re a rider looking to earn or a brand ready to
-            activate, getting started with MOVRR is straightforward.
+          <p className="mt-6 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
+            Rider or brand — the path is the same.
+            Clear, fast, and built around how you move.
           </p>
         </motion.div>
 
-        {/* Timeline — vertical center line, steps alternate left / right */}
+        {/* Timeline */}
         <div className="relative">
-          {/* Continuous vertical line — fades at top and bottom */}
-          <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-linear-to-b from-transparent via-movrr-success to-transparent" />
+          {/* Animated vertical line — draws in from top on scroll */}
+          <motion.div
+            className="absolute left-[calc(50%-0.5px)] top-0 bottom-0 w-px origin-top bg-linear-to-b from-transparent via-movrr-success to-transparent"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+          />
 
           {steps.map((step, index) => (
             <motion.div
@@ -63,36 +69,40 @@ export function HowItWorks() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="relative grid grid-cols-2 min-h-68 lg:min-h-108"
+              transition={{
+                delay: index * 0.15,
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="relative grid min-h-72 grid-cols-2 lg:min-h-120"
             >
               {/* LEFT cell */}
-              <div className="flex items-center justify-end pr-12 lg:pr-16">
+              <div className="flex items-center justify-end pr-12 lg:pr-20">
                 {step.side === "left" && (
-                  <div className="max-w-124 text-right">
-                    <h3 className="mb-4 text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3.05rem]">
+                  <div className="max-w-xs text-right lg:max-w-sm">
+                    <h3 className="mb-4 text-[2.4rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3rem]">
                       {step.title}
                     </h3>
-                    <p className="ml-auto max-w-100 text-[1.02rem] leading-relaxed text-movrr-text-inverse/55">
+                    <p className="ml-auto max-w-80 text-base leading-relaxed text-movrr-text-inverse/50">
                       {step.description}
                     </p>
                   </div>
                 )}
               </div>
 
-              {/* Dot on the line — rounded square per design spec */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="h-4.5 w-4.5 rounded-[4px] border border-movrr-success-strong bg-movrr-success-strong" />
+              {/* Dot on the line */}
+              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                <div className="h-4 w-4 rounded-[4px] bg-movrr-success-strong ring-2 ring-movrr-success/25 ring-offset-2 ring-offset-movrr-bg-primary" />
               </div>
 
               {/* RIGHT cell */}
-              <div className="flex items-center justify-start pl-12 lg:pl-16">
+              <div className="flex items-center justify-start pl-12 lg:pl-20">
                 {step.side === "right" && (
-                  <div className="max-w-124">
-                    <h3 className="mb-4 text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3.05rem]">
+                  <div className="max-w-xs lg:max-w-sm">
+                    <h3 className="mb-4 text-[2.4rem] font-semibold leading-[0.96] tracking-[-0.04em] text-movrr-text-inverse lg:text-[3rem]">
                       {step.title}
                     </h3>
-                    <p className="max-w-100 text-[1.02rem] leading-relaxed text-movrr-text-inverse/55">
+                    <p className="max-w-80 text-base leading-relaxed text-movrr-text-inverse/50">
                       {step.description}
                     </p>
                   </div>

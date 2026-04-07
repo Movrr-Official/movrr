@@ -30,10 +30,10 @@ const earnings = [
   {
     number: "03",
     label: "Campaign",
-    title: "Join a sponsored ride",
+    title: "Join a community ride",
     description:
-      "Participate in brand-sponsored routes or community rides. Higher campaign-specific rates for the duration of the event.",
-    note: "Invite or open enrolment",
+      "Join brand-sponsored routes or community rides organized by approved riders. Sponsored campaigns earn at elevated rates.",
+    note: "Brand-led or rider-led — invite or open enrolment",
     accentWidth: "w-24",
     headingSize: "text-[clamp(2.5rem,3.5vw,4rem)]",
     descSize: "text-base",

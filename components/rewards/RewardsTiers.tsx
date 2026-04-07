@@ -24,10 +24,10 @@ const tiers = [
   {
     number: "03",
     label: "Campaign",
-    title: "Sponsored rides",
+    title: "Community rides",
     description:
-      "Join a brand-sponsored route or community ride. Higher campaign rates, defined by the sponsoring brand.",
-    detail: "Campaign-specific reward rates",
+      "Join brand-sponsored routes or community rides organized by approved riders. Sponsored campaigns earn at elevated rates.",
+    detail: "Brand-sponsored or rider-organized",
     accentWidth: "w-24",
   },
 ];

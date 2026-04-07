@@ -33,7 +33,7 @@ export function Safety() {
       {/* ── Full-bleed image section ── */}
       <section
         id="safety"
-        className="relative min-h-[92vh] overflow-hidden border-t border-movrr-border-soft bg-movrr-bg-muted lg:min-h-[108vh]"
+        className="relative min-h-screen overflow-hidden border-t border-movrr-border-soft bg-movrr-bg-muted lg:min-h-[125vh]"
       >
         {/* Background image */}
         <div className="absolute inset-0">
@@ -45,13 +45,13 @@ export function Safety() {
             fetchPriority="high"
             quality={88}
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-linear-to-b from-movrr-bg-backdrop/10 via-transparent to-movrr-bg-backdrop/15" />
         </div>
 
         {/* Content overlay */}
-        <div className="relative z-10 flex min-h-[92vh] flex-col px-6 lg:min-h-screen lg:px-12">
+        <div className="relative z-10 flex min-h-screen flex-col px-6 lg:min-h-[125vh] lg:px-12">
           {/* Heading — centered, top */}
           <div className="mx-auto w-full max-w-3xl pb-20 pt-20 text-center lg:pb-28 lg:pt-28">
             <motion.h2

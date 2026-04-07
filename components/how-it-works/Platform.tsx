@@ -31,7 +31,7 @@ const pillars = [
     icon: SafeIcon,
     title: "Brand integrity",
     description:
-      "Every placement reviewed. Every campaign in context. Your brand is never alongside content you didn't approve.",
+      "Every rider carrying your brand has chosen to. Opt-in means no passive placements, no involuntary exposure — just people who actively chose to represent your campaign.",
   },
 ];
 

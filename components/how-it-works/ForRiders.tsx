@@ -68,7 +68,7 @@ export function ForRiders() {
               className="grid grid-cols-1 gap-6 py-14 lg:grid-cols-[9rem_1fr_minmax(0,26rem)] lg:items-center lg:gap-12 lg:py-18"
             >
               {/* Ghost number */}
-              <span className="text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-brand/5">
+              <span className="text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-brand/8">
                 {step.number}
               </span>
 

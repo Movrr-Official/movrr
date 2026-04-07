@@ -1,33 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { VerifiedIcon, BroadcastIcon, UrbanIcon } from "@/components/icons/MovrrIcons";
 
 const steps = [
   {
     number: "01",
-    icon: BroadcastIcon,
-    title: "Set your direction",
+    title: "Define your campaign",
     description:
-      "Define your audience, set your budget, shape your strategy. Everything up front, nothing hidden.",
+      "Set your target area, duration, and budget. Choose the rider profile that fits your audience.",
   },
   {
     number: "02",
-    icon: UrbanIcon,
-    title: "Go live",
+    title: "Riders opt in",
     description:
-      "Your campaign hits the streets. Riders earn. Your brand moves with them.",
+      "Cyclists in your target zone choose to carry your campaign. Opted-in, verified, in motion.",
   },
   {
     number: "03",
-    icon: VerifiedIcon,
-    title: "Watch it work",
+    title: "Track in real time",
     description:
-      "Live data. Real engagement. Verified outcomes. Refine on the fly.",
+      "Live dashboard. Verified kilometres, route data, impression estimates. Adjust as the campaign runs.",
   },
 ];
 
-export function ForBrands() {
+export function BrandsCampaign() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -41,12 +37,12 @@ export function ForBrands() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/35">
-              For brands
+              Campaign mechanics
             </p>
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-              Campaigns that
+              Set up.
               <br />
-              <span className="text-movrr-text-inverse/45">move with people.</span>
+              <span className="text-movrr-text-inverse/45">Hit the streets.</span>
             </h2>
           </motion.div>
           <motion.p
@@ -56,14 +52,14 @@ export function ForBrands() {
             transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="self-end text-base leading-relaxed text-movrr-text-inverse/50 lg:max-w-sm"
           >
-            Real-world reach. Verified engagement. An audience already in motion,
-            already paying attention.
+            From brief to live in days. Your campaign travels through the city
+            carried by cyclists who chose to represent your brand.
           </motion.p>
         </div>
 
         {/* Horizontal connected timeline */}
         <div className="relative">
-          {/* Connecting line — desktop only, runs through node centres */}
+          {/* Connecting line — desktop only */}
           <div className="absolute left-5 right-5 top-5 hidden h-px bg-movrr-text-inverse/10 lg:block" />
 
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3 lg:gap-10">
@@ -80,18 +76,15 @@ export function ForBrands() {
                 }}
                 className="flex flex-col"
               >
-                {/* Node circle — sits on the connecting line */}
+                {/* Node */}
                 <div className="relative mb-12 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-movrr-text-inverse/20 bg-movrr-bg-primary">
                   <span className="text-[0.6rem] font-semibold tabular-nums tracking-widest text-movrr-text-inverse/50">
                     {step.number}
                   </span>
                 </div>
 
-                {/* Icon */}
-                <step.icon
-                  className="mb-7 h-5 w-5 text-movrr-success-soft/50"
-                  strokeWidth={1.25}
-                />
+                {/* Accent line */}
+                <div className="mb-8 h-px w-8 bg-movrr-success/35" />
 
                 {/* Title */}
                 <h3 className="mb-5 text-[clamp(1.5rem,2vw,2rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-movrr-text-inverse">

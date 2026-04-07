@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const steps = [
   {
@@ -29,14 +28,15 @@ export function ForRiders() {
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
 
-        {/* Section header */}
-        <div className="mb-20 grid gap-12 lg:mb-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          >
+        {/* Section header — inline, single row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-20 flex flex-col gap-6 border-b border-movrr-border-soft pb-12 lg:mb-28 lg:flex-row lg:items-end lg:justify-between lg:gap-20"
+        >
+          <div>
             <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/50">
               For riders
             </p>
@@ -45,71 +45,46 @@ export function ForRiders() {
               <br />
               <span className="text-movrr-text-brand/40">Nothing else required.</span>
             </h2>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="self-end text-base leading-relaxed text-movrr-text-brand/55 lg:max-w-sm"
-          >
+          </div>
+          <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/55 lg:pb-1">
             Ride and earn. Opt in to brand campaigns to earn more.
             Your movement, your choice — nothing required beyond the ride.
-          </motion.p>
+          </p>
+        </motion.div>
+
+        {/* Full-width ghost-number steps */}
+        <div className="divide-y divide-movrr-border-soft">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="grid grid-cols-1 gap-6 py-14 lg:grid-cols-[9rem_1fr_minmax(0,26rem)] lg:items-center lg:gap-12 lg:py-18"
+            >
+              {/* Ghost number */}
+              <span className="text-[clamp(3.5rem,7vw,7rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-brand/5">
+                {step.number}
+              </span>
+
+              {/* Title */}
+              <h3 className="text-[clamp(1.75rem,2.5vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-movrr-text-brand">
+                {step.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-base leading-relaxed text-movrr-text-brand/50">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Image + Steps layout */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-5">
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative min-h-[55vw] overflow-hidden rounded-3xl border border-movrr-border-soft lg:min-h-full"
-          >
-            <Image
-              src="/app-preview-01.png"
-              alt="MOVRR rider in motion"
-              fill
-              quality={88}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/28 via-transparent to-transparent" />
-          </motion.div>
-
-          {/* Steps */}
-          <div className="flex flex-col divide-y divide-movrr-border-soft">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.65,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group flex flex-col gap-5 py-10 lg:py-12"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="text-[0.62rem] font-semibold tabular-nums tracking-widest text-movrr-text-brand/25">
-                    {step.number}
-                  </span>
-                  <div className="h-px w-8 bg-movrr-success/35" />
-                </div>
-                <h3 className="text-[clamp(1.5rem,2vw,2rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-movrr-text-brand">
-                  {step.title}
-                </h3>
-                <p className="text-base leading-relaxed text-movrr-text-brand/50">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

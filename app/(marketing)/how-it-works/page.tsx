@@ -21,7 +21,7 @@ export default function HowItWorksPage() {
       <ForBrands />
       <Platform />
       <HowItWorksCTA />
-      <Footer />
+      <Footer cta={false} />
     </main>
   );
 }

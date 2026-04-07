@@ -6,6 +6,10 @@ import { Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+interface FooterProps {
+  cta?: boolean; // Whether to show the CTA strip
+}
+
 const footerLinks = {
   platform: {
     title: "Platform",
@@ -53,51 +57,53 @@ const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/movrr", label: "Instagram" },
 ];
 
-export function Footer() {
+export function Footer({ cta = true }: FooterProps) {
   return (
     <footer
       id="contact"
       className="bg-movrr-bg-ink border-t border-movrr-text-inverse/10"
     >
       {/* CTA Strip */}
-      <div className="border-b border-movrr-text-inverse/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
-          >
-            <div>
-              <h3 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-                Ready to move with MOVRR?
-              </h3>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
-                The streets are waiting.
-              </p>
-            </div>
-            <div className="flex shrink-0 flex-wrap gap-3">
-              <Button
-                className="group h-12 rounded-lg border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
-                asChild
-              >
-                <Link href="#get-started">
-                  Start earning
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
-                asChild
-              >
-                <Link href="#contact">Talk to sales</Link>
-              </Button>
-            </div>
-          </motion.div>
+      {cta && (
+        <div className="border-b border-movrr-text-inverse/10">
+          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+            >
+              <div>
+                <h3 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
+                  Ready to move with MOVRR?
+                </h3>
+                <p className="mt-4 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
+                  The streets are waiting.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <Button
+                  className="group h-12 rounded-lg border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
+                  asChild
+                >
+                  <Link href="#get-started">
+                    Start earning
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                  asChild
+                >
+                  <Link href="#contact">Talk to sales</Link>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Footer Content */}
       <div className="px-6 lg:px-12 pt-14 pb-9 lg:pt-16">

@@ -33,7 +33,8 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-400 ${
+        style={{ top: "var(--movrr-banner-height, 0px)" }}
+        className={`fixed inset-x-0 z-50 transition-all duration-400 ${
           isScrolled ? "pt-3 lg:pt-4" : "pt-0"
         }`}
       >

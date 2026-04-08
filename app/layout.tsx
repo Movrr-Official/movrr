@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { EarlyAccessBanner } from "@/components/early-access/EarlyAccessBanner";
+import { CookieConsentManager } from "@/components/consent/CookieConsentManager";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -56,7 +58,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={manrope.variable} data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
+        <EarlyAccessBanner audience="riders" placement="fixed-top" />
         {children}
+        <CookieConsentManager />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>

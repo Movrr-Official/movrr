@@ -8,6 +8,9 @@ out/
 # Vercel
 .vercel/
 
+# claude
+.claude/
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts

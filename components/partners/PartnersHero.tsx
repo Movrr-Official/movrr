@@ -45,6 +45,7 @@ export function PartnersHero() {
           src="/app-preview-01.png"
           alt="MOVRR platform"
           fill
+          sizes="100vw"
           className="object-cover object-top"
           priority
         />

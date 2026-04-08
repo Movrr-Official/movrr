@@ -58,6 +58,7 @@ export function BlogFeatured() {
               src="/app-preview-01.png"
               alt={featured.title}
               fill
+              sizes="100vw"
               className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </div>
@@ -109,6 +110,7 @@ export function BlogFeatured() {
                   src="/app-preview-01.png"
                   alt={post.title}
                   fill
+                  sizes="(min-width: 640px) 33vw, 100vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>

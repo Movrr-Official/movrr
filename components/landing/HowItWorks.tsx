@@ -57,7 +57,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="border-y border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-48"
+      className="relative border-y border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-48"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section header */}
@@ -92,7 +92,7 @@ export function HowItWorks() {
 
           {steps.map((step, index) => (
             <motion.div
-              key={step.number}
+              key={`${step.number}-${step.label}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

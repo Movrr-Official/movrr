@@ -15,7 +15,7 @@ const footerLinks = {
     title: "Platform",
     links: [
       { label: "How it works", href: "/how-it-works" },
-      { label: "Rewards", href: "/#rewards" },
+      { label: "Rewards", href: "/rewards" },
       { label: "Brands", href: "/brands" },
       { label: "Riders", href: "/riders" },
     ],
@@ -33,7 +33,7 @@ const footerLinks = {
     title: "Resources",
     links: [
       { label: "Help center", href: "/help" },
-      { label: "Documentation", href: "/docs" },
+      { label: "Blog", href: "/blog" },
       { label: "Partners", href: "/partners" },
     ],
   },

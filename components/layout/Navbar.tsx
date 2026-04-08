@@ -14,7 +14,7 @@ const navItems = [
   { label: "Riders", href: "/riders" },
 ];
 
-export function Navbar() {
+export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -48,7 +48,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src={
-                  isScrolled
+                  isScrolled || variant === "light"
                     ? "/logo/icon-no-bg-green.png"
                     : "/logo/icon-no-bg-white.png"
                 }
@@ -59,7 +59,13 @@ export function Navbar() {
                 className="h-[1.7rem] w-[1.7rem] object-contain lg:h-[1.9rem] lg:w-[1.9rem]"
               />
               <span
-                className={`text-[1.02rem] font-semibold tracking-[-0.03em] ${isScrolled ? "text-movrr-green-text" : "text-movrr-text-inverse"}`}
+                className={`text-[1.02rem] font-semibold tracking-[-0.03em] ${
+                  isScrolled
+                    ? "text-movrr-green-text"
+                    : variant === "light"
+                      ? "text-movrr-text-brand"
+                      : "text-movrr-text-inverse"
+                }`}
               >
                 MOVRR
               </span>
@@ -73,7 +79,9 @@ export function Navbar() {
                   className={`rounded-full px-3.5 py-2 text-[0.92rem] font-medium tracking-[-0.01em] transition-all duration-300 ${
                     isScrolled
                       ? "text-movrr-green-text hover:bg-movrr-green-text/8"
-                      : "text-movrr-text-inverse/68 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
+                      : variant === "light"
+                        ? "text-movrr-text-brand/60 hover:bg-movrr-text-brand/6 hover:text-movrr-text-brand"
+                        : "text-movrr-text-inverse/68 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
                   }`}
                 >
                   {item.label}
@@ -88,7 +96,9 @@ export function Navbar() {
                 className={`h-10 rounded-xl px-4 text-sm font-medium transition-all duration-300 ${
                   isScrolled
                     ? "text-movrr-green-text hover:bg-movrr-green-text/8 hover:text-movrr-green-text"
-                    : "text-movrr-text-inverse/76 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
+                    : variant === "light"
+                      ? "text-movrr-text-brand/60 hover:bg-movrr-text-brand/6 hover:text-movrr-text-brand"
+                      : "text-movrr-text-inverse/76 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
                 }`}
                 asChild
               >
@@ -96,7 +106,11 @@ export function Navbar() {
               </Button>
               <Button
                 size="sm"
-                className="h-10 rounded-xl border border-movrr-text-inverse/24 bg-movrr-bg-glass px-5 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
+                className={`h-10 rounded-xl px-5 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated ${
+                  !isScrolled && variant === "light"
+                    ? "border border-movrr-text-brand/20 bg-transparent"
+                    : "border border-movrr-text-inverse/24 bg-movrr-bg-glass"
+                }`}
                 asChild
               >
                 <Link href="#get-started">Get started</Link>
@@ -105,7 +119,11 @@ export function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2.5 text-movrr-text-inverse transition-colors hover:bg-movrr-text-inverse/10 lg:hidden"
+              className={`p-2.5 transition-colors lg:hidden ${
+                !isScrolled && variant === "light"
+                  ? "text-movrr-text-brand hover:bg-movrr-text-brand/8"
+                  : "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+              }`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (

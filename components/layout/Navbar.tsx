@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MenuToggle } from "@/components/layout/MenuToggle";
 
 const navItems = [
   { label: "How it works", href: "/how-it-works" },
@@ -53,11 +53,11 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
           <nav
             className={`flex items-center justify-between overflow-hidden rounded-3xl border transition-all duration-400 ${
               isScrolled
-                ? "h-15 border-movrr-text-inverse/12 bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-17 lg:px-4"
+                ? `h-15 ${isMobileMenuOpen ? "max-lg:border-transparent max-lg:shadow-none" : "border-movrr-text-inverse/12"} bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-17 lg:border-movrr-text-inverse/12 lg:shadow-sm lg:px-4`
                 : "h-16 border-transparent bg-transparent px-0 shadow-none backdrop-blur-none lg:h-20"
             }`}
           >
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
               <Image
                 src={
                   !isMobileMenuOpen && (isScrolled || variant === "light")
@@ -132,41 +132,24 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             </div>
 
             {/* Hamburger / close — mobile only */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2.5 transition-colors lg:hidden ${
-                isMobileMenuOpen || (!isScrolled && variant !== "light")
-                  ? "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
-                  : "text-movrr-text-brand hover:bg-movrr-text-brand/8"
-              }`}
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            <motion.div
+              animate={isMobileMenuOpen ? "opened" : "closed"}
+              initial={false}
+              className="lg:hidden"
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {isMobileMenuOpen ? (
-                  <motion.span
-                    key="close"
-                    initial={{ opacity: 0, rotate: -45 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: 45 }}
-                    transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                    className="block"
-                  >
-                    <X className="h-5 w-5" />
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="open"
-                    initial={{ opacity: 0, rotate: 45 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: -45 }}
-                    transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                    className="block"
-                  >
-                    <Menu className="h-5 w-5" />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
+              <MenuToggle
+                toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`p-2.5 transition-colors ${
+                  isMobileMenuOpen
+                    ? "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                    : isScrolled
+                      ? "text-movrr-green-text hover:bg-movrr-green-text/8"
+                      : variant === "light"
+                        ? "text-movrr-text-brand hover:bg-movrr-text-brand/8"
+                        : "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                }`}
+              />
+            </motion.div>
           </nav>
         </div>
       </motion.header>

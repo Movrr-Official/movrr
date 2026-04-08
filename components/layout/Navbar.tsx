@@ -22,10 +22,21 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll while mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -49,7 +60,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src={
-                  isScrolled || variant === "light"
+                  !isMobileMenuOpen && (isScrolled || variant === "light")
                     ? "/logo/icon-no-bg-green.png"
                     : "/logo/icon-no-bg-white.png"
                 }
@@ -61,11 +72,13 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
               />
               <span
                 className={`text-[1.02rem] font-semibold tracking-[-0.03em] ${
-                  isScrolled
-                    ? "text-movrr-green-text"
-                    : variant === "light"
-                      ? "text-movrr-text-brand"
-                      : "text-movrr-text-inverse"
+                  isMobileMenuOpen
+                    ? "text-movrr-text-inverse"
+                    : isScrolled
+                      ? "text-movrr-green-text"
+                      : variant === "light"
+                        ? "text-movrr-text-brand"
+                        : "text-movrr-text-inverse"
                 }`}
               >
                 MOVRR
@@ -118,67 +131,116 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
               </Button>
             </div>
 
+            {/* Hamburger / close — mobile only */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2.5 transition-colors lg:hidden ${
-                !isScrolled && variant === "light"
-                  ? "text-movrr-text-brand hover:bg-movrr-text-brand/8"
-                  : "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                isMobileMenuOpen || (!isScrolled && variant !== "light")
+                  ? "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                  : "text-movrr-text-brand hover:bg-movrr-text-brand/8"
               }`}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
-              {isMobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              <AnimatePresence mode="wait" initial={false}>
+                {isMobileMenuOpen ? (
+                  <motion.span
+                    key="close"
+                    initial={{ opacity: 0, rotate: -45 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 45 }}
+                    transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                    className="block"
+                  >
+                    <X className="h-5 w-5" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="open"
+                    initial={{ opacity: 0, rotate: 45 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: -45 }}
+                    transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                    className="block"
+                  >
+                    <Menu className="h-5 w-5" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
           </nav>
         </div>
       </motion.header>
 
+      {/* Full-screen mobile menu — beneath the navbar (z-40) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-18 z-40 px-4 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 flex flex-col bg-movrr-bg-primary lg:hidden"
           >
             <div
-              className="absolute inset-0 h-screen bg-movrr-bg-backdrop/20"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <nav className="relative overflow-hidden rounded-[1.75rem] border border-movrr-text-inverse/10 bg-movrr-bg-secondary/96 shadow-lg backdrop-blur-xl">
-              <div className="space-y-1 px-5 py-5">
-                {navItems.map((item) => (
-                  <Link
+              className="flex h-full flex-col px-8"
+              style={{
+                paddingTop: "calc(var(--movrr-banner-height, 0px) + 5.5rem)",
+                paddingBottom: "env(safe-area-inset-bottom, 0px)",
+              }}
+            >
+              {/* Primary nav links — editorial scale */}
+              <nav className="flex flex-1 flex-col justify-center gap-0">
+                {navItems.map((item, index) => (
+                  <motion.div
                     key={item.href}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block rounded-2xl px-4 py-3 text-movrr-text-inverse/82 transition-colors hover:bg-movrr-text-inverse/5 hover:text-movrr-text-inverse"
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 22 }}
+                    transition={{
+                      delay: 0.05 + index * 0.055,
+                      duration: 0.5,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block py-3 text-[clamp(2.2rem,11vw,3.8rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-inverse/75 transition-colors duration-150 hover:text-movrr-text-inverse active:opacity-40"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
                 ))}
-                <div className="space-y-2 border-t border-movrr-text-inverse/10 pt-4">
-                  <Button
-                    variant="outline"
-                    className="w-full rounded-full border-movrr-text-inverse/20 bg-transparent text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
-                    asChild
-                  >
-                    <Link href="https://app.movrr.nl/auth/signin">Sign In</Link>
-                  </Button>
-                  <Button
-                    className="w-full rounded-xl bg-movrr-bg-surface text-movrr-text-brand hover:bg-movrr-bg-surface/90"
-                    asChild
-                  >
-                    <Link href="#get-started">Get started</Link>
-                  </Button>
-                </div>
-              </div>
-            </nav>
+              </nav>
+
+              {/* Bottom strip — Sign in + Get started */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  delay: 0.28,
+                  duration: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="flex items-center gap-4 border-t border-movrr-text-inverse/10 py-8"
+              >
+                <Link
+                  href="https://app.movrr.nl/auth/signin"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-movrr-text-inverse/40 transition-opacity duration-150 hover:opacity-70"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  href="#get-started"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="ml-auto inline-flex items-center rounded-full border border-movrr-text-inverse/20 px-5 py-2.5 text-sm font-semibold text-movrr-text-inverse transition-colors duration-150 hover:bg-movrr-text-inverse/10"
+                >
+                  Get started
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

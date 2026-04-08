@@ -10,7 +10,7 @@ const topics = [
     faqs: [
       {
         q: "What is MOVRR?",
-        a: "MOVRR is a movement-based rewards platform. You earn rewards every time you ride — by bike, scooter, or on foot — within supported city zones. Brands fund the rewards in exchange for verified reach among active urban commuters.",
+        a: "MOVRR is a movement-based rewards platform. You earn rewards every time you ride, by bike, scooter, or on foot, within supported city zones. Brands fund the rewards in exchange for verified reach among active urban commuters.",
       },
       {
         q: "How do I join MOVRR?",
@@ -27,7 +27,7 @@ const topics = [
     faqs: [
       {
         q: "How are rewards calculated?",
-        a: "Rewards are earned per verified kilometre. The base rate applies to all eligible movement. Sponsored campaigns — when an active brand campaign covers your route zone — pay at an elevated rate. Community rides organised by approved riders may also carry a premium.",
+        a: "Rewards are earned per verified kilometre. The base rate applies to all eligible movement. Sponsored campaigns, when an active brand campaign covers your route zone, pay at an elevated rate. Community rides organised by approved riders may also carry a premium.",
       },
       {
         q: "What counts as a verified kilometre?",
@@ -65,7 +65,7 @@ const topics = [
     faqs: [
       {
         q: "What data does MOVRR collect?",
-        a: "We collect movement data (GPS traces), account information, and interaction data necessary to verify rides and calculate rewards. Movement data is processed in aggregate for brand reporting — individual location histories are never shared with brands. See our Privacy Policy for the full picture.",
+        a: "We collect movement data (GPS traces), account information, and interaction data necessary to verify rides and calculate rewards. Movement data is processed in aggregate for brand reporting. Individual location histories are never shared with brands. See our Privacy Policy for the full picture.",
       },
       {
         q: "Can I delete my account?",
@@ -82,7 +82,7 @@ const topics = [
     faqs: [
       {
         q: "How does MOVRR work for brands?",
-        a: "Brands fund reward campaigns tied to specific routes, zones, or behaviours. When a rider earns rewards under your campaign, you pay per verified engagement — not impressions. Every interaction is backed by real movement data. Visit the Brands page or contact us at brands@movrr.nl to learn more.",
+        a: "Brands fund reward campaigns tied to specific routes, zones, or behaviours. When a rider earns rewards under your campaign, you pay per verified engagement, not impressions. Every interaction is backed by real movement data. Visit the Brands page or contact us at brands@movrr.nl to learn more.",
       },
       {
         q: "What reporting do brands receive?",

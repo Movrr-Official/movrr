@@ -13,7 +13,7 @@ const steps = [
     number: "02",
     title: "Opt in to earn more",
     description:
-      "Choose to carry a brand on your bike. Entirely optional — but when you do, rewards stack. Your movement, your call.",
+      "Choose to carry a brand on your bike. Entirely optional, but when you do, rewards stack. Your movement, your call.",
   },
   {
     number: "03",
@@ -46,7 +46,7 @@ export function ForRiders() {
           </div>
           <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/55 lg:pb-1">
             Ride and earn. Opt in to brand campaigns to earn more. Your
-            movement, your choice — nothing required beyond the ride.
+            movement, your choice. Nothing required beyond the ride.
           </p>
         </motion.div>
 

@@ -7,7 +7,7 @@ const featured = {
   index: "01",
   title: "Mobility platforms",
   description:
-    "Bike-share, e-scooter, and multimodal apps can integrate MOVRR's reward layer to add earning to every trip — without building the verification or brand infrastructure themselves.",
+    "Bike-share, e-scooter, and multimodal apps can integrate MOVRR's reward layer to add earning to every trip, without building the verification or brand infrastructure themselves.",
   fit: "API integration",
   cta: "Explore the API",
   href: "mailto:partners@movrr.nl",
@@ -27,7 +27,7 @@ const supporting = [
     index: "03",
     title: "Fitness and health platforms",
     description:
-      "Apps that already track movement can surface MOVRR rewards for their users — turning workouts into earnings without disrupting the core product experience.",
+      "Apps that already track movement can surface MOVRR rewards for their users, turning workouts into earnings without disrupting the core product experience.",
     fit: "SDK + rewards",
     cta: "Request access",
     href: "mailto:partners@movrr.nl",

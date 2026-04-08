@@ -51,7 +51,7 @@ export function AboutModel() {
             </p>
             <p className="max-w-sm text-base leading-[1.8] text-movrr-text-brand/60">
               Every verified kilometre earns. Carry a brand to earn more,
-              or don't — the base rate is always there. Your route, your
+              or don't, the base rate is always there. Your route, your
               pace, your call.
             </p>
             <Link

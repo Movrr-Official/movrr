@@ -21,7 +21,7 @@ const earnings = [
     title: "Carry a brand",
     description:
       "Choose to carry a brand campaign on your bike. Your reward rate increases for every verified kilometre you ride with it.",
-    note: "Optional — always your choice",
+    note: "Optional: always your choice",
     accentWidth: "w-16",
     headingSize: "text-[clamp(2rem,3vw,3.25rem)]",
     descSize: "text-base",
@@ -33,7 +33,7 @@ const earnings = [
     title: "Join a community ride",
     description:
       "Join brand-sponsored routes or community rides organized by approved riders. Sponsored campaigns earn at elevated rates.",
-    note: "Brand-led or rider-led — invite or open enrolment",
+    note: "Brand-led or rider-led: invite or open enrolment",
     accentWidth: "w-24",
     headingSize: "text-[clamp(2.5rem,3.5vw,4rem)]",
     descSize: "text-base",

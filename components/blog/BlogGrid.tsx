@@ -19,7 +19,7 @@ const posts = [
     readTime: "5 min read",
     title: "Building a reward system that can't be gamed",
     excerpt:
-      "Verifying movement sounds simple. Making it resistant to manipulation — without punishing legitimate riders — took longer than we expected.",
+      "Verifying movement sounds simple. Making it resistant to manipulation, without punishing legitimate riders, took longer than we expected.",
   },
   {
     category: "Brands",
@@ -33,7 +33,7 @@ const posts = [
     category: "Cities",
     date: "10 Dec 2024",
     readTime: "4 min read",
-    title: "One verification layer for every mode — how we made that work",
+    title: "One verification layer for every mode: how we made that work",
     excerpt:
       "Bikes, e-scooters, walking. Every city has a different mix. Building a single verification layer for all of them forced us to think differently.",
   },
@@ -41,7 +41,7 @@ const posts = [
     category: "Product",
     date: "27 Nov 2024",
     readTime: "6 min read",
-    title: "The decisions we locked in before launch — and why they still hold",
+    title: "The decisions we locked in before launch, and why they still hold",
     excerpt:
       "Some architectural choices are boring to explain and expensive to undo. Here are the ones we locked in before launch.",
   },
@@ -49,7 +49,7 @@ const posts = [
     category: "Community",
     date: "14 Nov 2024",
     readTime: "3 min read",
-    title: "Why we built an application process for ride leaders — not an algorithm",
+    title: "Why we built an application process for ride leaders. Not an algorithm.",
     excerpt:
       "Community rides need organisers. Choosing them by criteria, not engagement score, changes who steps up.",
   },

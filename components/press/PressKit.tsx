@@ -16,7 +16,7 @@ const assets = [
   },
   {
     label: "Press photography",
-    description: "Founders, product, and lifestyle — print ready",
+    description: "Founders, product, and lifestyle. Print ready.",
     file: "movrr-photography.zip",
   },
   {
@@ -60,7 +60,7 @@ export function PressKit() {
               transition={{ delay: 0.18, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xs text-sm leading-relaxed text-movrr-text-inverse/45"
             >
-              Logos, screenshots, photography, and brand guidelines — ready to use under standard press licence.
+              Logos, screenshots, photography, and brand guidelines, ready to use under standard press licence.
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}

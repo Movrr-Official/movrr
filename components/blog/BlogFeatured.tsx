@@ -19,14 +19,14 @@ const secondary = [
     category: "Cities",
     date: "28 Feb 2025",
     readTime: "4 min read",
-    title: "What Dublin taught us about building for people who cycle — not people who identify as cyclists",
+    title: "What Dublin taught us about building for people who cycle. Not people who identify as cyclists.",
     href: "#",
   },
   {
     category: "Platform",
     date: "14 Feb 2025",
     readTime: "5 min read",
-    title: "How we verify a kilometre — and why the answer isn't GPS alone",
+    title: "How we verify a kilometre, and why the answer isn't GPS alone",
     href: "#",
   },
   {

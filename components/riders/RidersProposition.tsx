@@ -12,13 +12,13 @@ const props = [
     icon: VerifiedIcon,
     title: "Verified, not estimated",
     description:
-      "Every ride authenticated. Your rewards are tied to real, verified kilometres — not guesses.",
+      "Every ride authenticated. Your rewards are tied to real, verified kilometres. Not guesses.",
   },
   {
     icon: SafeIcon,
     title: "Your choice, always",
     description:
-      "Carrying a brand is entirely your call — activate it when you want, ride without it when you don't.",
+      "Carrying a brand is entirely your call. Activate it when you want, ride without it when you don't.",
   },
   {
     icon: PrivacyIcon,

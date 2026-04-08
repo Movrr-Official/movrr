@@ -19,7 +19,7 @@ export function PartnersContact() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-8 max-w-sm text-base leading-relaxed text-movrr-text-inverse/40"
               >
-                We're selective about partnerships — we'd rather build fewer, deeper integrations than maintain a long list of shallow ones. If the fit seems right, we'll move quickly.
+                We're selective about partnerships. We'd rather build fewer, deeper integrations than maintain a long list of shallow ones. If the fit seems right, we'll move quickly.
               </motion.p>
               <motion.a
                 href="mailto:partners@movrr.nl"
@@ -45,7 +45,7 @@ export function PartnersContact() {
             {[
               { step: "01", text: "Send us a note with your platform, use case, and rough scale." },
               { step: "02", text: "We'll respond within two business days. If there's a fit, we'll schedule a 30-minute call." },
-              { step: "03", text: "Technical and commercial terms discussed in parallel — no long procurement cycles." },
+              { step: "03", text: "Technical and commercial terms discussed in parallel, with no long procurement cycles." },
               { step: "04", text: "Integration scoped, agreed, and live. We move fast once alignment is there." },
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-6 py-7">

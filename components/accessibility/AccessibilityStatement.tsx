@@ -30,7 +30,7 @@ export function AccessibilityStatement() {
               Conformance target
             </p>
             <p className="max-w-xs text-sm leading-relaxed text-movrr-text-inverse/50">
-              WCAG 2.1 Level AA. Ongoing — not a one-time audit.
+              WCAG 2.1 Level AA. Ongoing. Not a one-time audit.
             </p>
           </motion.div>
         </div>

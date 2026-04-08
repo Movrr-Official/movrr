@@ -7,7 +7,7 @@ const coverage = [
   {
     outlet: "TechCrunch",
     date: "Mar 2025",
-    headline: "MOVRR wants to turn every bike ride into a brand touchpoint — without the noise",
+    headline: "MOVRR wants to turn every bike ride into a brand touchpoint. Without the noise.",
     type: "Feature",
     href: "#",
   },

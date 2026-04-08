@@ -27,7 +27,7 @@ export function PartnersHero() {
             className="max-w-xs pb-1 text-base leading-relaxed text-movrr-text-inverse/45 lg:text-right"
           >
             MOVRR is the infrastructure beneath verified urban movement. If
-            your platform touches how people move through cities — we should
+            your platform touches how people move through cities, we should
             talk.
           </motion.p>
         </div>

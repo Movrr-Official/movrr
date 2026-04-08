@@ -31,7 +31,7 @@ const categories: (Category | RequiredCategory)[] = [
     key: "analytics",
     label: "Performance & analytics",
     description:
-      "Help us understand how visitors interact with the website — which pages are visited most and where people navigate from. All data is aggregated and anonymised.",
+      "Help us understand how visitors interact with the website, which pages are visited most and where people navigate from. All data is aggregated and anonymised.",
   },
   {
     key: "marketing",

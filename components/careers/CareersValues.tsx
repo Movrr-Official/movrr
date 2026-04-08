@@ -6,12 +6,12 @@ const values = [
   {
     title: "Work that's real.",
     description:
-      "The platform verifies movement. The rewards are earned. The reach is authentic. We hold ourselves to the same standard — no theatre, no vague roadmaps.",
+      "The platform verifies movement. The rewards are earned. The reach is authentic. We hold ourselves to the same standard: no theatre, no vague roadmaps.",
   },
   {
     title: "Build it once, build it right.",
     description:
-      "We're not optimising for the demo. We're building infrastructure for how cities move — which means we take the unglamorous work as seriously as the visible work.",
+      "We're not optimising for the demo. We're building infrastructure for how cities move, which means we take the unglamorous work as seriously as the visible work.",
   },
   {
     title: "Small team, full ownership.",

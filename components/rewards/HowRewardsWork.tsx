@@ -19,7 +19,7 @@ const mechanics = [
     number: "03",
     title: "Carry a brand, earn more",
     description:
-      "Opt in to carry a brand campaign on your bike. Entirely your choice — but when you do, every kilometre earns more.",
+      "Opt in to carry a brand campaign on your bike. Entirely your choice, but when you do, every kilometre earns more.",
   },
 ];
 
@@ -55,7 +55,7 @@ export function HowRewardsWork() {
             className="self-end text-base leading-relaxed text-movrr-text-brand/55 lg:max-w-sm"
           >
             Rewards are tied directly to verified movement. The more you ride,
-            the more you earn — with or without a brand.
+            the more you earn, with or without a brand.
           </motion.p>
         </div>
 

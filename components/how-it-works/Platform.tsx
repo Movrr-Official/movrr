@@ -26,7 +26,7 @@ const supporting = [
     number: "04",
     title: "Brand integrity",
     description:
-      "Every rider carrying your brand has chosen to. Opt-in means no passive placements — just people who actively chose to represent your campaign.",
+      "Every rider carrying your brand has chosen to. Opt-in means no passive placements. Just people who actively chose to represent your campaign.",
   },
 ];
 

@@ -10,7 +10,7 @@ const paths = [
     index: "01",
     heading: "Run a campaign with MOVRR",
     description:
-      "Running a campaign or planning one — the team handles brand enquiries directly. Reach, pricing, and campaign structure covered in a single conversation.",
+      "Running a campaign or planning one, the team handles brand enquiries directly. Reach, pricing, and campaign structure covered in a single conversation.",
     channel: "hello@movrr.nl",
     action: "Send a message",
     href: "mailto:hello@movrr.nl",
@@ -21,7 +21,7 @@ const paths = [
     index: "02",
     heading: "Rider support",
     description:
-      "Earnings queries, verification questions, campaign issues — the support team handles all of it, directly.",
+      "Earnings queries, verification questions, campaign issues: the support team handles all of it, directly.",
     channel: "support@movrr.nl",
     action: "Contact support",
     href: "mailto:support@movrr.nl",

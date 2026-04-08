@@ -25,8 +25,7 @@ export function AccessibilityContact() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl text-base leading-relaxed text-movrr-text-inverse/45"
           >
-            If something on the platform creates a barrier — a missing label,
-            a navigation issue, a contrast problem — we want to know. Reports
+            If something on the platform creates a barrier, a missing label, a navigation issue, a contrast problem. We want to know. Reports
             go directly to the team and are prioritised above routine work.
           </motion.p>
         </div>

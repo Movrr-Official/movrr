@@ -6,12 +6,12 @@ const beliefs = [
   {
     statement: "Movement earns.\u2028It always did.",
     elaboration:
-      "We made that earning real — verifiable, and tied to every verified kilometre.",
+      "We made that earning real, verifiable, and tied to every verified kilometre.",
   },
   {
     statement: "Advertising works when people choose it.",
     elaboration:
-      "Every cyclist carrying a brand campaign made that choice. No passive exposure, no assumed attention — just opted-in reach.",
+      "Every cyclist carrying a brand campaign made that choice. No passive exposure, no assumed attention. Just opted-in reach.",
   },
   {
     statement: "Every metric is real.",

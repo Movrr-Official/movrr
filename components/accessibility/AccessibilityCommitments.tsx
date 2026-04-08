@@ -7,7 +7,7 @@ const commitments = [
     id: "01",
     title: "Keyboard navigation",
     description:
-      "Every page and feature in the platform is fully navigable using only a keyboard. No mouse required — not for browsing, not for completing a ride, not for redeeming rewards.",
+      "Every page and feature in the platform is fully navigable using only a keyboard. No mouse required. Not for browsing, not for completing a ride, not for redeeming rewards.",
   },
   {
     id: "02",
@@ -19,7 +19,7 @@ const commitments = [
     id: "03",
     title: "Colour contrast",
     description:
-      "All text elements meet WCAG AA minimum contrast ratios. Informational UI — status indicators, reward tiers, campaign states — meets AAA. Contrast is checked at every design review.",
+      "All text elements meet WCAG AA minimum contrast ratios. Informational UI, including status indicators, reward tiers, and campaign states, meets AAA. Contrast is checked at every design review.",
   },
   {
     id: "04",

@@ -24,7 +24,7 @@ const steps = [
     label: "Riders",
     title: "Opt in, earn more",
     description:
-      "Choose to carry brand campaigns on your rides. Entirely optional — but when you do, rewards stack.",
+      "Choose to carry brand campaigns on your rides. Entirely optional, but when you do, rewards stack.",
     side: "left",
   },
   {

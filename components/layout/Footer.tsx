@@ -170,13 +170,13 @@ export function Footer({ cta = true }: FooterProps) {
           </p>
           <div className="flex items-center gap-5">
             <Link
-              href="#accessibility"
+              href="/accessibility"
               className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
             >
               Accessibility
             </Link>
             <Link
-              href="#sitemap"
+              href="/sitemap-page"
               className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
             >
               Sitemap

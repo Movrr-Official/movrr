@@ -10,7 +10,7 @@ const paths = [
     index: "01",
     heading: "Run a campaign with MOVRR",
     description:
-      "Interested in reaching opted-in, urban cyclists through physical movement? Talk to the team about reach, cost, and campaign structure.",
+      "Running a campaign or planning one — the team handles brand enquiries directly. Reach, pricing, and campaign structure covered in a single conversation.",
     channel: "hello@movrr.nl",
     action: "Send a message",
     href: "mailto:hello@movrr.nl",
@@ -21,7 +21,7 @@ const paths = [
     index: "02",
     heading: "Rider support",
     description:
-      "Questions about your earnings, verified rides, or brand campaigns? Reach the support team directly.",
+      "Earnings queries, verification questions, campaign issues — the support team handles all of it, directly.",
     channel: "support@movrr.nl",
     action: "Contact support",
     href: "mailto:support@movrr.nl",
@@ -32,7 +32,7 @@ const paths = [
     index: "03",
     heading: "Press enquiries",
     description:
-      "Working on a story about MOVRR, movement-based advertising, or urban mobility rewards? We'd like to hear from you.",
+      "Covering MOVRR, movement-based advertising, or urban mobility? The press team responds quickly and the kit is ready.",
     channel: "press@movrr.nl",
     action: "Email press",
     href: "mailto:press@movrr.nl",

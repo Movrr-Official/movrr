@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const facts = [
   { label: "Founded", value: "2024" },
   { label: "Headquartered", value: "Dublin, Ireland" },
-  { label: "Platform type", value: "Movement-based rewards" },
-  { label: "Markets", value: "Europe (launching)" },
+  { label: "Category", value: "Movement-based rewards" },
+  { label: "Markets", value: "Europe — launching" },
 ];
 
 export function PressHeader() {

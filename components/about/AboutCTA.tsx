@@ -35,15 +35,6 @@ export function AboutCTA() {
           >
             Where to next?
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 text-base text-movrr-text-inverse/40"
-          >
-            Find your place on the platform.
-          </motion.p>
         </div>
 
         {/* Full-width link rows — not buttons */}

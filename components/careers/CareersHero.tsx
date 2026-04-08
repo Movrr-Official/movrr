@@ -27,9 +27,8 @@ export function CareersHero() {
             transition={{ delay: 0.28, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs pb-2 text-sm leading-relaxed text-movrr-text-brand/45 lg:text-right"
           >
-            MOVRR is early — which means the decisions made now shape what
-            this becomes. We're looking for people who want to build something
-            that lasts, not just ship.
+            MOVRR is early — the decisions made now shape what MOVRR becomes.
+            We're looking for people who take the long view.
           </motion.p>
         </div>
 

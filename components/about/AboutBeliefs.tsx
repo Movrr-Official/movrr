@@ -6,7 +6,7 @@ const beliefs = [
   {
     statement: "Movement earns.\u2028It always did.",
     elaboration:
-      "We made that earning real — verifiable, and tied to every kilometre of authenticated distance.",
+      "We made that earning real — verifiable, and tied to every verified kilometre.",
   },
   {
     statement: "Advertising works when people choose it.",
@@ -51,7 +51,7 @@ export function AboutBeliefs() {
               }}
               className="py-14 lg:py-18"
             >
-              <h3 className="whitespace-pre-line text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[1.0] tracking-[-0.04em] text-movrr-text-inverse">
+              <h3 className="whitespace-pre-line text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-inverse">
                 {belief.statement}
               </h3>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-movrr-text-inverse/50">

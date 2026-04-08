@@ -64,7 +64,7 @@ export function PressGrid() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-sm text-movrr-text-brand/40"
           >
-            Recent press and mentions
+            Selected coverage
           </motion.p>
         </div>
 

@@ -30,7 +30,7 @@ export function AboutOrigin() {
           Cities are full of people on the move. Cyclists cutting through
           traffic, covering urban routes, every day. We saw what advertising
           had missed: an audience already in motion, already present —
-          with no real reason to engage with what they were passing.
+          with no reason to engage with the advertising they were passing.
           MOVRR is built on one insight: reward the journey, and the reach
           takes care of itself. Not by placing ads in front of people.
           By becoming part of the ride itself.

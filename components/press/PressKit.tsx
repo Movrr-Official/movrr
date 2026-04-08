@@ -62,16 +62,23 @@ export function PressKit() {
             >
               Logos, screenshots, photography, and brand guidelines — ready to use under standard press licence.
             </motion.p>
-            <motion.a
-              href="mailto:press@movrr.nl"
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-8 inline-block text-sm font-medium text-movrr-text-inverse/50 underline underline-offset-2 transition-opacity duration-150 hover:opacity-100"
+              className="mt-8 flex flex-col gap-1"
             >
-              Request a briefing → press@movrr.nl
-            </motion.a>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/30">
+                Briefings on request
+              </p>
+              <a
+                href="mailto:press@movrr.nl"
+                className="text-sm font-medium text-movrr-text-inverse/50 underline underline-offset-2 transition-opacity duration-150 hover:opacity-100"
+              >
+                press@movrr.nl
+              </a>
+            </motion.div>
           </div>
 
           {/* Right — download rows */}

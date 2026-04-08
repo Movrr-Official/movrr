@@ -25,8 +25,8 @@ export function ContactHeader() {
             transition={{ delay: 0.28, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs pb-2 text-sm leading-relaxed text-movrr-text-brand/45 lg:text-right"
           >
-            Tell us who you are and we'll point
-            you in the right direction.
+            The right contact depends on who you are.
+            Find yours below.
           </motion.p>
         </div>
 

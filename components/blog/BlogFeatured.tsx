@@ -19,7 +19,7 @@ const secondary = [
     category: "Cities",
     date: "28 Feb 2025",
     readTime: "4 min read",
-    title: "What Dublin taught us about building for cyclists who aren't cyclists",
+    title: "What Dublin taught us about building for people who cycle — not people who identify as cyclists",
     href: "#",
   },
   {

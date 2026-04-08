@@ -33,7 +33,7 @@ const posts = [
     category: "Cities",
     date: "10 Dec 2024",
     readTime: "4 min read",
-    title: "Urban mobility isn't one thing — and our platform has to reflect that",
+    title: "One verification layer for every mode — how we made that work",
     excerpt:
       "Bikes, e-scooters, walking. Every city has a different mix. Building a single verification layer for all of them forced us to think differently.",
   },
@@ -41,7 +41,7 @@ const posts = [
     category: "Product",
     date: "27 Nov 2024",
     readTime: "6 min read",
-    title: "The infrastructure decisions we made early that we're glad we made",
+    title: "The decisions we locked in before launch — and why they still hold",
     excerpt:
       "Some architectural choices are boring to explain and expensive to undo. Here are the ones we locked in before launch.",
   },
@@ -49,9 +49,9 @@ const posts = [
     category: "Community",
     date: "14 Nov 2024",
     readTime: "3 min read",
-    title: "Approved riders: who they are and what they do",
+    title: "Why we built an application process for ride leaders — not an algorithm",
     excerpt:
-      "Community rides need organisers. We built an application process rather than an algorithm. Here's why.",
+      "Community rides need organisers. Choosing them by criteria, not engagement score, changes who steps up.",
   },
 ];
 

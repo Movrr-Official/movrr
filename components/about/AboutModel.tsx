@@ -31,7 +31,7 @@ export function AboutModel() {
           >
             MOVRR is a two-sided platform. Cyclists earn with every verified
             kilometre. Brands reach opted-in audiences through physical
-            exposure. Both sides operate entirely on their own terms.
+            exposure. Neither side compromises for the other.
           </motion.p>
         </div>
 

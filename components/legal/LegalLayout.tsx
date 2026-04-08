@@ -87,12 +87,12 @@ export function LegalLayout({
               <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
                 Contents
               </p>
-              <nav className="flex flex-col gap-1">
+              <nav className="flex flex-col">
                 {sections.map((section) => (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="rounded-lg px-3 py-2 text-sm text-movrr-text-brand/45 transition-colors duration-150 hover:bg-movrr-bg-soft hover:text-movrr-text-brand"
+                    className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/40 transition-all duration-150 hover:border-movrr-text-brand/25 hover:text-movrr-text-brand"
                   >
                     {section.title}
                   </a>
@@ -103,14 +103,14 @@ export function LegalLayout({
               {relatedLinks.length > 0 && (
                 <div className="mt-10 border-t border-movrr-border-soft pt-8">
                   <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-                    Also
+                    Related
                   </p>
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col">
                     {relatedLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="rounded-lg px-3 py-2 text-sm text-movrr-text-brand/40 transition-colors duration-150 hover:bg-movrr-bg-soft hover:text-movrr-text-brand"
+                        className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/40 transition-all duration-150 hover:border-movrr-text-brand/25 hover:text-movrr-text-brand"
                       >
                         {link.label}
                       </Link>
@@ -150,12 +150,12 @@ export function LegalLayout({
                 <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
                   Related
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-col divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
                   {relatedLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="rounded-xl border border-movrr-border-soft px-4 py-2 text-sm text-movrr-text-brand/55 transition-colors duration-150 hover:border-movrr-text-brand/20 hover:text-movrr-text-brand"
+                      className="py-3.5 text-sm text-movrr-text-brand/50 transition-opacity duration-150 hover:opacity-100 hover:text-movrr-text-brand"
                     >
                       {link.label}
                     </Link>

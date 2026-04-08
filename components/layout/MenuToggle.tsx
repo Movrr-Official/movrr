@@ -16,7 +16,11 @@ interface MenuToggleProps {
 }
 
 export const MenuToggle = ({ toggle, className }: MenuToggleProps) => (
-  <button onClick={toggle} className={className}>
+  <button
+    onClick={toggle}
+    className={className}
+    style={{ WebkitTapHighlightColor: "transparent" }}
+  >
     <svg width="18" height="18" viewBox="0 0 23 23">
       <Path
         variants={{

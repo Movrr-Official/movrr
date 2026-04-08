@@ -7,6 +7,64 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MenuToggle } from "@/components/layout/MenuToggle";
 
+// ─── Mobile menu animation variants ────────────────────────────────────────
+
+const overlayVariants = {
+  opened: {
+    y: "0%",
+    transition: {
+      delay: 0.05,
+      duration: 0.9,
+      ease: [0.74, 0, 0.19, 1.02] as const,
+    },
+  },
+  closed: {
+    y: "-100%",
+    transition: {
+      delay: 0.2,
+      duration: 0.6,
+      ease: [0.74, 0, 0.19, 1.02] as const,
+    },
+  },
+};
+
+const navListVariants = {
+  opened: { transition: { delayChildren: 0.5, staggerChildren: 0.09 } },
+  closed: {
+    transition: { staggerChildren: 0.04, staggerDirection: -1 as const },
+  },
+};
+
+const navItemVariants = {
+  opened: {
+    y: "0%",
+    opacity: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+  closed: {
+    y: "115%",
+    opacity: 0,
+    transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const bottomStripVariants = {
+  opened: {
+    opacity: 1,
+    transition: {
+      delay: 0.88,
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+  closed: {
+    opacity: 0,
+    transition: { duration: 0.15 },
+  },
+};
+
+// ────────────────────────────────────────────────────────────────────────────
+
 const navItems = [
   { label: "How it works", href: "/how-it-works" },
   { label: "Rewards", href: "/rewards" },
@@ -57,7 +115,11 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 : "h-16 border-transparent bg-transparent px-0 shadow-none backdrop-blur-none lg:h-20"
             }`}
           >
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-3"
+            >
               <Image
                 src={
                   !isMobileMenuOpen && (isScrolled || variant === "light")
@@ -154,14 +216,14 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
         </div>
       </motion.header>
 
-      {/* Full-screen mobile menu — beneath the navbar (z-40) */}
+      {/* Full-screen mobile menu — rolls down from above (z-40, beneath navbar) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            variants={overlayVariants}
+            initial="closed"
+            animate="opened"
+            exit="closed"
             className="fixed inset-0 z-40 flex flex-col bg-movrr-bg-primary lg:hidden"
           >
             <div
@@ -171,41 +233,29 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 paddingBottom: "env(safe-area-inset-bottom, 0px)",
               }}
             >
-              {/* Primary nav links — editorial scale */}
-              <nav className="flex flex-1 flex-col justify-center gap-0">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 22 }}
-                    transition={{
-                      delay: 0.05 + index * 0.055,
-                      duration: 0.5,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-3 text-[clamp(2.2rem,11vw,3.8rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-inverse/75 transition-colors duration-150 hover:text-movrr-text-inverse active:opacity-40"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
+              {/* Primary nav links — each rolls up within a clipped container */}
+              <motion.nav
+                variants={navListVariants}
+                className="flex flex-1 flex-col justify-center gap-0"
+              >
+                {navItems.map((item) => (
+                  <div key={item.href} className="overflow-hidden">
+                    <motion.div variants={navItemVariants}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block py-3 text-[clamp(2.2rem,11vw,3.8rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-inverse/75 transition-colors duration-150 hover:text-movrr-text-inverse active:opacity-40"
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  </div>
                 ))}
-              </nav>
+              </motion.nav>
 
               {/* Bottom strip — Sign in + Get started */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  delay: 0.28,
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                variants={bottomStripVariants}
                 className="flex items-center gap-4 border-t border-movrr-text-inverse/10 py-8"
               >
                 <Link

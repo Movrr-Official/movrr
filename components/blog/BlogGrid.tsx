@@ -107,7 +107,7 @@ export function BlogGrid() {
               {/* Footer */}
               <div className="flex items-center justify-between">
                 <span className="text-[0.65rem] text-movrr-text-inverse/25">{post.date}</span>
-                <ArrowRight className="h-3 w-3 text-movrr-text-inverse/25 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-movrr-text-inverse/60" />
+                <ArrowRight className="h-3 w-3 text-movrr-text-inverse/25 transition-all duration-200 group-hover:translate-x-0.5 group-hover:rotate-45 group-hover:text-movrr-text-inverse/60" />
               </div>
             </motion.a>
           ))}

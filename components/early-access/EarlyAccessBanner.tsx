@@ -69,7 +69,7 @@ export function EarlyAccessBanner({
               aria-label={`${variant.cta} — early access`}
             >
               <span className="hidden sm:block">{variant.cta}</span>
-              <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
 
             {/* Dismiss */}

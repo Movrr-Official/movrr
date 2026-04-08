@@ -56,7 +56,7 @@ export function BlogMasthead() {
             </p>
             <span className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-widest text-movrr-text-inverse/35 transition-all duration-200 group-hover:text-movrr-text-inverse/60 lg:justify-end">
               Read
-              <ArrowRight className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </span>
           </motion.a>
         </div>

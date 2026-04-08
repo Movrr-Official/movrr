@@ -86,7 +86,7 @@ export function CareersRoles() {
                 {role.title}
               </h3>
               <p className="text-sm text-movrr-text-brand/45">{role.location}</p>
-              <ArrowRight className="hidden h-4 w-4 text-movrr-text-brand/25 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-movrr-text-brand/60 lg:block" />
+              <ArrowRight className="hidden h-4 w-4 text-movrr-text-brand/25 transition-all duration-200 group-hover:translate-x-1 group-hover:text-movrr-text-brand/60 lg:block" />
             </motion.a>
           ))}
         </div>

@@ -90,7 +90,7 @@ export function PartnerTypes() {
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-movrr-text-brand transition-opacity duration-200 hover:opacity-55 lg:justify-end"
               >
                 {featured.cta}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
               </a>
             </div>
           </div>
@@ -125,7 +125,7 @@ export function PartnerTypes() {
                 className="group flex items-center gap-1.5 text-sm font-medium text-movrr-text-brand/50 transition-colors duration-150 hover:text-movrr-text-brand lg:justify-end"
               >
                 {type.cta}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
               </a>
             </motion.div>
           ))}

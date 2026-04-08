@@ -82,7 +82,7 @@ export function BlogFeatured() {
               </p>
               <div className="flex items-center gap-2 text-sm font-medium text-movrr-text-brand/50 transition-all duration-200 group-hover:text-movrr-text-brand">
                 Read article
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
               </div>
             </div>
           </div>

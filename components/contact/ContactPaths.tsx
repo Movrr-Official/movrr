@@ -93,7 +93,7 @@ export function ContactPaths() {
                       className="group inline-flex items-center gap-2 text-sm font-semibold text-movrr-text-brand transition-opacity duration-200 hover:opacity-55"
                     >
                       {path.action}
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                     </Link>
                     <p className="mt-3 text-xs text-movrr-text-brand/50">
                       {path.note}

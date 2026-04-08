@@ -59,7 +59,7 @@ export function AboutModel() {
               className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-movrr-text-brand/60 transition-colors duration-200 hover:text-movrr-text-brand"
             >
               See how riders earn
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
           </motion.div>
 
@@ -84,7 +84,7 @@ export function AboutModel() {
               className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-movrr-text-brand/60 transition-colors duration-200 hover:text-movrr-text-brand"
             >
               Partner with MOVRR
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
           </motion.div>
 

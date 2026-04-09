@@ -8,20 +8,17 @@ const metrics = [
   {
     value: "400K — 1.2M",
     label: "Verified monthly reach",
-    description:
-      "Potential verified impressions across active rider networks.",
+    description: "Potential verified impressions across active rider networks.",
   },
   {
     value: "FROM €3.50",
     label: "Per 1,000 verified views",
-    description:
-      "Efficient exposure. Authentic engagement. Nothing inflated.",
+    description: "Efficient exposure. Authentic engagement. Nothing inflated.",
   },
   {
     value: "UNIQUE REACH",
     label: "High-intent urban exposure",
-    description:
-      "Audiences in motion, not scrolling. Daily, urban, real.",
+    description: "Audiences in motion, not scrolling. Daily, urban, real.",
   },
 ];
 
@@ -34,7 +31,11 @@ export function Metrics() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   return (
-    <section ref={sectionRef} id="impact" className="bg-movrr-bg-surface py-32 lg:py-44">
+    <section
+      ref={sectionRef}
+      id="impact"
+      className="bg-movrr-bg-surface py-32 lg:py-44"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section header */}
         <motion.div
@@ -50,8 +51,8 @@ export function Metrics() {
             <span className="text-movrr-text-brand/40">campaign impact.</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-movrr-text-brand/55">
-            The scale of movement-based campaigns.
-            Estimated reach across active urban networks.
+            The scale of movement-based campaigns. Estimated reach across active
+            urban networks.
           </p>
         </motion.div>
 
@@ -71,7 +72,7 @@ export function Metrics() {
               style={{ y: imageY }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=2070&auto=format&fit=crop"
+                src="/metrics-bike-tire.png"
                 alt="MOVRR branded bicycle"
                 fill
                 quality={88}
@@ -91,7 +92,11 @@ export function Metrics() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="group flex flex-1 flex-col justify-between rounded-3xl border border-movrr-text-inverse/10 bg-movrr-bg-card-dark px-8 py-8 transition-colors duration-500 hover:border-movrr-success/20 hover:bg-movrr-bg-tertiary lg:px-9 lg:py-9"
               >
                 <div>

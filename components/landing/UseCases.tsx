@@ -9,24 +9,21 @@ const useCases = [
     category: "Rider rewards",
     description:
       "Ride to earn. Opt in to brand campaigns for more. Your movement, your choice.",
-    image:
-      "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=2070&auto=format&fit=crop",
+    image: "/urban-cyclist-checking-earnings.png",
   },
   {
     title: "Sponsored community rides",
     category: "Brand activations",
     description:
       "Your brand, in motion. Authentic exposure across active urban networks.",
-    image:
-      "https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?q=80&w=2031&auto=format&fit=crop",
+    image: "/usecase-sponsored-community-rides-aerial.png",
   },
   {
     title: "City and brand initiatives",
     category: "Urban partnerships",
     description:
       "Data-led programs that move communities. Built for cities that want to lead.",
-    image:
-      "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop",
+    image: "/usecase-city-cycling-waterfront-dusk.png",
   },
 ];
 
@@ -45,13 +42,11 @@ export function UseCases() {
           <h2 className="max-w-2xl text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
             One platform.
             <br />
-            <span className="text-movrr-text-brand/40">
-              Every use case.
-            </span>
+            <span className="text-movrr-text-brand/40">Every use case.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-movrr-text-brand/60">
-            Ride to earn. Activate at scale. Shape how a city moves.
-            MOVRR is built for all three.
+            Ride to earn. Activate at scale. Shape how a city moves. MOVRR is
+            built for all three.
           </p>
         </motion.div>
 
@@ -77,6 +72,7 @@ export function UseCases() {
                   alt={useCase.title}
                   fill
                   quality={88}
+                  loading="eager"
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />

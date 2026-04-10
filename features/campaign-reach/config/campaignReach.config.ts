@@ -25,7 +25,7 @@ import type {
 //      )}
 //
 export const FEATURE_FLAGS: FeatureFlags = {
-  campaignReachPreviewEnabled: true,
+  campaignReachPreviewEnabled: false,
 };
 
 // ── City definitions ──────────────────────────────────────────────────────────

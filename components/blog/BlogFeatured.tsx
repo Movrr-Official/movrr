@@ -53,7 +53,7 @@ export function BlogFeatured() {
           className="group mb-20 block border-b border-movrr-border-soft pb-20 lg:mb-24 lg:pb-24"
         >
           {/* Article image */}
-          <div className="relative mb-8 w-full overflow-hidden aspect-video">
+          <div className="relative mb-8 w-full overflow-hidden aspect-3/2 sm:aspect-video">
             <Image
               src="/app-preview-01.png"
               alt={featured.title}

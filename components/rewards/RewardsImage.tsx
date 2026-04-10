@@ -11,7 +11,7 @@ export function RewardsImage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative aspect-video w-full overflow-hidden lg:aspect-21/9"
+        className="relative aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
           src="/b2b-cyclist-pannier-urban.png"

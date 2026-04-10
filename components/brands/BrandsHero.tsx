@@ -55,7 +55,7 @@ export function BrandsHero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mt-14 aspect-video w-full overflow-hidden lg:aspect-21/9"
+        className="relative mt-14 aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
           src="/b2b-cyclist-pannier-urban.png"

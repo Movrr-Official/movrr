@@ -39,7 +39,7 @@ export function PartnersHero() {
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-        className="relative h-[36vw] min-h-64 max-h-120 w-full overflow-hidden"
+        className="relative aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
           src="/app-preview-01.png"

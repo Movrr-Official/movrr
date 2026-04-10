@@ -67,7 +67,7 @@ export function BlogMasthead() {
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.18, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mt-4 w-full overflow-hidden aspect-21/9"
+        className="relative mt-4 w-full overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-21/9"
       >
         <Image
           src="/app-preview-01.png"

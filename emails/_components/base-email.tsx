@@ -1,12 +1,15 @@
 import {
   Body,
   Button,
+  Column,
   Container,
   Head,
   Hr,
   Html,
   Img,
+  Link,
   Preview,
+  Row,
   Section,
   Text,
 } from "@react-email/components";
@@ -61,14 +64,23 @@ export function BaseEmail({
         <Container style={styles.container}>
           {/* Header */}
           <Section style={styles.header}>
-            <Img
-              src={appUrl("/logo/icon-no-bg-green.png")}
-              alt="MOVRR"
-              width={28}
-              height={28}
-              style={styles.logoIcon}
-            />
-            <Text style={styles.logoWordmark}>MOVRR</Text>
+            <Row>
+              <Column style={{ width: "36px", verticalAlign: "middle" }}>
+                <Link href={appBaseUrl}>
+                  <Img
+                    src={appUrl("/logo/icon-no-bg-green.png")}
+                    alt="MOVRR"
+                    width={28}
+                    height={28}
+                  />
+                </Link>
+              </Column>
+              <Column style={{ verticalAlign: "middle" }}>
+                <Link href={appBaseUrl} style={{ textDecoration: "none" }}>
+                  <Text style={styles.logoWordmark}>MOVRR</Text>
+                </Link>
+              </Column>
+            </Row>
           </Section>
 
           <Hr style={styles.divider} />
@@ -93,6 +105,9 @@ export function BaseEmail({
           </Section>
 
           <Section style={styles.footer}>
+            <Text style={styles.footerText}>
+              MOVRR &middot; Movement that earns.
+            </Text>
             {footerNote ? (
               <Text style={styles.footerText}>{footerNote}</Text>
             ) : null}
@@ -101,9 +116,6 @@ export function BaseEmail({
               <a href={`mailto:${supportEmail}`} style={styles.link}>
                 {supportEmail}
               </a>
-            </Text>
-            <Text style={styles.footerText}>
-              MOVRR &middot; Movement that earns.
             </Text>
             {unsubscribeUrl ? (
               <Text style={styles.footerText}>
@@ -139,7 +151,7 @@ export function MutedNote({ children }: { children: React.ReactNode }) {
 }
 
 // Email-safe hex approximations of MOVRR oklch design tokens
-const colors = {
+export const colors = {
   textBrand: "#1e3a2c",
   textMuted: "#4d6358",
   textFaint: "#7a8e82",
@@ -165,18 +177,8 @@ const styles = {
   },
   header: {
     padding: "8px 0 16px",
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-  },
-  logoIcon: {
-    display: "inline-block",
-    verticalAlign: "middle",
-    marginRight: "8px",
   },
   logoWordmark: {
-    display: "inline-block",
-    verticalAlign: "middle",
     margin: "0",
     fontSize: "15px",
     fontWeight: "700",

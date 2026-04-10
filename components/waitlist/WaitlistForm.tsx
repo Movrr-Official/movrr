@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import { waitlistSchema, type WaitlistInput } from "@/lib/waitlist/schema";
+import { submitWaitlist } from "@/app/actions/waitlist";
 
-type Audience = "rider" | "brand" | "partner";
+// ─── Static data ─────────────────────────────────────────────────────────────
 
 interface AudienceOption {
-  id: Audience;
+  id: WaitlistInput["audience"];
   label: string;
   description: string;
   submitLabel: string;
@@ -52,33 +56,56 @@ const benefits = [
   },
 ];
 
-interface FormState {
-  name: string;
-  email: string;
-  city: string;
-}
+const bikeOptions: { id: NonNullable<WaitlistInput["bikeStatus"]>; label: string }[] = [
+  { id: "own", label: "I own one" },
+  { id: "interested", label: "Not yet, but interested" },
+  { id: "planning", label: "Planning to get one" },
+];
+
+// ─── Component ───────────────────────────────────────────────────────────────
 
 export function WaitlistForm() {
-  const [selected, setSelected] = useState<Audience>("rider");
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState<FormState>({ name: "", email: "", city: "" });
+  const [submittedData, setSubmittedData] = useState<WaitlistInput | null>(null);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [showBikeField, setShowBikeField] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  const currentAudience = audiences.find((a) => a.id === selected)!;
+  const form = useForm<WaitlistInput>({
+    resolver: zodResolver(waitlistSchema),
+    mode: "onBlur",
+    defaultValues: {
+      audience: "rider",
+      name: "",
+      email: "",
+      city: "",
+    },
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    // Wire to your backend here
-    await new Promise((r) => setTimeout(r, 900));
-    setLoading(false);
-    setSubmitted(true);
-  };
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = form;
 
-  const handleField =
-    (field: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      setForm((prev) => ({ ...prev, [field]: e.target.value }));
-    };
+  const audience = watch("audience");
+  const bikeStatus = watch("bikeStatus");
+  const currentAudience = audiences.find((a) => a.id === audience)!;
+
+  const onSubmit = handleSubmit((data) => {
+    setServerError(null);
+    startTransition(async () => {
+      const result = await submitWaitlist(data);
+      if (!result.success) {
+        setServerError(result.error);
+      } else {
+        setSubmittedData(data);
+        setSubmitted(true);
+      }
+    });
+  });
 
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
@@ -155,17 +182,17 @@ export function WaitlistForm() {
                   </h3>
                   <p className="mb-8 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
                     We&apos;ll reach out when MOVRR opens
-                    {form.city ? ` in ${form.city}` : " in your city"}.
+                    {submittedData?.city ? ` in ${submittedData.city}` : " in your city"}.
                   </p>
                   <p className="text-xs text-movrr-text-brand/25">
-                    Registered as a {selected} · {form.email}
+                    Registered as a {submittedData?.audience} · {submittedData?.email}
                   </p>
                 </motion.div>
               ) : (
                 /* ── Form ── */
                 <motion.form
                   key="form"
-                  onSubmit={handleSubmit}
+                  onSubmit={onSubmit}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -181,9 +208,12 @@ export function WaitlistForm() {
                         <button
                           key={a.id}
                           type="button"
-                          onClick={() => setSelected(a.id)}
+                          onClick={() => {
+                            setValue("audience", a.id, { shouldValidate: true });
+                            setShowBikeField(false);
+                          }}
                           className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all duration-200 ${
-                            selected === a.id
+                            audience === a.id
                               ? "border-movrr-bg-secondary bg-movrr-bg-secondary text-movrr-text-inverse"
                               : "border-movrr-border-soft text-movrr-text-brand/35 hover:border-movrr-text-brand/30 hover:text-movrr-text-brand/70"
                           }`}
@@ -194,7 +224,7 @@ export function WaitlistForm() {
                     </div>
                     <AnimatePresence mode="wait">
                       <motion.p
-                        key={selected}
+                        key={audience}
                         initial={{ opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
@@ -220,13 +250,16 @@ export function WaitlistForm() {
                         <input
                           id="wl-name"
                           type="text"
-                          required
                           autoComplete="name"
                           placeholder={currentAudience.namePlaceholder}
-                          value={form.name}
-                          onChange={handleField("name")}
+                          {...register("name")}
                           className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                         />
+                        {errors.name && (
+                          <p className="mt-1.5 text-xs text-movrr-error">
+                            {errors.name.message}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <label
@@ -243,8 +276,7 @@ export function WaitlistForm() {
                           type="text"
                           autoComplete="address-level2"
                           placeholder="Amsterdam, Dublin…"
-                          value={form.city}
-                          onChange={handleField("city")}
+                          {...register("city")}
                           className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                         />
                       </div>
@@ -261,30 +293,104 @@ export function WaitlistForm() {
                       <input
                         id="wl-email"
                         type="email"
-                        required
                         autoComplete="email"
                         placeholder="you@example.com"
-                        value={form.email}
-                        onChange={handleField("email")}
+                        {...register("email")}
                         className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                       />
+                      {errors.email && (
+                        <p className="mt-1.5 text-xs text-movrr-error">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
+
+                    {/* Bike status — rider only, hidden by default */}
+                    <AnimatePresence>
+                      {audience === "rider" && (
+                        <motion.div
+                          key="bike-status"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <AnimatePresence mode="wait">
+                            {!showBikeField ? (
+                              <motion.button
+                                key="reveal"
+                                type="button"
+                                onClick={() => setShowBikeField(true)}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="text-xs text-movrr-text-brand/30 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand/55"
+                              >
+                                Do you own a bike? (optional)
+                              </motion.button>
+                            ) : (
+                              <motion.div
+                                key="pills"
+                                initial={{ opacity: 0, y: 4 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                              >
+                                <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35">
+                                  Do you own a bike?
+                                  <span className="ml-1.5 font-normal normal-case tracking-normal text-movrr-text-brand/25">
+                                    optional
+                                  </span>
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {bikeOptions.map((o) => (
+                                    <button
+                                      key={o.id}
+                                      type="button"
+                                      onClick={() =>
+                                        setValue(
+                                          "bikeStatus",
+                                          bikeStatus === o.id ? undefined : o.id,
+                                          { shouldValidate: true }
+                                        )
+                                      }
+                                      className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                                        bikeStatus === o.id
+                                          ? "border-movrr-bg-secondary bg-movrr-bg-secondary text-movrr-text-inverse"
+                                          : "border-movrr-border-soft text-movrr-text-brand/35 hover:border-movrr-text-brand/30 hover:text-movrr-text-brand/70"
+                                      }`}
+                                    >
+                                      {o.label}
+                                    </button>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Submit */}
                   <div className="mt-8">
+                    {serverError && (
+                      <p className="mb-4 text-xs text-movrr-error">{serverError}</p>
+                    )}
                     <AnimatePresence mode="wait">
                       <motion.button
-                        key={selected}
+                        key={audience}
                         type="submit"
-                        disabled={loading}
+                        disabled={isPending}
                         initial={{ opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                         className="w-full rounded-xl bg-movrr-bg-secondary py-4 text-sm font-semibold text-movrr-text-inverse transition-opacity duration-200 hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-40"
                       >
-                        {loading ? "Registering…" : currentAudience.submitLabel}
+                        {isPending ? "Registering…" : currentAudience.submitLabel}
                       </motion.button>
                     </AnimatePresence>
                     <p className="mt-4 text-xs text-movrr-text-brand/25">

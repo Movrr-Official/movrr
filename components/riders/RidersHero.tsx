@@ -71,7 +71,7 @@ export function RidersHero() {
           className="relative hidden lg:block"
         >
           <Image
-            src="/app-preview-01.png"
+            src="/hero-cyclist-rotterdam-modern-urban.png"
             alt="Cyclist riding with MOVRR"
             fill
             quality={90}

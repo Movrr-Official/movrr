@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function RewardsImage() {
   return (
-    <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
+    <section className="bg-movrr-bg-canvas">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -14,7 +14,7 @@ export function RewardsImage() {
         className="relative aspect-video w-full overflow-hidden lg:aspect-21/9"
       >
         <Image
-          src="/app-preview-01.png"
+          src="/b2b-cyclist-pannier-urban.png"
           alt="Cyclist earning rewards through verified movement"
           fill
           quality={90}

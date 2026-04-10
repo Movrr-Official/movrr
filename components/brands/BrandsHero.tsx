@@ -58,7 +58,7 @@ export function BrandsHero() {
         className="relative mt-14 aspect-video w-full overflow-hidden lg:aspect-21/9"
       >
         <Image
-          src="/app-preview-02.png"
+          src="/b2b-cyclist-pannier-urban.png"
           alt="Brand campaign carried through the city by cyclists"
           fill
           quality={90}

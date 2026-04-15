@@ -26,8 +26,8 @@ export function RidersCTA() {
           transition={{ delay: 0.12, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto mt-8 max-w-sm text-base leading-relaxed text-movrr-text-brand/55"
         >
-          Join MOVRR. Ride your city. Earn with every verified kilometre.
-          Carry a brand when you want to earn more.
+          Ride your city. Earn with every kilometre. Carry a brand
+          when you want more.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -37,7 +37,7 @@ export function RidersCTA() {
           className="mt-10 flex flex-wrap justify-center gap-3"
         >
           <Link
-            href="#get-started"
+            href="/waitlist"
             className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-brand/25 bg-movrr-bg-primary px-7 text-sm font-semibold text-movrr-text-inverse transition-colors duration-200 hover:bg-movrr-bg-secondary"
           >
             Get the app

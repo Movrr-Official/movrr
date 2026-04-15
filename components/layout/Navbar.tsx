@@ -189,7 +189,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 }`}
                 asChild
               >
-                <Link href="#get-started">Get started</Link>
+                <Link href="/waitlist">Get started</Link>
               </Button>
             </div>
 
@@ -266,7 +266,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                   Sign in
                 </Link>
                 <Link
-                  href="#get-started"
+                  href="/waitlist"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="ml-auto inline-flex items-center rounded-full border border-movrr-text-inverse/20 px-5 py-2.5 text-sm font-semibold text-movrr-text-inverse transition-colors duration-150 hover:bg-movrr-text-inverse/10"
                 >

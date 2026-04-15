@@ -8,8 +8,8 @@ const earnings = [
     label: "Base",
     title: "Just ride",
     description:
-      "Verified kilometres earn rewards automatically. No opt-ins, no minimums. Every ride counts from the first pedal stroke.",
-    note: "Default for all riders",
+      "Kilometres earn the moment you ride. No targets, no minimums. Just verified movement.",
+    note: "Every rider, from day one",
     accentWidth: "w-8",
     headingSize: "text-[clamp(1.75rem,2.5vw,2.5rem)]",
     descSize: "text-sm",
@@ -20,8 +20,8 @@ const earnings = [
     label: "Boosted",
     title: "Carry a brand",
     description:
-      "Choose to carry a brand campaign on your bike. Your reward rate increases for every verified kilometre you ride with it.",
-    note: "Optional: always your choice",
+      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it earns more.",
+    note: "Your call, every time",
     accentWidth: "w-16",
     headingSize: "text-[clamp(2rem,3vw,3.25rem)]",
     descSize: "text-base",
@@ -32,8 +32,8 @@ const earnings = [
     label: "Campaign",
     title: "Join a community ride",
     description:
-      "Join brand-sponsored routes or community rides organized by approved riders. Sponsored campaigns earn at elevated rates.",
-    note: "Brand-led or rider-led: invite or open enrolment",
+      "Join a city or brand-sponsored route, or ride with others in your city. The more you move together, the more everyone earns.",
+    note: "Open to all · or join by invite",
     accentWidth: "w-24",
     headingSize: "text-[clamp(2.5rem,3.5vw,4rem)]",
     descSize: "text-base",

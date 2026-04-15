@@ -18,7 +18,7 @@ const props = [
     icon: SafeIcon,
     title: "Your choice, always",
     description:
-      "Carrying a brand is entirely your call. Activate it when you want, ride without it when you don't.",
+      "Carrying a brand is entirely your call. Choose it when you want more. Ride clean when you don't.",
   },
   {
     icon: PrivacyIcon,

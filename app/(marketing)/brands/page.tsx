@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BrandsHero } from "@/components/brands/BrandsHero";
 import { BrandsReach } from "@/components/brands/BrandsReach";
+import { BrandFormats } from "@/components/brands/BrandFormats";
 import { BrandsCampaign } from "@/components/brands/BrandsCampaign";
 import { BrandsMetrics } from "@/components/brands/BrandsMetrics";
 import { BrandsCTA } from "@/components/brands/BrandsCTA";
@@ -18,6 +19,7 @@ export default function BrandsPage() {
       <Navbar />
       <BrandsHero />
       <BrandsReach />
+      <BrandFormats />
       <BrandsCampaign />
       <BrandsMetrics />
       <BrandsCTA />

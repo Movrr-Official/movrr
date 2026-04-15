@@ -42,12 +42,12 @@ export function RidersHero() {
             className="mt-16"
           >
             <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
-              Every verified kilometre earns. Opt in to carry a brand on your
-              bike and earn more. Nothing required beyond the ride.
+              Every verified kilometre earns. Carry a brand when you want to
+              earn more. The city is the only thing you need.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="#get-started"
+                href="/waitlist"
                 className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
               >
                 Get started

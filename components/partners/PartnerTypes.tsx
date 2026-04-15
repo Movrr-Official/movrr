@@ -7,7 +7,7 @@ const featured = {
   index: "01",
   title: "Mobility platforms",
   description:
-    "Bike-share, e-scooter, and multimodal apps can integrate MOVRR's reward layer to add earning to every trip, without building the verification or brand infrastructure themselves.",
+    "Every trip becomes an earning moment. MOVRR handles the verification and brand infrastructure — you keep the experience.",
   fit: "API integration",
   cta: "Explore the API",
   href: "mailto:partners@movrr.nl",
@@ -18,7 +18,7 @@ const supporting = [
     index: "02",
     title: "City and transport authorities",
     description:
-      "Municipalities and transport operators can use MOVRR's verified movement data to design better infrastructure, measure active travel uptake, and incentivise modal shift at scale.",
+      "Verified movement data that shows where a city is going — and where it isn't. Use it to design better infrastructure and lead the shift to active travel.",
     fit: "Data & insights",
     cta: "Talk to us",
     href: "mailto:partners@movrr.nl",
@@ -27,7 +27,7 @@ const supporting = [
     index: "03",
     title: "Fitness and health platforms",
     description:
-      "Apps that already track movement can surface MOVRR rewards for their users, turning workouts into earnings without disrupting the core product experience.",
+      "Your users already move. Give that movement a reward without rebuilding your product around it.",
     fit: "SDK + rewards",
     cta: "Request access",
     href: "mailto:partners@movrr.nl",
@@ -36,7 +36,7 @@ const supporting = [
     index: "04",
     title: "Corporate mobility programmes",
     description:
-      "Employers offering cycle-to-work, commute subsidies, or sustainable travel incentives can integrate MOVRR to deliver verified, real-time rewards tied to actual commutes.",
+      "Tie commute rewards to verified kilometres, not self-reported trips. Incentives that mean something to the people who earn them.",
     fit: "B2B programme",
     cta: "Get in touch",
     href: "mailto:partners@movrr.nl",

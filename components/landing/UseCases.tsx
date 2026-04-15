@@ -12,17 +12,17 @@ const useCases = [
     image: "/urban-cyclist-checking-earnings.png",
   },
   {
-    title: "Sponsored community rides",
+    title: "Always on, or all at once.",
     category: "Brand activations",
     description:
-      "Your brand, in motion. Authentic exposure across active urban networks.",
+      "Destination Ride for daily route presence. Swarm for moments that stop a city.",
     image: "/usecase-sponsored-community-rides-aerial.png",
   },
   {
     title: "City and brand initiatives",
     category: "Urban partnerships",
     description:
-      "Data-led programs that move communities. Built for cities that want to lead.",
+      "Programs that move entire communities. Built for cities that dare to lead.",
     image: "/usecase-city-cycling-waterfront-dusk.png",
   },
 ];
@@ -45,8 +45,8 @@ export function UseCases() {
             <span className="text-movrr-text-brand/40">Every use case.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-movrr-text-brand/60">
-            Ride to earn. Activate at scale. Shape how a city moves. MOVRR is
-            built for all three.
+            Ride to earn. Move a city. Build on the network. Three ways the same
+            platform changes what urban movement is worth.
           </p>
         </motion.div>
 

@@ -7,19 +7,19 @@ const steps = [
     number: "01",
     title: "Define your campaign",
     description:
-      "Set your target area, duration, and budget. Choose the rider profile that fits your audience.",
+      "Your city. Your zone. Your window. Brief to live in minutes.",
   },
   {
     number: "02",
     title: "Riders opt in",
     description:
-      "Cyclists in your target zone choose to carry your campaign. Opted-in, verified, in motion.",
+      "Cyclists choose to carry your brand. Every one real. Every one verified.",
   },
   {
     number: "03",
     title: "Track in real time",
     description:
-      "Live dashboard. Verified kilometres, route data, impression estimates. Adjust as the campaign runs.",
+      "Live kilometres, verified reach. Watch your campaign move through the city.",
   },
 ];
 

@@ -76,13 +76,21 @@ export function Hero() {
               }}
               className="mt-10"
             >
-              <Link
-                href="#get-started"
-                className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-surface px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
-              >
-                Become a founding partner
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/waitlist"
+                  className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-surface px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
+                >
+                  Become a rider
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
+                </Link>
+                <Link
+                  href="/brands"
+                  className="inline-flex h-12 items-center rounded-xl border border-movrr-text-inverse/15 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse/75 transition-colors duration-200 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
+                >
+                  Advertise with MOVRR
+                </Link>
+              </div>
             </motion.div>
           </div>
         </motion.div>

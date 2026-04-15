@@ -8,7 +8,7 @@ const tiers = [
     label: "Base",
     title: "Ride to earn",
     description:
-      "Every verified kilometre earns rewards. No minimums, no activation. The baseline for every MOVRR cyclist.",
+      "Kilometres earn the moment you ride. No targets, no minimums. Just verified movement.",
     detail: "Verified movement rewards",
     accentWidth: "w-8",
   },
@@ -17,7 +17,7 @@ const tiers = [
     label: "Boosted",
     title: "Carry a brand",
     description:
-      "Opt in to carry a brand campaign on your bike. Verified exposure earns you a higher reward rate on every kilometre.",
+      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it earns more.",
     detail: "Movement + brand exposure rewards",
     accentWidth: "w-16",
   },
@@ -26,8 +26,8 @@ const tiers = [
     label: "Campaign",
     title: "Community rides",
     description:
-      "Join brand-sponsored routes or community rides organized by approved riders. Sponsored campaigns earn at elevated rates.",
-    detail: "Brand-sponsored or rider-organized",
+      "Join a city or brand-sponsored route, or ride with others in your city. The more you move together, the more everyone earns.",
+    detail: "Open to all · or join by invite",
     accentWidth: "w-24",
   },
 ];

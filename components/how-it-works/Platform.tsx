@@ -14,7 +14,7 @@ const supporting = [
     number: "02",
     title: "Privacy by default",
     description:
-      "What you ride stays yours. Individual tracking is anonymised. Brands receive aggregated, verified insights.",
+      "What you ride stays yours. Brands see movement patterns. They never see you.",
   },
   {
     number: "03",
@@ -26,7 +26,7 @@ const supporting = [
     number: "04",
     title: "Brand integrity",
     description:
-      "Every rider carrying your brand has chosen to. Opt-in means no passive placements. Just people who actively chose to represent your campaign.",
+      "Every rider carrying your brand chose to. No passive placements. Just people who said yes.",
   },
 ];
 
@@ -55,9 +55,8 @@ export function Platform() {
             transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="self-end text-base leading-relaxed text-movrr-text-brand/50 lg:max-w-sm"
           >
-            Every mechanic on MOVRR — from reward calculation to campaign
-            delivery — runs on verified data, rider consent, and transparent
-            outcomes.
+            Verified data, rider consent, nothing hidden. That's the
+            foundation everything runs on.
           </motion.p>
         </div>
 

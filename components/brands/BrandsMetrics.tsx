@@ -6,12 +6,12 @@ const metrics = [
   {
     value: "400K — 1.2M",
     label: "Verified monthly reach",
-    description: "Verified impressions across active rider networks in motion.",
+    description: "Verified impressions from riders moving through your city, not past a screen.",
   },
   {
     value: "FROM €3.50",
     label: "Per 1,000 verified views",
-    description: "Efficient exposure. Authentic engagement. Nothing inflated.",
+    description: "Efficient exposure. Real engagement. Nothing inflated.",
   },
   {
     value: "100% Opt-in",

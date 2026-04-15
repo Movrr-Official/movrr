@@ -27,7 +27,6 @@ export function HowItWorksHero() {
           className="mt-8 max-w-xl text-base leading-relaxed text-movrr-text-inverse/55"
         >
           Rider or brand — the mechanics are clear, the outcomes are real.
-          Here's exactly how MOVRR works.
         </motion.p>
       </div>
 

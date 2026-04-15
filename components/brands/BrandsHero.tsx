@@ -30,7 +30,7 @@ export function BrandsHero() {
         >
           <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
             Your brand, carried through the city by cyclists who chose to
-            represent it. Verified reach. Authentic exposure.
+            represent it. Verified reach. Nothing estimated.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "Automatic", label: "No activation required" },
+  { value: "Automatic", label: "From the first ride" },
   { value: "Every km", label: "Tied to verified distance" },
   { value: "Earn more", label: "Opt in to carry a brand" },
 ];
@@ -37,8 +37,8 @@ export function RewardsHero() {
             }}
             className="mx-auto mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/55"
           >
-            Ride and earn. Carry a brand to earn more. Rewards that reflect the
-            distance you actually cover.
+            Ride and earn. Carry a brand to earn more. Rewards that reflect
+            every kilometre you ride.
           </motion.p>
 
           <motion.div
@@ -52,7 +52,7 @@ export function RewardsHero() {
             className="mt-10"
           >
             <Link
-              href="#get-started"
+              href="/waitlist"
               className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
             >
               Start earning

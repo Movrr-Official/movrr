@@ -28,8 +28,8 @@ export function BrandsCTA() {
               transition={{ delay: 0.12, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/50"
             >
-              Talk to the team. We'll walk you through reach, cost, and what a
-              verified movement-based campaign looks like for your brand.
+              Tell us where you want your brand to go. We'll show you what that
+              looks like in the city.
             </motion.p>
           </div>
 

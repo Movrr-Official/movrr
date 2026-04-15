@@ -13,7 +13,7 @@ const steps = [
     icon: BroadcastIcon,
     title: "Set your direction",
     description:
-      "Define your audience, set your budget, shape your strategy. Everything up front, nothing hidden.",
+      "Choose your city, your format, your window. Everything up front, nothing hidden.",
   },
   {
     number: "02",
@@ -27,7 +27,7 @@ const steps = [
     icon: VerifiedIcon,
     title: "Watch it work",
     description:
-      "Live data. Real engagement. Verified outcomes. Refine on the fly.",
+      "Live data. Real engagement. Verified outcomes. Nothing to wait for.",
   },
 ];
 
@@ -62,8 +62,8 @@ export function ForBrands() {
             }}
             className="self-end text-base leading-relaxed text-movrr-text-inverse/50 lg:max-w-sm"
           >
-            Real-world reach. Verified engagement. An audience already in
-            motion, already paying attention.
+            Real-world reach. Verified engagement. An audience that
+            chose to be there.
           </motion.p>
         </div>
 

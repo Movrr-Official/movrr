@@ -27,12 +27,12 @@ export function HowItWorksCTA() {
               today.
             </h3>
             <p className="mb-10 max-w-xs text-base leading-relaxed text-movrr-text-inverse/45">
-              Ride to earn. Opt in to brand campaigns when you want to earn
-              more. Your movement, your choice.
+              Ride and earn. Carry a brand when you want more.
+              Your movement, your call.
             </p>
             <div className="mt-auto">
               <Link
-                href="#get-started"
+                href="/waitlist"
                 className="group/btn inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/25 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
               >
                 Get the app
@@ -57,7 +57,7 @@ export function HowItWorksCTA() {
               Brands
             </p>
             <h3 className="mb-6 text-[clamp(1.75rem,2.5vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-movrr-text-inverse">
-              Activate your
+              Launch your
               <br />
               first campaign.
             </h3>

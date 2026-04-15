@@ -13,7 +13,7 @@ const reach = [
     icon: UrbanIcon,
     title: "City-scale movement",
     description:
-      "Campaigns travel the routes cyclists already take. High-frequency urban exposure: commutes, leisure, errands.",
+      "Campaigns travel the routes cyclists already take — commutes, errands, the routes that thread through the heart of a city.",
   },
   {
     number: "02",
@@ -27,7 +27,7 @@ const reach = [
     icon: BroadcastIcon,
     title: "Opted-in audiences",
     description:
-      "Cyclists choose to carry your brand. That choice signals intent. A more engaged audience than passive display.",
+      "Cyclists choose to carry your brand. That choice signals more than any impression ever could.",
   },
 ];
 

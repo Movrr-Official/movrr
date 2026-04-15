@@ -45,8 +45,8 @@ export function ForRiders() {
             </h2>
           </div>
           <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/55 lg:pb-1">
-            Ride and earn. Opt in to brand campaigns to earn more. Your
-            movement, your choice. Nothing required beyond the ride.
+            Ride and earn. Carry a brand when you want more. Your
+            movement, your call.
           </p>
         </motion.div>
 

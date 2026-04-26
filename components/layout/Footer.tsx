@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { SystemStatus } from "./SystemStatus";
 
 interface FooterProps {
   cta?: boolean; // Whether to show the CTA strip
@@ -181,12 +182,7 @@ export function Footer({ cta = true }: FooterProps) {
             >
               Sitemap
             </Link>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-movrr-success" />
-              <span className="text-xs text-movrr-text-inverse/40">
-                All systems operational
-              </span>
-            </div>
+            <SystemStatus />
           </div>
         </div>
       </div>

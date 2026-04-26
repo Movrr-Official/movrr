@@ -60,7 +60,7 @@ const benefits = [
 ];
 
 const bikeOptions: {
-  id: NonNullable<WaitlistInput["bikeStatus"]>;
+  id: NonNullable<WaitlistInput["bikeOwnership"]>;
   label: string;
 }[] = [
   { id: "own", label: "I own one" },
@@ -99,7 +99,7 @@ export function WaitlistForm() {
   } = form;
 
   const audience = watch("audience");
-  const bikeStatus = watch("bikeStatus");
+  const bikeOwnership = watch("bikeOwnership");
   const currentAudience = audiences.find((a) => a.id === audience)!;
 
   const onSubmit = handleSubmit((data) => {
@@ -111,9 +111,12 @@ export function WaitlistForm() {
         utm_source: params.get("utm_source") ?? undefined,
         utm_medium: params.get("utm_medium") ?? undefined,
         utm_campaign: params.get("utm_campaign") ?? undefined,
+        utm_content: params.get("utm_content") ?? undefined,
+        utm_term: params.get("utm_term") ?? undefined,
         referrer: document.referrer
           ? document.referrer.slice(0, 500)
           : undefined,
+        landing_path: window.location.pathname.slice(0, 500),
       });
       if (!result.success) {
         setServerError(result.error);
@@ -292,9 +295,6 @@ export function WaitlistForm() {
                           className="mb-2 block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
                         >
                           City
-                          <span className="ml-1.5 font-normal normal-case tracking-normal text-movrr-text-brand/25">
-                            optional
-                          </span>
                         </label>
                         <input
                           id="wl-city"
@@ -304,6 +304,11 @@ export function WaitlistForm() {
                           {...register("city")}
                           className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                         />
+                        {errors.city && (
+                          <p className="mt-1.5 text-xs text-movrr-error">
+                            {errors.city.message}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -382,15 +387,15 @@ export function WaitlistForm() {
                                       type="button"
                                       onClick={() =>
                                         setValue(
-                                          "bikeStatus",
-                                          bikeStatus === o.id
+                                          "bikeOwnership",
+                                          bikeOwnership === o.id
                                             ? undefined
                                             : o.id,
                                           { shouldValidate: true },
                                         )
                                       }
                                       className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
-                                        bikeStatus === o.id
+                                        bikeOwnership === o.id
                                           ? "border-movrr-bg-secondary bg-movrr-bg-secondary text-movrr-text-inverse"
                                           : "border-movrr-border-soft text-movrr-text-brand/35 hover:border-movrr-text-brand/30 hover:text-movrr-text-brand/70"
                                       }`}

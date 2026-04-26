@@ -7,6 +7,7 @@ import { WaitlistNotification } from "@/emails/waitlist-notification";
 import type { WaitlistInput } from "@/lib/waitlist/schema";
 import { getGeoFromHeaders } from "@/lib/geo";
 import { createSupabaseServerClient } from "@/supabase/server";
+import { classifyAcquisitionChannel } from "@/lib/attribution";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = "MOVRR <hello@movrr.nl>";
@@ -23,28 +24,39 @@ export async function submitWaitlist(input: unknown): Promise<ActionResult> {
 
   const data: WaitlistInput = parsed.data;
 
-  // Enrich with geo — never throws, all fields nullable
+  // Geo enrichment — never throws or blocks signup
   const geo = await getGeoFromHeaders();
 
   // Persist to database
   const supabase = await createSupabaseServerClient();
   const { error: dbError } = await supabase.from("waitlist").insert({
+    // User-provided
     name: data.name,
     email: data.email,
-    city: data.city ?? null,
-    bike_ownership: null,
+    city: data.city, // exact user-entered text; never overwritten by geo
+    bike_ownership: data.bikeOwnership ?? null,
     audience: data.audience,
-    bike_status: data.bikeStatus ?? null,
     source: "movrr_website",
+    // Geo enrichment — server-derived, clearly prefixed to avoid semantic confusion
     country_code: geo.country_code,
-    region: geo.region,
-    geo_city: geo.geo_city,
+    geo_region_code: geo.geo_region_code, // ISO 3166-2 subdivision code, e.g. "NH"
+    geo_city: geo.geo_city, // IP-derived city; distinct from user-entered city
     timezone: geo.timezone,
     geo_source: geo.geo_source,
+    // UTM attribution
     utm_source: data.utm_source ?? null,
     utm_medium: data.utm_medium ?? null,
     utm_campaign: data.utm_campaign ?? null,
+    utm_content: data.utm_content ?? null,
+    utm_term: data.utm_term ?? null,
+    // Request context
     referrer: data.referrer ?? null,
+    landing_path: data.landing_path ?? null,
+    acquisition_channel: classifyAcquisitionChannel(
+      data.utm_medium,
+      data.utm_source,
+      data.referrer,
+    ),
   });
 
   if (dbError) {
@@ -68,7 +80,7 @@ export async function submitWaitlist(input: unknown): Promise<ActionResult> {
       resend.emails.send({
         from: FROM,
         to: NOTIFY_TO,
-        subject: `New registration · ${data.audience}${data.city ? ` · ${data.city}` : ""}`,
+        subject: `New registration · ${data.audience} · ${data.city}`,
         react: WaitlistNotification({ data, geo }),
       }),
     ]);

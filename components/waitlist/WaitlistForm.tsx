@@ -21,21 +21,24 @@ const audiences: AudienceOption[] = [
   {
     id: "rider",
     label: "Rider",
-    description: "You cycle, scoot, or walk city routes and want to earn from every trip.",
+    description:
+      "You cycle, scoot, or walk city routes and want to earn from every trip.",
     submitLabel: "Register as a rider",
     namePlaceholder: "Your name",
   },
   {
     id: "brand",
     label: "Brand",
-    description: "You run campaigns and need verified reach among active city riders.",
+    description:
+      "You run campaigns and need verified reach among active city riders.",
     submitLabel: "Register your brand",
     namePlaceholder: "Your name or company",
   },
   {
     id: "partner",
     label: "Partner",
-    description: "You build products or platforms that touch how people move through cities.",
+    description:
+      "You build products or platforms that touch how people move through cities.",
     submitLabel: "Register as a partner",
     namePlaceholder: "Your name or company",
   },
@@ -56,7 +59,10 @@ const benefits = [
   },
 ];
 
-const bikeOptions: { id: NonNullable<WaitlistInput["bikeStatus"]>; label: string }[] = [
+const bikeOptions: {
+  id: NonNullable<WaitlistInput["bikeStatus"]>;
+  label: string;
+}[] = [
   { id: "own", label: "I own one" },
   { id: "interested", label: "Not yet, but interested" },
   { id: "planning", label: "Planning to get one" },
@@ -66,7 +72,9 @@ const bikeOptions: { id: NonNullable<WaitlistInput["bikeStatus"]>; label: string
 
 export function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [submittedData, setSubmittedData] = useState<WaitlistInput | null>(null);
+  const [submittedData, setSubmittedData] = useState<WaitlistInput | null>(
+    null,
+  );
   const [serverError, setServerError] = useState<string | null>(null);
   const [showBikeField, setShowBikeField] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -97,7 +105,16 @@ export function WaitlistForm() {
   const onSubmit = handleSubmit((data) => {
     setServerError(null);
     startTransition(async () => {
-      const result = await submitWaitlist(data);
+      const params = new URLSearchParams(window.location.search);
+      const result = await submitWaitlist({
+        ...data,
+        utm_source: params.get("utm_source") ?? undefined,
+        utm_medium: params.get("utm_medium") ?? undefined,
+        utm_campaign: params.get("utm_campaign") ?? undefined,
+        referrer: document.referrer
+          ? document.referrer.slice(0, 500)
+          : undefined,
+      });
       if (!result.success) {
         setServerError(result.error);
       } else {
@@ -111,7 +128,6 @@ export function WaitlistForm() {
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       <div className="movrr-shell py-24 lg:py-32">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1fr] lg:gap-28">
-
           {/* Left — context */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,8 +140,8 @@ export function WaitlistForm() {
             </h2>
 
             <p className="mb-14 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
-              MOVRR opens city by city. Register early and get
-              priority access when your city launches.
+              MOVRR opens city by city. Register early and get priority access
+              when your city launches.
             </p>
 
             {/* Benefits */}
@@ -182,10 +198,14 @@ export function WaitlistForm() {
                   </h3>
                   <p className="mb-8 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
                     We&apos;ll reach out when MOVRR opens
-                    {submittedData?.city ? ` in ${submittedData.city}` : " in your city"}.
+                    {submittedData?.city
+                      ? ` in ${submittedData.city}`
+                      : " in your city"}
+                    .
                   </p>
                   <p className="text-xs text-movrr-text-brand/25">
-                    Registered as a {submittedData?.audience} · {submittedData?.email}
+                    Registered as a {submittedData?.audience} ·{" "}
+                    {submittedData?.email}
                   </p>
                 </motion.div>
               ) : (
@@ -209,7 +229,9 @@ export function WaitlistForm() {
                           key={a.id}
                           type="button"
                           onClick={() => {
-                            setValue("audience", a.id, { shouldValidate: true });
+                            setValue("audience", a.id, {
+                              shouldValidate: true,
+                            });
                             setShowBikeField(false);
                           }}
                           className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all duration-200 ${
@@ -228,7 +250,10 @@ export function WaitlistForm() {
                         initial={{ opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
-                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                          duration: 0.25,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
                         className="mt-3 text-xs leading-relaxed text-movrr-text-brand/35"
                       >
                         {currentAudience.description}
@@ -313,7 +338,10 @@ export function WaitlistForm() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          transition={{
+                            duration: 0.35,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
                           className="overflow-hidden"
                         >
                           <AnimatePresence mode="wait">
@@ -336,7 +364,10 @@ export function WaitlistForm() {
                                 initial={{ opacity: 0, y: 4 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                                transition={{
+                                  duration: 0.25,
+                                  ease: [0.22, 1, 0.36, 1],
+                                }}
                               >
                                 <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35">
                                   Do you own a bike?
@@ -352,8 +383,10 @@ export function WaitlistForm() {
                                       onClick={() =>
                                         setValue(
                                           "bikeStatus",
-                                          bikeStatus === o.id ? undefined : o.id,
-                                          { shouldValidate: true }
+                                          bikeStatus === o.id
+                                            ? undefined
+                                            : o.id,
+                                          { shouldValidate: true },
                                         )
                                       }
                                       className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 ${
@@ -377,7 +410,9 @@ export function WaitlistForm() {
                   {/* Submit */}
                   <div className="mt-8">
                     {serverError && (
-                      <p className="mb-4 text-xs text-movrr-error">{serverError}</p>
+                      <p className="mb-4 text-xs text-movrr-error">
+                        {serverError}
+                      </p>
                     )}
                     <AnimatePresence mode="wait">
                       <motion.button
@@ -390,7 +425,9 @@ export function WaitlistForm() {
                         transition={{ duration: 0.2 }}
                         className="w-full rounded-xl bg-movrr-bg-secondary py-4 text-sm font-semibold text-movrr-text-inverse transition-opacity duration-200 hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-40"
                       >
-                        {isPending ? "Registering…" : currentAudience.submitLabel}
+                        {isPending
+                          ? "Registering…"
+                          : currentAudience.submitLabel}
                       </motion.button>
                     </AnimatePresence>
                     <p className="mt-4 text-xs text-movrr-text-brand/25">

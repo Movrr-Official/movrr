@@ -1,21 +1,25 @@
 import type { EarlyAccessAudience, EarlyAccessConfig } from "./types";
 
-export const earlyAccessConfigs: Record<EarlyAccessAudience, EarlyAccessConfig> = {
+export const earlyAccessConfigs: Record<
+  EarlyAccessAudience,
+  EarlyAccessConfig
+> = {
   riders: {
     audience: "riders",
     badge: "Early access",
     variants: [
       {
         id: "riders-a",
-        headline: "MOVRR is launching in Dublin and Amsterdam. Join the waitlist.",
+        headline:
+          "MOVRR is launching in Dublin and Amsterdam. Join the waitlist.",
         cta: "Join waitlist",
-        href: "#get-started",
+        href: "/waitlist",
       },
       {
         id: "riders-b",
         headline: "Earn on every kilometre. Early rider access now open.",
         cta: "Get early access",
-        href: "#get-started",
+        href: "/waitlist",
       },
     ],
     reappearAfterDays: 7,
@@ -28,7 +32,8 @@ export const earlyAccessConfigs: Record<EarlyAccessAudience, EarlyAccessConfig> 
     variants: [
       {
         id: "brands-a",
-        headline: "First-round brand partnerships — a small number of slots remaining.",
+        headline:
+          "First-round brand partnerships — a small number of slots remaining.",
         cta: "Reserve a spot",
         href: "mailto:hello@movrr.nl",
       },
@@ -43,7 +48,8 @@ export const earlyAccessConfigs: Record<EarlyAccessAudience, EarlyAccessConfig> 
     variants: [
       {
         id: "partners-a",
-        headline: "Technical and commercial integrations are available to apply for.",
+        headline:
+          "Technical and commercial integrations are available to apply for.",
         cta: "Talk to us",
         href: "mailto:partners@movrr.nl",
       },

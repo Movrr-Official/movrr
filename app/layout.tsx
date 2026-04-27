@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={manrope.variable} data-scroll-behavior="smooth">
+    <html lang="en" className={manrope.variable}>
       <body className="font-sans antialiased">
         <EarlyAccessBanner audience="riders" placement="fixed-top" />
         {children}

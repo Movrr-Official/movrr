@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import { track } from "@vercel/analytics";
 import { waitlistSchema, type WaitlistInput } from "@/lib/waitlist/schema";
 import { submitWaitlist } from "@/app/actions/waitlist";
 
@@ -104,6 +105,10 @@ export function WaitlistForm() {
 
   const onSubmit = handleSubmit((data) => {
     setServerError(null);
+    track("waitlist_submit_attempt", {
+      audience: data.audience,
+      city: data.city,
+    });
     startTransition(async () => {
       const params = new URLSearchParams(window.location.search);
       const result = await submitWaitlist({
@@ -119,8 +124,16 @@ export function WaitlistForm() {
         landing_path: window.location.pathname.slice(0, 500),
       });
       if (!result.success) {
+        track("waitlist_submit_error", {
+          audience: data.audience,
+          error: result.error,
+        });
         setServerError(result.error);
       } else {
+        track("waitlist_submit_success", {
+          audience: data.audience,
+          city: data.city,
+        });
         setSubmittedData(data);
         setSubmitted(true);
       }
@@ -236,6 +249,9 @@ export function WaitlistForm() {
                               shouldValidate: true,
                             });
                             setShowBikeField(false);
+                            track("waitlist_audience_selected", {
+                              audience: a.id,
+                            });
                           }}
                           className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                             audience === a.id

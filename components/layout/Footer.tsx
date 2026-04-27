@@ -49,13 +49,17 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Twitter, href: "https://twitter.com/movrr", label: "Twitter" },
+  { icon: Twitter, href: "https://x.com/movrr", label: "Twitter" },
   {
     icon: Linkedin,
     href: "https://linkedin.com/company/movrr",
     label: "LinkedIn",
   },
-  { icon: Instagram, href: "https://instagram.com/movrr", label: "Instagram" },
+  {
+    icon: Instagram,
+    href: "https://instagram.com/movrr.app",
+    label: "Instagram",
+  },
 ];
 
 export function Footer({ cta = true }: FooterProps) {
@@ -88,7 +92,7 @@ export function Footer({ cta = true }: FooterProps) {
                   className="group h-12 rounded-lg border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
                   asChild
                 >
-                  <Link href="#get-started">
+                  <Link href="/waitlist">
                     Start earning
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                   </Link>

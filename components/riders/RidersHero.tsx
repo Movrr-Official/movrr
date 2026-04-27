@@ -42,8 +42,9 @@ export function RidersHero() {
             className="mt-16"
           >
             <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
-              Every verified kilometre earns. Carry a brand when you want to
-              earn more. The city is the only thing you need.
+              Every verified kilometre earns MOVRR Points — redeemable for
+              cycling gear, food, vouchers, and more. Carry a brand when you
+              want to multiply them.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

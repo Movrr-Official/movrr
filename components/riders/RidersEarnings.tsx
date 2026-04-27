@@ -8,7 +8,7 @@ const earnings = [
     label: "Base",
     title: "Just ride",
     description:
-      "Kilometres earn the moment you ride. No targets, no minimums. Just verified movement.",
+      "Kilometres earn MOVRR Points the moment you ride. No targets, no minimums. Just verified movement.",
     note: "Every rider, from day one",
     accentWidth: "w-8",
     headingSize: "text-[clamp(1.75rem,2.5vw,2.5rem)]",
@@ -20,7 +20,7 @@ const earnings = [
     label: "Boosted",
     title: "Carry a brand",
     description:
-      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it earns more.",
+      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it multiplies your points — often several times the base rate.",
     note: "Your call, every time",
     accentWidth: "w-16",
     headingSize: "text-[clamp(2rem,3vw,3.25rem)]",
@@ -30,10 +30,10 @@ const earnings = [
   {
     number: "03",
     label: "Campaign",
-    title: "Join a community ride",
+    title: "Join a campaign ride",
     description:
-      "Join a city or brand-sponsored route, or ride with others in your city. The more you move together, the more everyone earns.",
-    note: "Open to all · or join by invite",
+      "Join city or brand-sponsored routes in your area. As your ride history builds, you unlock access to higher-value campaigns with better multipliers.",
+    note: "Open to all · or invite-only as you build history",
     accentWidth: "w-24",
     headingSize: "text-[clamp(2.5rem,3.5vw,4rem)]",
     descSize: "text-base",
@@ -45,7 +45,6 @@ export function RidersEarnings() {
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -75,7 +74,9 @@ export function RidersEarnings() {
               className={`grid grid-cols-1 gap-6 lg:grid-cols-[auto_1fr_minmax(0,24rem)] lg:items-center lg:gap-14 ${item.py}`}
             >
               {/* Escalating accent line — draws in on scroll */}
-              <div className={`hidden shrink-0 overflow-hidden lg:block ${item.accentWidth}`}>
+              <div
+                className={`hidden shrink-0 overflow-hidden lg:block ${item.accentWidth}`}
+              >
                 <motion.div
                   className="h-px w-full bg-movrr-success/40"
                   initial={{ scaleX: 0 }}
@@ -124,7 +125,6 @@ export function RidersEarnings() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

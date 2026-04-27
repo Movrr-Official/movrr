@@ -7,21 +7,24 @@ const coverage = [
   {
     outlet: "TechCrunch",
     date: "Mar 2025",
-    headline: "MOVRR wants to turn every bike ride into a brand touchpoint. Without the noise.",
+    headline:
+      "MOVRR wants to turn every bike ride into a brand touchpoint. Without the noise.",
     type: "Feature",
     href: "#",
   },
   {
-    outlet: "The Irish Times",
+    outlet: "The Economic Times",
     date: "Feb 2025",
-    headline: "Dublin startup building rewards platform for urban cyclists raises pre-seed round",
+    headline:
+      "Rotterdam startup building rewards platform for urban cyclists raises pre-seed round",
     type: "News",
     href: "#",
   },
   {
     outlet: "Forbes",
     date: "Jan 2025",
-    headline: "Movement-based advertising is the next frontier for urban mobility brands",
+    headline:
+      "Movement-based advertising is the next frontier for urban mobility brands",
     type: "Opinion",
     href: "#",
   },
@@ -35,7 +38,8 @@ const coverage = [
   {
     outlet: "Cycling Weekly",
     date: "Nov 2024",
-    headline: "Can verified movement data finally fix the broken sponsorship model for everyday riders?",
+    headline:
+      "Can verified movement data finally fix the broken sponsorship model for everyday riders?",
     type: "Analysis",
     href: "#",
   },
@@ -45,7 +49,6 @@ export function PressGrid() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Heading */}
         <div className="mb-16 flex flex-col gap-4 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
           <motion.h2
@@ -87,8 +90,12 @@ export function PressGrid() {
               className="group -mx-6 grid grid-cols-1 gap-2 px-6 py-7 transition-colors duration-200 hover:bg-movrr-bg-soft lg:-mx-12 lg:grid-cols-[0.5fr_2fr_0.4fr_auto] lg:items-center lg:gap-8 lg:px-12 lg:py-8"
             >
               <div className="flex items-center gap-4 lg:block">
-                <p className="text-sm font-semibold text-movrr-text-brand/70">{item.outlet}</p>
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/30 lg:mt-1">{item.date}</p>
+                <p className="text-sm font-semibold text-movrr-text-brand/70">
+                  {item.outlet}
+                </p>
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/30 lg:mt-1">
+                  {item.date}
+                </p>
               </div>
               <h3 className="text-base font-medium leading-snug tracking-[-0.01em] text-movrr-text-brand/80 group-hover:text-movrr-text-brand transition-colors duration-200">
                 {item.headline}
@@ -100,7 +107,6 @@ export function PressGrid() {
             </motion.a>
           ))}
         </div>
-
       </div>
     </section>
   );

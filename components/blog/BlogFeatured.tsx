@@ -8,7 +8,8 @@ const featured = {
   category: "Product",
   date: "12 Mar 2025",
   readTime: "6 min read",
-  title: "Why movement data is the only honest signal left in urban advertising",
+  title:
+    "Why movement data is the only honest signal left in urban advertising",
   excerpt:
     "Impression counts, click-through rates, and view-through attribution have all failed the same way: they measure proximity, not participation. We built MOVRR around a different premise.",
   href: "#",
@@ -19,7 +20,8 @@ const secondary = [
     category: "Cities",
     date: "28 Feb 2025",
     readTime: "4 min read",
-    title: "What Dublin taught us about building for people who cycle. Not people who identify as cyclists.",
+    title:
+      "What Amsterdam taught us about building for people who cycle. Not people who identify as cyclists.",
     href: "#",
   },
   {
@@ -42,7 +44,6 @@ export function BlogFeatured() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Featured — full-width, image-led */}
         <motion.a
           href={featured.href}
@@ -69,8 +70,12 @@ export function BlogFeatured() {
                 <span className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/35">
                   {featured.category}
                 </span>
-                <span className="text-[0.65rem] text-movrr-text-brand/25">{featured.date}</span>
-                <span className="text-[0.65rem] text-movrr-text-brand/25">{featured.readTime}</span>
+                <span className="text-[0.65rem] text-movrr-text-brand/25">
+                  {featured.date}
+                </span>
+                <span className="text-[0.65rem] text-movrr-text-brand/25">
+                  {featured.readTime}
+                </span>
               </div>
               <h2 className="text-[clamp(2rem,4vw,4.5rem)] font-semibold leading-[0.97] tracking-[-0.04em] text-movrr-text-brand transition-opacity duration-200 group-hover:opacity-70">
                 {featured.title}
@@ -119,17 +124,20 @@ export function BlogFeatured() {
                   <span className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/35">
                     {post.category}
                   </span>
-                  <span className="text-[0.62rem] text-movrr-text-brand/25">{post.readTime}</span>
+                  <span className="text-[0.62rem] text-movrr-text-brand/25">
+                    {post.readTime}
+                  </span>
                 </div>
                 <h3 className="text-sm font-semibold leading-snug tracking-[-0.01em] text-movrr-text-brand">
                   {post.title}
                 </h3>
-                <p className="mt-2 text-[0.7rem] text-movrr-text-brand/30">{post.date}</p>
+                <p className="mt-2 text-[0.7rem] text-movrr-text-brand/30">
+                  {post.date}
+                </p>
               </div>
             </motion.a>
           ))}
         </div>
-
       </div>
     </section>
   );

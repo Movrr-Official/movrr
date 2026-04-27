@@ -11,7 +11,7 @@ export const earlyAccessConfigs: Record<
       {
         id: "riders-a",
         headline:
-          "MOVRR is launching in Dublin and Amsterdam. Join the waitlist.",
+          "MOVRR is launching in Rotterdam and The Hague. Join the waitlist.",
         cta: "Join waitlist",
         href: "/waitlist",
       },

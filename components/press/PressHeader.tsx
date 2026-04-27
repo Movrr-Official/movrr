@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const facts = [
   { label: "Founded", value: "2024" },
-  { label: "Headquartered", value: "Dublin, Ireland" },
+  { label: "Headquartered", value: "Rotterdam, Netherlands" },
   { label: "Category", value: "Movement-based rewards" },
   { label: "Markets", value: "Europe — launching" },
 ];

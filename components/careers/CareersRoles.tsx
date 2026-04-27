@@ -7,31 +7,31 @@ const roles = [
   {
     department: "Engineering",
     title: "Senior Full-Stack Engineer",
-    location: "Dublin / Remote",
+    location: "Rotterdam / Remote",
     type: "Full-time",
   },
   {
     department: "Engineering",
     title: "Mobile Engineer (React Native)",
-    location: "Dublin / Remote",
+    location: "Rotterdam / Remote",
     type: "Full-time",
   },
   {
     department: "Product",
     title: "Product Designer",
-    location: "Dublin",
+    location: "Rotterdam / Remote",
     type: "Full-time",
   },
   {
     department: "Operations",
     title: "Rider Community Lead",
-    location: "Dublin",
+    location: "Rotterdam",
     type: "Full-time",
   },
   {
     department: "Growth",
     title: "Brand Partnerships Manager",
-    location: "Dublin / Amsterdam",
+    location: "Rotterdam / Amsterdam",
     type: "Full-time",
   },
 ];
@@ -40,7 +40,6 @@ export function CareersRoles() {
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         {/* Heading */}
         <div className="mb-16 flex flex-col gap-4 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
           <motion.h2
@@ -85,7 +84,9 @@ export function CareersRoles() {
               <h3 className="text-base font-semibold tracking-[-0.01em] text-movrr-text-brand">
                 {role.title}
               </h3>
-              <p className="text-sm text-movrr-text-brand/45">{role.location}</p>
+              <p className="text-sm text-movrr-text-brand/45">
+                {role.location}
+              </p>
               <ArrowRight className="hidden h-4 w-4 text-movrr-text-brand/25 transition-all duration-200 group-hover:translate-x-1 group-hover:text-movrr-text-brand/60 lg:block" />
             </motion.a>
           ))}
@@ -107,7 +108,6 @@ export function CareersRoles() {
             Send us a note anyway.
           </a>
         </motion.p>
-
       </div>
     </section>
   );

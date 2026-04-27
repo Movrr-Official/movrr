@@ -18,7 +18,7 @@ const topics = [
       },
       {
         q: "Which cities is MOVRR available in?",
-        a: "MOVRR is launching across Europe, starting with Dublin and Amsterdam. We'll announce new cities via the app and our newsletter before they go live.",
+        a: "MOVRR is launching across Europe, starting with Rotterdam and The Hague. We'll announce new cities via the app and our newsletter before they go live.",
       },
     ],
   },
@@ -92,21 +92,33 @@ const topics = [
   },
 ];
 
-function Accordion({ faq, index }: { faq: { q: string; a: string }; index: number }) {
+function Accordion({
+  faq,
+  index,
+}: {
+  faq: { q: string; a: string };
+  index: number;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.04, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        delay: index * 0.04,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className="border-b border-movrr-border-soft last:border-0"
     >
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-start justify-between gap-6 py-6 text-left transition-opacity duration-150 hover:opacity-70"
       >
-        <span className="text-sm font-medium text-movrr-text-brand">{faq.q}</span>
+        <span className="text-sm font-medium text-movrr-text-brand">
+          {faq.q}
+        </span>
         {open ? (
           <Minus className="mt-0.5 h-3.5 w-3.5 shrink-0 text-movrr-text-brand/40" />
         ) : (
@@ -136,9 +148,7 @@ export function HelpTopics() {
   return (
     <section className="bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-[280px_1fr] lg:gap-20">
-
           {/* Sticky topic index */}
           <div className="mb-16 lg:mb-0">
             <nav className="lg:sticky lg:top-28">
@@ -205,7 +215,6 @@ export function HelpTopics() {
               </a>
             </p>
           </div>
-
         </div>
       </div>
     </section>

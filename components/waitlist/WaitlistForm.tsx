@@ -300,7 +300,7 @@ export function WaitlistForm() {
                           id="wl-city"
                           type="text"
                           autoComplete="address-level2"
-                          placeholder="Amsterdam, Dublin…"
+                          placeholder="Rotterdam, The Hague…"
                           {...register("city")}
                           className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                         />

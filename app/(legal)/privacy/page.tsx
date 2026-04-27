@@ -10,13 +10,12 @@ const sections: LegalSection[] = [
       <>
         <p>
           MOVRR is a movement-based rewards platform operated by MOVRR B.V.,
-          headquartered in Dublin, Ireland. We are the data controller for
+          headquartered in Rotterdam, Ireland. We are the data controller for
           personal data processed through our platform and website.
         </p>
         <p>
           Questions about this policy or how we handle your data should be
-          directed to{" "}
-          <a href="mailto:privacy@movrr.nl">privacy@movrr.nl</a>.
+          directed to <a href="mailto:privacy@movrr.nl">privacy@movrr.nl</a>.
         </p>
       </>
     ),
@@ -65,9 +64,7 @@ const sections: LegalSection[] = [
             Cookies and usage data as described in our{" "}
             <a href="/cookies">Cookie Policy</a>
           </li>
-          <li>
-            Any information you submit via contact or enquiry forms
-          </li>
+          <li>Any information you submit via contact or enquiry forms</li>
         </ul>
       </>
     ),
@@ -78,8 +75,8 @@ const sections: LegalSection[] = [
     content: (
       <>
         <p>
-          Location and movement data is central to how MOVRR works. We treat
-          it with a higher standard of care than other data categories.
+          Location and movement data is central to how MOVRR works. We treat it
+          with a higher standard of care than other data categories.
         </p>
         <p>
           <strong>What we collect:</strong> GPS route data is captured during
@@ -88,20 +85,19 @@ const sections: LegalSection[] = [
         </p>
         <p>
           <strong>What we never do:</strong> We do not track your location
-          outside of active ride sessions. We do not sell individual route
-          data. We do not share identifiable location history with brand
-          partners.
+          outside of active ride sessions. We do not sell individual route data.
+          We do not share identifiable location history with brand partners.
         </p>
         <p>
           <strong>What brands receive:</strong> Brand partners receive
-          aggregated, anonymised campaign metrics — verified impressions,
-          total distance covered within a campaign, and geographic heat data
-          at zone level. Individual rider routes are never shared.
+          aggregated, anonymised campaign metrics — verified impressions, total
+          distance covered within a campaign, and geographic heat data at zone
+          level. Individual rider routes are never shared.
         </p>
         <p>
-          <strong>Legal basis:</strong> We process movement data on the basis
-          of your explicit consent, given when you activate ride tracking in
-          the app. You may withdraw this consent at any time from your account
+          <strong>Legal basis:</strong> We process movement data on the basis of
+          your explicit consent, given when you activate ride tracking in the
+          app. You may withdraw this consent at any time from your account
           settings, which will prevent future rides from being tracked.
         </p>
       </>
@@ -120,14 +116,13 @@ const sections: LegalSection[] = [
           <li>Improve platform performance and detect fraud</li>
           <li>Communicate with you about your account and the platform</li>
           <li>
-            Comply with our legal obligations as a platform operating under
-            GDPR
+            Comply with our legal obligations as a platform operating under GDPR
           </li>
         </ul>
         <p>
-          We do not use your data for automated profiling that produces legal
-          or similarly significant effects. We do not sell personal data to
-          third parties.
+          We do not use your data for automated profiling that produces legal or
+          similarly significant effects. We do not sell personal data to third
+          parties.
         </p>
       </>
     ),
@@ -143,16 +138,16 @@ const sections: LegalSection[] = [
         </p>
         <ul>
           <li>
-            <strong>Access:</strong> Request a copy of the personal data we
-            hold about you
+            <strong>Access:</strong> Request a copy of the personal data we hold
+            about you
           </li>
           <li>
             <strong>Rectification:</strong> Correct inaccurate or incomplete
             data
           </li>
           <li>
-            <strong>Erasure:</strong> Request deletion of your data where we
-            no longer have a lawful basis to hold it
+            <strong>Erasure:</strong> Request deletion of your data where we no
+            longer have a lawful basis to hold it
           </li>
           <li>
             <strong>Restriction:</strong> Ask us to limit how we use your data
@@ -163,8 +158,8 @@ const sections: LegalSection[] = [
             machine-readable format
           </li>
           <li>
-            <strong>Objection:</strong> Object to processing based on
-            legitimate interests
+            <strong>Objection:</strong> Object to processing based on legitimate
+            interests
           </li>
           <li>
             <strong>Withdraw consent:</strong> Where processing is based on

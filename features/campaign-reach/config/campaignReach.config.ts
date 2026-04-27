@@ -32,31 +32,40 @@ export const FEATURE_FLAGS: FeatureFlags = {
 // activeRiders, avgDailyKm, and coverageZones are pre-launch projections.
 // Replace with real data from analytics post-launch.
 export const CITIES: Record<string, CityData> = {
+  rotterdam: {
+    id: "rotterdam",
+    name: "Rotterdam",
+    country: "Netherlands",
+    activeRiders: 2000,
+    avgDailyKm: 7.8,
+    coverageZones: 10,
+    launchStatus: "upcoming",
+  },
+  "the-hague": {
+    id: "the-hague",
+    name: "The Hague",
+    country: "Netherlands",
+    activeRiders: 1600,
+    avgDailyKm: 7.2,
+    coverageZones: 8,
+    launchStatus: "planned",
+  },
   amsterdam: {
     id: "amsterdam",
     name: "Amsterdam",
     country: "Netherlands",
-    activeRiders: 2400,
-    avgDailyKm: 8.2,
-    coverageZones: 12,
-    launchStatus: "upcoming",
+    activeRiders: 2800,
+    avgDailyKm: 8.5,
+    coverageZones: 14,
+    launchStatus: "planned",
   },
-  dublin: {
-    id: "dublin",
-    name: "Dublin",
-    country: "Ireland",
-    activeRiders: 1800,
-    avgDailyKm: 7.4,
-    coverageZones: 9,
-    launchStatus: "upcoming",
-  },
-  berlin: {
-    id: "berlin",
-    name: "Berlin",
-    country: "Germany",
-    activeRiders: 3200,
-    avgDailyKm: 9.1,
-    coverageZones: 16,
+  utrecht: {
+    id: "utrecht",
+    name: "Utrecht",
+    country: "Netherlands",
+    activeRiders: 1400,
+    avgDailyKm: 6.8,
+    coverageZones: 7,
     launchStatus: "planned",
   },
 };
@@ -94,5 +103,10 @@ export const REACH_ASSUMPTIONS: ReachAssumptions = {
 };
 
 // ── Convenience arrays (used by validator and selectors) ─────────────────────
-export const CITY_IDS = ["amsterdam", "dublin", "berlin"] as const;
+export const CITY_IDS = [
+  "rotterdam",
+  "the-hague",
+  "amsterdam",
+  "utrecht",
+] as const;
 export const SCALE_IDS = ["focused", "city-wide", "multi-city"] as const;

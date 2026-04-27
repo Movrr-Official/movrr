@@ -2,7 +2,7 @@
 // Shared types for the Campaign Reach Preview feature.
 // All types are strict and future-proof for API integration.
 
-export type CityId = "amsterdam" | "dublin" | "berlin";
+export type CityId = "rotterdam" | "the-hague" | "amsterdam" | "utrecht";
 
 export type LaunchStatus = "live" | "upcoming" | "planned";
 

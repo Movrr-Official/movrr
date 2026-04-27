@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 
-const cities = ["Amsterdam", "Dublin", "Berlin"];
+const cities = ["Rotterdam", "The Hague", "Amsterdam", "Utrecht"];
 
 export function WaitlistHero() {
   return (
     <section className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-movrr-bg-primary pb-14 pt-36 lg:pb-16 lg:pt-52">
-
       {/* Vertical rule — decorative right-side accent */}
       <motion.div
         initial={{ scaleY: 0 }}
@@ -35,7 +34,11 @@ export function WaitlistHero() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.15,
+              duration: 0.95,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="text-[clamp(3.2rem,8.5vw,9.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-movrr-text-inverse"
           >
             Movement starts
@@ -49,11 +52,15 @@ export function WaitlistHero() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.35, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: 0.35,
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-10 max-w-sm text-base leading-relaxed text-movrr-text-inverse/45"
           >
-            MOVRR launches city by city. Register and be first
-            when your city opens.
+            MOVRR launches city by city. Register and be first when your city
+            opens.
           </motion.p>
         </div>
       </div>
@@ -66,7 +73,7 @@ export function WaitlistHero() {
           transition={{ delay: 0.5, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-inverse/28">
-            Cities launching 2025
+            Cities launching 2026
           </p>
           <div className="flex items-center gap-3">
             {cities.map((city, i) => (

@@ -8,7 +8,7 @@ const steps = [
     label: "Riders",
     title: "Ride and earn",
     description:
-      "Verified kilometres earn rewards. Carry a brand on your bike to earn more. Your choice.",
+      "Verified kilometres earn rewards. Commutes, errands, everyday movement — it all counts.",
     side: "left",
   },
   {
@@ -74,8 +74,7 @@ export function HowItWorks() {
             <span className="text-movrr-text-inverse/50">One platform.</span>
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
-            Left: how it works for cyclists.
-            Right: how it works for brands.
+            Left: how it works for cyclists. Right: how it works for brands.
           </p>
         </motion.div>
 

@@ -20,7 +20,7 @@ const earnings = [
     label: "Boosted",
     title: "Carry a brand",
     description:
-      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it multiplies your points — often several times the base rate.",
+      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it multiplies your points above the base rate.",
     note: "Your call, every time",
     accentWidth: "w-16",
     headingSize: "text-[clamp(2rem,3vw,3.25rem)]",

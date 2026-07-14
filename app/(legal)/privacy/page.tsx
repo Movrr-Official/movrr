@@ -10,8 +10,9 @@ const sections: LegalSection[] = [
       <>
         <p>
           MOVRR is a movement-based rewards platform operated by MOVRR B.V.,
-          headquartered in Rotterdam, Ireland. We are the data controller for
-          personal data processed through our platform and website.
+          headquartered in Rotterdam, the Netherlands. We are the data
+          controller for personal data processed through our platform and
+          website.
         </p>
         <p>
           Questions about this policy or how we handle your data should be
@@ -41,8 +42,8 @@ const sections: LegalSection[] = [
             your engagement data for those campaigns
           </li>
           <li>
-            Rewards data: reward calculations, redemption history, payout
-            information
+            Rewards data: MOVRR Points calculations, redemption history, and the
+            vouchers or rewards issued to you
           </li>
           <li>Device data: device type, OS version, app version</li>
         </ul>
@@ -84,6 +85,20 @@ const sections: LegalSection[] = [
           duration of each verified ride.
         </p>
         <p>
+          <strong>Collection in the background:</strong> During an active ride,
+          the MOVRR app collects precise location data{" "}
+          <strong>
+            even when the app is closed, minimised, or the screen is off
+          </strong>
+          . This is necessary because you cannot safely hold or watch your phone
+          while cycling, and because we must verify that the ride took place
+          inside the campaign zone in order to award MOVRR Points and prevent
+          fraud. Background collection only ever runs during a ride that you
+          have explicitly started. While it is running, Android shows a
+          persistent notification so that it is always visible to you, and
+          collection stops as soon as the ride ends.
+        </p>
+        <p>
           <strong>What we never do:</strong> We do not track your location
           outside of active ride sessions. We do not sell individual route data.
           We do not share identifiable location history with brand partners.
@@ -112,7 +127,7 @@ const sections: LegalSection[] = [
         <ul>
           <li>Verify rides and calculate rewards accurately</li>
           <li>Operate brand campaigns and deliver verified reach metrics</li>
-          <li>Manage your account and process reward payments</li>
+          <li>Manage your account and process reward redemptions</li>
           <li>Improve platform performance and detect fraud</li>
           <li>Communicate with you about your account and the platform</li>
           <li>
@@ -169,14 +184,18 @@ const sections: LegalSection[] = [
         <p>
           To exercise any of these rights, contact us at{" "}
           <a href="mailto:privacy@movrr.nl">privacy@movrr.nl</a>. We respond
-          within 30 days. You also have the right to lodge a complaint with the
-          Irish Data Protection Commission at{" "}
+          within 30 days. To delete your account and the data linked to it, see{" "}
+          <a href="/account-deletion">Delete Your Account</a>.
+        </p>
+        <p>
+          You also have the right to lodge a complaint with the Dutch data
+          protection authority, the Autoriteit Persoonsgegevens, at{" "}
           <a
-            href="https://www.dataprotection.ie"
+            href="https://www.autoriteitpersoonsgegevens.nl"
             target="_blank"
             rel="noopener noreferrer"
           >
-            dataprotection.ie
+            autoriteitpersoonsgegevens.nl
           </a>
           .
         </p>
@@ -202,8 +221,8 @@ const sections: LegalSection[] = [
             verification and dispute resolution
           </li>
           <li>
-            Financial and payout records are retained for 7 years to meet
-            statutory accounting requirements
+            Reward redemption and voucher records are retained for 7 years to
+            meet statutory accounting requirements
           </li>
           <li>
             Marketing communications data is retained until you unsubscribe or
@@ -251,6 +270,7 @@ export default function PrivacyPage() {
         relatedLinks={[
           { label: "Terms of Service", href: "/terms" },
           { label: "Cookie Policy", href: "/cookies" },
+          { label: "Delete Your Account", href: "/account-deletion" },
         ]}
       />
       <Footer cta={false} />

@@ -34,7 +34,7 @@ export function Metrics() {
     <section
       ref={sectionRef}
       id="impact"
-      className="bg-movrr-bg-surface py-32 lg:py-44"
+      className="relative bg-movrr-bg-surface py-32 lg:py-44"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Section header */}

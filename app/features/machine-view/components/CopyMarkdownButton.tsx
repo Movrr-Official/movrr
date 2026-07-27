@@ -13,6 +13,7 @@ interface CopyMarkdownButtonProps {
     copyFailed: string;
   };
   plain?: boolean;
+  variant?: "toolbar" | "dock";
 }
 
 async function copyCompleteDocument(markdown: string) {
@@ -38,6 +39,7 @@ export function CopyMarkdownButton({
   locale,
   labels,
   plain = false,
+  variant = "toolbar",
 }: CopyMarkdownButtonProps) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -56,10 +58,11 @@ export function CopyMarkdownButton({
       track("machine_view_copy_markdown", {
         locale,
         characters: markdown.length,
+        surface: variant,
       });
     } catch {
       setStatus("failed");
-      track("machine_view_copy_failed", { locale });
+      track("machine_view_copy_failed", { locale, surface: variant });
     }
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setStatus("idle"), 2500);
@@ -72,6 +75,18 @@ export function CopyMarkdownButton({
         ? labels.copyFailed
         : labels.copyMarkdown;
 
+  const statusClass =
+    status === "copied"
+      ? "border-[#72e09a]/55 bg-[#72e09a]/12 text-[#72e09a]"
+      : status === "failed"
+        ? "border-red-400/50 bg-red-400/10 text-red-300"
+        : "border-white/18 bg-[#0b0f0d] text-[#d7e0dc] hover:border-[#72e09a]/45 hover:bg-[#72e09a]/10 hover:text-white";
+
+  const sizeClass =
+    variant === "dock"
+      ? "min-h-11 px-4 text-[0.7rem]"
+      : "min-h-10 px-4 text-[0.72rem]";
+
   return (
     <div className={plain ? undefined : "sm:shrink-0"}>
       <button
@@ -81,15 +96,15 @@ export function CopyMarkdownButton({
         className={
           plain
             ? undefined
-            : "inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-movrr-bg-primary px-6 text-sm font-semibold text-movrr-text-inverse transition-colors hover:bg-movrr-bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-movrr-green-text focus-visible:ring-offset-2 sm:w-auto"
+            : `inline-flex w-full items-center justify-center gap-2 rounded-none border font-mono font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#72e09a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070a09] sm:w-auto ${sizeClass} ${statusClass}`
         }
       >
         {!plain && status === "copied" ? (
-          <Check className="h-4 w-4" aria-hidden />
+          <Check className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
         ) : !plain && status === "failed" ? (
-          <TriangleAlert className="h-4 w-4" aria-hidden />
+          <TriangleAlert className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
         ) : !plain ? (
-          <Copy className="h-4 w-4" aria-hidden />
+          <Copy className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
         ) : null}
         {label}
       </button>

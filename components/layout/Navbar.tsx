@@ -115,11 +115,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             className={`flex items-center justify-between overflow-hidden rounded-3xl border transition-all duration-400 ${
               isScrolled
                 ? `h-15 ${isMobileMenuOpen ? "max-lg:border-transparent max-lg:shadow-none" : "border-movrr-text-inverse/12"} bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-17 lg:border-movrr-text-inverse/12 lg:shadow-sm lg:px-4`
-                : `h-16 border-transparent px-3 shadow-none lg:h-20 lg:px-4 ${
-                    variant === "dark"
-                      ? "bg-movrr-bg-primary/85 backdrop-blur-md"
-                      : "bg-transparent backdrop-blur-none"
-                  }`
+                : "h-16 border-transparent bg-transparent px-0 shadow-none backdrop-blur-none lg:h-20"
             }`}
           >
             <Link

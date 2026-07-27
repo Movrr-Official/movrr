@@ -43,7 +43,7 @@ export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative overflow-hidden rounded-3xl border border-movrr-border-soft transition-colors duration-500 hover:border-movrr-success/30"
+            className="group relative min-h-[60vh] overflow-hidden rounded-3xl border border-movrr-border-soft transition-colors duration-500 hover:border-movrr-success/30 lg:min-h-0"
           >
             <motion.div
               className="absolute inset-0 scale-[1.15]"

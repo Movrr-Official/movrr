@@ -23,7 +23,7 @@ export function HomePage({
       <Navbar />
       <main
         id="main-content"
-        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+        className="min-h-screen overflow-x-clip bg-movrr-bg-canvas"
       >
         <Hero locale={locale} copy={copy.hero} />
         <ValueStrip copy={copy.valueStrip} />

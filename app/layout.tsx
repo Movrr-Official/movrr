@@ -120,7 +120,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={manrope.variable}
+      className={`relative ${manrope.variable}`}
       data-scroll-behavior="smooth"
     >
       <body className="font-sans antialiased">

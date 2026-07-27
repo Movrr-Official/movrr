@@ -315,7 +315,7 @@ export const nl: Dictionary = {
         titleLine2: "kan opleveren.",
         description:
           "Een onderbouwde prognose van het bereik binnen actieve fietsnetwerken in de stad.",
-        imageAlt: "Fiets met MOVRR-branding",
+        imageAlt: "Close-up van een fietswiel met MOVRR-branding in de avond",
         items: [
           {
             value: "400K — 1,2M",
@@ -338,7 +338,7 @@ export const nl: Dictionary = {
         ],
       },
       appPreview: {
-        imageAlt: "MOVRR-app op het stuur van een fiets",
+        imageAlt: "Smartphone op het stuur van een fiets",
         routeName: "Ronde Rotterdam Centraal",
         routeDetails: "5 KM — 45 MIN",
       },
@@ -399,7 +399,7 @@ export const nl: Dictionary = {
         ],
       },
       safety: {
-        imageAlt: "MOVRR-app op een apparaat",
+        imageAlt: "Smartphone tegen een neutrale achtergrond",
         title: "Je merk in goede handen",
         description:
           "Elke rit wordt geverifieerd en elke plaatsing gecontroleerd. Zo blijft het resultaat betrouwbaar.",

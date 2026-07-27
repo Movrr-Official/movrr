@@ -36,14 +36,14 @@ remain external launch work.
 | Open Graph and Twitter cards were incomplete | Fully Resolved | Localized titles, descriptions, canonical URLs, locales, site name, card type, and a 1200×630 generated brand asset are rendered and checked | Fully Resolved |
 | Social entity links were unverified | Partially Resolved | Unsupported X/Instagram and handles were removed; only the confirmed MOVRR LinkedIn showcase is published in footer/schema | Fully Resolved |
 | Image filenames, dimensions, alt behavior, loading, and optimization were inconsistent | Fully Resolved | Approved rendered images use descriptive WebP/AVIF assets, Next Image dimensions/sizes, meaningful or empty alt text, and justified priority | Fully Resolved |
-| Unfinished phone/home/map and generated bicycle visuals were referenced | Fully Resolved | Their component/pipeline references were removed; the strict rendered-image check confirms only approved assets | Fully Resolved |
+| Phone placeholders could be mistaken for finished app screens | Partially Resolved | Both original preview sections are intentionally restored; descriptive alt text states only that a phone is visible and does not claim finished home/map UI | Fully Resolved |
 | Heading hierarchy and semantic landmarks were inconsistent | Partially Resolved | Page shells have one main/H1, skip link, named navigation, semantic footer groups, corrected section headings, and accessible FAQ controls | Fully Resolved |
 | Accessibility contrast and control names affected SEO | Partially Resolved | Footer, legal, help, waitlist, contact, careers, and accessibility templates were corrected; representative mobile Lighthouse audits score 100 | Fully Resolved |
 | Accessibility copy made unsupported jurisdiction/SLA/audit claims | Still Open | Irish regulator, fixed response SLA, quarterly audit, and unverified testing claims were removed; WCAG target is accurately framed as 2.2 AA | Fully Resolved |
 | Reduced-motion handling and server-visible headings were weak | Fully Resolved | Shared reduced-motion handling preserves content and controls; primary headings no longer begin hidden in server HTML | Fully Resolved |
 | Footer and CTA authority flow was incomplete | Fully Resolved | Localized footer navigation and contextual links connect every public route and preserve language context | Fully Resolved |
 | Help search appeared interactive but did not work | Fully Resolved | `HelpExperience` performs localized question/answer filtering with a polite live region; browser interaction verified | Fully Resolved |
-| Rendering, image, font, and Core Web Vitals risks were unmeasured | Partially Resolved | Production build and browser trace show 74 ms local lab LCP, 0.00 CLS, 13 ms TTFB, and zero estimated render-blocking savings | Fully Resolved |
+| Rendering, image, font, and Core Web Vitals risks were unmeasured | Partially Resolved | Production build and browser trace show 140 ms local lab LCP, 0.00 CLS, 14 ms TTFB, and zero estimated render-blocking savings | Fully Resolved |
 | Search-console verification values could be hardcoded | Fully Resolved | Google, Bing, and optional Yandex verification are environment-backed; `.env.example` documents extension points | Fully Resolved |
 | IndexNow launch infrastructure was missing | Fully Resolved | Environment-backed key route and `scripts/submit-indexnow.mjs` exist; no secret or premature submission is committed | Fully Resolved |
 | Entity clarity for AI discovery was weak | Fully Resolved | Metadata, semantic copy, JSON-LD, sitemap, robots policy, and llms.txt consistently define MOVRR, riders, brands, rewards, and launch cities | Fully Resolved |
@@ -59,7 +59,7 @@ remain external launch work.
 - Locale parity: 605 checks passed.
 - Next.js production build: 47 routes generated.
 - Strict rendered crawl: 38 localized pages, 34 sitemap URLs, 38 internal
-  targets, eight rendered images, metadata uniqueness, orphan detection,
+  targets, eleven rendered images, metadata uniqueness, orphan detection,
   redirects, crawl files, JSON-LD, API directives, IndexNow endpoint, and 404
   behavior passed.
 - Mobile Lighthouse on home, accessibility, Dutch help, privacy, waitlist,
@@ -67,7 +67,7 @@ remain external launch work.
   100 Agentic Browsing for every tested template.
 - Browser interactions: help filtering, waitlist invalid-email handling,
   cookie rejection, and English-to-Dutch route switching passed.
-- Home production-build trace: 74 ms local lab LCP, 0.00 CLS, 13 ms TTFB, and
+- Home production-build trace: 140 ms local lab LCP, 0.00 CLS, 14 ms TTFB, and
   no render-blocking savings opportunity.
 - Repository scan: no Vercel canonical, unsupported social handle, Irish
   regulator, obsolete WCAG 2.1, unsupported crawler group, or unfinished

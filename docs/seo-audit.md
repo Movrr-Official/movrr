@@ -31,9 +31,9 @@ before search-engine submission.
 - Placeholder editorial and press content risked soft-404 and credibility
   signals. Blog and press are `noindex,follow` and excluded from the XML
   sitemap until real URLs/assets exist.
-- Unapproved phone composites and the removed bicycle visual were still
-  referenced by rendered components. All rendered and pipeline references were
-  removed. No speculative product screen or bicycle image is used.
+- The two original phone-preview sections and the metrics bicycle-wheel visual
+  are intentionally retained. Their alt text describes only what is actually
+  visible and does not claim that the placeholder screens are finished app UI.
 
 ### Launch action outside the repository
 
@@ -86,8 +86,8 @@ before search-engine submission.
 - Add SearchAction only after a crawlable URL-based site search exists.
 - Add LocalBusiness only if MOVRR publishes a customer-facing physical location,
   opening hours, and business contact details that satisfy the type.
-- Replace the intentionally image-free app areas with approved home-screen and
-  live-map composites when the product visuals are final.
+- Replace the neutral phone screens with the approved home-screen and live-map
+  composites when those product visuals are final.
 
 ## Validation
 
@@ -103,9 +103,9 @@ before search-engine submission.
   - SEO: 100
   - Agentic Browsing: 100
 - Chrome performance trace on the local production build:
-  - LCP: 74 ms
+  - LCP: 140 ms
   - CLS: 0.00
-  - TTFB: 13 ms
+  - TTFB: 14 ms
   - Render-blocking estimated savings: 0 ms
 
 Local lab timing is evidence of regressions, not a prediction of production

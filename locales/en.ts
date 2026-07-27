@@ -314,7 +314,7 @@ export const en = {
         titleLine2: "campaign impact.",
         description:
           "The scale of movement-based campaigns. Estimated reach across active urban networks.",
-        imageAlt: "MOVRR branded bicycle",
+        imageAlt: "Close-up of a MOVRR-branded bicycle wheel at night",
         items: [
           {
             value: "400K — 1.2M",
@@ -337,7 +337,7 @@ export const en = {
         ],
       },
       appPreview: {
-        imageAlt: "MOVRR app mounted on a bicycle handlebar",
+        imageAlt: "Smartphone mounted on bicycle handlebars",
         routeName: "Rotterdam Central Tour",
         routeDetails: "5 KM — 45 MIN",
       },
@@ -398,7 +398,7 @@ export const en = {
         ],
       },
       safety: {
-        imageAlt: "MOVRR app displayed on a device",
+        imageAlt: "Smartphone held against a neutral background",
         title: "Your brand protected",
         description:
           "Trust isn't a feature. It's the foundation. Every ride verified, every placement reviewed.",

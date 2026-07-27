@@ -28,6 +28,9 @@ const images = [
     "usecase-sponsored-community-rides-aerial.png",
     "movrr-sponsored-community-ride.webp",
   ],
+  ["app-preview-01.png", "movrr-app-preview-handlebar.webp"],
+  ["app-preview-02.png", "movrr-app-preview-device.webp"],
+  ["metrics-bike-tire.png", "movrr-branded-bicycle-wheel.webp"],
 ];
 
 await mkdir(outputDir, { recursive: true });

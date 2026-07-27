@@ -1,11 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import type { HomeCopy } from "@/locales/types";
 
 export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
   return (
     <section
+      ref={sectionRef}
       id="impact"
       className="relative bg-movrr-bg-surface py-32 lg:py-44"
     >
@@ -27,33 +37,58 @@ export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
           </p>
         </motion.div>
 
-        <div className="grid items-stretch gap-4 lg:grid-cols-3 lg:gap-5">
-          {copy.items.map((metric, index) => (
+        <div className="grid min-h-[70vh] items-stretch gap-4 lg:grid-cols-2 lg:gap-5">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative min-h-[60vh] overflow-hidden rounded-3xl border border-movrr-border-soft transition-colors duration-500 hover:border-movrr-success/30 lg:min-h-0"
+          >
             <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="group flex min-h-72 flex-col justify-between rounded-3xl border border-movrr-text-inverse/10 bg-movrr-bg-card-dark px-8 py-8 transition-colors duration-500 hover:border-movrr-success/20 hover:bg-movrr-bg-tertiary lg:px-9 lg:py-9"
+              className="absolute inset-0 scale-[1.15]"
+              style={{ y: imageY }}
             >
-              <div>
-                <p className="text-3xl font-semibold leading-tight tracking-[-0.02em] text-movrr-success-soft lg:text-[2.4rem]">
-                  {metric.value}
-                </p>
-                <p className="mt-1.5 text-xs font-semibold uppercase tracking-widest text-movrr-success-soft/55">
-                  {metric.label}
-                </p>
-              </div>
-              <p className="mt-5 text-sm leading-relaxed text-movrr-success-soft/40">
-                {metric.description}
-              </p>
+              <Image
+                src="/images/movrr-branded-bicycle-wheel.webp"
+                alt={copy.imageAlt}
+                fill
+                quality={88}
+                sizes="(min-width: 1280px) 616px, (min-width: 1024px) calc(50vw - 58px), calc(100vw - 48px)"
+                className="object-cover"
+              />
             </motion.div>
-          ))}
+            <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/25 via-transparent to-transparent" />
+          </motion.div>
+
+          <div className="flex flex-col gap-4 lg:gap-5">
+            {copy.items.map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group flex flex-1 flex-col justify-between rounded-3xl border border-movrr-text-inverse/10 bg-movrr-bg-card-dark px-8 py-8 transition-colors duration-500 hover:border-movrr-success/20 hover:bg-movrr-bg-tertiary lg:px-9 lg:py-9"
+              >
+                <div>
+                  <p className="text-3xl font-semibold leading-tight tracking-[-0.02em] text-movrr-success-soft lg:text-[2.4rem]">
+                    {metric.value}
+                  </p>
+                  <p className="mt-1.5 text-xs font-semibold uppercase tracking-widest text-movrr-success-soft/55">
+                    {metric.label}
+                  </p>
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-movrr-success-soft/40">
+                  {metric.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

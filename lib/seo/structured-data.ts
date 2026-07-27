@@ -58,7 +58,11 @@ const organization: JsonLdNode = {
       availableLanguage: ["English", "Dutch"],
     },
   ],
-  sameAs: ["https://www.linkedin.com/showcase/movrr.app/"],
+  sameAs: [
+    "https://www.linkedin.com/showcase/movrr.app/",
+    "https://www.instagram.com/movrr.app/",
+    "https://www.tiktok.com/@movrr.app",
+  ],
   knowsAbout: [
     "cycling rewards",
     "verified urban movement",

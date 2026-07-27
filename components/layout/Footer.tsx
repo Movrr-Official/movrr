@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, ArrowRight } from "lucide-react";
+import { Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SystemStatus } from "./SystemStatus";
@@ -10,6 +10,7 @@ import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import { withLocalePath } from "@/lib/i18n/routing";
 import { ViewSelector } from "@/app/features/machine-view/components/ViewSelector";
+import { TikTokIcon } from "@/components/icons/MovrrIcons";
 
 interface FooterProps {
   cta?: boolean; // Whether to show the CTA strip
@@ -20,6 +21,16 @@ const socialLinks = [
     icon: Linkedin,
     href: "https://www.linkedin.com/showcase/movrr.app/",
     label: "LinkedIn",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/movrr.app/",
+    label: "Instagram",
+  },
+  {
+    icon: TikTokIcon,
+    href: "https://www.tiktok.com/@movrr.app",
+    label: "TikTok",
   },
 ];
 

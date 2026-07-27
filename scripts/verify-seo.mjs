@@ -29,6 +29,12 @@ const routes = [
 ];
 const noindexRoutes = new Set(["/blog", "/press"]);
 const indexableRoutes = routes.filter((route) => !noindexRoutes.has(route));
+const machineReferenceUrls = new Set([
+  `${productionOrigin}/machine`,
+  `${productionOrigin}/nl/machine`,
+  `${productionOrigin}/machine.md`,
+  `${productionOrigin}/nl/machine.md`,
+]);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -433,11 +439,34 @@ assert(
 for (const [, url] of llms.body.matchAll(/\]\((https:\/\/movrr\.nl[^)]+)\)/g)) {
   assert(
     url === `${productionOrigin}/sitemap.xml` ||
+      machineReferenceUrls.has(url) ||
       sitemapLocations.includes(url) ||
       [...noindexRoutes].some(
         (route) => url === canonicalFor("en", route) || url === canonicalFor("nl", route),
       ),
     `llms.txt: undocumented or non-canonical URL ${url}`,
+  );
+}
+
+for (const [route, notice] of [
+  ["/machine.md", "# Note to AI agents"],
+  ["/nl/machine.md", "# Opmerking voor AI-agents"],
+]) {
+  const machineMarkdown = await get(route);
+  assert(machineMarkdown.response.status === 200, `${route}: expected 200`);
+  assert(
+    machineMarkdown.response.headers
+      .get("content-type")
+      ?.startsWith("text/markdown"),
+    `${route}: expected text/markdown`,
+  );
+  assert(
+    machineMarkdown.response.headers.get("x-robots-tag") === "noindex, follow",
+    `${route}: raw duplicate must be noindex, follow`,
+  );
+  assert(
+    machineMarkdown.body.startsWith(notice),
+    `${route}: AI safety notice must be first`,
   );
 }
 

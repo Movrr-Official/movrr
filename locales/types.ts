@@ -15,6 +15,24 @@ export interface CommonDictionary {
     englishName: string;
     dutchName: string;
   };
+  machineView: {
+    selectorLabel: string;
+    humanLabel: string;
+    machineLabel: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    copyMarkdown: string;
+    copiedMarkdown: string;
+    copyFailed: string;
+    rawMarkdown: string;
+    noticeTitle: string;
+    noticeParagraphs: string[];
+    overviewTitle: string;
+    commonTitle: string;
+    pagesTitle: string;
+    sourcePage: string;
+  };
   navigation: {
     howItWorks: string;
     rewards: string;

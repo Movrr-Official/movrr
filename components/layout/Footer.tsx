@@ -9,6 +9,7 @@ import { SystemStatus } from "./SystemStatus";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import { withLocalePath } from "@/lib/i18n/routing";
+import { ViewSelector } from "@/app/features/machine-view/components/ViewSelector";
 
 interface FooterProps {
   cta?: boolean; // Whether to show the CTA strip
@@ -173,7 +174,7 @@ export function Footer({ cta = true }: FooterProps) {
           <p className="text-xs text-movrr-text-inverse/60">
             &copy; {new Date().getFullYear()} {copy.footer.copyright}
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <Link
               href={withLocalePath(locale, "/accessibility")}
               className="text-xs text-movrr-text-inverse/60 hover:text-movrr-text-inverse/80 transition-colors"
@@ -188,6 +189,13 @@ export function Footer({ cta = true }: FooterProps) {
             </Link>
             <SystemStatus />
             <LanguageSwitcher labels={copy.languageSwitcher} inverted />
+            <ViewSelector
+              current="human"
+              humanHref={withLocalePath(locale, "/")}
+              machineHref={withLocalePath(locale, "/machine")}
+              labels={copy.machineView}
+              inverted
+            />
           </div>
         </div>
       </div>

@@ -6,6 +6,12 @@ const llmsText = `# MOVRR
 
 MOVRR serves riders, brands, mobility partners, and cities. The company is based in Rotterdam, Netherlands, and is launching city by city, beginning with Rotterdam and The Hague. English is the default website language; Dutch pages are available under /nl.
 
+## Machine-readable website
+
+- [Complete English Markdown](${SITE_URL}/machine.md): The entire marketing website in a single AI-optimised Markdown document.
+- [Complete Dutch Markdown](${SITE_URL}/nl/machine.md): The Dutch website in the same machine-readable format.
+- [Rendered Machine View](${SITE_URL}/machine): Accessible, crawlable presentation with one-click Markdown copying.
+
 ## Core product
 
 - [How MOVRR works](${SITE_URL}/how-it-works): The rider, brand, and verification model.

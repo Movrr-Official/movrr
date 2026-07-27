@@ -39,7 +39,9 @@ export function LanguageSwitcher({
     const query = searchParams.toString();
     const hash = window.location.hash;
     persistLocale(locale);
-    router.push(`${query ? `${path}?${query}` : path}${hash}`);
+    router.push(`${query ? `${path}?${query}` : path}${hash}`, {
+      scroll: false,
+    });
   }
 
   const active = inverted ? "text-movrr-text-inverse" : "text-movrr-text-brand";

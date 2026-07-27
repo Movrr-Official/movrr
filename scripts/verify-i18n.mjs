@@ -98,9 +98,32 @@ for (const token of [
 }
 
 const layout = read("app/layout.tsx");
+const localizedShell = read("components/i18n/LocalizedAppShell.tsx");
+const documentLocale = read("components/i18n/DocumentLocale.tsx");
 assert(
-  layout.includes("lang={locale}") && layout.includes("CommonCopyProvider"),
-  "root layout exposes the locale to assistive technology and shared UI",
+  layout.includes("lang={locale}") &&
+    localizedShell.includes("CommonCopyProvider") &&
+    localizedShell.includes("DocumentLocale") &&
+    documentLocale.includes("document.documentElement.lang = locale"),
+  "route-localized shell exposes the locale to assistive technology and shared UI",
+);
+
+for (const [file, locale] of [
+  ["app/(marketing)/layout.tsx", "en"],
+  ["app/(legal)/layout.tsx", "en"],
+  ["app/nl/layout.tsx", "nl"],
+]) {
+  const routeLayout = read(file);
+  assert(
+    routeLayout.includes("LocalizedAppShell") &&
+      routeLayout.includes(`locale="${locale}"`),
+    `${file} remounts shared UI with the ${locale} dictionary`,
+  );
+}
+
+assert(
+  read("app/page.tsx").includes('<LocalizedAppShell locale="en">'),
+  "the unprefixed homepage mounts shared UI with the English dictionary",
 );
 
 const waitlistAction = read("app/actions/waitlist.ts");

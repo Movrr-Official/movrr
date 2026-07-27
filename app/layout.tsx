@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { headers } from "next/headers";
-import { EarlyAccessBanner } from "@/components/early-access/EarlyAccessBanner";
-import { CookieConsentManager } from "@/components/consent/CookieConsentManager";
-import { CommonCopyProvider } from "@/components/i18n/CommonCopyProvider";
 import { REQUEST_LOCALE_HEADER, normalizeLocale } from "@/lib/i18n/config";
-import { getDictionary } from "@/lib/i18n/dictionary";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -39,7 +35,6 @@ export default async function RootLayout({
 }>) {
   const requestHeaders = await headers();
   const locale = normalizeLocale(requestHeaders.get(REQUEST_LOCALE_HEADER));
-  const dictionary = await getDictionary(locale);
 
   return (
     <html
@@ -47,13 +42,7 @@ export default async function RootLayout({
       className={manrope.variable}
       data-scroll-behavior="smooth"
     >
-      <body className="font-sans antialiased">
-        <CommonCopyProvider locale={locale} copy={dictionary.common}>
-          <EarlyAccessBanner audience="riders" placement="fixed-top" />
-          {children}
-          <CookieConsentManager />
-        </CommonCopyProvider>
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

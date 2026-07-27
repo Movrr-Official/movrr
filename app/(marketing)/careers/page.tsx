@@ -1,23 +1,12 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { CareersHero } from "@/components/careers/CareersHero";
-import { CareersValues } from "@/components/careers/CareersValues";
-import { CareersRoles } from "@/components/careers/CareersRoles";
+import { CareersPage } from "@/components/pages/CareersPage";
+import { getDictionary } from "@/lib/i18n/dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
-export const metadata = {
-  title: "Careers — MOVRR",
-  description:
-    "Join the team building the platform cities move on. Open roles at MOVRR.",
-};
-
-export default function CareersPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar variant="light" />
-      <CareersHero />
-      <CareersValues />
-      <CareersRoles />
-      <Footer cta={false} />
-    </main>
-  );
+export async function generateMetadata() {
+  const dictionary = await getDictionary("en");
+  return buildPageMetadata("en", dictionary, "careers");
+}
+export default async function Page() {
+  const dictionary = await getDictionary("en");
+  return <CareersPage copy={dictionary.pages.careers} />;
 }

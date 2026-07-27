@@ -6,32 +6,12 @@ import {
   BroadcastIcon,
   UrbanIcon,
 } from "@/components/icons/MovrrIcons";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
-const reach = [
-  {
-    number: "01",
-    icon: UrbanIcon,
-    title: "City-scale movement",
-    description:
-      "Campaigns travel the routes cyclists already take — commutes, errands, the routes that thread through the heart of a city.",
-  },
-  {
-    number: "02",
-    icon: VerifiedIcon,
-    title: "Verified impressions",
-    description:
-      "Every exposure tied to authenticated movement data. No inflated numbers. No estimated reach.",
-  },
-  {
-    number: "03",
-    icon: BroadcastIcon,
-    title: "Opted-in audiences",
-    description:
-      "Cyclists choose to carry your brand. That choice signals more than any impression ever could.",
-  },
-];
 
 export function BrandsReach() {
+  const copy = usePageCopy<BrandsCopy>().reach;
+  const reach = copy.items.map((item, index) => ({ ...item, icon: [UrbanIcon, VerifiedIcon, BroadcastIcon][index] }));
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -44,8 +24,8 @@ export function BrandsReach() {
           className="mb-16 flex items-center justify-between border-b border-movrr-border-soft pb-8 lg:mb-20"
         >
           <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand ml-auto">
-            Not display.{" "}
-            <span className="text-movrr-text-brand/40">Movement.</span>
+            {copy.titleLine1}{" "}
+            <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
           </h2>
         </motion.div>
 

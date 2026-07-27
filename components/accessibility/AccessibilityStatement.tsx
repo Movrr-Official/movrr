@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { AccessibilityCopy } from "@/locales/types";
 
 export function AccessibilityStatement() {
+  const copy = usePageCopy<AccessibilityCopy>().statement;
   return (
     <section className="flex min-h-[72vh] flex-col justify-between border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-20 pt-44 lg:pb-24 lg:pt-52">
       <div />
@@ -15,9 +18,9 @@ export function AccessibilityStatement() {
             transition={{ delay: 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2.75rem,6vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            Access is not
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/40">an afterthought.</span>
+            <span className="text-movrr-text-inverse/40">{copy.titleLine2}</span>
           </motion.h1>
 
           <motion.div
@@ -27,10 +30,10 @@ export function AccessibilityStatement() {
             className="flex flex-col gap-2 lg:mb-2 lg:items-end lg:text-right"
           >
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/30">
-              Conformance target
+              {copy.targetLabel}
             </p>
             <p className="max-w-xs text-sm leading-relaxed text-movrr-text-inverse/50">
-              WCAG 2.1 Level AA. Ongoing. Not a one-time audit.
+              {copy.target}
             </p>
           </motion.div>
         </div>

@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { AccessibilityCopy } from "@/locales/types";
 
 export function AccessibilityContact() {
+  const copy = usePageCopy<AccessibilityCopy>().contact;
   return (
     <section className="bg-movrr-bg-primary py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -16,7 +19,7 @@ export function AccessibilityContact() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30"
           >
-            Found a barrier?
+            {copy.label}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -25,8 +28,7 @@ export function AccessibilityContact() {
             transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl text-base leading-relaxed text-movrr-text-inverse/45"
           >
-            If something on the platform creates a barrier, a missing label, a navigation issue, a contrast problem. We want to know. Reports
-            go directly to the team and are prioritised above routine work.
+            {copy.description}
           </motion.p>
         </div>
 
@@ -52,20 +54,18 @@ export function AccessibilityContact() {
         >
           <div className="sm:pr-10">
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
-              Response time
+              {copy.responseTitle}
             </p>
             <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
-              We acknowledge reports within 2 business days and provide a
-              resolution timeline within 5.
+              {copy.responseBody}
             </p>
           </div>
           <div className="sm:px-10">
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
-              Formal complaint
+              {copy.complaintTitle}
             </p>
             <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
-              If you are not satisfied with our response, you may contact the
-              Irish Human Rights and Equality Commission at{" "}
+              {copy.complaintBeforeLink}{" "}
               <a
                 href="https://www.ihrec.ie"
                 target="_blank"
@@ -79,11 +79,10 @@ export function AccessibilityContact() {
           </div>
           <div className="sm:pl-10">
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
-              Technical standard
+              {copy.standardTitle}
             </p>
             <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
-              We aim for WCAG 2.1 Level AA conformance across the platform and
-              this website. Our audit cycle runs quarterly.
+              {copy.standardBody}
             </p>
           </div>
         </motion.div>

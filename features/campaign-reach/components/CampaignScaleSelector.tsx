@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CAMPAIGN_SCALES } from "../config/campaignReach.config";
 import type { CampaignScale, CampaignScaleTier } from "../types/campaignReach.types";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
 interface CampaignScaleSelectorProps {
   selectedId: CampaignScale | null;
@@ -15,12 +16,13 @@ export function CampaignScaleSelector({
   cityName,
   onSelect,
 }: CampaignScaleSelectorProps) {
+  const copy = usePageCopy<BrandsCopy>().estimator;
   const scales = Object.values(CAMPAIGN_SCALES) as CampaignScaleTier[];
 
   return (
     <div>
       <p className="mb-6 text-sm text-movrr-text-brand/40">
-        How broad should the {cityName} activation be?
+        {copy.scaleQuestionBefore} {cityName} {copy.scaleQuestionAfter}
       </p>
 
       <div className="divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
@@ -57,10 +59,10 @@ export function CampaignScaleSelector({
                         : "text-movrr-text-brand/55 group-hover:text-movrr-text-brand"
                     }`}
                   >
-                    {scale.label}
+                    {copy.scales[scale.id].label}
                   </p>
                   <p className="mt-0.5 text-xs leading-relaxed text-movrr-text-brand/30">
-                    {scale.description}
+                    {copy.scales[scale.id].description}
                   </p>
                 </div>
               </div>

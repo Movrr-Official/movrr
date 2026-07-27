@@ -3,59 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { BlogCopy } from "@/locales/types";
 
-const posts = [
-  {
-    category: "Community",
-    date: "17 Jan 2025",
-    readTime: "4 min read",
-    title: "The riders who asked: what if the route itself paid you?",
-    excerpt:
-      "Early access riders shaped the community rides feature more than any product doc. Here's what we learned from them.",
-  },
-  {
-    category: "Platform",
-    date: "9 Jan 2025",
-    readTime: "5 min read",
-    title: "Building a reward system that can't be gamed",
-    excerpt:
-      "Verifying movement sounds simple. Making it resistant to manipulation, without punishing legitimate riders, took longer than we expected.",
-  },
-  {
-    category: "Brands",
-    date: "22 Dec 2024",
-    readTime: "3 min read",
-    title: "Why we price on verified reach, not estimated reach",
-    excerpt:
-      "Most ad platforms sell promises. We sell proof. The distinction changes how campaigns are structured, priced, and measured.",
-  },
-  {
-    category: "Cities",
-    date: "10 Dec 2024",
-    readTime: "4 min read",
-    title: "One verification layer for every mode: how we made that work",
-    excerpt:
-      "Bikes, e-scooters, walking. Every city has a different mix. Building a single verification layer for all of them forced us to think differently.",
-  },
-  {
-    category: "Product",
-    date: "27 Nov 2024",
-    readTime: "6 min read",
-    title: "The decisions we locked in before launch, and why they still hold",
-    excerpt:
-      "Some architectural choices are boring to explain and expensive to undo. Here are the ones we locked in before launch.",
-  },
-  {
-    category: "Community",
-    date: "14 Nov 2024",
-    readTime: "3 min read",
-    title: "Why we built an application process for ride leaders. Not an algorithm.",
-    excerpt:
-      "Community rides need organisers. Choosing them by criteria, not engagement score, changes who steps up.",
-  },
-];
 
 export function BlogGrid() {
+  const posts = usePageCopy<BlogCopy>().posts;
   return (
     <section className="bg-movrr-bg-primary py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">

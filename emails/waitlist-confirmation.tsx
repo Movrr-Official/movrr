@@ -1,9 +1,12 @@
 import { Column, Row, Section, Text } from "@react-email/components";
 import { BaseEmail, MutedNote, appUrl, colors } from "./_components/base-email";
 import type { WaitlistInput } from "@/lib/waitlist/schema";
+import type { Locale } from "@/lib/i18n/config";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 interface Props {
   data: WaitlistInput;
+  locale: Locale;
 }
 
 const audienceBody: Record<WaitlistInput["audience"], string> = {
@@ -39,18 +42,57 @@ const cityClose: Record<WaitlistInput["audience"], string> = {
   partner: "Until then, we're building the infrastructure worth integrating with.",
 };
 
-export function WaitlistConfirmation({ data }: Props) {
+export function WaitlistConfirmation({ data, locale }: Props) {
   const firstName = data.name.split(" ")[0];
+  const isDutch = locale === "nl";
+  const dutchBody: typeof audienceBody = {
+    rider:
+      "Je hoort bij de eerste lichting. Zodra MOVRR in jouw stad opent, hoor je het als een van de eersten en krijg je toegang vóór de publieke lancering.",
+    brand:
+      "Je bent geregistreerd. Zodra de eerste merkpartnerschappen openen, staan jouw gegevens bovenaan. We nemen contact op zodra er concrete mogelijkheden zijn.",
+    partner:
+      "Je bent geregistreerd. We nemen rechtstreeks contact op zodra integratie- en commerciële samenwerkingen in jouw regio openen.",
+  };
+  const dutchSteps: typeof whatHappensNext = {
+    rider: [
+      "MOVRR wordt stad voor stad uitgerold. Zodra jouw stad is bevestigd, ontvang je vóór de publieke aankondiging een e-mail.",
+      "Je krijgt vroegtijdig toegang, zodat je rustig je account kunt instellen en het platform kunt leren kennen.",
+      "Vanaf je eerste geverifieerde rit verdien je. Zonder minimum en zonder limiet.",
+    ],
+    brand: [
+      "We beoordelen iedere merkaanmelding voordat gesprekken starten. De kwaliteit van het bereik staat voorop.",
+      "Wanneer de eerste plaatsen openen, ontvangen geregistreerde merken als eerste alle tarieven en campagnespecificaties.",
+      "Campagnes draaien op geverifieerde verplaatsingsdata, niet op geschatte impressies.",
+    ],
+    partner: [
+      "We beoordelen iedere partneraanmelding afzonderlijk en stemmen integratie en commerciële voorwaarden rechtstreeks af.",
+      "Zodra het integratieprogramma opent, benaderen we geregistreerde partners vóór de publieke aankondiging.",
+      "We delen technische documentatie en voorwaarden zodra jouw stad of regio binnen bereik valt.",
+    ],
+  };
+  const dutchClose: typeof cityClose = {
+    rider: "Blijf tot die tijd in beweging.",
+    brand: "Tot die tijd bouwen we aan iets dat je aandacht waard is.",
+    partner: "Tot die tijd bouwen we aan infrastructuur die het integreren waard is.",
+  };
   const cityContext = data.city ? ` in ${data.city}` : "";
-  const steps = whatHappensNext[data.audience];
+  const audienceLabel = isDutch
+    ? { rider: "fietser", brand: "merk", partner: "partner" }[data.audience]
+    : data.audience;
+  const steps = (isDutch ? dutchSteps : whatHappensNext)[data.audience];
 
   return (
     <BaseEmail
-      previewText={`You're registered. MOVRR opens city by city. You'll hear first${cityContext}.`}
-      title={`You're in, ${firstName}.`}
-      intro={audienceBody[data.audience]}
-      actionLabel="See how MOVRR works"
-      actionUrl={appUrl("/how-it-works")}
+      locale={locale}
+      previewText={
+        isDutch
+          ? `Je bent geregistreerd. MOVRR opent stad voor stad. Jij hoort het als eerste${cityContext}.`
+          : `You're registered. MOVRR opens city by city. You'll hear first${cityContext}.`
+      }
+      title={isDutch ? `Je bent erbij, ${firstName}.` : `You're in, ${firstName}.`}
+      intro={(isDutch ? dutchBody : audienceBody)[data.audience]}
+      actionLabel={isDutch ? "Ontdek hoe MOVRR werkt" : "See how MOVRR works"}
+      actionUrl={appUrl(withLocalePath(locale, "/how-it-works"))}
     >
       {/* What happens next */}
       <Section style={{ margin: "24px 0 0" }}>
@@ -64,7 +106,7 @@ export function WaitlistConfirmation({ data }: Props) {
             color: colors.textFaint,
           }}
         >
-          What happens next
+          {isDutch ? "Wat gebeurt er nu?" : "What happens next"}
         </Text>
         {steps.map((step, i) => (
           <Section key={i} style={{ margin: "0 0 10px" }}>
@@ -109,12 +151,12 @@ export function WaitlistConfirmation({ data }: Props) {
             color: colors.textMuted,
           }}
         >
-          {cityClose[data.audience]}
+          {(isDutch ? dutchClose : cityClose)[data.audience]}
         </Text>
       </Section>
 
       <MutedNote>
-        Registered as a {data.audience}
+        {isDutch ? "Geregistreerd als" : "Registered as a"} {audienceLabel}
         {data.city ? ` · ${data.city}` : ""} · {data.email}
       </MutedNote>
     </BaseEmail>

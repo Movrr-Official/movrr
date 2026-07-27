@@ -2,50 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { PressCopy } from "@/locales/types";
 
-const coverage = [
-  {
-    outlet: "TechCrunch",
-    date: "Mar 2025",
-    headline:
-      "MOVRR wants to turn every bike ride into a brand touchpoint. Without the noise.",
-    type: "Feature",
-    href: "#",
-  },
-  {
-    outlet: "The Economic Times",
-    date: "Feb 2025",
-    headline:
-      "Rotterdam startup building rewards platform for urban cyclists raises pre-seed round",
-    type: "News",
-    href: "#",
-  },
-  {
-    outlet: "Forbes",
-    date: "Jan 2025",
-    headline:
-      "Movement-based advertising is the next frontier for urban mobility brands",
-    type: "Opinion",
-    href: "#",
-  },
-  {
-    outlet: "Sifted",
-    date: "Dec 2024",
-    headline: "Five European mobility startups to watch in 2025",
-    type: "Roundup",
-    href: "#",
-  },
-  {
-    outlet: "Cycling Weekly",
-    date: "Nov 2024",
-    headline:
-      "Can verified movement data finally fix the broken sponsorship model for everyday riders?",
-    type: "Analysis",
-    href: "#",
-  },
-];
 
 export function PressGrid() {
+  const copy = usePageCopy<PressCopy>();
+  const coverage = copy.coverage;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -58,7 +21,7 @@ export function PressGrid() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand"
           >
-            Coverage
+            {copy.coverageTitle}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -67,7 +30,7 @@ export function PressGrid() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-sm text-movrr-text-brand/40"
           >
-            Selected coverage
+            {copy.selectedCoverage}
           </motion.p>
         </div>
 

@@ -1,47 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { RidersCopy } from "@/locales/types";
 
-const earnings = [
-  {
-    number: "01",
-    label: "Base",
-    title: "Just ride",
-    description:
-      "Kilometres earn MOVRR Points the moment you ride. No targets, no minimums. Just verified movement.",
-    note: "Every rider, from day one",
-    accentWidth: "w-8",
-    headingSize: "text-[clamp(1.75rem,2.5vw,2.5rem)]",
-    descSize: "text-sm",
-    py: "py-12 lg:py-14",
-  },
-  {
-    number: "02",
-    label: "Boosted",
-    title: "Carry a brand",
-    description:
-      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it multiplies your points above the base rate.",
-    note: "Your call, every time",
-    accentWidth: "w-16",
-    headingSize: "text-[clamp(2rem,3vw,3.25rem)]",
-    descSize: "text-base",
-    py: "py-14 lg:py-18",
-  },
-  {
-    number: "03",
-    label: "Campaign",
-    title: "Join a campaign ride",
-    description:
-      "Join city or brand-sponsored routes in your area. As your ride history builds, you unlock access to higher-value campaigns with better multipliers.",
-    note: "Open to all · or invite-only as you build history",
-    accentWidth: "w-24",
-    headingSize: "text-[clamp(2.5rem,3.5vw,4rem)]",
-    descSize: "text-base",
-    py: "py-16 lg:py-22",
-  },
-];
 
 export function RidersEarnings() {
+  const copy = usePageCopy<RidersCopy>().earnings;
+  const earnings = copy.items.map((item, index) => ({
+    ...item,
+    accentWidth: ["w-8", "w-16", "w-24"][index],
+    headingSize: [
+      "text-[clamp(1.75rem,2.5vw,2.5rem)]",
+      "text-[clamp(2rem,3vw,3.25rem)]",
+      "text-[clamp(2.5rem,3.5vw,4rem)]",
+    ][index],
+    descSize: index === 0 ? "text-sm" : "text-base",
+    py: ["py-12 lg:py-14", "py-14 lg:py-18", "py-16 lg:py-22"][index],
+  }));
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -53,9 +29,9 @@ export function RidersEarnings() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse lg:mb-20"
         >
-          Three ways
+          {copy.titleLine1}
           <br />
-          <span className="text-movrr-text-inverse/45">to earn more.</span>
+          <span className="text-movrr-text-inverse/45">{copy.titleLine2}</span>
         </motion.h2>
 
         {/* Escalating ladder rows */}

@@ -1,38 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { RewardsCopy } from "@/locales/types";
 
-const tiers = [
-  {
-    number: "01",
-    label: "Base",
-    title: "Ride to earn",
-    description:
-      "Kilometres earn the moment you ride. No targets, no minimums. Just verified movement.",
-    detail: "Verified movement rewards",
-    accentWidth: "w-8",
-  },
-  {
-    number: "02",
-    label: "Boosted",
-    title: "Carry a brand",
-    description:
-      "Pick a campaign and carry it through the city. Every verified kilometre you ride with it earns more.",
-    detail: "Movement + brand exposure rewards",
-    accentWidth: "w-16",
-  },
-  {
-    number: "03",
-    label: "Campaign",
-    title: "Community rides",
-    description:
-      "Join a city or brand-sponsored route, or ride with others in your city. The more you move together, the more everyone earns.",
-    detail: "Open to all · or join by invite",
-    accentWidth: "w-24",
-  },
-];
 
 export function RewardsTiers() {
+  const copy = usePageCopy<RewardsCopy>().tiers;
+  const tiers = copy.items.map((item, index) => ({
+    ...item,
+    accentWidth: ["w-8", "w-16", "w-24"][index],
+  }));
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -45,9 +23,9 @@ export function RewardsTiers() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse lg:mb-20"
         >
-          Three ways
+          {copy.titleLine1}
           <br />
-          <span className="text-movrr-text-inverse/45">to earn.</span>
+          <span className="text-movrr-text-inverse/45">{copy.titleLine2}</span>
         </motion.h2>
 
         {/* Escalating tier rows */}

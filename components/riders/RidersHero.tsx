@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { RidersCopy } from "@/locales/types";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 export function RidersHero() {
+  const copy = usePageCopy<RidersCopy>().hero;
+  const { locale } = useCommonCopy();
   return (
     <section className="overflow-hidden border-b border-movrr-text-inverse/10 bg-movrr-bg-primary">
       {/* Full-viewport grid — text left, image right */}
@@ -23,10 +29,10 @@ export function RidersHero() {
               }}
               className="text-[clamp(3rem,6vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
             >
-              Ride the city.
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-inverse/45">
-                Own the reward.
+                {copy.titleLine2}
               </span>
             </motion.h1>
           </div>
@@ -42,23 +48,21 @@ export function RidersHero() {
             className="mt-16"
           >
             <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
-              Every verified kilometre earns MOVRR Points — redeemable for
-              cycling gear, food, vouchers, and more. Carry a brand when you
-              want to multiply them.
+              {copy.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/waitlist"
+                href={withLocalePath(locale, "/waitlist")}
                 className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
               >
-                Get started
+                {copy.primary}
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
               </Link>
               <Link
-                href="/rewards"
+                href={withLocalePath(locale, "/rewards")}
                 className="inline-flex h-12 items-center rounded-xl border border-movrr-text-inverse/15 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse/75 transition-colors duration-200 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
               >
-                See rewards
+                {copy.secondary}
               </Link>
             </div>
           </motion.div>
@@ -73,7 +77,7 @@ export function RidersHero() {
         >
           <Image
             src="/hero-cyclist-rotterdam-modern-urban.png"
-            alt="Cyclist riding with MOVRR"
+            alt={copy.imageAlt}
             fill
             quality={90}
             sizes="40vw"

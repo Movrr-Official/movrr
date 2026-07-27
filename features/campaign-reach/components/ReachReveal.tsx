@@ -9,32 +9,23 @@ import {
   formatRiders,
 } from "../services/campaignReach.service";
 import type { CampaignOutput } from "../types/campaignReach.types";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { BrandsCopy } from "@/locales/types"; import { withLocalePath } from "@/lib/i18n/routing";
 
 interface ReachRevealProps {
   output: CampaignOutput;
   onReset: () => void;
 }
 
-const signals = (output: CampaignOutput) => [
-  {
-    label: "Riders",
-    value: formatRiders(output.activeRidersInCampaign),
-  },
-  {
-    label: "City zones",
-    value: String(output.coverageZones),
-  },
-  {
-    label: "Campaign window",
-    value: `${output.campaignDurationWeeks} weeks`,
-  },
-  {
-    label: "Est. monthly km",
-    value: formatKm(output.estimatedKmPerMonth),
-  },
-];
 
 export function ReachReveal({ output, onReset }: ReachRevealProps) {
+  const copy = usePageCopy<BrandsCopy>().estimator; const { locale } = useCommonCopy();
+  const signals = [
+    { label: copy.riders, value: formatRiders(output.activeRidersInCampaign) },
+    { label: copy.zones, value: String(output.coverageZones) },
+    { label: copy.window, value: `${output.campaignDurationWeeks} ${copy.weeks}` },
+    { label: copy.monthlyKm, value: formatKm(output.estimatedKmPerMonth) },
+  ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -53,12 +44,12 @@ export function ReachReveal({ output, onReset }: ReachRevealProps) {
         </span>
       </div>
       <p className="mb-10 text-sm text-movrr-text-brand/40">
-        estimated monthly reach
+        {copy.reachLabel}
       </p>
 
       {/* Supporting signals — borderless divide pattern */}
       <div className="mb-10 grid grid-cols-2 divide-x divide-y divide-movrr-border-soft border border-movrr-border-soft lg:grid-cols-4 lg:divide-y-0">
-        {signals(output).map((signal) => (
+        {signals.map((signal) => (
           <div key={signal.label} className="px-5 py-4">
             <p className="mb-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/30">
               {signal.label}
@@ -73,10 +64,10 @@ export function ReachReveal({ output, onReset }: ReachRevealProps) {
       {/* CTA */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
         <Link
-          href="/contact"
+          href={withLocalePath(locale, "/contact")}
           className="group inline-flex h-12 items-center gap-2.5 rounded-xl bg-movrr-bg-secondary px-8 text-sm font-semibold text-movrr-text-inverse transition-opacity duration-200 hover:opacity-75"
         >
-          Talk to the team
+          {copy.talk}
           <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>
 
@@ -85,14 +76,13 @@ export function ReachReveal({ output, onReset }: ReachRevealProps) {
           onClick={onReset}
           className="text-xs text-movrr-text-brand/30 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand/55"
         >
-          Start over
+          {copy.reset}
         </button>
       </div>
 
       {/* Disclaimer */}
       <p className="mt-8 text-xs leading-relaxed text-movrr-text-brand/25">
-        Projections based on pre-launch estimates. Live data replaces
-        projections post-launch.
+        {copy.disclaimer}
       </p>
     </motion.div>
   );

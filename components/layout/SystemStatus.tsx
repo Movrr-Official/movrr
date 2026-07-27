@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 
 type HealthStatus = "operational" | "degraded" | "down";
 
@@ -19,6 +20,7 @@ const LUB = { duration: 1.05, repeatDelay: 1.45 } as const; // 1.05 + 1.45 = 2.5
 const DUB = { duration: 0.85, repeatDelay: 1.65, delay: 0.35 } as const; // 0.85 + 1.65 = 2.5s cycle after first fire
 
 export function SystemStatus() {
+  const { copy } = useCommonCopy();
   const [data, setData] = useState<HealthResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -62,14 +64,14 @@ export function SystemStatus() {
           : "bg-movrr-error";
 
   const label = isError
-    ? "Status unavailable"
+    ? copy.systemStatus.unavailable
     : isLoading
-      ? "Checking status..."
+      ? copy.systemStatus.checking
       : data?.status === "operational"
-        ? "All systems operational"
+        ? copy.systemStatus.operational
         : data?.status === "degraded"
-          ? "Degraded service"
-          : "Service disruption";
+          ? copy.systemStatus.degraded
+          : copy.systemStatus.disruption;
 
   const isOperational =
     !isError && !isLoading && data?.status === "operational";

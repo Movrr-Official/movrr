@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
@@ -9,6 +10,8 @@ import {
   defaultAudienceConfig,
 } from "@/lib/early-access/config";
 import type { EarlyAccessAudience } from "@/lib/early-access/types";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 interface EarlyAccessBannerProps {
   /**
@@ -27,7 +30,24 @@ export function EarlyAccessBanner({
   audience = "riders",
   placement = "fixed-top",
 }: EarlyAccessBannerProps) {
-  const config = earlyAccessConfigs[audience] ?? defaultAudienceConfig;
+  const { locale, copy } = useCommonCopy();
+  const baseConfig = earlyAccessConfigs[audience] ?? defaultAudienceConfig;
+  const config = useMemo(() => {
+    const audienceCopy = copy.earlyAccess[audience];
+    return {
+      ...baseConfig,
+      badge: audienceCopy.badge,
+      variants: baseConfig.variants.map((variant, index) => ({
+        ...variant,
+        headline:
+          audienceCopy.variants[index]?.headline ?? variant.headline,
+        cta: audienceCopy.variants[index]?.cta ?? variant.cta,
+        href: variant.href.startsWith("/")
+          ? withLocalePath(locale, variant.href)
+          : variant.href,
+      })) as typeof baseConfig.variants,
+    };
+  }, [audience, baseConfig, copy.earlyAccess, locale]);
   const { visible, variant, dismiss, trackCta, bannerRef } =
     useEarlyAccess(config);
 
@@ -39,7 +59,7 @@ export function EarlyAccessBanner({
         <motion.div
           ref={bannerRef}
           role="banner"
-          aria-label="Early access announcement"
+          aria-label={copy.earlyAccess.ariaLabel}
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
@@ -66,7 +86,7 @@ export function EarlyAccessBanner({
               href={variant.href}
               onClick={() => trackCta(variant.id)}
               className="group flex shrink-0 items-center gap-1.5 text-[0.8rem] font-semibold text-movrr-text-inverse transition-opacity duration-200 hover:opacity-70"
-              aria-label={`${variant.cta} — early access`}
+              aria-label={`${variant.cta} — ${copy.earlyAccess.ctaAriaSuffix}`}
             >
               <span className="hidden sm:block">{variant.cta}</span>
               <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
@@ -75,7 +95,7 @@ export function EarlyAccessBanner({
             {/* Dismiss */}
             <button
               onClick={dismiss}
-              aria-label="Dismiss announcement"
+              aria-label={copy.earlyAccess.dismiss}
               className="shrink-0 p-1 text-movrr-text-inverse/35 transition-opacity duration-150 hover:text-movrr-text-inverse/70"
             >
               <X className="h-3.5 w-3.5" />

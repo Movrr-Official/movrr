@@ -1,23 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { BlogMasthead } from "@/components/blog/BlogMasthead";
-import { BlogFeatured } from "@/components/blog/BlogFeatured";
-import { BlogGrid } from "@/components/blog/BlogGrid";
-
-export const metadata = {
-  title: "Journal — MOVRR",
-  description:
-    "Thinking on movement, cities, and building the platform behind them.",
-};
-
-export default function BlogPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar />
-      <BlogMasthead />
-      <BlogFeatured />
-      <BlogGrid />
-      <Footer cta={false} />
-    </main>
-  );
-}
+import { BlogPage } from "@/components/pages/BlogPage"; import { getDictionary } from "@/lib/i18n/dictionary"; import { buildPageMetadata } from "@/lib/i18n/metadata";
+export async function generateMetadata() { const d = await getDictionary("en"); return buildPageMetadata("en", d, "blog"); }
+export default async function Page() { const d = await getDictionary("en"); return <BlogPage copy={d.pages.blog} />; }

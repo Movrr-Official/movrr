@@ -25,8 +25,10 @@ export function useConsent(): UseConsentReturn {
   useEffect(() => {
     // Hydrate from storage on mount
     const current = consentService.getConsent();
-    setRecord(current);
-    setNeedsConsent(consentService.shouldReprompt());
+    const task = window.setTimeout(() => {
+      setRecord(current);
+      setNeedsConsent(consentService.shouldReprompt());
+    }, 0);
 
     // Subscribe to future changes
     const unsubscribe = consentService.onConsentChange((updated) => {
@@ -34,7 +36,10 @@ export function useConsent(): UseConsentReturn {
       setNeedsConsent(false);
     });
 
-    return unsubscribe;
+    return () => {
+      window.clearTimeout(task);
+      unsubscribe();
+    };
   }, []);
 
   const acceptAll = useCallback(() => {

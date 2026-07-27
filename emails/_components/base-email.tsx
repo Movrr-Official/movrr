@@ -14,6 +14,7 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import type { Locale } from "@/lib/i18n/config";
 
 interface BaseEmailProps {
   previewText: string;
@@ -25,6 +26,7 @@ interface BaseEmailProps {
   actionNote?: string;
   footerNote?: string;
   unsubscribeUrl?: string;
+  locale?: Locale;
 }
 
 const supportEmail = "hello@movrr.nl";
@@ -52,9 +54,23 @@ export function BaseEmail({
   actionNote,
   footerNote,
   unsubscribeUrl,
+  locale = "en",
 }: BaseEmailProps) {
+  const footer =
+    locale === "nl"
+      ? {
+          tagline: "Beweging die loont.",
+          questions: "Vragen?",
+          unsubscribe: "Afmelden",
+        }
+      : {
+          tagline: "Movement that earns.",
+          questions: "Questions?",
+          unsubscribe: "Unsubscribe",
+        };
+
   return (
-    <Html lang="en">
+    <Html lang={locale}>
       <Head />
       <Preview>
         {previewText}
@@ -106,13 +122,13 @@ export function BaseEmail({
 
           <Section style={styles.footer}>
             <Text style={styles.footerText}>
-              MOVRR &middot; Movement that earns.
+              MOVRR &middot; {footer.tagline}
             </Text>
             {footerNote ? (
               <Text style={styles.footerText}>{footerNote}</Text>
             ) : null}
             <Text style={styles.footerText}>
-              Questions?{" "}
+              {footer.questions}{" "}
               <a href={`mailto:${supportEmail}`} style={styles.link}>
                 {supportEmail}
               </a>
@@ -120,7 +136,7 @@ export function BaseEmail({
             {unsubscribeUrl ? (
               <Text style={styles.footerText}>
                 <a href={unsubscribeUrl} style={styles.unsubscribeLink}>
-                  Unsubscribe
+                  {footer.unsubscribe}
                 </a>
               </Text>
             ) : null}

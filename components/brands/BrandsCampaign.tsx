@@ -1,29 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
-const steps = [
-  {
-    number: "01",
-    title: "Define your campaign",
-    description:
-      "Your city. Your zone. Your window. Brief to live in minutes.",
-  },
-  {
-    number: "02",
-    title: "Riders opt in",
-    description:
-      "Cyclists choose to carry your brand. Every one real. Every one verified.",
-  },
-  {
-    number: "03",
-    title: "Track in real time",
-    description:
-      "Live kilometres, verified reach. Watch your campaign move through the city.",
-  },
-];
 
 export function BrandsCampaign() {
+  const copy = usePageCopy<BrandsCopy>().campaign; const steps = copy.steps;
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -36,10 +18,10 @@ export function BrandsCampaign() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-              Set up.
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-inverse/45">
-                Hit the streets.
+                {copy.titleLine2}
               </span>
             </h2>
           </motion.div>
@@ -54,8 +36,7 @@ export function BrandsCampaign() {
             }}
             className="self-end text-base leading-relaxed text-movrr-text-inverse/50 lg:max-w-sm"
           >
-            From brief to live in days. Your campaign travels through the city
-            carried by cyclists who chose to represent your brand.
+            {copy.description}
           </motion.p>
         </div>
 

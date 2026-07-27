@@ -2,48 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { PartnersCopy } from "@/locales/types";
 
-const featured = {
-  index: "01",
-  title: "Mobility platforms",
-  description:
-    "Every trip becomes an earning moment. MOVRR handles the verification and brand infrastructure — you keep the experience.",
-  fit: "API integration",
-  cta: "Explore the API",
-  href: "mailto:partners@movrr.nl",
-};
 
-const supporting = [
-  {
-    index: "02",
-    title: "City and transport authorities",
-    description:
-      "Verified movement data that shows where a city is going — and where it isn't. Use it to design better infrastructure and lead the shift to active travel.",
-    fit: "Data & insights",
-    cta: "Talk to us",
-    href: "mailto:partners@movrr.nl",
-  },
-  {
-    index: "03",
-    title: "Fitness and health platforms",
-    description:
-      "Your users already move. Give that movement a reward without rebuilding your product around it.",
-    fit: "SDK + rewards",
-    cta: "Request access",
-    href: "mailto:partners@movrr.nl",
-  },
-  {
-    index: "04",
-    title: "Corporate mobility programmes",
-    description:
-      "Tie commute rewards to verified kilometres, not self-reported trips. Incentives that mean something to the people who earn them.",
-    fit: "B2B programme",
-    cta: "Get in touch",
-    href: "mailto:partners@movrr.nl",
-  },
-];
 
 export function PartnerTypes() {
+  const copy = usePageCopy<PartnersCopy>();
+  const [featured, ...supporting] = copy.types;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -56,7 +22,7 @@ export function PartnerTypes() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand"
         >
-          Who we partner with
+          {copy.typesTitle}
         </motion.h2>
 
         {/* Featured row — full-width, large */}

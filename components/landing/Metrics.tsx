@@ -3,26 +3,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import type { HomeCopy } from "@/locales/types";
 
-const metrics = [
-  {
-    value: "400K — 1.2M",
-    label: "Verified monthly reach",
-    description: "Potential verified impressions across active rider networks.",
-  },
-  {
-    value: "FROM €3.50",
-    label: "Per 1,000 verified views",
-    description: "Efficient exposure. Authentic engagement. Nothing inflated.",
-  },
-  {
-    value: "UNIQUE REACH",
-    label: "High-intent urban exposure",
-    description: "Audiences in motion, not scrolling. Daily, urban, real.",
-  },
-];
 
-export function Metrics() {
+export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -46,13 +30,12 @@ export function Metrics() {
           className="mb-16 lg:mb-20"
         >
           <h2 className="text-[clamp(2.5rem,4vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-brand">
-            Projected
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-brand/40">campaign impact.</span>
+            <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-movrr-text-brand/55">
-            The scale of movement-based campaigns. Estimated reach across active
-            urban networks.
+            {copy.description}
           </p>
         </motion.div>
 
@@ -73,7 +56,7 @@ export function Metrics() {
             >
               <Image
                 src="/metrics-bike-tire.png"
-                alt="MOVRR branded bicycle"
+                alt={copy.imageAlt}
                 fill
                 quality={88}
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -86,7 +69,7 @@ export function Metrics() {
 
           {/* Right — 3 stacked metric cards */}
           <div className="flex flex-col gap-4 lg:gap-5">
-            {metrics.map((metric, index) => (
+            {copy.items.map((metric, index) => (
               <motion.div
                 key={metric.label}
                 initial={{ opacity: 0, x: 20 }}

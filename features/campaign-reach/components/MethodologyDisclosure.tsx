@@ -5,38 +5,40 @@ import { motion, AnimatePresence } from "framer-motion";
 import { REACH_ASSUMPTIONS } from "../config/campaignReach.config";
 import { riderFractionAsPercent } from "../services/campaignReach.service";
 import type { CampaignOutput } from "../types/campaignReach.types";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
 interface MethodologyDisclosureProps {
   output: CampaignOutput;
 }
 
 export function MethodologyDisclosure({ output }: MethodologyDisclosureProps) {
+  const copy = usePageCopy<BrandsCopy>().estimator;
   const [isOpen, setIsOpen] = useState(false);
 
   const rows = [
     {
-      label: "Rider participation",
-      value: `${riderFractionAsPercent(output.scale.riderFraction)} of active ${output.city.name} riders`,
+      label: copy.participation,
+      value: `${riderFractionAsPercent(output.scale.riderFraction)} ${copy.activeRidersSuffix}`,
     },
     {
-      label: "Impressions model",
-      value: `${REACH_ASSUMPTIONS.impressionsPerRiderPerDay} estimated impressions per rider per day`,
+      label: copy.impressions,
+      value: `${REACH_ASSUMPTIONS.impressionsPerRiderPerDay} ${copy.impressionsSuffix}`,
     },
     {
-      label: "Campaign window",
-      value: `${REACH_ASSUMPTIONS.campaignDurationWeeks}-week standard activation`,
+      label: copy.campaignWindow,
+      value: `${REACH_ASSUMPTIONS.campaignDurationWeeks} ${copy.activationSuffix}`,
     },
     ...(output.scale.id === "multi-city"
       ? [
           {
-            label: "Multi-city multiplier",
-            value: `${REACH_ASSUMPTIONS.multiCityMultiplier}× applied for cross-city network effects`,
+            label: copy.multiplier,
+            value: `${REACH_ASSUMPTIONS.multiCityMultiplier}× ${copy.multiplierSuffix}`,
           },
         ]
       : []),
     {
-      label: "Data basis",
-      value: "Pre-launch projections. Replaced by verified data post-launch.",
+      label: copy.dataBasis,
+      value: copy.dataBasisValue,
     },
   ];
 
@@ -60,7 +62,7 @@ export function MethodologyDisclosure({ output }: MethodologyDisclosureProps) {
         >
           <path d="M6 4l4 4-4 4" />
         </motion.svg>
-        How we calculate this
+        {copy.methodology}
       </button>
 
       <AnimatePresence>

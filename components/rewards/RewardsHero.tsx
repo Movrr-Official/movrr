@@ -3,14 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { RewardsCopy } from "@/locales/types";
+import { withLocalePath } from "@/lib/i18n/routing";
 
-const stats = [
-  { value: "Automatic", label: "From the first ride" },
-  { value: "Every km", label: "Tied to verified distance" },
-  { value: "Earn more", label: "Opt in to carry a brand" },
-];
 
 export function RewardsHero() {
+  const copy = usePageCopy<RewardsCopy>().hero;
+  const { locale } = useCommonCopy();
+  const stats = copy.stats;
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-0 pt-44 lg:pt-56">
       {/* Centered headline block */}
@@ -22,9 +24,9 @@ export function RewardsHero() {
             transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            Every kilometre
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/45">counts.</span>
+            <span className="text-movrr-text-inverse/45">{copy.titleLine2}</span>
           </motion.h1>
 
           <motion.p
@@ -37,8 +39,7 @@ export function RewardsHero() {
             }}
             className="mx-auto mt-8 max-w-md text-base leading-relaxed text-movrr-text-inverse/55"
           >
-            Ride and earn. Carry a brand to earn more. Rewards that reflect
-            every kilometre you ride.
+            {copy.description}
           </motion.p>
 
           <motion.div
@@ -52,10 +53,10 @@ export function RewardsHero() {
             className="mt-10"
           >
             <Link
-              href="/waitlist"
+              href={withLocalePath(locale, "/waitlist")}
               className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
             >
-              Start earning
+              {copy.cta}
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
           </motion.div>

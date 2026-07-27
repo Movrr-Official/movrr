@@ -2,31 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { PressCopy } from "@/locales/types";
 
-const assets = [
-  {
-    label: "Brand logos",
-    description: "SVG and PNG, light and dark variants",
-    file: "movrr-logos.zip",
-  },
-  {
-    label: "Product screenshots",
-    description: "App UI across key flows, high resolution",
-    file: "movrr-screenshots.zip",
-  },
-  {
-    label: "Press photography",
-    description: "Founders, product, and lifestyle. Print ready.",
-    file: "movrr-photography.zip",
-  },
-  {
-    label: "Brand guidelines",
-    description: "Typeface, colour palette, and usage rules",
-    file: "movrr-brand-guidelines.pdf",
-  },
-];
 
 export function PressKit() {
+  const copy = usePageCopy<PressCopy>().kit;
+  const assets = copy.assets;
   return (
     <section className="bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -42,7 +24,7 @@ export function PressKit() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30"
             >
-              Press kit
+              {copy.label}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -51,7 +33,7 @@ export function PressKit() {
               transition={{ delay: 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="text-[clamp(1.75rem,2.8vw,3rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse"
             >
-              Everything you need to cover MOVRR.
+              {copy.title}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -60,7 +42,7 @@ export function PressKit() {
               transition={{ delay: 0.18, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xs text-sm leading-relaxed text-movrr-text-inverse/45"
             >
-              Logos, screenshots, photography, and brand guidelines, ready to use under standard press licence.
+              {copy.description}
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -70,7 +52,7 @@ export function PressKit() {
               className="mt-8 flex flex-col gap-1"
             >
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/30">
-                Briefings on request
+                {copy.briefings}
               </p>
               <a
                 href="mailto:press@movrr.nl"

@@ -3,33 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { BrandsCopy } from "@/locales/types"; import { withLocalePath } from "@/lib/i18n/routing";
 
-const formats = [
-  {
-    index: "01",
-    tag: "Always on",
-    nameTop: "Destination",
-    nameBottom: "Ride",
-    description:
-      "Your brand threaded into the daily routes cyclists already take. Neighbourhood by neighbourhood, day after day.",
-    useCases: ["Month-long presence", "Local presence", "Commuter routes"],
-    cta: "Launch a Destination Ride",
-    dark: true,
-  },
-  {
-    index: "02",
-    tag: "All at once",
-    nameTop: "Swarm",
-    nameBottom: "Campaign",
-    description:
-      "A synchronized fleet moves together, on your signal. One moment. One city. Impossible to miss.",
-    useCases: ["Product launches", "Store openings", "Brand events"],
-    cta: "Plan a Swarm",
-    dark: false,
-  },
-];
 
 export function BrandFormats() {
+  const formats = usePageCopy<BrandsCopy>().formats; const { locale } = useCommonCopy();
   return (
     <section>
       {formats.map((format, index) => (
@@ -130,7 +109,7 @@ export function BrandFormats() {
                 </p>
 
                 <Link
-                  href="/contact"
+                  href={withLocalePath(locale, "/contact")}
                   className={`group inline-flex items-center gap-2.5 text-sm font-semibold transition-opacity duration-200 hover:opacity-55 ${
                     format.dark ? "text-movrr-text-inverse" : "text-movrr-text-brand"
                   }`}

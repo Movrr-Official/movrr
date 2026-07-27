@@ -1,26 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { CareersCopy } from "@/locales/types";
 
-const values = [
-  {
-    title: "Work that's real.",
-    description:
-      "The platform verifies movement. The rewards are earned. The reach is authentic. We hold ourselves to the same standard: no theatre, no vague roadmaps.",
-  },
-  {
-    title: "Build it once, build it right.",
-    description:
-      "We're not optimising for the demo. We're building infrastructure for how cities move, which means we take the unglamorous work as seriously as the visible work.",
-  },
-  {
-    title: "Small team, full ownership.",
-    description:
-      "Everyone here carries a meaningful part of the platform. There's no layer of people between your work and its impact on the product.",
-  },
-];
 
 export function CareersValues() {
+  const copy = usePageCopy<CareersCopy>();
+  const values = copy.values;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -36,7 +23,7 @@ export function CareersValues() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
             >
-              How we work
+              {copy.valuesLabel}
             </motion.p>
           </div>
 

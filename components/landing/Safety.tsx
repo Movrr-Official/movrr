@@ -8,26 +8,14 @@ import {
   PrivacyIcon,
   SafeIcon,
 } from "@/components/icons/MovrrIcons";
+import type { HomeCopy } from "@/locales/types";
 
-const trustPoints = [
-  {
-    icon: VerifiedIcon,
-    title: "Verified participation",
-    description: "Every ride, verified. No simulations, no shortcuts.",
-  },
-  {
-    icon: PrivacyIcon,
-    title: "Privacy-first design",
-    description: "What you ride stays yours. Anonymised by default.",
-  },
-  {
-    icon: SafeIcon,
-    title: "Brand-safe placements",
-    description: "Every placement reviewed. Your brand, always in context.",
-  },
-];
 
-export function Safety() {
+export function Safety({ copy }: { copy: HomeCopy["safety"] }) {
+  const trustPoints = copy.points.map((point, index) => ({
+    ...point,
+    icon: [VerifiedIcon, PrivacyIcon, SafeIcon][index],
+  }));
   return (
     <>
       {/* ── Full-bleed image section ── */}
@@ -39,7 +27,7 @@ export function Safety() {
         <div className="absolute inset-0">
           <Image
             src="/app-preview-02.png"
-            alt="MOVRR app on device"
+            alt={copy.imageAlt}
             fill
             loading="eager"
             fetchPriority="high"
@@ -61,7 +49,7 @@ export function Safety() {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="text-[clamp(2.25rem,4.5vw,5.5rem)] font-semibold leading-[0.93] tracking-[-0.04em] text-movrr-text-heading"
             >
-              Your brand protected
+              {copy.title}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -74,8 +62,7 @@ export function Safety() {
               }}
               className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-movrr-text-heading/55 lg:text-lg"
             >
-              Trust isn't a feature. It's the foundation. Every ride verified,
-              every placement reviewed.
+              {copy.description}
             </motion.p>
           </div>
 
@@ -128,7 +115,7 @@ export function Safety() {
             }}
             className="max-w-xl pt-14 text-[clamp(2rem,3.2vw,3.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse/80 lg:pt-27"
           >
-            Built on integrity
+            {copy.integrityTitle}
           </motion.h2>
 
           {/* Three columns */}

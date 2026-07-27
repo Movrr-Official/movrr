@@ -1,15 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { PressCopy } from "@/locales/types";
 
-const facts = [
-  { label: "Founded", value: "2024" },
-  { label: "Headquartered", value: "Rotterdam, Netherlands" },
-  { label: "Category", value: "Movement-based rewards" },
-  { label: "Markets", value: "Europe — launching" },
-];
 
 export function PressHeader() {
+  const copy = usePageCopy<PressCopy>();
+  const facts = copy.facts;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft">
       <div className="mx-auto max-w-7xl px-6 pb-0 pt-40 lg:px-12 lg:pt-52">
@@ -26,7 +24,7 @@ export function PressHeader() {
               }}
               className="text-[clamp(2rem,4vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand"
             >
-              Press & Media
+              {copy.title}
             </motion.h1>
           </div>
           <motion.a

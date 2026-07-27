@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { RewardsCopy } from "@/locales/types";
 
 export function RewardsImage() {
+  const copy = usePageCopy<RewardsCopy>();
   return (
     <section className="bg-movrr-bg-canvas">
       <motion.div
@@ -15,7 +18,7 @@ export function RewardsImage() {
       >
         <Image
           src="/b2b-cyclist-pannier-urban.png"
-          alt="Cyclist earning rewards through verified movement"
+          alt={copy.imageAlt}
           fill
           quality={90}
           sizes="100vw"

@@ -3,44 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { ContactCopy } from "@/locales/types";
 
-const paths = [
-  {
-    audience: "Brands & agencies",
-    index: "01",
-    heading: "Run a campaign with MOVRR",
-    description:
-      "Running a campaign or planning one, the team handles brand enquiries directly. Reach, pricing, and campaign structure covered in a single conversation.",
-    channel: "hello@movrr.nl",
-    action: "Send a message",
-    href: "mailto:hello@movrr.nl",
-    note: "We respond within one business day.",
-  },
-  {
-    audience: "Riders",
-    index: "02",
-    heading: "Rider support",
-    description:
-      "Earnings queries, verification questions, campaign issues: the support team handles all of it, directly.",
-    channel: "support@movrr.nl",
-    action: "Contact support",
-    href: "mailto:support@movrr.nl",
-    note: "Response time is typically under 24 hours.",
-  },
-  {
-    audience: "Press & media",
-    index: "03",
-    heading: "Press enquiries",
-    description:
-      "Covering MOVRR, movement-based advertising, or urban mobility? The press team responds quickly and the kit is ready.",
-    channel: "press@movrr.nl",
-    action: "Email press",
-    href: "mailto:press@movrr.nl",
-    note: "Press kit available on request.",
-  },
-];
 
 export function ContactPaths() {
+  const paths = usePageCopy<ContactCopy>().paths;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       <div className="divide-y divide-movrr-border-soft">

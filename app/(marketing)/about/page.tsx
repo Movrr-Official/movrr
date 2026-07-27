@@ -1,27 +1,12 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { AboutHero } from "@/components/about/AboutHero";
-import { AboutOrigin } from "@/components/about/AboutOrigin";
-import { AboutBeliefs } from "@/components/about/AboutBeliefs";
-import { AboutModel } from "@/components/about/AboutModel";
-import { AboutCTA } from "@/components/about/AboutCTA";
+import { AboutPage } from "@/components/pages/AboutPage";
+import { getDictionary } from "@/lib/i18n/dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
-export const metadata = {
-  title: "About — MOVRR",
-  description:
-    "Built around the ride. MOVRR is a movement-based rewards platform for cyclists, and verified reach for the brands that move alongside them.",
-};
-
-export default function AboutPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar />
-      <AboutHero />
-      <AboutOrigin />
-      <AboutBeliefs />
-      <AboutModel />
-      <AboutCTA />
-      <Footer cta={false} />
-    </main>
-  );
+export async function generateMetadata() {
+  const dictionary = await getDictionary("en");
+  return buildPageMetadata("en", dictionary, "about");
+}
+export default async function Page() {
+  const dictionary = await getDictionary("en");
+  return <AboutPage copy={dictionary.pages.about} />;
 }

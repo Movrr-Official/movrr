@@ -7,26 +7,13 @@ import {
   BroadcastIcon,
   UrbanIcon,
 } from "@/components/icons/MovrrIcons";
+import type { HomeCopy } from "@/locales/types";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import { withLocalePath } from "@/lib/i18n/routing";
 
-const values = [
-  {
-    title: "Earn with every ride",
-    description:
-      "Ride to earn. Carry a brand on your bike to earn more. Entirely your call.",
-  },
-  {
-    title: "Campaigns that move",
-    description:
-      "Connect with people in motion. Real audiences, real streets.",
-  },
-  {
-    title: "Reach that moves",
-    description:
-      "City-scale reach. Outcomes you can count.",
-  },
-];
-
-export function ValueStrip() {
+export function ValueStrip({ copy }: { copy: HomeCopy["valueStrip"] }) {
+  const { locale } = useCommonCopy();
+  const values = copy.values;
   return (
     <section className="border-y border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -39,17 +26,17 @@ export function ValueStrip() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-[clamp(2.25rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-              Real movement.
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-inverse/50">
-                Real returns.
+                {copy.titleLine2}
               </span>
             </h2>
             <Link
-              href="#learn-more"
+              href={withLocalePath(locale, "/how-it-works")}
               className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-movrr-success-soft transition-colors duration-200 hover:text-movrr-success"
             >
-              Learn more
+              {copy.learnMore}
               <svg
                 className="h-3.5 w-3.5"
                 fill="none"
@@ -74,8 +61,7 @@ export function ValueStrip() {
             className="flex items-center"
           >
             <p className="max-w-lg text-base leading-relaxed text-movrr-text-inverse/60 lg:text-lg">
-              A rewards platform for cyclists. Earn by riding.
-              Brands reach people already in motion.
+              {copy.description}
             </p>
           </motion.div>
         </div>

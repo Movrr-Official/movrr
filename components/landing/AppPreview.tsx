@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import type { HomeCopy } from "@/locales/types";
 
-export function AppPreview() {
+export function AppPreview({ copy }: { copy: HomeCopy["appPreview"] }) {
   return (
     <section
       className="relative min-h-[108vh] overflow-hidden"
@@ -13,7 +14,7 @@ export function AppPreview() {
       <div className="absolute inset-0">
         <Image
           src="/app-preview-01.png"
-          alt="MOVRR app mounted on bike handlebar"
+          alt={copy.imageAlt}
           fill
           quality={88}
           sizes="100vw"
@@ -55,10 +56,10 @@ export function AppPreview() {
           {/* Route info */}
           <div className="flex-1 min-w-0 px-5">
             <p className="text-movrr-text-inverse text-[13px] font-semibold tracking-[0.12em] uppercase leading-none mb-1.5">
-              Rotterdam Central Tour
+              {copy.routeName}
             </p>
             <p className="text-movrr-text-inverse/45 text-[13px] tracking-[0.08em] font-normal">
-              5 KM &nbsp;—&nbsp; 45 MIN
+              {copy.routeDetails}
             </p>
           </div>
 

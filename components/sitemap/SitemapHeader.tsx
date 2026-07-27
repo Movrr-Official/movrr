@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { SitemapCopy } from "@/locales/types";
 
 export function SitemapHeader() {
+  const copy = usePageCopy<SitemapCopy>();
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas pb-14 pt-44 lg:pb-16 lg:pt-52">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -13,7 +16,7 @@ export function SitemapHeader() {
             transition={{ delay: 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,4vw,4rem)] font-semibold leading-[0.94] tracking-[-0.04em] text-movrr-text-brand"
           >
-            Everything in one place.
+            {copy.title}
           </motion.h1>
 
           <motion.p
@@ -22,7 +25,7 @@ export function SitemapHeader() {
             transition={{ delay: 0.22, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="pb-1 text-sm text-movrr-text-brand/40 lg:text-right"
           >
-            All pages on movrr.nl
+            {copy.description}
           </motion.p>
         </div>
       </div>

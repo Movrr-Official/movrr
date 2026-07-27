@@ -2,20 +2,18 @@
 
 import { motion } from "framer-motion";
 import { CITIES } from "../config/campaignReach.config";
-import type { CityId, CityData, LaunchStatus } from "../types/campaignReach.types";
+import type { CityId, CityData } from "../types/campaignReach.types";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
 interface CitySelectorProps {
   selectedId: CityId | null;
   onSelect: (id: CityId) => void;
 }
 
-const statusLabel: Record<LaunchStatus, string> = {
-  live: "Live",
-  upcoming: "Launching soon",
-  planned: "Coming soon",
-};
 
 export function CitySelector({ selectedId, onSelect }: CitySelectorProps) {
+  const copy = usePageCopy<BrandsCopy>().estimator;
+  const statusLabel = copy.statuses;
   const cities = Object.values(CITIES) as CityData[];
 
   return (
@@ -53,9 +51,9 @@ export function CitySelector({ selectedId, onSelect }: CitySelectorProps) {
                       : "text-movrr-text-brand/55 group-hover:text-movrr-text-brand"
                   }`}
                 >
-                  {city.name}
+                  {city.id === "the-hague" ? copy.theHague : city.name}
                 </p>
-                <p className="text-xs text-movrr-text-brand/30">{city.country}</p>
+                <p className="text-xs text-movrr-text-brand/30">{copy.country}</p>
               </div>
             </div>
 

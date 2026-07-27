@@ -6,6 +6,9 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MenuToggle } from "@/components/layout/MenuToggle";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 // ─── Mobile menu animation variants ────────────────────────────────────────
 
@@ -65,14 +68,14 @@ const bottomStripVariants = {
 
 // ────────────────────────────────────────────────────────────────────────────
 
-const navItems = [
-  { label: "How it works", href: "/how-it-works" },
-  { label: "Rewards", href: "/rewards" },
-  { label: "Brands", href: "/brands" },
-  { label: "Riders", href: "/riders" },
-];
-
 export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
+  const { locale, copy } = useCommonCopy();
+  const navItems = [
+    { label: copy.navigation.howItWorks, href: "/how-it-works" },
+    { label: copy.navigation.rewards, href: "/rewards" },
+    { label: copy.navigation.brands, href: "/brands" },
+    { label: copy.navigation.riders, href: "/riders" },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -116,7 +119,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             }`}
           >
             <Link
-              href="/"
+              href={withLocalePath(locale, "/")}
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-3"
             >
@@ -126,7 +129,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                     ? "/logo/icon-no-bg-green.png"
                     : "/logo/icon-no-bg-white.png"
                 }
-                alt="MOVRR icon"
+                alt={copy.branding.iconAlt}
                 width={30}
                 height={30}
                 priority
@@ -143,7 +146,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                         : "text-movrr-text-inverse"
                 }`}
               >
-                MOVRR
+                {copy.branding.wordmark}
               </span>
             </Link>
 
@@ -151,7 +154,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
               {navItems.map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={withLocalePath(locale, item.href)}
                   className={`rounded-full px-3.5 py-2 text-[0.92rem] font-medium tracking-[-0.01em] transition-all duration-300 ${
                     isScrolled
                       ? "text-movrr-green-text hover:bg-movrr-green-text/8"
@@ -166,6 +169,10 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             </div>
 
             <div className="hidden items-center gap-2 lg:flex">
+              <LanguageSwitcher
+                labels={copy.languageSwitcher}
+                inverted={!isScrolled && variant !== "light"}
+              />
               <Button
                 variant="ghost"
                 size="sm"
@@ -178,7 +185,9 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 }`}
                 asChild
               >
-                <Link href="https://app.movrr.nl/auth/signin">Sign In</Link>
+                <Link href="https://app.movrr.nl/auth/signin">
+                  {copy.navigation.signIn}
+                </Link>
               </Button>
               <Button
                 size="sm"
@@ -189,7 +198,9 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 }`}
                 asChild
               >
-                <Link href="/waitlist">Get started</Link>
+                <Link href={withLocalePath(locale, "/waitlist")}>
+                  {copy.navigation.getStarted}
+                </Link>
               </Button>
             </div>
 
@@ -201,6 +212,12 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             >
               <MenuToggle
                 toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                expanded={isMobileMenuOpen}
+                label={
+                  isMobileMenuOpen
+                    ? copy.navigation.closeMenu
+                    : copy.navigation.openMenu
+                }
                 className={`p-2.5 transition-colors ${
                   isMobileMenuOpen
                     ? "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
@@ -242,7 +259,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                   <div key={item.href} className="overflow-hidden">
                     <motion.div variants={navItemVariants}>
                       <Link
-                        href={item.href}
+                        href={withLocalePath(locale, item.href)}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-3 text-[clamp(2.2rem,11vw,3.8rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-inverse/75 transition-colors duration-150 hover:text-movrr-text-inverse active:opacity-40"
                       >
@@ -263,14 +280,14 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm font-medium text-movrr-text-inverse/40 transition-opacity duration-150 hover:opacity-70"
                 >
-                  Sign in
+                  {copy.navigation.signIn}
                 </Link>
                 <Link
-                  href="/waitlist"
+                  href={withLocalePath(locale, "/waitlist")}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="ml-auto inline-flex items-center rounded-full border border-movrr-text-inverse/20 px-5 py-2.5 text-sm font-semibold text-movrr-text-inverse transition-colors duration-150 hover:bg-movrr-text-inverse/10"
                 >
-                  Get started
+                  {copy.navigation.getStarted}
                 </Link>
               </motion.div>
             </div>

@@ -3,44 +3,15 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { BlogCopy } from "@/locales/types";
 
-const featured = {
-  category: "Product",
-  date: "12 Mar 2025",
-  readTime: "6 min read",
-  title:
-    "Why movement data is the only honest signal left in urban advertising",
-  excerpt:
-    "Impression counts, click-through rates, and view-through attribution have all failed the same way: they measure proximity, not participation. We built MOVRR around a different premise.",
-  href: "#",
-};
 
-const secondary = [
-  {
-    category: "Cities",
-    date: "28 Feb 2025",
-    readTime: "4 min read",
-    title:
-      "What Amsterdam taught us about building for people who cycle. Not people who identify as cyclists.",
-    href: "#",
-  },
-  {
-    category: "Platform",
-    date: "14 Feb 2025",
-    readTime: "5 min read",
-    title: "How we verify a kilometre, and why the answer isn't GPS alone",
-    href: "#",
-  },
-  {
-    category: "Brands",
-    date: "31 Jan 2025",
-    readTime: "3 min read",
-    title: "The brief that finally made sense: reach people while they move",
-    href: "#",
-  },
-];
 
 export function BlogFeatured() {
+  const copy = usePageCopy<BlogCopy>();
+  const featured = copy.featured;
+  const secondary = copy.secondary;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -86,7 +57,7 @@ export function BlogFeatured() {
                 {featured.excerpt}
               </p>
               <div className="flex items-center gap-2 text-sm font-medium text-movrr-text-brand/50 transition-all duration-200 group-hover:text-movrr-text-brand">
-                Read article
+                {copy.readArticle}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
               </div>
             </div>

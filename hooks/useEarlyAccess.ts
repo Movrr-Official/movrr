@@ -40,37 +40,33 @@ export function useEarlyAccess(config: EarlyAccessConfig | null): UseEarlyAccess
     } catch {
       variantIndex = 0;
     }
-    setVariant(config.variants[variantIndex]);
+    const selectedVariant = config.variants[variantIndex];
+    let nextVisible = false;
 
     // Check dismissal record
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) {
-        setVisible(true);
-        return;
-      }
-      const record: DismissalRecord = JSON.parse(raw);
+        nextVisible = true;
+      } else {
+        const record: DismissalRecord = JSON.parse(raw);
 
-      // Re-prompt on new campaign
-      if (record.campaignId !== config.campaignId) {
-        setVisible(true);
-        return;
-      }
-
-      // Re-prompt after reappearAfterDays
-      if (config.reappearAfterDays) {
-        const elapsed = Date.now() - record.dismissedAt;
-        const threshold = config.reappearAfterDays * 86_400_000;
-        if (elapsed > threshold) {
-          setVisible(true);
-          return;
+        if (record.campaignId !== config.campaignId) {
+          nextVisible = true;
+        } else if (config.reappearAfterDays) {
+          const elapsed = Date.now() - record.dismissedAt;
+          const threshold = config.reappearAfterDays * 86_400_000;
+          nextVisible = elapsed > threshold;
         }
       }
-
-      setVisible(false);
     } catch {
-      setVisible(true);
+      nextVisible = true;
     }
+    const task = window.setTimeout(() => {
+      setVariant(selectedVariant);
+      setVisible(nextVisible);
+    }, 0);
+    return () => window.clearTimeout(task);
   }, [config]);
 
   // Sync banner height to CSS variable for Navbar offset

@@ -6,32 +6,16 @@ import {
   BroadcastIcon,
   UrbanIcon,
 } from "@/components/icons/MovrrIcons";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { HowItWorksCopy } from "@/locales/types";
 
-const steps = [
-  {
-    number: "01",
-    icon: BroadcastIcon,
-    title: "Set your direction",
-    description:
-      "Choose your city, your format, your window. Everything up front, nothing hidden.",
-  },
-  {
-    number: "02",
-    icon: UrbanIcon,
-    title: "Go live",
-    description:
-      "Your campaign hits the streets. Riders earn. Your brand moves with them.",
-  },
-  {
-    number: "03",
-    icon: VerifiedIcon,
-    title: "Watch it work",
-    description:
-      "Live data. Real engagement. Verified outcomes. Nothing to wait for.",
-  },
-];
 
 export function ForBrands() {
+  const copy = usePageCopy<HowItWorksCopy>().brands;
+  const steps = copy.steps.map((step, index) => ({
+    ...step,
+    icon: [BroadcastIcon, UrbanIcon, VerifiedIcon][index],
+  }));
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -44,10 +28,10 @@ export function ForBrands() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-              Campaigns that
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-inverse/45">
-                move with people.
+                {copy.titleLine2}
               </span>
             </h2>
           </motion.div>
@@ -62,8 +46,7 @@ export function ForBrands() {
             }}
             className="self-end text-base leading-relaxed text-movrr-text-inverse/50 lg:max-w-sm"
           >
-            Real-world reach. Verified engagement. An audience that
-            chose to be there.
+            {copy.description}
           </motion.p>
         </div>
 

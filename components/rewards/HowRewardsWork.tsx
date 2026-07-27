@@ -1,29 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { RewardsCopy } from "@/locales/types";
 
-const mechanics = [
-  {
-    number: "01",
-    title: "Ride verified",
-    description:
-      "Every ride is authenticated. Distance, route, and movement are verified before rewards are issued. Nothing simulated.",
-  },
-  {
-    number: "02",
-    title: "Earn by default",
-    description:
-      "Verified kilometres earn rewards automatically. No minimum distance, no activation required. Just ride.",
-  },
-  {
-    number: "03",
-    title: "Carry a brand, earn more",
-    description:
-      "Opt in to carry a brand campaign on your bike. Entirely your choice, but when you do, every kilometre earns more.",
-  },
-];
 
 export function HowRewardsWork() {
+  const copy = usePageCopy<RewardsCopy>().mechanics;
+  const mechanics = copy.items;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -36,10 +20,10 @@ export function HowRewardsWork() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
-              Ride earns.
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-brand/40">
-                Choice earns more.
+                {copy.titleLine2}
               </span>
             </h2>
           </motion.div>
@@ -54,8 +38,7 @@ export function HowRewardsWork() {
             }}
             className="self-end text-base leading-relaxed text-movrr-text-brand/55 lg:max-w-sm"
           >
-            Rewards are tied directly to verified movement. The more you ride,
-            the more you earn, with or without a brand.
+            {copy.description}
           </motion.p>
         </div>
 

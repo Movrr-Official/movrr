@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { ContactCopy } from "@/locales/types";
 
 export function ContactHeader() {
+  const copy = usePageCopy<ContactCopy>().header;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas pb-20 pt-40 lg:pb-24 lg:pt-52">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -14,9 +17,9 @@ export function ContactHeader() {
             transition={{ delay: 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(4rem,7vw,8rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-brand"
           >
-            Get in
+            {copy.titleLine1}
             <br />
-            touch.
+            {copy.titleLine2}
           </motion.h1>
 
           <motion.p
@@ -25,8 +28,7 @@ export function ContactHeader() {
             transition={{ delay: 0.28, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs pb-2 text-sm leading-relaxed text-movrr-text-brand/45 lg:text-right"
           >
-            The right contact depends on who you are.
-            Find yours below.
+            {copy.description}
           </motion.p>
         </div>
 

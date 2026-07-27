@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 export interface LegalSection {
   id: string;
@@ -15,6 +17,9 @@ interface LegalLayoutProps {
   summary: string;
   sections: LegalSection[];
   relatedLinks: { label: string; href: string }[];
+  effectiveLabel: string;
+  contentsLabel: string;
+  relatedLabel: string;
 }
 
 export function LegalLayout({
@@ -23,7 +28,11 @@ export function LegalLayout({
   summary,
   sections,
   relatedLinks,
+  effectiveLabel,
+  contentsLabel,
+  relatedLabel,
 }: LegalLayoutProps) {
+  const { locale } = useCommonCopy();
   return (
     <div className="min-h-screen bg-movrr-bg-canvas">
       {/* Page header — light, contained, no full-viewport drama */}
@@ -55,7 +64,7 @@ export function LegalLayout({
               className="lg:text-right"
             >
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/30">
-                Effective
+                {effectiveLabel}
               </p>
               <p className="mt-1 text-sm font-medium text-movrr-text-brand/50">
                 {effectiveDate}
@@ -85,7 +94,7 @@ export function LegalLayout({
           <aside className="hidden lg:block">
             <div className="sticky top-28">
               <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-                Contents
+                {contentsLabel}
               </p>
               <nav className="flex flex-col">
                 {sections.map((section) => (
@@ -103,13 +112,13 @@ export function LegalLayout({
               {relatedLinks.length > 0 && (
                 <div className="mt-10 border-t border-movrr-border-soft pt-8">
                   <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-                    Related
+                    {relatedLabel}
                   </p>
                   <div className="flex flex-col">
                     {relatedLinks.map((link) => (
                       <Link
                         key={link.href}
-                        href={link.href}
+                        href={withLocalePath(locale, link.href)}
                         className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/40 transition-all duration-150 hover:border-movrr-text-brand/25 hover:text-movrr-text-brand"
                       >
                         {link.label}
@@ -148,13 +157,13 @@ export function LegalLayout({
             {relatedLinks.length > 0 && (
               <div className="mt-16 border-t border-movrr-border-soft pt-10 lg:hidden">
                 <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
-                  Related
+                  {relatedLabel}
                 </p>
                 <div className="flex flex-col divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
                   {relatedLinks.map((link) => (
                     <Link
                       key={link.href}
-                      href={link.href}
+                      href={withLocalePath(locale, link.href)}
                       className="py-3.5 text-sm text-movrr-text-brand/50 transition-opacity duration-150 hover:opacity-100 hover:text-movrr-text-brand"
                     >
                       {link.label}

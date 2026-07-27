@@ -7,6 +7,7 @@ import { CampaignScaleSelector } from "./CampaignScaleSelector";
 import { ReachReveal } from "./ReachReveal";
 import { MethodologyDisclosure } from "./MethodologyDisclosure";
 import type { FlowStep } from "../types/campaignReach.types";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
 // ─── Progress track ───────────────────────────────────────────────────────────
 
@@ -31,15 +32,16 @@ function ProgressTrack({ current }: { current: FlowStep }) {
 // ─── Section header ───────────────────────────────────────────────────────────
 
 function SectionHeader() {
+  const copy = usePageCopy<BrandsCopy>().estimator;
   return (
     <div className="mb-10">
       <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-brand/30">
-        Reach Estimator
+        {copy.label}
       </p>
       <h2 className="text-[clamp(1.8rem,3vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-movrr-text-brand">
-        See your brand move
+        {copy.titleLine1}
         <br />
-        through the city.
+        {copy.titleLine2}
       </h2>
     </div>
   );
@@ -48,6 +50,7 @@ function SectionHeader() {
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function CampaignReachPreview() {
+  const copy = usePageCopy<BrandsCopy>().estimator;
   const { step, selectedCityId, selectedScale, output, selectCity, selectScale, reset } =
     useCampaignReach();
 
@@ -66,16 +69,11 @@ export function CampaignReachPreview() {
             <SectionHeader />
 
             <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
-              Select a city and campaign scale to preview estimated reach before
-              we talk.
+              {copy.description}
             </p>
 
             <div className="mt-14 divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
-              {[
-                "Reach figures grounded in verified movement data, not estimated impressions.",
-                "Every rider in your campaign is a real person who chose to carry your brand.",
-                "Projections replaced by actuals once your city is live.",
-              ].map((note, i) => (
+              {copy.notes.map((note, i) => (
                 <motion.p
                   key={i}
                   initial={{ opacity: 0 }}
@@ -113,7 +111,7 @@ export function CampaignReachPreview() {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <p className="mb-6 text-sm text-movrr-text-brand/40">
-                    Which city are you activating in?
+                    {copy.cityQuestion}
                   </p>
                   <CitySelector
                     selectedId={selectedCityId}
@@ -132,7 +130,11 @@ export function CampaignReachPreview() {
                 >
                   <CampaignScaleSelector
                     selectedId={selectedScale}
-                    cityName={selectedCityId.charAt(0).toUpperCase() + selectedCityId.slice(1)}
+                    cityName={
+                      selectedCityId === "the-hague"
+                        ? copy.theHague
+                        : selectedCityId.charAt(0).toUpperCase() + selectedCityId.slice(1)
+                    }
                     onSelect={selectScale}
                   />
                   <button
@@ -140,7 +142,7 @@ export function CampaignReachPreview() {
                     onClick={reset}
                     className="mt-6 text-xs text-movrr-text-brand/30 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand/55"
                   >
-                    Change city
+                    {copy.changeCity}
                   </button>
                 </motion.div>
               )}

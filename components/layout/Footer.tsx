@@ -6,48 +6,13 @@ import { Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SystemStatus } from "./SystemStatus";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import { withLocalePath } from "@/lib/i18n/routing";
 
 interface FooterProps {
   cta?: boolean; // Whether to show the CTA strip
 }
-
-const footerLinks = {
-  platform: {
-    title: "Platform",
-    links: [
-      { label: "How it works", href: "/how-it-works" },
-      { label: "Rewards", href: "/rewards" },
-      { label: "Brands", href: "/brands" },
-      { label: "Riders", href: "/riders" },
-    ],
-  },
-  company: {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Press", href: "/press" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  resources: {
-    title: "Resources",
-    links: [
-      { label: "Help center", href: "/help" },
-      { label: "Blog", href: "/blog" },
-      { label: "Partners", href: "/partners" },
-    ],
-  },
-  legal: {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Cookies", href: "/cookies" },
-      { label: "Delete account", href: "/account-deletion" },
-    ],
-  },
-};
 
 const socialLinks = [
   { icon: Twitter, href: "https://x.com/movrr", label: "Twitter" },
@@ -64,6 +29,44 @@ const socialLinks = [
 ];
 
 export function Footer({ cta = true }: FooterProps) {
+  const { locale, copy } = useCommonCopy();
+  const footerLinks = [
+    {
+      title: copy.footer.sectionPlatform,
+      links: [
+        [copy.navigation.howItWorks, "/how-it-works"],
+        [copy.navigation.rewards, "/rewards"],
+        [copy.navigation.brands, "/brands"],
+        [copy.navigation.riders, "/riders"],
+      ],
+    },
+    {
+      title: copy.footer.sectionCompany,
+      links: [
+        [copy.footer.about, "/about"],
+        [copy.footer.careers, "/careers"],
+        [copy.footer.press, "/press"],
+        [copy.footer.contact, "/contact"],
+      ],
+    },
+    {
+      title: copy.footer.sectionResources,
+      links: [
+        [copy.footer.help, "/help"],
+        [copy.footer.blog, "/blog"],
+        [copy.footer.partners, "/partners"],
+      ],
+    },
+    {
+      title: copy.footer.sectionLegal,
+      links: [
+        [copy.footer.privacy, "/privacy"],
+        [copy.footer.terms, "/terms"],
+        [copy.footer.cookies, "/cookies"],
+        [copy.footer.deleteAccount, "/account-deletion"],
+      ],
+    },
+  ] as const;
   return (
     <footer
       id="contact"
@@ -82,10 +85,10 @@ export function Footer({ cta = true }: FooterProps) {
             >
               <div>
                 <h3 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-                  Ready to move with MOVRR?
+                  {copy.footer.ctaTitle}
                 </h3>
                 <p className="mt-4 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
-                  The streets are waiting.
+                  {copy.footer.ctaBody}
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-3">
@@ -93,8 +96,8 @@ export function Footer({ cta = true }: FooterProps) {
                   className="group h-12 rounded-lg border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand hover:bg-movrr-bg-elevated"
                   asChild
                 >
-                  <Link href="/waitlist">
-                    Start earning
+                  <Link href={withLocalePath(locale, "/waitlist")}>
+                    {copy.footer.startEarning}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                   </Link>
                 </Button>
@@ -103,7 +106,9 @@ export function Footer({ cta = true }: FooterProps) {
                   className="h-12 rounded-lg border-movrr-text-inverse/20 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse hover:bg-movrr-text-inverse/10 hover:text-movrr-green-text transition-colors"
                   asChild
                 >
-                  <Link href="#contact">Talk to sales</Link>
+                  <Link href={withLocalePath(locale, "/contact")}>
+                    {copy.footer.talkToSales}
+                  </Link>
                 </Button>
               </div>
             </motion.div>
@@ -116,20 +121,20 @@ export function Footer({ cta = true }: FooterProps) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 pb-16 lg:pb-42 border-b border-movrr-text-inverse/10">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-5">
+            <Link href={withLocalePath(locale, "/")} className="flex items-center gap-3 mb-5">
               <Image
                 src="/logo/icon-no-bg-white.png"
-                alt="MOVRR icon"
+                alt={copy.branding.iconAlt}
                 width={30}
                 height={30}
                 className="h-[1.7rem] w-[1.7rem] object-contain"
               />
               <span className="text-lg font-semibold text-movrr-text-inverse tracking-tight">
-                MOVRR
+                {copy.branding.wordmark}
               </span>
             </Link>
             <p className="text-sm text-movrr-text-inverse/60 leading-relaxed max-w-xs mb-7">
-              Movement that earns. Campaigns that perform. Built for the city.
+              {copy.footer.tagline}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -148,19 +153,19 @@ export function Footer({ cta = true }: FooterProps) {
           </div>
 
           {/* Link Columns */}
-          {Object.values(footerLinks).map((section) => (
+          {footerLinks.map((section) => (
             <div key={section.title}>
               <h4 className="text-xs font-semibold text-movrr-text-inverse/80 uppercase tracking-wider mb-4">
                 {section.title}
               </h4>
               <ul className="space-y-2.5">
-                {section.links.map((link) => (
-                  <li key={link.label}>
+                {section.links.map(([label, href]) => (
+                  <li key={href}>
                     <Link
-                      href={link.href}
+                      href={withLocalePath(locale, href)}
                       className="text-sm text-movrr-text-inverse/50 hover:text-movrr-text-inverse transition-colors"
                     >
-                      {link.label}
+                      {label}
                     </Link>
                   </li>
                 ))}
@@ -172,22 +177,23 @@ export function Footer({ cta = true }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-movrr-text-inverse/40">
-            &copy; {new Date().getFullYear()} MOVRR B.V. All rights reserved.
+            &copy; {new Date().getFullYear()} {copy.footer.copyright}
           </p>
           <div className="flex items-center gap-5">
             <Link
-              href="/accessibility"
+              href={withLocalePath(locale, "/accessibility")}
               className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
             >
-              Accessibility
+              {copy.footer.accessibility}
             </Link>
             <Link
-              href="/sitemap-page"
+              href={withLocalePath(locale, "/sitemap-page")}
               className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
             >
-              Sitemap
+              {copy.footer.sitemap}
             </Link>
             <SystemStatus />
+            <LanguageSwitcher labels={copy.languageSwitcher} inverted />
           </div>
         </div>
       </div>

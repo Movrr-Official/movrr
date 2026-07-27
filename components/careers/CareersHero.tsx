@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { CareersCopy } from "@/locales/types";
 
 export function CareersHero() {
+  const copy = usePageCopy<CareersCopy>().hero;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas pb-20 pt-44 lg:pb-24 lg:pt-52">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -14,10 +17,10 @@ export function CareersHero() {
             transition={{ delay: 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2.5rem,5.5vw,6rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-brand"
           >
-            We're building the platform
+            {copy.titleLine1}
             <br />
             <span className="text-movrr-text-brand/35">
-              cities move on.
+              {copy.titleLine2}
             </span>
           </motion.h1>
 
@@ -27,8 +30,7 @@ export function CareersHero() {
             transition={{ delay: 0.28, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs pb-2 text-sm leading-relaxed text-movrr-text-brand/45 lg:text-right"
           >
-            MOVRR is early. The decisions made now shape what MOVRR becomes.
-            We're looking for people who take the long view.
+            {copy.description}
           </motion.p>
         </div>
 

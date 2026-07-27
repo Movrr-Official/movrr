@@ -3,23 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { AboutCopy } from "@/locales/types";
+import { withLocalePath } from "@/lib/i18n/routing";
 
-const links = [
-  {
-    audience: "Riders",
-    label: "Get the app",
-    description: "Start earning today",
-    href: "/riders",
-  },
-  {
-    audience: "Brands",
-    label: "Partner with MOVRR",
-    description: "Talk to the team",
-    href: "/brands",
-  },
-];
 
 export function AboutCTA() {
+  const copy = usePageCopy<AboutCopy>();
+  const { locale } = useCommonCopy();
+  const links = copy.ctaLinks;
   return (
     <section className="bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -33,7 +26,7 @@ export function AboutCTA() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            Where to next?
+            {copy.ctaTitle}
           </motion.h2>
         </div>
 
@@ -52,7 +45,7 @@ export function AboutCTA() {
               }}
             >
               <Link
-                href={link.href}
+                href={withLocalePath(locale, link.href)}
                 className="group -mx-6 flex items-center justify-between px-6 py-8 transition-colors duration-300 hover:bg-movrr-bg-secondary lg:-mx-12 lg:px-12 lg:py-10"
               >
                 <div>

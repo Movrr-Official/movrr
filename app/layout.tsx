@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import { headers } from "next/headers";
 import { EarlyAccessBanner } from "@/components/early-access/EarlyAccessBanner";
 import { CookieConsentManager } from "@/components/consent/CookieConsentManager";
+import { CommonCopyProvider } from "@/components/i18n/CommonCopyProvider";
+import { REQUEST_LOCALE_HEADER, normalizeLocale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/dictionary";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -12,32 +15,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "MOVRR | Movement Rewards Platform",
-  description:
-    "Turn movement into value. MOVRR is a movement-based rewards platform that connects verified real-world movement with measurable impact for riders, brands, and cities.",
-  keywords: [
-    "movement rewards",
-    "mobility platform",
-    "urban rewards",
-    "brand activation",
-    "verified movement",
-    "cycling rewards",
-  ],
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : new URL("https://movrr.nl"),
+  title: { template: "%s | MOVRR", default: "MOVRR" },
   authors: [{ name: "MOVRR" }],
-  openGraph: {
-    title: "MOVRR | Movement Rewards Platform",
-    description:
-      "Turn movement into value. Connect verified real-world movement with measurable impact.",
-    type: "website",
-    locale: "en_US",
-    siteName: "MOVRR",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MOVRR | Movement Rewards Platform",
-    description:
-      "Turn movement into value. Connect verified real-world movement with measurable impact.",
-  },
   robots: {
     index: true,
     follow: true,
@@ -50,22 +32,27 @@ export const viewport: Viewport = {
   themeColor: "var(--movrr-bg-secondary)",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const locale = normalizeLocale(requestHeaders.get(REQUEST_LOCALE_HEADER));
+  const dictionary = await getDictionary(locale);
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={manrope.variable}
       data-scroll-behavior="smooth"
     >
       <body className="font-sans antialiased">
-        <EarlyAccessBanner audience="riders" placement="fixed-top" />
-        {children}
-        <CookieConsentManager />
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <CommonCopyProvider locale={locale} copy={dictionary.common}>
+          <EarlyAccessBanner audience="riders" placement="fixed-top" />
+          {children}
+          <CookieConsentManager />
+        </CommonCopyProvider>
       </body>
     </html>
   );

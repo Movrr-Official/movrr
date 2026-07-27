@@ -1,29 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { BrandsHero } from "@/components/brands/BrandsHero";
-import { BrandsReach } from "@/components/brands/BrandsReach";
-import { BrandFormats } from "@/components/brands/BrandFormats";
-import { BrandsCampaign } from "@/components/brands/BrandsCampaign";
-import { BrandsMetrics } from "@/components/brands/BrandsMetrics";
-import { BrandsCTA } from "@/components/brands/BrandsCTA";
-
-export const metadata = {
-  title: "For brands — MOVRR",
-  description:
-    "Reach active urban cyclists with verified, movement-based campaigns. Premium exposure. Measurable outcomes.",
-};
-
-export default function BrandsPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar />
-      <BrandsHero />
-      <BrandsReach />
-      <BrandFormats />
-      <BrandsCampaign />
-      <BrandsMetrics />
-      <BrandsCTA />
-      <Footer cta={false} />
-    </main>
-  );
-}
+import { BrandsPage } from "@/components/pages/BrandsPage"; import { getDictionary } from "@/lib/i18n/dictionary"; import { buildPageMetadata } from "@/lib/i18n/metadata";
+export async function generateMetadata() { const d = await getDictionary("en"); return buildPageMetadata("en", d, "brands"); }
+export default async function Page() { const d = await getDictionary("en"); return <BrandsPage copy={d.pages.brands} />; }

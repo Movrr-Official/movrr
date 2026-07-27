@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { AboutCopy } from "@/locales/types";
 
 export function AboutOrigin() {
+  const copy = usePageCopy<AboutCopy>().origin;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-48">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -14,9 +17,9 @@ export function AboutOrigin() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand lg:mb-16"
         >
-          Movement was
+          {copy.titleLine1}
           <br />
-          <span className="text-movrr-text-brand/40">always the point.</span>
+          <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
         </motion.h2>
 
         {/* Wide editorial paragraph — no columns, no grid */}
@@ -27,13 +30,7 @@ export function AboutOrigin() {
           transition={{ delay: 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl text-[clamp(1.05rem,1.4vw,1.3rem)] leading-[1.8] text-movrr-text-brand/60"
         >
-          Cities are full of people on the move. Cyclists cutting through
-          traffic, covering urban routes, every day. We saw what advertising
-          had missed: an audience already in motion, already present.
-          With no reason to engage with the advertising they were passing.
-          MOVRR is built on one insight: reward the journey, and the reach
-          takes care of itself. Not by placing ads in front of people.
-          By becoming part of the ride itself.
+          {copy.body}
         </motion.p>
 
         {/* Chapter-break accent line */}

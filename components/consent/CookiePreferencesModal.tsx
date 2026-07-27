@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import type { ConsentState } from "@/lib/consent/types";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 
 interface Category {
   key: keyof Omit<ConsentState, "necessary">;
@@ -19,44 +20,24 @@ interface RequiredCategory {
   required: true;
 }
 
-const categories: (Category | RequiredCategory)[] = [
-  {
-    key: "necessary",
-    label: "Strictly necessary",
-    description:
-      "Required for the website to function. These enable core features such as session security and account access. They cannot be disabled.",
-    required: true,
-  },
-  {
-    key: "analytics",
-    label: "Performance & analytics",
-    description:
-      "Help us understand how visitors interact with the website, which pages are visited most and where people navigate from. All data is aggregated and anonymised.",
-  },
-  {
-    key: "marketing",
-    label: "Marketing",
-    description:
-      "Used to measure the effectiveness of campaigns that direct traffic to this site. We do not use these cookies to serve retargeted advertising.",
-  },
-];
-
 function Toggle({
   checked,
   onChange,
   disabled,
   label,
+  cookieSuffix,
 }: {
   checked: boolean;
   onChange: (v: boolean) => void;
   disabled?: boolean;
   label: string;
+  cookieSuffix: string;
 }) {
   return (
     <button
       role="switch"
       aria-checked={checked}
-      aria-label={`${label} cookies`}
+      aria-label={`${label} ${cookieSuffix}`}
       disabled={disabled}
       onClick={() => !disabled && onChange(!checked)}
       className={`relative h-5 w-9 rounded-full border transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-movrr-text-brand ${
@@ -95,11 +76,18 @@ export function CookiePreferencesModal({
   onAcceptAll,
   onClose,
 }: CookiePreferencesModalProps) {
+  const { copy } = useCommonCopy();
+  const categories = copy.consent.categories as (
+    | Category
+    | RequiredCategory
+  )[];
   const [draft, setDraft] = useState(initialState);
 
   // Sync draft when modal opens with new state
   useEffect(() => {
-    if (open) setDraft(initialState);
+    if (!open) return;
+    const task = window.setTimeout(() => setDraft(initialState), 0);
+    return () => window.clearTimeout(task);
   }, [open, initialState]);
 
   function toggle(key: keyof typeof draft, value: boolean) {
@@ -127,7 +115,7 @@ export function CookiePreferencesModal({
             key="modal"
             role="dialog"
             aria-modal="true"
-            aria-label="Cookie preferences"
+            aria-label={copy.consent.preferencesAria}
             initial={{ opacity: 0, y: 12, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
@@ -138,16 +126,15 @@ export function CookiePreferencesModal({
             <div className="flex items-start justify-between border-b border-movrr-border-soft px-6 py-5">
               <div>
                 <h2 className="text-base font-semibold tracking-[-0.02em] text-movrr-text-brand">
-                  Cookie preferences
+                  {copy.consent.preferencesTitle}
                 </h2>
                 <p className="mt-1 text-xs leading-relaxed text-movrr-text-brand/45">
-                  Choose which cookies you allow. Your choice is stored and can
-                  be updated at any time.
+                  {copy.consent.preferencesBody}
                 </p>
               </div>
               <button
                 onClick={onClose}
-                aria-label="Close preferences"
+                aria-label={copy.consent.close}
                 className="ml-4 mt-0.5 shrink-0 p-1 text-movrr-text-brand/30 transition-opacity duration-150 hover:text-movrr-text-brand/70"
               >
                 <X className="h-4 w-4" />
@@ -165,7 +152,7 @@ export function CookiePreferencesModal({
                       </p>
                       {cat.required && (
                         <span className="rounded-full border border-movrr-border-soft px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-widest text-movrr-text-brand/35">
-                          Always on
+                          {copy.consent.alwaysOn}
                         </span>
                       )}
                     </div>
@@ -180,6 +167,7 @@ export function CookiePreferencesModal({
                         onChange={() => {}}
                         disabled={true}
                         label={cat.label}
+                        cookieSuffix={copy.consent.cookieSuffix}
                       />
                     ) : (
                       <Toggle
@@ -188,6 +176,7 @@ export function CookiePreferencesModal({
                           toggle(cat.key as keyof typeof draft, v)
                         }
                         label={cat.label}
+                        cookieSuffix={copy.consent.cookieSuffix}
                       />
                     )}
                   </div>
@@ -201,13 +190,13 @@ export function CookiePreferencesModal({
                 onClick={() => onSave(draft)}
                 className="w-full rounded-xl border border-movrr-border-soft bg-movrr-bg-canvas px-5 py-2.5 text-sm font-semibold text-movrr-text-brand transition-colors duration-150 hover:bg-movrr-bg-soft sm:w-auto"
               >
-                Save preferences
+                {copy.consent.save}
               </button>
               <button
                 onClick={onAcceptAll}
                 className="w-full rounded-xl bg-movrr-bg-primary px-5 py-2.5 text-sm font-semibold text-movrr-text-inverse transition-opacity duration-150 hover:opacity-85 sm:w-auto"
               >
-                Accept all
+                {copy.consent.acceptAll}
               </button>
             </div>
           </motion.div>

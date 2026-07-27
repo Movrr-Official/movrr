@@ -1,26 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { AboutCopy } from "@/locales/types";
 
-const beliefs = [
-  {
-    statement: "Movement earns.\u2028It always did.",
-    elaboration:
-      "We made that earning real, verifiable, and tied to every verified kilometre.",
-  },
-  {
-    statement: "Advertising works when people choose it.",
-    elaboration:
-      "Every cyclist carrying a brand campaign made that choice. No passive exposure, no assumed attention. Just opted-in reach.",
-  },
-  {
-    statement: "Every metric is real.",
-    elaboration:
-      "No simulations, no estimated impressions. Every number on MOVRR is tied to verified movement data.",
-  },
-];
 
 export function AboutBeliefs() {
+  const copy = usePageCopy<AboutCopy>();
+  const beliefs = copy.beliefs;
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -33,7 +20,7 @@ export function AboutBeliefs() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-20 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30 lg:mb-24"
         >
-          What we believe
+          {copy.beliefsLabel}
         </motion.p>
 
         {/* Belief rows */}

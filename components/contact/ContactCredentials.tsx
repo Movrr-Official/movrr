@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { ContactCopy } from "@/locales/types";
 
 export function ContactCredentials() {
+  const copy = usePageCopy<ContactCopy>();
   return (
     <section className="bg-movrr-bg-primary py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -14,7 +17,7 @@ export function ContactCredentials() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 text-base leading-relaxed text-movrr-text-inverse/40"
         >
-          Every message lands with the team, not a ticketing system.
+          {copy.credentialsIntro}
         </motion.p>
 
         <motion.a

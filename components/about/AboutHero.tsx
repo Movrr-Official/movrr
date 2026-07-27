@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { AboutCopy } from "@/locales/types";
 
 export function AboutHero() {
+  const copy = usePageCopy<AboutCopy>().hero;
   return (
     <section className="flex min-h-svh flex-col justify-between border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-20 pt-44 lg:pb-24 lg:pt-52">
       {/* Whitespace is intentional — absence signals confidence */}
@@ -17,9 +20,9 @@ export function AboutHero() {
             transition={{ delay: 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            Built around
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/45">the ride.</span>
+            <span className="text-movrr-text-inverse/45">{copy.titleLine2}</span>
           </motion.h1>
 
           <motion.p
@@ -28,8 +31,7 @@ export function AboutHero() {
             transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs text-base leading-relaxed text-movrr-text-inverse/45 lg:mb-2 lg:text-right"
           >
-            A platform for riders and the brands
-            that move alongside them.
+            {copy.description}
           </motion.p>
         </div>
       </div>

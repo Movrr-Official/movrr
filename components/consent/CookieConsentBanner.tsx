@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 
 interface CookieConsentBannerProps {
   visible: boolean;
@@ -15,12 +16,13 @@ export function CookieConsentBanner({
   onRejectAll,
   onManage,
 }: CookieConsentBannerProps) {
+  const { copy } = useCommonCopy();
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
           role="region"
-          aria-label="Cookie consent"
+          aria-label={copy.consent.bannerAria}
           aria-live="polite"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,19 +34,18 @@ export function CookieConsentBanner({
             <div className="px-5 py-5">
               {/* Headline */}
               <p className="mb-2 text-[0.82rem] font-semibold tracking-[-0.02em] text-movrr-text-brand">
-                We use cookies.
+                {copy.consent.title}
               </p>
 
               {/* Body */}
               <p className="text-xs leading-relaxed text-movrr-text-brand/50">
-                Some are necessary for the site to work. Others help us understand
-                how people use it.{" "}
+                {copy.consent.body}{" "}
                 <button
                   onClick={onManage}
                   className="text-movrr-text-brand/70 underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
-                  aria-label="Manage cookie preferences"
+                  aria-label={copy.consent.manageAria}
                 >
-                  You choose.
+                  {copy.consent.manage}
                 </button>
               </p>
 
@@ -53,7 +54,7 @@ export function CookieConsentBanner({
                 onClick={onAcceptAll}
                 className="mt-4 w-full rounded-xl bg-movrr-bg-primary px-4 py-2.5 text-[0.8rem] font-semibold text-movrr-text-inverse transition-opacity duration-150 hover:opacity-85"
               >
-                Accept all
+                {copy.consent.acceptAll}
               </button>
 
               {/* Secondary — text weight, no border */}
@@ -61,7 +62,7 @@ export function CookieConsentBanner({
                 onClick={onRejectAll}
                 className="mt-2.5 w-full py-1 text-center text-[0.75rem] font-medium text-movrr-text-brand/40 transition-opacity duration-150 hover:text-movrr-text-brand/70"
               >
-                Reject non-essential
+                {copy.consent.reject}
               </button>
             </div>
           </div>

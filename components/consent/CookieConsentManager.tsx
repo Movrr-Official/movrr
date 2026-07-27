@@ -3,6 +3,7 @@
 import { useConsent } from "@/hooks/useConsent";
 import { CookieConsentBanner } from "./CookieConsentBanner";
 import { CookiePreferencesModal } from "./CookiePreferencesModal";
+import { Analytics } from "@vercel/analytics/next";
 
 /**
  * CookieConsentManager
@@ -50,6 +51,8 @@ export function CookieConsentManager() {
         onAcceptAll={acceptAll}
         onClose={closePreferences}
       />
+      {process.env.NODE_ENV === "production" &&
+        record?.state.analytics === true && <Analytics />}
     </>
   );
 }

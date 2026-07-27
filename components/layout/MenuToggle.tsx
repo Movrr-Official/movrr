@@ -13,11 +13,16 @@ const Path = (props: any) => (
 interface MenuToggleProps {
   toggle: () => void;
   className?: string;
+  label: string;
+  expanded: boolean;
 }
 
-export const MenuToggle = ({ toggle, className }: MenuToggleProps) => (
+export const MenuToggle = ({ toggle, className, label, expanded }: MenuToggleProps) => (
   <button
+    type="button"
     onClick={toggle}
+    aria-label={label}
+    aria-expanded={expanded}
     className={className}
     style={{ WebkitTapHighlightColor: "transparent" }}
   >

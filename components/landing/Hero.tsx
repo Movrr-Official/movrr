@@ -4,15 +4,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { HomeCopy } from "@/locales/types";
+import type { Locale } from "@/lib/i18n/config";
+import { withLocalePath } from "@/lib/i18n/routing";
 
-export function Hero() {
+export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale }) {
   return (
     <section className="relative min-h-svh overflow-hidden border-b border-movrr-text-inverse/10 bg-movrr-bg-primary">
       {/* Full-width background image */}
       <div className="absolute inset-0">
         <Image
           src="/hero-bg-bob-on-bike.png"
-          alt="Cyclists in motion through urban environment"
+          alt={copy.imageAlt}
           fill
           priority
           fetchPriority="high"
@@ -45,9 +48,9 @@ export function Hero() {
               }}
               className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
             >
-              Movement,
+              {copy.titleLine1}
               <br />
-              rewarded.
+              {copy.titleLine2}
             </motion.h1>
 
             {/* Subtitle */}
@@ -61,8 +64,7 @@ export function Hero() {
               }}
               className="mt-8 max-w-xl text-base leading-relaxed text-movrr-text-inverse/70 lg:text-[1.05rem]"
             >
-              Ride the city. Earn with every kilometre. For brands, it's reach
-              that actually moves people.
+              {copy.description}
             </motion.p>
 
             {/* CTA */}
@@ -78,17 +80,17 @@ export function Hero() {
             >
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/waitlist"
+                  href={withLocalePath(locale, "/waitlist")}
                   className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-surface px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
                 >
-                  Become a rider
+                  {copy.riderCta}
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                 </Link>
                 <Link
-                  href="/brands"
+                  href={withLocalePath(locale, "/brands")}
                   className="inline-flex h-12 items-center rounded-xl border border-movrr-text-inverse/15 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse/75 transition-colors duration-200 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
                 >
-                  Advertise with MOVRR
+                  {copy.brandCta}
                 </Link>
               </div>
             </motion.div>

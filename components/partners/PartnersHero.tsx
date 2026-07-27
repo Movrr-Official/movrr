@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { PartnersCopy } from "@/locales/types";
 
 export function PartnersHero() {
+  const copy = usePageCopy<PartnersCopy>().hero;
   return (
     <section className="relative flex min-h-[72vh] flex-col justify-between overflow-hidden bg-movrr-bg-primary pb-0 pt-40 lg:pt-52">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
@@ -15,9 +18,9 @@ export function PartnersHero() {
             transition={{ delay: 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(4rem,7vw,8rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            Build on the
+            {copy.titleLine1}
             <br />
-            movement layer.
+            {copy.titleLine2}
           </motion.h1>
 
           <motion.p
@@ -26,9 +29,7 @@ export function PartnersHero() {
             transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xs pb-1 text-base leading-relaxed text-movrr-text-inverse/45 lg:text-right"
           >
-            MOVRR is the infrastructure beneath verified urban movement. If
-            your platform touches how people move through cities, we should
-            talk.
+            {copy.description}
           </motion.p>
         </div>
 
@@ -43,7 +44,7 @@ export function PartnersHero() {
       >
         <Image
           src="/app-preview-01.png"
-          alt="MOVRR platform"
+          alt={copy.imageAlt}
           fill
           sizes="100vw"
           className="object-cover object-top"

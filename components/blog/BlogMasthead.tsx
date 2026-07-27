@@ -3,17 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { BlogCopy } from "@/locales/types";
 
-const lead = {
-  category: "Product",
-  date: "12 Mar 2025",
-  readTime: "6 min read",
-  title:
-    "Why movement data is the only honest signal left in urban advertising",
-  href: "#",
-};
 
 export function BlogMasthead() {
+  const copy = usePageCopy<BlogCopy>();
+  const lead = copy.featured;
   return (
     <section className="relative flex min-h-[80vh] flex-col justify-between overflow-hidden bg-movrr-bg-primary pb-0 pt-40 lg:pt-52">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
@@ -30,9 +26,9 @@ export function BlogMasthead() {
               }}
               className="text-[clamp(4rem,8vw,10rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
             >
-              From the
+              {copy.titleLine1}
               <br />
-              platform.
+              {copy.titleLine2}
             </motion.h1>
           </div>
 
@@ -55,7 +51,7 @@ export function BlogMasthead() {
               {lead.title}
             </p>
             <span className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-widest text-movrr-text-inverse/35 transition-all duration-200 group-hover:text-movrr-text-inverse/60 lg:justify-end">
-              Read
+              {copy.read}
               <ArrowRight className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </span>
           </motion.a>
@@ -71,7 +67,7 @@ export function BlogMasthead() {
       >
         <Image
           src="/app-preview-01.png"
-          alt="MOVRR platform — featured article"
+          alt={copy.imageAlt}
           fill
           sizes="100vw"
           className="object-cover object-top"

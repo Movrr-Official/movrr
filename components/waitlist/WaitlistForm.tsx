@@ -1,77 +1,29 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import { useForm } from "react-hook-form";
+import { useMemo, useState, useTransition } from "react";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { track } from "@vercel/analytics";
-import { waitlistSchema, type WaitlistInput } from "@/lib/waitlist/schema";
+import { createWaitlistSchema, type WaitlistInput } from "@/lib/waitlist/schema";
 import { submitWaitlist } from "@/app/actions/waitlist";
+import type { WaitlistCopy } from "@/locales/types";
+import type { Locale } from "@/lib/i18n/config";
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 
-interface AudienceOption {
-  id: WaitlistInput["audience"];
-  label: string;
-  description: string;
-  submitLabel: string;
-  namePlaceholder: string;
-}
-
-const audiences: AudienceOption[] = [
-  {
-    id: "rider",
-    label: "Rider",
-    description:
-      "You cycle, scoot, or walk city routes and want to earn from every trip.",
-    submitLabel: "Register as a rider",
-    namePlaceholder: "Your name",
-  },
-  {
-    id: "brand",
-    label: "Brand",
-    description:
-      "You run campaigns and need verified reach among active city riders.",
-    submitLabel: "Register your brand",
-    namePlaceholder: "Your name or company",
-  },
-  {
-    id: "partner",
-    label: "Partner",
-    description:
-      "You build products or platforms that touch how people move through cities.",
-    submitLabel: "Register as a partner",
-    namePlaceholder: "Your name or company",
-  },
-];
-
-const benefits = [
-  {
-    label: "Priority notification",
-    note: "You hear first when your city opens.",
-  },
-  {
-    label: "Priority access",
-    note: "Early access shapes what MOVRR becomes in your city.",
-  },
-  {
-    label: "No commitment",
-    note: "Registration holds your place. Nothing more.",
-  },
-];
-
-const bikeOptions: {
-  id: NonNullable<WaitlistInput["bikeOwnership"]>;
-  label: string;
-}[] = [
-  { id: "own", label: "I own one" },
-  { id: "interested", label: "Not yet, but interested" },
-  { id: "planning", label: "Planning to get one" },
-];
-
 // ─── Component ───────────────────────────────────────────────────────────────
 
-export function WaitlistForm() {
+export function WaitlistForm({
+  copy,
+  locale,
+}: {
+  copy: WaitlistCopy["form"];
+  locale: Locale;
+}) {
+  const audiences = copy.audiences;
+  const benefits = copy.benefits;
+  const bikeOptions = copy.bikeOptions;
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState<WaitlistInput | null>(
     null,
@@ -80,8 +32,12 @@ export function WaitlistForm() {
   const [showBikeField, setShowBikeField] = useState(false);
   const [isPending, startTransition] = useTransition();
 
+  const schema = useMemo(
+    () => createWaitlistSchema(copy.validation),
+    [copy.validation],
+  );
   const form = useForm<WaitlistInput>({
-    resolver: zodResolver(waitlistSchema),
+    resolver: zodResolver(schema),
     mode: "onBlur",
     defaultValues: {
       audience: "rider",
@@ -94,13 +50,13 @@ export function WaitlistForm() {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     setValue,
     formState: { errors },
   } = form;
 
-  const audience = watch("audience");
-  const bikeOwnership = watch("bikeOwnership");
+  const audience = useWatch({ control, name: "audience" });
+  const bikeOwnership = useWatch({ control, name: "bikeOwnership" });
   const currentAudience = audiences.find((a) => a.id === audience)!;
 
   const onSubmit = handleSubmit((data) => {
@@ -122,7 +78,7 @@ export function WaitlistForm() {
           ? document.referrer.slice(0, 500)
           : undefined,
         landing_path: window.location.pathname.slice(0, 500),
-      });
+      }, locale);
       if (!result.success) {
         track("waitlist_submit_error", {
           audience: data.audience,
@@ -152,12 +108,11 @@ export function WaitlistForm() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <h2 className="mb-5 text-[clamp(1.8rem,3vw,2.8rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-movrr-text-brand">
-              Register early.
+              {copy.heading}
             </h2>
 
             <p className="mb-14 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
-              MOVRR opens city by city. Register early and get priority access
-              when your city launches.
+              {copy.introduction}
             </p>
 
             {/* Benefits */}
@@ -207,20 +162,22 @@ export function WaitlistForm() {
                   className="flex min-h-80 flex-col justify-center"
                 >
                   <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-brand/30">
-                    You&apos;re in the first wave.
+                    {copy.success.eyebrow}
                   </p>
                   <h3 className="mb-5 text-[clamp(3rem,7vw,5.5rem)] font-semibold leading-none tracking-[-0.04em] text-movrr-text-brand">
-                    You&apos;re in.
+                    {copy.success.title}
                   </h3>
                   <p className="mb-8 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
-                    We&apos;ll reach out when MOVRR opens
-                    {submittedData?.city
-                      ? ` in ${submittedData.city}`
-                      : " in your city"}
+                    {copy.success.cityPrefix}{" "}
+                    {submittedData?.city || copy.success.cityFallback}
                     .
                   </p>
                   <p className="text-xs text-movrr-text-brand/25">
-                    Registered as a {submittedData?.audience} ·{" "}
+                    {copy.success.registeredAs}{" "}
+                    {submittedData?.audience
+                      ? copy.success.audienceNames[submittedData.audience]
+                      : ""}{" "}
+                    ·{" "}
                     {submittedData?.email}
                   </p>
                 </motion.div>
@@ -237,7 +194,7 @@ export function WaitlistForm() {
                   {/* Audience selector */}
                   <div className="mb-9">
                     <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-brand/30">
-                      I am a
+                      {copy.audienceLabel}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {audiences.map((a) => (
@@ -289,7 +246,7 @@ export function WaitlistForm() {
                           htmlFor="wl-name"
                           className="mb-2 block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
                         >
-                          Name
+                          {copy.fields.name}
                         </label>
                         <input
                           id="wl-name"
@@ -310,13 +267,13 @@ export function WaitlistForm() {
                           htmlFor="wl-city"
                           className="mb-2 block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
                         >
-                          City
+                          {copy.fields.city}
                         </label>
                         <input
                           id="wl-city"
                           type="text"
                           autoComplete="address-level2"
-                          placeholder="Rotterdam, The Hague…"
+                          placeholder={copy.fields.cityPlaceholder}
                           {...register("city")}
                           className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                         />
@@ -334,13 +291,13 @@ export function WaitlistForm() {
                         htmlFor="wl-email"
                         className="mb-2 block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
                       >
-                        Email
+                        {copy.fields.email}
                       </label>
                       <input
                         id="wl-email"
                         type="email"
                         autoComplete="email"
-                        placeholder="you@example.com"
+                        placeholder={copy.fields.emailPlaceholder}
                         {...register("email")}
                         className="w-full rounded-xl border border-movrr-border-soft bg-transparent px-4 py-3.5 text-sm text-movrr-text-brand placeholder:text-movrr-text-brand/25 outline-none transition-colors duration-200 focus:border-movrr-text-brand/40 focus-visible:outline-none"
                       />
@@ -377,7 +334,7 @@ export function WaitlistForm() {
                                 transition={{ duration: 0.2 }}
                                 className="text-xs text-movrr-text-brand/30 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand/55"
                               >
-                                Do you own a bike? (optional)
+                                {copy.fields.bikeQuestion} ({copy.fields.optional})
                               </motion.button>
                             ) : (
                               <motion.div
@@ -391,9 +348,9 @@ export function WaitlistForm() {
                                 }}
                               >
                                 <p className="mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35">
-                                  Do you own a bike?
+                                  {copy.fields.bikeQuestion}
                                   <span className="ml-1.5 font-normal normal-case tracking-normal text-movrr-text-brand/25">
-                                    optional
+                                    {copy.fields.optional}
                                   </span>
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -447,12 +404,12 @@ export function WaitlistForm() {
                         className="w-full rounded-xl bg-movrr-bg-secondary py-4 text-sm font-semibold text-movrr-text-inverse transition-opacity duration-200 hover:opacity-75 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         {isPending
-                          ? "Registering…"
+                          ? copy.submitting
                           : currentAudience.submitLabel}
                       </motion.button>
                     </AnimatePresence>
                     <p className="mt-4 text-xs text-movrr-text-brand/25">
-                      No spam. Unsubscribe any time.
+                      {copy.noSpam}
                     </p>
                   </div>
                 </motion.form>

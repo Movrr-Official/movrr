@@ -2,32 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import type { HomeCopy } from "@/locales/types";
 
-const useCases = [
-  {
-    title: "Rewarded everyday movement",
-    category: "Rider rewards",
-    description:
-      "Ride to earn. Opt in to brand campaigns for more. Your movement, your choice.",
-    image: "/urban-cyclist-checking-earnings.png",
-  },
-  {
-    title: "Always on, or all at once.",
-    category: "Brand activations",
-    description:
-      "Destination Ride for daily route presence. Swarm for moments that stop a city.",
-    image: "/usecase-sponsored-community-rides-aerial.png",
-  },
-  {
-    title: "City and brand initiatives",
-    category: "Urban partnerships",
-    description:
-      "Programs that move entire communities. Built for cities that dare to lead.",
-    image: "/usecase-city-cycling-waterfront-dusk.png",
-  },
+const images = [
+  "/urban-cyclist-checking-earnings.png",
+  "/usecase-sponsored-community-rides-aerial.png",
+  "/usecase-city-cycling-waterfront-dusk.png",
 ];
 
-export function UseCases() {
+export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {
   return (
     <section id="rewards" className="bg-movrr-bg-surface py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -40,19 +23,18 @@ export function UseCases() {
           className="mb-16 lg:mb-20"
         >
           <h2 className="max-w-2xl text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
-            One platform.
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-brand/40">Every use case.</span>
+            <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-movrr-text-brand/60">
-            Ride to earn. Move a city. Build on the network. Three ways the same
-            platform changes what urban movement is worth.
+            {copy.description}
           </p>
         </motion.div>
 
         {/* Three editorial image cards — portrait aspect, image dominant */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {useCases.map((useCase, index) => (
+          {copy.items.map((useCase, index) => (
             <motion.article
               key={useCase.title}
               initial={{ opacity: 0, y: 30 }}
@@ -68,8 +50,8 @@ export function UseCases() {
               {/* Image — tall portrait, full-bleed rounded */}
               <div className="relative aspect-3/4 rounded-3xl overflow-hidden mb-6 border border-movrr-border-soft">
                 <Image
-                  src={useCase.image}
-                  alt={useCase.title}
+                  src={images[index]}
+                  alt={useCase.imageAlt}
                   fill
                   quality={88}
                   loading="eager"

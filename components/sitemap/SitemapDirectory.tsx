@@ -2,58 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { SitemapCopy } from "@/locales/types";
+import { withLocalePath } from "@/lib/i18n/routing";
 
-const sections = [
-  {
-    id: "01",
-    category: "Platform",
-    description: "How MOVRR works and who it's for",
-    primary: true,
-    links: [
-      { label: "How it works", href: "/how-it-works" },
-      { label: "Rewards", href: "/rewards" },
-      { label: "Brands", href: "/brands" },
-      { label: "Riders", href: "/riders" },
-    ],
-  },
-  {
-    id: "02",
-    category: "Company",
-    description: "The team, story, and open roles",
-    primary: true,
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Press & Media", href: "/press" },
-      { label: "Partners", href: "/partners" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  {
-    id: "03",
-    category: "Support",
-    description: "Help and ways to get in touch",
-    primary: false,
-    links: [
-      { label: "Help centre", href: "/help" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    id: "04",
-    category: "Legal",
-    description: "Policies, terms, and your rights",
-    primary: false,
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Cookie Policy", href: "/cookies" },
-      { label: "Accessibility", href: "/accessibility" },
-    ],
-  },
-];
 
 export function SitemapDirectory() {
+  const sections = usePageCopy<SitemapCopy>().sections;
+  const { locale } = useCommonCopy();
   return (
     <section className="bg-movrr-bg-canvas py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -101,7 +58,7 @@ export function SitemapDirectory() {
                     }}
                   >
                     <Link
-                      href={link.href}
+                      href={withLocalePath(locale, link.href)}
                       className={`group flex items-center gap-2 py-2.5 text-sm transition-all duration-200 hover:text-movrr-text-brand ${
                         section.primary
                           ? "font-medium text-movrr-text-brand/70"

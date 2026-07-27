@@ -8,6 +8,8 @@ import type { WaitlistInput } from "@/lib/waitlist/schema";
 import { getGeoFromHeaders } from "@/lib/geo";
 import { createSupabaseServerClient } from "@/supabase/server";
 import { classifyAcquisitionChannel } from "@/lib/attribution";
+import { normalizeLocale, type Locale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/dictionary";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = "MOVRR <hello@movrr.nl>";
@@ -15,11 +17,16 @@ const NOTIFY_TO = process.env.MOVRR_NOTIFY_EMAIL ?? "team@movrr.nl";
 
 type ActionResult = { success: true } | { success: false; error: string };
 
-export async function submitWaitlist(input: unknown): Promise<ActionResult> {
+export async function submitWaitlist(
+  input: unknown,
+  requestedLocale?: Locale,
+): Promise<ActionResult> {
+  const locale = normalizeLocale(requestedLocale);
+  const messages = (await getDictionary(locale)).pages.waitlist.form.errors;
   // Server-side re-validation — never trust client input
   const parsed = waitlistSchema.safeParse(input);
   if (!parsed.success) {
-    return { success: false, error: "Invalid form data." };
+    return { success: false, error: messages.invalid };
   }
 
   const data: WaitlistInput = parsed.data;
@@ -62,10 +69,10 @@ export async function submitWaitlist(input: unknown): Promise<ActionResult> {
   if (dbError) {
     // 23505 = unique_violation — email already registered
     if (dbError.code === "23505") {
-      return { success: false, error: "This email is already on the list." };
+      return { success: false, error: messages.duplicate };
     }
     console.error("[waitlist] db insert failed:", dbError.message);
-    return { success: false, error: "Something went wrong. Please try again." };
+    return { success: false, error: messages.generic };
   }
 
   // Send emails — failure is non-blocking; DB write is the source of truth
@@ -74,8 +81,11 @@ export async function submitWaitlist(input: unknown): Promise<ActionResult> {
       resend.emails.send({
         from: FROM,
         to: data.email,
-        subject: "You're registered — MOVRR",
-        react: WaitlistConfirmation({ data }),
+        subject:
+          locale === "nl"
+            ? "Je bent geregistreerd — MOVRR"
+            : "You're registered — MOVRR",
+        react: WaitlistConfirmation({ data, locale }),
       }),
       resend.emails.send({
         from: FROM,

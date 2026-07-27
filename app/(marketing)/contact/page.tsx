@@ -1,23 +1,12 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { ContactHeader } from "@/components/contact/ContactHeader";
-import { ContactPaths } from "@/components/contact/ContactPaths";
-import { ContactCredentials } from "@/components/contact/ContactCredentials";
+import { ContactPage } from "@/components/pages/ContactPage";
+import { getDictionary } from "@/lib/i18n/dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
 
-export const metadata = {
-  title: "Contact — MOVRR",
-  description:
-    "Get in touch with the MOVRR team. Campaign enquiries, rider support, and press contact.",
-};
-
-export default function ContactPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar variant="light" />
-      <ContactHeader />
-      <ContactPaths />
-      <ContactCredentials />
-      <Footer cta={false} />
-    </main>
-  );
+export async function generateMetadata() {
+  const dictionary = await getDictionary("en");
+  return buildPageMetadata("en", dictionary, "contact");
+}
+export default async function Page() {
+  const dictionary = await getDictionary("en");
+  return <ContactPage copy={dictionary.pages.contact} />;
 }

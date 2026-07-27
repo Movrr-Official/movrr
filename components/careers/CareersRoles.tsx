@@ -2,41 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { CareersCopy } from "@/locales/types";
 
-const roles = [
-  {
-    department: "Engineering",
-    title: "Senior Full-Stack Engineer",
-    location: "Rotterdam / Remote",
-    type: "Full-time",
-  },
-  {
-    department: "Engineering",
-    title: "Mobile Engineer (React Native)",
-    location: "Rotterdam / Remote",
-    type: "Full-time",
-  },
-  {
-    department: "Product",
-    title: "Product Designer",
-    location: "Rotterdam / Remote",
-    type: "Full-time",
-  },
-  {
-    department: "Operations",
-    title: "Rider Community Lead",
-    location: "Rotterdam",
-    type: "Full-time",
-  },
-  {
-    department: "Growth",
-    title: "Brand Partnerships Manager",
-    location: "Rotterdam / Amsterdam",
-    type: "Full-time",
-  },
-];
 
 export function CareersRoles() {
+  const copy = usePageCopy<CareersCopy>();
+  const roles = copy.roles;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -49,7 +21,7 @@ export function CareersRoles() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand"
           >
-            Open roles
+            {copy.rolesTitle}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -58,7 +30,7 @@ export function CareersRoles() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-sm text-movrr-text-brand/40"
           >
-            {roles.length} positions open
+            {roles.length} {copy.positionsOpen}
           </motion.p>
         </div>
 
@@ -100,12 +72,12 @@ export function CareersRoles() {
           transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 text-sm text-movrr-text-brand/40"
         >
-          Don&apos;t see what you&apos;re looking for?{" "}
+          {copy.openApplication}{" "}
           <a
             href="mailto:hello@movrr.nl"
             className="text-movrr-text-brand/60 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand"
           >
-            Send us a note anyway.
+            {copy.openApplicationCta}
           </a>
         </motion.p>
       </div>

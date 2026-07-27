@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { HelpCopy } from "@/locales/types";
 
 export function HelpHeader() {
+  const copy = usePageCopy<HelpCopy>();
   const [query, setQuery] = useState("");
 
   return (
@@ -16,7 +19,7 @@ export function HelpHeader() {
           transition={{ delay: 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 max-w-xl text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
         >
-          How can we help?
+          {copy.title}
         </motion.h1>
 
         {/* Search bar */}
@@ -31,7 +34,7 @@ export function HelpHeader() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for answers…"
+            placeholder={copy.searchPlaceholder}
             className="w-full rounded-none border border-movrr-text-inverse/15 bg-movrr-text-inverse/5 py-4 pl-11 pr-5 text-sm text-movrr-text-inverse placeholder:text-movrr-text-inverse/30 outline-none transition-colors duration-200 focus:border-movrr-text-inverse/30 focus:bg-movrr-text-inverse/8"
           />
         </motion.div>

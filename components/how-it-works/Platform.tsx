@@ -1,36 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { HowItWorksCopy } from "@/locales/types";
 
-const featured = {
-  number: "01",
-  title: "Verified movement",
-  description:
-    "Every ride authenticated. No simulations, no shortcuts. Verified data powers every reward and every campaign metric.",
-};
 
-const supporting = [
-  {
-    number: "02",
-    title: "Privacy by default",
-    description:
-      "What you ride stays yours. Brands see movement patterns. They never see you.",
-  },
-  {
-    number: "03",
-    title: "Real-time visibility",
-    description:
-      "Riders and brands see performance as it happens. Live reach, verified impressions, engagement in motion.",
-  },
-  {
-    number: "04",
-    title: "Brand integrity",
-    description:
-      "Every rider carrying your brand chose to. No passive placements. Just people who said yes.",
-  },
-];
 
 export function Platform() {
+  const copy = usePageCopy<HowItWorksCopy>().platform;
+  const [featured, ...supporting] = copy.pillars;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -44,9 +22,9 @@ export function Platform() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand"
           >
-            Built for trust.
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-brand/40">On both sides.</span>
+            <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -55,8 +33,7 @@ export function Platform() {
             transition={{ delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="self-end text-base leading-relaxed text-movrr-text-brand/50 lg:max-w-sm"
           >
-            Verified data, rider consent, nothing hidden. That's the
-            foundation everything runs on.
+            {copy.description}
           </motion.p>
         </div>
 

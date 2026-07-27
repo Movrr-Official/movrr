@@ -6,29 +6,16 @@ import {
   PrivacyIcon,
   SafeIcon,
 } from "@/components/icons/MovrrIcons";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { RidersCopy } from "@/locales/types";
 
-const props = [
-  {
-    icon: VerifiedIcon,
-    title: "Verified, not estimated",
-    description:
-      "Every ride authenticated. Your rewards are tied to real, verified kilometres. Not guesses.",
-  },
-  {
-    icon: SafeIcon,
-    title: "Your choice, always",
-    description:
-      "Carrying a brand is entirely your call. Choose it when you want more. Ride clean when you don't. As your ride history builds, higher-value campaigns become available to you.",
-  },
-  {
-    icon: PrivacyIcon,
-    title: "Private by design",
-    description:
-      "Your individual routes stay yours. MOVRR anonymises movement data. Brands see patterns, not people.",
-  },
-];
 
 export function RidersProposition() {
+  const copy = usePageCopy<RidersCopy>().proposition;
+  const props = copy.items.map((item, index) => ({
+    ...item,
+    icon: [VerifiedIcon, SafeIcon, PrivacyIcon][index],
+  }));
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       {/* Compact inline header bar */}
@@ -42,8 +29,8 @@ export function RidersProposition() {
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="flex items-center justify-between py-10">
             <h2 className="text-[clamp(1.25rem,1.8vw,1.75rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand ml-auto">
-              Your ride.{" "}
-              <span className="text-movrr-text-brand/40">Your terms.</span>
+              {copy.titleLine1}{" "}
+              <span className="text-movrr-text-brand/40">{copy.titleLine2}</span>
             </h2>
           </div>
         </div>

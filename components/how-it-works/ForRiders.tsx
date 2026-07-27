@@ -1,29 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider";
+import type { HowItWorksCopy } from "@/locales/types";
 
-const steps = [
-  {
-    number: "01",
-    title: "Ride your route",
-    description:
-      "Any verified ride counts. Commutes, errands, weekend loops — movement is movement.",
-  },
-  {
-    number: "02",
-    title: "Opt in to earn more",
-    description:
-      "Choose to carry a brand on your bike. Entirely optional, but when you do, rewards stack. Your movement, your call.",
-  },
-  {
-    number: "03",
-    title: "Collect your rewards",
-    description:
-      "Rewards accumulate with every authenticated ride. Yours to keep, however you earned them.",
-  },
-];
 
 export function ForRiders() {
+  const copy = usePageCopy<HowItWorksCopy>().riders;
+  const steps = copy.steps;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -37,16 +21,15 @@ export function ForRiders() {
         >
           <div>
             <h2 className="text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-brand">
-              Ride to earn.
+              {copy.titleLine1}
               <br />
               <span className="text-movrr-text-brand/40">
-                Nothing else required.
+                {copy.titleLine2}
               </span>
             </h2>
           </div>
           <p className="max-w-xs text-base leading-relaxed text-movrr-text-brand/55 lg:pb-1">
-            Ride and earn. Carry a brand when you want more. Your
-            movement, your call.
+            {copy.description}
           </p>
         </motion.div>
 

@@ -1,59 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { HomeCopy } from "@/locales/types";
 
-const steps = [
-  {
-    number: "01",
-    label: "Riders",
-    title: "Ride and earn",
-    description:
-      "Verified kilometres earn rewards. Commutes, errands, everyday movement — it all counts.",
-    side: "left",
-  },
-  {
-    number: "01",
-    label: "Brands",
-    title: "Set your direction",
-    description:
-      "Define your audience, set your budget, shape your strategy. Everything up front.",
-    side: "right",
-  },
-  {
-    number: "02",
-    label: "Riders",
-    title: "Opt in, earn more",
-    description:
-      "Choose to carry brand campaigns on your rides. Entirely optional, but when you do, rewards stack.",
-    side: "left",
-  },
-  {
-    number: "02",
-    label: "Brands",
-    title: "Go live",
-    description:
-      "Your campaign hits the streets. Cyclists earn. Your brand moves with them.",
-    side: "right",
-  },
-  {
-    number: "03",
-    label: "Riders",
-    title: "Collect your rewards",
-    description:
-      "Rewards accumulate with every authenticated ride. Yours to keep, however you earned them.",
-    side: "left",
-  },
-  {
-    number: "03",
-    label: "Brands",
-    title: "Watch it work",
-    description:
-      "Live data. Real engagement. Verified outcomes. Refine on the fly.",
-    side: "right",
-  },
-];
 
-export function HowItWorks() {
+export function HowItWorks({ copy }: { copy: HomeCopy["howItWorks"] }) {
   return (
     <section
       id="how-it-works"
@@ -69,12 +20,12 @@ export function HowItWorks() {
           className="mb-20 lg:mb-32"
         >
           <h2 className="max-w-md text-[clamp(2rem,3.5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
-            Two sides.
+            {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/50">One platform.</span>
+            <span className="text-movrr-text-inverse/50">{copy.titleLine2}</span>
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
-            Left: how it works for cyclists. Right: how it works for brands.
+            {copy.description}
           </p>
         </motion.div>
 
@@ -89,7 +40,7 @@ export function HowItWorks() {
             transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {steps.map((step, index) => (
+          {copy.steps.map((step, index) => (
             <motion.div
               key={`${step.number}-${step.label}`}
               initial={{ opacity: 0, y: 24 }}

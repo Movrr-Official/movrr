@@ -1,26 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import type { BrandsCopy } from "@/locales/types";
 
-const metrics = [
-  {
-    value: "400K — 1.2M",
-    label: "Verified monthly reach",
-    description: "Verified impressions from riders moving through your city, not past a screen.",
-  },
-  {
-    value: "FROM €3.50",
-    label: "Per 1,000 verified views",
-    description: "Efficient exposure. Real engagement. Nothing inflated.",
-  },
-  {
-    value: "100% Opt-in",
-    label: "High-intent urban exposure",
-    description: "Audiences in motion, not scrolling. Daily, urban, real.",
-  },
-];
 
 export function BrandsMetrics() {
+  const metrics = usePageCopy<BrandsCopy>().metrics;
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-soft py-0">
       {/* No max-w container — numbers bleed edge to edge within section padding */}

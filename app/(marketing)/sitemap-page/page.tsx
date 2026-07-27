@@ -1,20 +1,5 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { SitemapHeader } from "@/components/sitemap/SitemapHeader";
-import { SitemapDirectory } from "@/components/sitemap/SitemapDirectory";
-
-export const metadata = {
-  title: "Sitemap — MOVRR",
-  description: "Every page on movrr.nl, organised by section.",
-};
-
-export default function SitemapPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-      <Navbar variant="light" />
-      <SitemapHeader />
-      <SitemapDirectory />
-      <Footer cta={false} />
-    </main>
-  );
-}
+import { SitemapPage } from "@/components/pages/SitemapPage";
+import { getDictionary } from "@/lib/i18n/dictionary";
+import { buildPageMetadata } from "@/lib/i18n/metadata";
+export async function generateMetadata() { const d = await getDictionary("en"); return buildPageMetadata("en", d, "sitemapPage"); }
+export default async function Page() { const d = await getDictionary("en"); return <SitemapPage copy={d.pages.sitemapPage} />; }

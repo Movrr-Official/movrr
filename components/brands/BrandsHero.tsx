@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { usePageCopy } from "@/components/i18n/PageCopyProvider"; import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
+import type { BrandsCopy } from "@/locales/types"; import { withLocalePath } from "@/lib/i18n/routing";
 
 export function BrandsHero() {
+  const copy = usePageCopy<BrandsCopy>().hero; const { locale } = useCommonCopy();
   return (
     <section className="border-b border-movrr-text-inverse/10 bg-movrr-bg-primary pb-0 pt-44 lg:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -16,9 +19,9 @@ export function BrandsHero() {
           transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-[clamp(3.5rem,8.5vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
         >
-          Reach that
+          {copy.titleLine1}
           <br />
-          <span className="text-movrr-text-inverse/45">moves.</span>
+          <span className="text-movrr-text-inverse/45">{copy.titleLine2}</span>
         </motion.h1>
 
         {/* Description + CTAs — row below headline */}
@@ -29,22 +32,21 @@ export function BrandsHero() {
           className="mt-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
         >
           <p className="max-w-sm text-base leading-relaxed text-movrr-text-inverse/55">
-            Your brand, carried through the city by cyclists who chose to
-            represent it. Verified reach. Nothing estimated.
+            {copy.description}
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/contact"
+              href={withLocalePath(locale, "/contact")}
               className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-glass px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
             >
-              Talk to sales
+              {copy.primary}
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
             </Link>
             <Link
-              href="/how-it-works"
+              href={withLocalePath(locale, "/how-it-works")}
               className="inline-flex h-12 items-center rounded-xl border border-movrr-text-inverse/15 bg-transparent px-7 text-sm font-medium text-movrr-text-inverse/75 transition-colors duration-200 hover:bg-movrr-text-inverse/8 hover:text-movrr-text-inverse"
             >
-              How it works
+              {copy.secondary}
             </Link>
           </div>
         </motion.div>
@@ -59,7 +61,7 @@ export function BrandsHero() {
       >
         <Image
           src="/b2b-cyclist-pannier-urban.png"
-          alt="Brand campaign carried through the city by cyclists"
+          alt={copy.imageAlt}
           fill
           quality={90}
           sizes="100vw"

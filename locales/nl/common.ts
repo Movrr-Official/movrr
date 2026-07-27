@@ -14,18 +14,18 @@ export const nl: Dictionary = {
       howItWorks: "Zo werkt het",
       rewards: "Beloningen",
       brands: "Merken",
-      riders: "Rijders",
+      riders: "Fietsers",
       signIn: "Inloggen",
       getStarted: "Aan de slag",
       openMenu: "Navigatiemenu openen",
       closeMenu: "Navigatiemenu sluiten",
     },
     footer: {
-      ctaTitle: "Klaar om met MOVRR te bewegen?",
-      ctaBody: "De straten wachten op je.",
-      startEarning: "Begin met verdienen",
-      talkToSales: "Praat met sales",
-      tagline: "Beweging die beloont. Campagnes die presteren. Gebouwd voor de stad.",
+      ctaTitle: "Laat elke rit meetellen.",
+      ctaBody: "Voor fietsers, merken en de stad.",
+      startEarning: "Meld je aan",
+      talkToSales: "Bespreek een campagne",
+      tagline: "Elke rit beloond. Elk bereik onderbouwd.",
       sectionPlatform: "Platform",
       sectionCompany: "Bedrijf",
       sectionResources: "Informatie",
@@ -35,7 +35,7 @@ export const nl: Dictionary = {
       press: "Pers",
       contact: "Contact",
       help: "Helpcentrum",
-      blog: "Journal",
+      blog: "Verhalen",
       partners: "Partners",
       privacy: "Privacy",
       terms: "Voorwaarden",
@@ -47,27 +47,27 @@ export const nl: Dictionary = {
     },
     systemStatus: {
       unavailable: "Status niet beschikbaar",
-      checking: "Status controleren…",
+      checking: "Status wordt gecontroleerd…",
       operational: "Alle systemen operationeel",
-      degraded: "Verminderde dienstverlening",
-      disruption: "Dienst onderbroken",
+      degraded: "Beperkte dienstverlening",
+      disruption: "Storing",
     },
     earlyAccess: {
-      ariaLabel: "Aankondiging over early access",
+      ariaLabel: "Aankondiging over vroege toegang",
       dismiss: "Aankondiging sluiten",
-      ctaAriaSuffix: "early access",
+      ctaAriaSuffix: "vroege toegang",
       riders: {
-        badge: "Early access",
+        badge: "Als eerste toegang",
         variants: [
           {
             headline:
-              "MOVRR lanceert in Rotterdam en Den Haag. Meld je aan voor de wachtlijst.",
+              "MOVRR start in Rotterdam en Den Haag. Meld je aan voor de wachtlijst.",
             cta: "Naar de wachtlijst",
           },
           {
             headline:
-              "Verdien met elke kilometer. Early access voor rijders is nu open.",
-            cta: "Vraag early access aan",
+              "Laat elke kilometer meetellen. Meld je aan en krijg als eerste toegang.",
+            cta: "Meld je aan",
           },
         ],
       },
@@ -76,34 +76,33 @@ export const nl: Dictionary = {
         variants: [
           {
             headline:
-              "De eerste merkpartnerschappen zijn open — er zijn nog maar enkele plaatsen.",
-            cta: "Reserveer een plek",
+              "De eerste campagnes gaan van start. Er is nog ruimte voor enkele merken.",
+            cta: "Bespreek een campagne",
           },
         ],
       },
       partners: {
-        badge: "Nu geopend",
+        badge: "Aanmelden kan nu",
         variants: [
           {
             headline:
-              "Aanmelden voor technische en commerciële integraties is nu mogelijk.",
-            cta: "Praat met ons",
+              "We openen de eerste technische en commerciële samenwerkingen.",
+            cta: "Neem contact op",
           },
         ],
       },
     },
     consent: {
       bannerAria: "Cookietoestemming",
-      title: "We gebruiken cookies.",
-      body:
-        "Sommige zijn nodig om de site te laten werken. Andere helpen ons begrijpen hoe mensen de site gebruiken.",
-      manage: "Jij kiest.",
+      title: "Over cookies",
+      body: "Noodzakelijke cookies laten de site werken. Met jouw toestemming gebruiken we andere cookies om de site te verbeteren.",
+      manage: "Zelf kiezen",
       manageAria: "Cookievoorkeuren beheren",
       acceptAll: "Alles accepteren",
-      reject: "Niet-essentiële weigeren",
+      reject: "Alleen noodzakelijk",
       preferencesTitle: "Cookievoorkeuren",
       preferencesBody:
-        "Kies welke cookies je toestaat. Je keuze wordt opgeslagen en kan altijd worden aangepast.",
+        "Bepaal welke cookies we mogen gebruiken. Je kunt je keuze later altijd aanpassen.",
       preferencesAria: "Cookievoorkeuren",
       close: "Voorkeuren sluiten",
       alwaysOn: "Altijd actief",
@@ -114,20 +113,20 @@ export const nl: Dictionary = {
           key: "necessary",
           label: "Strikt noodzakelijk",
           description:
-            "Nodig om de website te laten werken. Deze cookies maken kernfuncties zoals sessiebeveiliging en accounttoegang mogelijk en kunnen niet worden uitgeschakeld.",
+            "Deze cookies zijn nodig voor de werking en beveiliging van de website, bijvoorbeeld om je sessie en accounttoegang te beschermen. Je kunt ze niet uitschakelen.",
           required: true,
         },
         {
           key: "analytics",
-          label: "Prestaties en analytics",
+          label: "Analyse en prestaties",
           description:
-            "Helpen ons begrijpen hoe bezoekers de website gebruiken, welke pagina's het meest worden bezocht en waar bezoekers vandaan komen. Alle gegevens zijn geaggregeerd en geanonimiseerd.",
+            "Laten zien hoe bezoekers de site gebruiken, welke pagina's populair zijn en hoe bezoekers ons vinden. We bekijken deze gegevens alleen op groepsniveau.",
         },
         {
           key: "marketing",
           label: "Marketing",
           description:
-            "Worden gebruikt om de effectiviteit te meten van campagnes die verkeer naar deze site leiden. We gebruiken deze cookies niet voor retargetingadvertenties.",
+            "Meten welke campagnes bezoekers naar deze site brengen. We gebruiken deze cookies niet om je later opnieuw advertenties te tonen.",
         },
       ],
     },
@@ -135,85 +134,85 @@ export const nl: Dictionary = {
       titleLine1: "Pagina niet",
       titleLine2: "gevonden.",
       description:
-        "Deze pagina bestaat niet. Ga terug en ontdek hoe MOVRR beweging omzet in waarde.",
-      backHome: "Terug naar MOVRR",
+        "Deze pagina bestaat niet of is verplaatst. Vanaf de homepage vind je snel de juiste route.",
+      backHome: "Naar de homepage",
     },
   },
   metadata: {
     siteName: "MOVRR",
     keywords: [
-      "beloningen voor beweging",
+      "beloningen voor fietsritten",
       "mobiliteitsplatform",
-      "stedelijke beloningen",
+      "beloningen voor fietsers",
       "merkactivatie",
-      "geverifieerde beweging",
+      "geverifieerde ritten",
       "fietsbeloningen",
     ],
     pages: {
       home: {
-        title: "Platform voor bewegingsbeloningen",
+        title: "Beloningen voor fietsers, bereik voor merken",
         description:
-          "Zet beweging om in waarde. MOVRR verbindt geverifieerde beweging met meetbare impact voor rijders, merken en steden.",
+          "MOVRR beloont geverifieerde fietsritten en geeft merken aantoonbaar bereik in de stad.",
       },
       waitlist: {
         title: "Meld je aan voor de wachtlijst",
         description:
-          "MOVRR lanceert stad voor stad. Registreer je als rijder, merk of partner en hoor als eerste wanneer jouw stad live gaat.",
+          "MOVRR start stad voor stad. Meld je aan als fietser, merk of partner en hoor als eerste wanneer jouw stad aan de beurt is.",
       },
       howItWorks: {
         title: "Zo werkt het",
         description:
-          "Fiets om te verdienen. Activeer op schaal. Ontdek precies hoe MOVRR werkt voor rijders en merken.",
+          "Ontdek hoe fietsers met hun ritten verdienen en merken aantoonbaar bereik opbouwen.",
       },
       rewards: {
         title: "Beloningen",
         description:
-          "Fiets om te verdienen. Elke geverifieerde kilometer levert beloningen op. Kies voor merkcampagnes en verdien meer.",
+          "Elke geverifieerde kilometer levert MOVRR Points op. Doe vrijwillig mee aan een merkcampagne en verdien meer.",
       },
       brands: {
         title: "Voor merken",
         description:
-          "Bereik actieve stadsfietsers met geverifieerde campagnes op basis van beweging. Premium zichtbaarheid. Meetbare resultaten.",
+          "Bereik actieve stadsfietsers met campagnes waarvan elke kilometer en elk contactmoment aantoonbaar is.",
       },
       riders: {
-        title: "Voor rijders",
+        title: "Voor fietsers",
         description:
-          "Fiets door jouw stad. Verdien met elke kilometer. Draag een merk en verdien meer. Jouw beweging, jouw keuze.",
+          "Verdien MOVRR Points met elke geverifieerde kilometer. Meedoen aan een merkcampagne is altijd jouw keuze.",
       },
       about: {
         title: "Over ons",
         description:
-          "Gebouwd rondom de rit. MOVRR beloont fietsers voor beweging en geeft merken geverifieerd bereik.",
+          "MOVRR maakt dagelijkse fietsritten waardevol voor fietsers, merken en steden.",
       },
       blog: {
-        title: "Journal",
+        title: "Verhalen",
         description:
-          "Gedachten over beweging, steden en het platform dat erachter zit.",
+          "Verhalen en inzichten over fietsen, steden en de techniek achter MOVRR.",
       },
       press: {
-        title: "Pers & Media",
+        title: "Pers en media",
         description:
-          "De MOVRR-newsroom. Publicaties, perskit en mediacontact voor journalisten en redacties.",
+          "Nieuws, persmateriaal en contactgegevens voor journalisten en redacties.",
       },
       help: {
         title: "Helpcentrum",
         description:
-          "Antwoorden op veelgestelde vragen over beloningen, communityritten, accountinstellingen en meer.",
+          "Antwoorden over MOVRR Points, ritverificatie, groepsritten, je account en meer.",
       },
       careers: {
         title: "Werken bij",
         description:
-          "Werk mee aan het platform waarop steden bewegen. Bekijk vacatures bij MOVRR.",
+          "Werk mee aan een platform dat fietsen in de stad meer waard maakt. Bekijk onze vacatures.",
       },
       contact: {
         title: "Contact",
         description:
-          "Neem contact op met MOVRR voor campagnes, support voor rijders en persvragen.",
+          "Neem contact op over campagnes, hulp voor fietsers, samenwerkingen of persvragen.",
       },
       partners: {
         title: "Partners",
         description:
-          "Bouw voort op de bewegingslaag van MOVRR met integraties voor mobiliteitsplatforms, steden, gezondheidsapps en woon-werkprogramma's.",
+          "Koppel MOVRR aan mobiliteitsplatforms, steden, gezondheidsapps en zakelijke fietsprogramma's.",
       },
       accessibility: {
         title: "Toegankelijkheid",
@@ -232,7 +231,7 @@ export const nl: Dictionary = {
       terms: {
         title: "Gebruiksvoorwaarden",
         description:
-          "De voorwaarden voor het gebruik van MOVRR door rijders en merkpartners.",
+          "De voorwaarden voor fietsers en merkpartners die MOVRR gebruiken.",
       },
       cookies: {
         title: "Cookiebeleid",
@@ -249,173 +248,176 @@ export const nl: Dictionary = {
   pages: {
     home: {
       hero: {
-        imageAlt: "Fietsers in beweging door een stedelijke omgeving",
-        titleLine1: "Beweging,",
-        titleLine2: "beloond.",
+        imageAlt: "Fietsers onderweg door de stad",
+        titleLine1: "Elke rit",
+        titleLine2: "telt.",
         description:
-          "Fiets door de stad. Verdien met elke kilometer. Voor merken is het bereik dat mensen écht in beweging brengt.",
-        riderCta: "Word rijder",
-        brandCta: "Adverteer met MOVRR",
+          "Fiets door de stad en verdien met elke kilometer. Merken bereiken mensen waar ze echt onderweg zijn.",
+        riderCta: "Meld je aan als fietser",
+        brandCta: "Bekijk de mogelijkheden",
       },
       valueStrip: {
-        titleLine1: "Echte beweging.",
-        titleLine2: "Echt resultaat.",
-        learnMore: "Ontdek meer",
+        titleLine1: "Echte ritten.",
+        titleLine2: "Aantoonbaar resultaat.",
+        learnMore: "Zo werkt het",
         description:
-          "Een beloningsplatform voor fietsers. Verdien door te fietsen. Merken bereiken mensen die al in beweging zijn.",
+          "MOVRR beloont fietsers voor hun dagelijkse kilometers. Merken bouwen bereik op in de straten waar het gebeurt.",
         values: [
           {
             title: "Verdien met elke rit",
             description:
-              "Fiets om te verdienen. Draag een merk op je fiets en verdien meer. Helemaal jouw keuze.",
+              "Elke geverifieerde kilometer levert MOVRR Points op. Meedoen aan een campagne levert extra op.",
           },
           {
-            title: "Campagnes die bewegen",
+            title: "Zichtbaar in de stad",
             description:
-              "Maak contact met mensen in beweging. Echte doelgroepen, echte straten.",
+              "Bereik mensen op hun dagelijkse route, gedragen door fietsers die daar zelf voor kiezen.",
           },
           {
-            title: "Bereik dat beweegt",
-            description: "Bereik op stadsschaal. Resultaten die meetellen.",
+            title: "Resultaat dat klopt",
+            description:
+              "Elke kilometer geverifieerd. Elk resultaat helder gerapporteerd.",
           },
         ],
       },
       useCases: {
         titleLine1: "Eén platform.",
-        titleLine2: "Elke toepassing.",
+        titleLine2: "Drie mogelijkheden.",
         description:
-          "Fiets om te verdienen. Breng een stad in beweging. Bouw op het netwerk. Drie manieren waarop hetzelfde platform stedelijke beweging meer waard maakt.",
+          "Voor dagelijkse beloningen, zichtbare merkcampagnes en programma's die meer mensen op de fiets krijgen.",
         items: [
           {
-            title: "Dagelijkse beweging die beloont",
-            category: "Beloningen voor rijders",
+            title: "Elke dagelijkse rit beloond",
+            category: "Voor fietsers",
             description:
-              "Fiets om te verdienen. Kies voor merkcampagnes en verdien meer. Jouw beweging, jouw keuze.",
-            imageAlt: "Fietser bekijkt MOVRR-inkomsten",
+              "Verdien MOVRR Points met je gewone ritten. Kies zelf of je met een merkcampagne extra wilt verdienen.",
+            imageAlt: "Fietser bekijkt verdiende MOVRR Points",
           },
           {
-            title: "Altijd zichtbaar, of alles tegelijk.",
-            category: "Merkactivaties",
+            title: "Dagelijks zichtbaar of één groot moment",
+            category: "Voor merken",
             description:
-              "Destination Ride voor dagelijkse zichtbaarheid op routes. Swarm voor momenten die een stad stilzetten.",
-            imageAlt: "Gesponsorde communityrit door de stad",
+              "Kies een Destination Ride voor doorlopend bereik of een Swarm voor een opvallend moment in de stad.",
+            imageAlt: "Gesponsorde groepsrit door de stad",
           },
           {
-            title: "Initiatieven voor stad en merk",
-            category: "Stedelijke partnerschappen",
+            title: "Meer mensen op de fiets",
+            category: "Voor steden en partners",
             description:
-              "Programma's die hele gemeenschappen bewegen. Voor steden die voorop durven te lopen.",
+              "Bouw programma's die fietsen aantrekkelijker maken voor buurten, werkgevers en hele steden.",
             imageAlt: "Fietsers langs een stedelijke waterkant",
           },
         ],
       },
       metrics: {
-        titleLine1: "Verwachte",
-        titleLine2: "campagne-impact.",
+        titleLine1: "Wat een campagne",
+        titleLine2: "kan opleveren.",
         description:
-          "De schaal van campagnes op basis van beweging. Geschat bereik binnen actieve stedelijke netwerken.",
+          "Een onderbouwde prognose van het bereik binnen actieve fietsnetwerken in de stad.",
         imageAlt: "Fiets met MOVRR-branding",
         items: [
           {
             value: "400K — 1,2M",
-            label: "Geverifieerd maandbereik",
+            label: "Verwacht maandbereik",
             description:
-              "Potentiële geverifieerde impressies binnen actieve netwerken van rijders.",
+              "Verwachte contactmomenten binnen een actief netwerk van fietsers.",
           },
           {
             value: "VANAF € 3,50",
-            label: "Per 1.000 geverifieerde views",
+            label: "Per 1.000 contactmomenten",
             description:
-              "Efficiënte zichtbaarheid. Echte betrokkenheid. Niets opgeblazen.",
+              "Zichtbaarheid in de openbare ruimte, onderbouwd met ritgegevens.",
           },
           {
             value: "UNIEK BEREIK",
-            label: "Stedelijk bereik met hoge intentie",
+            label: "Bereik midden in de stad",
             description:
-              "Doelgroepen in beweging, niet aan het scrollen. Dagelijks, stedelijk, echt.",
+              "Mensen onderweg op de plekken waar jouw merk relevant is.",
           },
         ],
       },
       appPreview: {
         imageAlt: "MOVRR-app op het stuur van een fiets",
-        routeName: "Tour Rotterdam Centraal",
+        routeName: "Ronde Rotterdam Centraal",
         routeDetails: "5 KM — 45 MIN",
       },
       howItWorks: {
         titleLine1: "Twee kanten.",
         titleLine2: "Eén platform.",
         description:
-          "Links: zo werkt het voor fietsers. Rechts: zo werkt het voor merken.",
+          "Fietsers verdienen met hun kilometers. Merken bouwen aantoonbaar bereik op.",
         steps: [
           {
             number: "01",
-            label: "Rijders",
+            label: "Fietsers",
             title: "Fiets en verdien",
             description:
-              "Geverifieerde kilometers leveren beloningen op. Woon-werkritten, boodschappen, dagelijkse beweging — alles telt.",
+              "Woon-werk, boodschappen of een omweg voor je plezier: elke geverifieerde kilometer telt.",
             side: "left",
           },
           {
             number: "01",
             label: "Merken",
-            title: "Bepaal je koers",
+            title: "Kies je campagne",
             description:
-              "Kies je doelgroep, budget en strategie. Alles vooraf, niets verborgen.",
+              "Kies de stad, doelgroep, looptijd en het budget. Vooraf weet je precies waar je aan toe bent.",
             side: "right",
           },
           {
             number: "02",
-            label: "Rijders",
-            title: "Kies mee, verdien meer",
+            label: "Fietsers",
+            title: "Doe mee als jij dat wilt",
             description:
-              "Kies zelf of je merkcampagnes meeneemt op je rit. Volledig vrijwillig, met extra beloningen als je meedoet.",
+              "Je kiest zelf welke campagne je op je fiets meeneemt. Als je meedoet, verdien je extra.",
             side: "left",
           },
           {
             number: "02",
             label: "Merken",
-            title: "Ga live",
+            title: "Start de campagne",
             description:
-              "Je campagne gaat de straat op. Fietsers verdienen. Jouw merk beweegt met ze mee.",
+              "Fietsers nemen jouw campagne mee op hun gewone routes door de stad.",
             side: "right",
           },
           {
             number: "03",
-            label: "Rijders",
-            title: "Verzamel je beloningen",
+            label: "Fietsers",
+            title: "Zie je punten oplopen",
             description:
-              "Met elke geverifieerde rit lopen je beloningen op. Ze zijn van jou, hoe je ze ook verdiende.",
+              "Na elke geverifieerde rit zie je wat je hebt verdiend. Je MOVRR Points blijven van jou.",
             side: "left",
           },
           {
             number: "03",
             label: "Merken",
-            title: "Zie het werken",
+            title: "Volg het resultaat",
             description:
-              "Live data. Echte betrokkenheid. Geverifieerde resultaten. Stuur onderweg bij.",
+              "Volg kilometers, bereik en deelname terwijl de campagne loopt. Stuur bij waar nodig.",
             side: "right",
           },
         ],
       },
       safety: {
         imageAlt: "MOVRR-app op een apparaat",
-        title: "Jouw merk beschermd",
+        title: "Je merk in goede handen",
         description:
-          "Vertrouwen is geen functie. Het is de basis. Elke rit geverifieerd, elke plaatsing gecontroleerd.",
-        integrityTitle: "Gebouwd op integriteit",
+          "Elke rit wordt geverifieerd en elke plaatsing gecontroleerd. Zo blijft het resultaat betrouwbaar.",
+        integrityTitle: "Betrouwbaar geregeld",
         points: [
           {
             title: "Geverifieerde deelname",
-            description: "Elke rit geverifieerd. Geen simulaties, geen sluiproutes.",
+            description:
+              "We controleren iedere rit op afstand, route en werkelijk gereden kilometers.",
           },
           {
             title: "Privacy als uitgangspunt",
-            description: "Wat je fietst blijft van jou. Standaard geanonimiseerd.",
+            description:
+              "Je persoonlijke routes blijven privé. Merken zien alleen geanonimiseerde resultaten.",
           },
           {
             title: "Merkveilige plaatsingen",
             description:
-              "Elke plaatsing gecontroleerd. Jouw merk, altijd in de juiste context.",
+              "We controleren iedere campagne en plaatsing voordat die de straat op gaat.",
           },
         ],
       },
@@ -423,56 +425,56 @@ export const nl: Dictionary = {
     waitlist: {
       hero: {
         wave: "Golf 01",
-        titleLine1: "Beweging begint",
-        titleLine2: "vóór de massa.",
+        titleLine1: "Als eerste",
+        titleLine2: "de stad in.",
         description:
-          "MOVRR lanceert stad voor stad. Registreer je en hoor als eerste wanneer jouw stad opent.",
+          "MOVRR start stad voor stad. Meld je aan en hoor als eerste wanneer jouw stad aan de beurt is.",
         citiesLabel: "Lancering in 2026",
         cities: ["Rotterdam", "Den Haag", "Amsterdam", "Utrecht"],
       },
       form: {
-        heading: "Registreer je vroeg.",
+        heading: "Meld je aan.",
         introduction:
-          "MOVRR opent stad voor stad. Registreer je vroeg en krijg voorrang wanneer jouw stad lanceert.",
+          "We beginnen in Rotterdam en Den Haag. Wie op de wachtlijst staat, krijgt als eerste bericht en toegang.",
         benefits: [
           {
-            label: "Als eerste bericht",
-            note: "Je hoort het als eerste wanneer jouw stad opent.",
+            label: "Als eerste op de hoogte",
+            note: "Je krijgt bericht zodra MOVRR in jouw stad start.",
           },
           {
-            label: "Voorrang bij toegang",
-            note: "Met early access geef je MOVRR in jouw stad mede vorm.",
+            label: "Als eerste toegang",
+            note: "Probeer MOVRR vóór de openbare lancering en deel je ervaring.",
           },
           {
             label: "Zonder verplichtingen",
-            note: "Je registratie reserveert je plek. Meer niet.",
+            note: "Aanmelden kost niets en verplicht je nergens toe.",
           },
         ],
         audienceLabel: "Ik ben een",
         audiences: [
           {
             id: "rider",
-            label: "Rijder",
+            label: "Fietser",
             description:
-              "Je fietst, stept of loopt door de stad en wilt met elke rit verdienen.",
-            submitLabel: "Registreer als rijder",
-            namePlaceholder: "Jouw naam",
+              "Je fietst door de stad en wilt je kilometers laten meetellen.",
+            submitLabel: "Meld me aan als fietser",
+            namePlaceholder: "Je naam",
           },
           {
             id: "brand",
             label: "Merk",
             description:
-              "Je voert campagnes en zoekt geverifieerd bereik onder actieve stadsrijders.",
-            submitLabel: "Registreer je merk",
-            namePlaceholder: "Jouw naam of bedrijfsnaam",
+              "Je zoekt aantoonbaar bereik onder actieve stadsfietsers.",
+            submitLabel: "Meld mijn merk aan",
+            namePlaceholder: "Je naam of bedrijfsnaam",
           },
           {
             id: "partner",
             label: "Partner",
             description:
-              "Je bouwt producten of platforms die aansluiten op hoe mensen door steden bewegen.",
-            submitLabel: "Registreer als partner",
-            namePlaceholder: "Jouw naam of bedrijfsnaam",
+              "Je bouwt een product of platform voor stedelijke mobiliteit.",
+            submitLabel: "Meld me aan als partner",
+            namePlaceholder: "Je naam of bedrijfsnaam",
           },
         ],
         fields: {
@@ -486,374 +488,1413 @@ export const nl: Dictionary = {
         },
         bikeOptions: [
           { id: "own", label: "Ja, ik heb er een" },
-          { id: "interested", label: "Nog niet, wel interesse" },
-          { id: "planning", label: "Ik wil er een aanschaffen" },
+          { id: "interested", label: "Nog niet, maar ik heb interesse" },
+          { id: "planning", label: "Ik ben van plan er een te kopen" },
         ],
         validation: {
-          nameRequired: "Vul je naam in",
-          emailInvalid: "Vul een geldig e-mailadres in",
-          cityRequired: "Vul je stad in",
+          nameRequired: "Vul je naam in.",
+          emailInvalid: "Vul een geldig e-mailadres in.",
+          cityRequired: "Vul je stad in.",
         },
-        submitting: "Registreren…",
-        noSpam: "Geen spam. Uitschrijven kan altijd.",
+        submitting: "Aanmelden…",
+        noSpam: "Alleen relevante updates. Afmelden kan altijd.",
         success: {
-          eyebrow: "Je zit in de eerste golf.",
+          eyebrow: "Je staat op de wachtlijst.",
           title: "Je bent erbij.",
-          cityPrefix: "We nemen contact op zodra MOVRR opent in",
+          cityPrefix: "Je krijgt bericht zodra MOVRR start in",
           cityFallback: "jouw stad",
           registeredAs: "Geregistreerd als",
           audienceNames: {
-            rider: "rijder",
+            rider: "fietser",
             brand: "merk",
             partner: "partner",
           },
         },
         errors: {
-          invalid: "De formuliergegevens zijn ongeldig.",
+          invalid: "Controleer de ingevulde gegevens.",
           duplicate: "Dit e-mailadres staat al op de lijst.",
           generic: "Er ging iets mis. Probeer het opnieuw.",
         },
       },
     },
     howItWorks: {
-      hero: { titleLine1: "Beweging", titleLine2: "helder gemaakt.", description: "Rijder of merk — de werking is duidelijk, de resultaten zijn echt.", riders: "Rijders", forRiders: "Voor rijders", brands: "Merken", forBrands: "Voor merken" },
+      hero: {
+        titleLine1: "Zo werkt",
+        titleLine2: "MOVRR.",
+        description:
+          "Fietsers verdienen met hun ritten. Merken krijgen aantoonbaar bereik in de stad.",
+        riders: "Fietsers",
+        forRiders: "Voor fietsers",
+        brands: "Merken",
+        forBrands: "Voor merken",
+      },
       riders: {
-        titleLine1: "Fiets om te verdienen.", titleLine2: "Meer is niet nodig.", description: "Fiets en verdien. Draag een merk wanneer je meer wilt. Jouw beweging, jouw keuze.",
+        titleLine1: "Jij fietst.",
+        titleLine2: "MOVRR telt mee.",
+        description:
+          "Elke geverifieerde kilometer levert MOVRR Points op. Meedoen aan een merkcampagne is altijd jouw keuze.",
         steps: [
-          { number: "01", title: "Fiets jouw route", description: "Elke geverifieerde rit telt. Woon-werk, boodschappen, een weekendronde — beweging is beweging." },
-          { number: "02", title: "Kies mee en verdien meer", description: "Kies zelf of je een merk op je fiets draagt. Volledig vrijwillig, met extra beloningen als je meedoet." },
-          { number: "03", title: "Verzamel je beloningen", description: "Met elke geverifieerde rit lopen je beloningen op. Ze zijn van jou, hoe je ze ook verdiende." },
+          {
+            number: "01",
+            title: "Fiets zoals je altijd doet",
+            description:
+              "Naar je werk, de winkel of gewoon een ronde door de stad. Elke geverifieerde kilometer telt.",
+          },
+          {
+            number: "02",
+            title: "Kies zelf een campagne",
+            description:
+              "Wil je extra verdienen? Kies dan een merkcampagne die bij je past. Meedoen is altijd vrijwillig.",
+          },
+          {
+            number: "03",
+            title: "Zie je punten oplopen",
+            description:
+              "Na iedere geverifieerde rit zie je hoeveel MOVRR Points je hebt verdiend.",
+          },
         ],
       },
       brands: {
-        titleLine1: "Campagnes die", titleLine2: "met mensen meebewegen.", description: "Bereik in de echte wereld. Geverifieerde betrokkenheid. Een doelgroep die er zelf voor koos.",
+        titleLine1: "Van briefing",
+        titleLine2: "naar de straat.",
+        description:
+          "Bereik actieve stadsfietsers met een campagne waarvoor ze bewust kiezen.",
         steps: [
-          { number: "01", title: "Bepaal je koers", description: "Kies je stad, format en periode. Alles vooraf, niets verborgen." },
-          { number: "02", title: "Ga live", description: "Je campagne gaat de straat op. Rijders verdienen. Jouw merk beweegt met ze mee." },
-          { number: "03", title: "Zie het werken", description: "Live data. Echte betrokkenheid. Geverifieerde resultaten. Geen wachttijd." },
+          {
+            number: "01",
+            title: "Stel je campagne samen",
+            description:
+              "Kies de stad, het format en de looptijd. Vooraf is helder wat je krijgt en wat het kost.",
+          },
+          {
+            number: "02",
+            title: "Ga de straat op",
+            description:
+              "Fietsers die bewust meedoen, nemen jouw merk mee op hun dagelijkse routes.",
+          },
+          {
+            number: "03",
+            title: "Volg het resultaat",
+            description:
+              "Bekijk kilometers, bereik en deelname terwijl de campagne loopt.",
+          },
         ],
       },
       platform: {
-        titleLine1: "Gebouwd voor vertrouwen.", titleLine2: "Aan beide kanten.", description: "Geverifieerde data, toestemming van rijders, niets verborgen. Dat is de basis waarop alles draait.",
+        titleLine1: "Vertrouwen",
+        titleLine2: "zit ingebouwd.",
+        description:
+          "Ritten worden geverifieerd, fietsers geven toestemming en resultaten zijn inzichtelijk. Voor beide kanten.",
         pillars: [
-          { number: "01", title: "Geverifieerde beweging", description: "Elke rit geverifieerd. Geen simulaties, geen sluiproutes. Geverifieerde data stuurt elke beloning en campagnestatistiek." },
-          { number: "02", title: "Privacy als standaard", description: "Wat je fietst blijft van jou. Merken zien bewegingspatronen, nooit jou." },
-          { number: "03", title: "Realtime inzicht", description: "Rijders en merken zien prestaties terwijl ze ontstaan. Live bereik, geverifieerde impressies, betrokkenheid in beweging." },
-          { number: "04", title: "Merkintegriteit", description: "Elke rijder die jouw merk draagt, koos daar zelf voor. Geen passieve plaatsingen. Alleen mensen die ja zeiden." },
+          {
+            number: "01",
+            title: "Geverifieerde ritten",
+            description:
+              "Afstand, route en werkelijk gereden kilometers vormen de basis voor elke beloning en rapportage.",
+          },
+          {
+            number: "02",
+            title: "Privacy als uitgangspunt",
+            description:
+              "Je persoonlijke routes blijven privé. Merken zien patronen en totalen, geen individuele fietsers.",
+          },
+          {
+            number: "03",
+            title: "Direct inzicht",
+            description:
+              "Fietsers en merken zien hun resultaat zodra de ritgegevens zijn verwerkt.",
+          },
+          {
+            number: "04",
+            title: "Bewuste deelname",
+            description:
+              "Iedere fietser kiest zelf welke campagne op de fiets meegaat. Dat maakt het bereik geloofwaardig.",
+          },
         ],
       },
-      cta: { ridersLabel: "Rijders", ridersTitleLine1: "Begin vandaag", ridersTitleLine2: "met verdienen.", ridersBody: "Fiets en verdien. Draag een merk wanneer je meer wilt. Jouw beweging, jouw keuze.", ridersCta: "Download de app", brandsLabel: "Merken", brandsTitleLine1: "Lanceer je", brandsTitleLine2: "eerste campagne.", brandsBody: "Praat met het team. We nemen bereik, kosten en geverifieerde zichtbaarheid op basis van beweging met je door.", brandsCta: "Praat met sales" },
+      cta: {
+        ridersLabel: "Fietsers",
+        ridersTitleLine1: "Laat je volgende rit",
+        ridersTitleLine2: "meetellen.",
+        ridersBody:
+          "Verdien MOVRR Points met elke geverifieerde kilometer. Een campagne meenemen is altijd jouw keuze.",
+        ridersCta: "Meld je aan",
+        brandsLabel: "Merken",
+        brandsTitleLine1: "Breng je merk",
+        brandsTitleLine2: "de stad in.",
+        brandsBody:
+          "We bespreken de stad, het gewenste bereik en een campagnevorm die daarbij past.",
+        brandsCta: "Bespreek een campagne",
+      },
     },
     rewards: {
-      hero: { titleLine1: "Elke kilometer", titleLine2: "telt.", description: "Fiets en verdien. Draag een merk om meer te verdienen. Beloningen die elke kilometer weerspiegelen.", cta: "Begin met verdienen", stats: [{ value: "Automatisch", label: "Vanaf de eerste rit" }, { value: "Elke km", label: "Gekoppeld aan geverifieerde afstand" }, { value: "Verdien meer", label: "Kies ervoor een merk te dragen" }] },
-      mechanics: { titleLine1: "Fietsen verdient.", titleLine2: "Kiezen verdient meer.", description: "Beloningen zijn direct gekoppeld aan geverifieerde beweging. Hoe meer je fietst, hoe meer je verdient, met of zonder merk.", items: [
-        { number: "01", title: "Rit geverifieerd", description: "Elke rit wordt gecontroleerd. Afstand, route en beweging zijn geverifieerd vóór de beloning. Niets gesimuleerd." },
-        { number: "02", title: "Standaard verdienen", description: "Geverifieerde kilometers leveren automatisch beloningen op. Geen minimumafstand of activatie. Gewoon fietsen." },
-        { number: "03", title: "Draag een merk, verdien meer", description: "Kies ervoor een merkcampagne op je fiets te dragen. Helemaal jouw keuze, en elke kilometer levert dan meer op." },
-      ] },
-      imageAlt: "Fietser verdient beloningen met geverifieerde beweging",
-      tiers: { titleLine1: "Drie manieren", titleLine2: "om te verdienen.", items: [
-        { number: "01", label: "Basis", title: "Fiets om te verdienen", description: "Kilometers leveren direct iets op. Geen doelen, geen minimum. Alleen geverifieerde beweging.", detail: "Beloningen voor geverifieerde beweging" },
-        { number: "02", label: "Boost", title: "Draag een merk", description: "Kies een campagne en neem die mee door de stad. Elke geverifieerde kilometer levert meer op.", detail: "Beloningen voor beweging + merkbereik" },
-        { number: "03", label: "Campagne", title: "Communityritten", description: "Doe mee aan een route van een stad of merk, of fiets met anderen. Hoe meer je samen beweegt, hoe meer iedereen verdient.", detail: "Open voor iedereen · of op uitnodiging" },
-      ] },
-      cta: { titleLine1: "Je volgende rit", titleLine2: "begint te verdienen.", description: "Fiets je eerste route. Elke geverifieerde kilometer levert automatisch iets op.", primary: "Download de app", secondary: "Zo werkt het" },
+      hero: {
+        titleLine1: "Elke kilometer",
+        titleLine2: "levert iets op.",
+        description:
+          "Je gewone fietsritten leveren MOVRR Points op. Met een merkcampagne verdien je extra.",
+        cta: "Meld je aan",
+        stats: [
+          { value: "Automatisch", label: "Vanaf je eerste rit" },
+          { value: "Elke km", label: "Op basis van gereden afstand" },
+          { value: "Extra punten", label: "Als je voor een campagne kiest" },
+        ],
+      },
+      mechanics: {
+        titleLine1: "Fiets.",
+        titleLine2: "Verdien. Kies zelf.",
+        description:
+          "MOVRR Points zijn gekoppeld aan je geverifieerde kilometers. Met of zonder campagne.",
+        items: [
+          {
+            number: "01",
+            title: "Wij verifiëren je rit",
+            description:
+              "We controleren afstand, route en werkelijk gereden kilometers voordat je punten worden toegekend.",
+          },
+          {
+            number: "02",
+            title: "Elke kilometer telt",
+            description:
+              "Je verdient automatisch MOVRR Points. Geen minimale afstand en niets extra's aanzetten.",
+          },
+          {
+            number: "03",
+            title: "Een campagne levert extra op",
+            description:
+              "Kies zelf een merkcampagne voor op je fiets. Zolang je meedoet, krijg je meer punten per kilometer.",
+          },
+        ],
+      },
+      imageAlt: "Fietser verdient MOVRR Points met geverifieerde kilometers",
+      tiers: {
+        titleLine1: "Drie manieren",
+        titleLine2: "om meer te verdienen.",
+        items: [
+          {
+            number: "01",
+            label: "Basis",
+            title: "Je dagelijkse rit",
+            description:
+              "Elke geverifieerde kilometer levert punten op. Zonder doel of minimale afstand.",
+            detail: "MOVRR Points voor gereden kilometers",
+          },
+          {
+            number: "02",
+            label: "Extra",
+            title: "Kies een merkcampagne",
+            description:
+              "Neem een campagne mee door de stad en verdien meer per geverifieerde kilometer.",
+            detail: "Kilometers + campagnevergoeding",
+          },
+          {
+            number: "03",
+            label: "Samen",
+            title: "Groepsritten",
+            description:
+              "Fiets een route van een stad of merk, alleen of met anderen. Voor sommige ritten geldt een extra beloning.",
+            detail: "Open deelname of op uitnodiging",
+          },
+        ],
+      },
+      cta: {
+        titleLine1: "Laat je volgende rit",
+        titleLine2: "meetellen.",
+        description:
+          "Vanaf je eerste geverifieerde kilometer verdien je MOVRR Points.",
+        primary: "Meld je aan",
+        secondary: "Zo werkt het",
+      },
     },
     brands: {
-      hero: { titleLine1: "Bereik dat", titleLine2: "beweegt.", description: "Jouw merk door de stad gedragen door fietsers die er bewust voor kiezen. Geverifieerd bereik. Niets geschat.", primary: "Praat met sales", secondary: "Zo werkt het", imageAlt: "Merkcampagne door fietsers door de stad gedragen" },
-      reach: { titleLine1: "Geen display.", titleLine2: "Beweging.", items: [
-        { number: "01", title: "Beweging op stadsschaal", description: "Campagnes volgen de routes die fietsers al nemen — woon-werk, boodschappen en routes door het hart van de stad." },
-        { number: "02", title: "Geverifieerde impressies", description: "Elke zichtbaarheid gekoppeld aan geverifieerde bewegingsdata. Geen opgeblazen cijfers of geschat bereik." },
-        { number: "03", title: "Doelgroepen met toestemming", description: "Fietsers kiezen ervoor jouw merk te dragen. Die keuze zegt meer dan welke impressie ook." },
-      ] },
+      hero: {
+        titleLine1: "Je merk.",
+        titleLine2: "Midden in de stad.",
+        description:
+          "Gedragen door fietsers die bewust voor jouw campagne kiezen. Elke kilometer aantoonbaar.",
+        primary: "Bespreek een campagne",
+        secondary: "Zo werkt het",
+        imageAlt: "Fietsers dragen een merkcampagne door de stad",
+      },
+      reach: {
+        titleLine1: "Niet op een scherm.",
+        titleLine2: "Wel op straat.",
+        items: [
+          {
+            number: "01",
+            title: "Op dagelijkse routes",
+            description:
+              "Je campagne reist mee naar werk, winkels en door buurten waar stadsfietsers elke dag komen.",
+          },
+          {
+            number: "02",
+            title: "Bereik dat is onderbouwd",
+            description:
+              "Ritgegevens onderbouwen kilometers, zones en contactmomenten. Geen opgeblazen aantallen.",
+          },
+          {
+            number: "03",
+            title: "Fietsers kiezen bewust",
+            description:
+              "Iedere deelnemer kiest zelf voor jouw campagne. Dat maakt de zichtbaarheid geloofwaardig.",
+          },
+        ],
+      },
       formats: [
-        { index: "01", tag: "Altijd zichtbaar", nameTop: "Destination", nameBottom: "Ride", description: "Jouw merk verweven in dagelijkse fietsroutes. Buurt voor buurt, dag na dag.", useCases: ["Maandlange aanwezigheid", "Lokaal bereik", "Woon-werkroutes"], cta: "Lanceer een Destination Ride", dark: true },
-        { index: "02", tag: "Alles tegelijk", nameTop: "Swarm", nameBottom: "Campagne", description: "Een gesynchroniseerde vloot beweegt samen op jouw signaal. Eén moment. Eén stad. Niet te missen.", useCases: ["Productlanceringen", "Winkelopeningen", "Merkevenementen"], cta: "Plan een Swarm", dark: false },
+        {
+          index: "01",
+          tag: "Altijd zichtbaar",
+          nameTop: "Destination",
+          nameBottom: "Ride",
+          description:
+            "Je merk reist mee op dagelijkse fietsroutes. Buurt voor buurt, dag na dag.",
+          useCases: [
+            "Langdurige aanwezigheid",
+            "Lokaal bereik",
+            "Woon-werkroutes",
+          ],
+          cta: "Bespreek een Destination Ride",
+          dark: true,
+        },
+        {
+          index: "02",
+          tag: "Eén opvallend moment",
+          nameTop: "Swarm",
+          nameBottom: "Campagne",
+          description:
+            "Een groep fietsers trekt tegelijk door de stad. Eén route, één moment, volop zichtbaar.",
+          useCases: [
+            "Productintroducties",
+            "Winkelopeningen",
+            "Merkevenementen",
+          ],
+          cta: "Bespreek een Swarm",
+          dark: false,
+        },
       ],
-      campaign: { titleLine1: "Stel in.", titleLine2: "Ga de straat op.", description: "Van briefing tot live in enkele dagen. Jouw campagne reist door de stad, gedragen door fietsers die voor jouw merk kozen.", steps: [
-        { number: "01", title: "Bepaal je campagne", description: "Jouw stad. Jouw zone. Jouw periode. Van briefing naar live in minuten." },
-        { number: "02", title: "Rijders kiezen mee", description: "Fietsers kiezen ervoor jouw merk te dragen. Iedereen echt. Iedereen geverifieerd." },
-        { number: "03", title: "Volg realtime", description: "Live kilometers, geverifieerd bereik. Zie je campagne door de stad bewegen." },
-      ] },
+      campaign: {
+        titleLine1: "Van plan",
+        titleLine2: "naar straatbeeld.",
+        description:
+          "We vertalen je briefing naar een campagne die past bij de stad en de fietsers die er rijden.",
+        steps: [
+          {
+            number: "01",
+            title: "Bepaal de kaders",
+            description:
+              "Kies de stad, zones, looptijd en het gewenste bereik.",
+          },
+          {
+            number: "02",
+            title: "Fietsers melden zich aan",
+            description:
+              "Deelnemers kiezen bewust voor jouw campagne en worden vóór de start geverifieerd.",
+          },
+          {
+            number: "03",
+            title: "Volg de campagne",
+            description:
+              "Bekijk gereden kilometers, zones en bereik terwijl de campagne loopt.",
+          },
+        ],
+      },
       metrics: [
-        { value: "400K — 1,2M", label: "Geverifieerd maandbereik", description: "Geverifieerde impressies van rijders die door je stad bewegen, niet langs een scherm." },
-        { value: "VANAF € 3,50", label: "Per 1.000 geverifieerde views", description: "Efficiënte zichtbaarheid. Echte betrokkenheid. Niets opgeblazen." },
-        { value: "100% OPT-IN", label: "Stedelijk bereik met hoge intentie", description: "Doelgroepen in beweging, niet aan het scrollen. Dagelijks, stedelijk, echt." },
+        {
+          value: "400K — 1,2M",
+          label: "Verwacht maandbereik",
+          description:
+            "Contactmomenten op straat, onderbouwd met geverifieerde ritgegevens.",
+        },
+        {
+          value: "VANAF € 3,50",
+          label: "Per 1.000 contactmomenten",
+          description:
+            "Een transparante indicatie van de kosten voor zichtbaarheid in de stad.",
+        },
+        {
+          value: "100% VRIJWILLIG",
+          label: "Bewuste deelname",
+          description:
+            "Iedere fietser kiest zelf voor de campagne die op de fiets meegaat.",
+        },
       ],
-      cta: { titleLine1: "Jouw merk,", titleLine2: "in beweging.", description: "Vertel waar je jouw merk wilt brengen. Wij laten zien hoe dat er in de stad uitziet.", primary: "Praat met sales", secondary: "Zo werkt het" },
+      cta: {
+        titleLine1: "Klaar voor",
+        titleLine2: "de stad?",
+        description:
+          "Vertel ons waar en wie je wilt bereiken. Wij werken een passende campagne uit.",
+        primary: "Bespreek een campagne",
+        secondary: "Zo werkt het",
+      },
       estimator: {
-        label: "Bereikcalculator", titleLine1: "Zie jouw merk bewegen", titleLine2: "door de stad.", description: "Kies een stad en campagneschaal om het geschatte bereik te bekijken voordat we praten.",
-        notes: ["Bereikscijfers op basis van geverifieerde bewegingsdata, niet geschatte impressies.", "Elke rijder is een echt persoon die koos jouw merk te dragen.", "Projecties worden vervangen door werkelijke cijfers zodra jouw stad live is."],
-        cityQuestion: "In welke stad activeer je?", changeCity: "Stad wijzigen", statuses: { live: "Live", upcoming: "Binnenkort live", planned: "Gepland" }, country: "Nederland", theHague: "Den Haag",
-        scaleQuestionBefore: "Hoe breed moet de activatie in", scaleQuestionAfter: "zijn?", scales: { focused: { label: "Gericht", description: "Gericht bereik in geselecteerde stadszones." }, "city-wide": { label: "Stadsbreed", description: "Volledige dekking van alle actieve stadszones." }, "multi-city": { label: "Meerdere steden", description: "Gecoördineerde activatie in meerdere steden." } },
-        reachLabel: "geschat maandbereik", riders: "Rijders", zones: "Stadszones", window: "Campagneperiode", weeks: "weken", monthlyKm: "Geschatte km per maand", talk: "Praat met het team", reset: "Opnieuw beginnen", disclaimer: "Projecties op basis van pre-launchschattingen. Live data vervangt projecties na lancering.",
-        methodology: "Zo berekenen we dit", participation: "Deelname rijders", impressions: "Impressiemodel", campaignWindow: "Campagneperiode", multiplier: "Multiplier meerdere steden", dataBasis: "Databasis", activeRidersSuffix: "van actieve rijders", impressionsSuffix: "geschatte impressies per rijder per dag", activationSuffix: "weken standaardactivatie", multiplierSuffix: "toegepast voor netwerkeffecten tussen steden", dataBasisValue: "Pre-launchprojecties. Na lancering vervangen door geverifieerde data.",
+        label: "Bereikcalculator",
+        titleLine1: "Bereken je bereik",
+        titleLine2: "in de stad.",
+        description:
+          "Kies een stad en campagneschaal voor een eerste bereikprognose.",
+        notes: [
+          "De prognose is gebaseerd op verwachte deelname en ritgegevens.",
+          "Iedere deelnemer kiest bewust voor jouw campagne.",
+          "Na de start vervangen werkelijke campagneresultaten de prognose.",
+        ],
+        cityQuestion: "In welke stad wil je starten?",
+        changeCity: "Kies een andere stad",
+        statuses: {
+          live: "Actief",
+          upcoming: "Binnenkort",
+          planned: "Gepland",
+        },
+        country: "Nederland",
+        theHague: "Den Haag",
+        scaleQuestionBefore: "Hoe groot wordt de campagne in",
+        scaleQuestionAfter: "?",
+        scales: {
+          focused: {
+            label: "Gericht",
+            description: "Bereik in een aantal gekozen stadszones.",
+          },
+          "city-wide": {
+            label: "Stadsbreed",
+            description: "Dekking in alle actieve zones van de stad.",
+          },
+          "multi-city": {
+            label: "Meerdere steden",
+            description: "Eén campagne, afgestemd over meerdere steden.",
+          },
+        },
+        reachLabel: "verwacht maandbereik",
+        riders: "Fietsers",
+        zones: "Stadszones",
+        window: "Campagneduur",
+        weeks: "weken",
+        monthlyKm: "Verwachte kilometers per maand",
+        talk: "Bespreek de uitkomst",
+        reset: "Opnieuw berekenen",
+        disclaimer:
+          "Deze prognose gebruikt aannames van vóór de lancering. Na de start tonen we werkelijke campagneresultaten.",
+        methodology: "Zo komt de prognose tot stand",
+        participation: "Deelname fietsers",
+        impressions: "Contactmomenten",
+        campaignWindow: "Campagneduur",
+        multiplier: "Correctie voor meerdere steden",
+        dataBasis: "Uitgangspunten",
+        activeRidersSuffix: "van de actieve fietsers",
+        impressionsSuffix: "verwachte contactmomenten per fietser per dag",
+        activationSuffix: "weken als standaardduur",
+        multiplierSuffix: "voor het gecombineerde bereik van meerdere steden",
+        dataBasisValue:
+          "Aannames van vóór de lancering. Na de start gebruiken we geverifieerde campagneresultaten.",
       },
     },
     riders: {
-      hero: { titleLine1: "Fiets door de stad.", titleLine2: "Pak je beloning.", description: "Elke geverifieerde kilometer levert MOVRR Points op — inwisselbaar voor fietsuitrusting, eten, vouchers en meer. Draag een merk wanneer je ze wilt vermenigvuldigen.", primary: "Aan de slag", secondary: "Bekijk beloningen", imageAlt: "Fietser onderweg met MOVRR" },
-      proposition: { titleLine1: "Jouw rit.", titleLine2: "Jouw voorwaarden.", items: [
-        { title: "Geverifieerd, niet geschat", description: "Elke rit geverifieerd. Jouw beloningen zijn gekoppeld aan echte, geverifieerde kilometers. Geen aannames." },
-        { title: "Altijd jouw keuze", description: "Een merk dragen is volledig jouw keuze. Kies ervoor als je meer wilt verdienen. Naarmate je ritgeschiedenis groeit, komen waardevollere campagnes beschikbaar." },
-        { title: "Privacy in het ontwerp", description: "Jouw individuele routes blijven van jou. MOVRR anonimiseert bewegingsdata. Merken zien patronen, geen personen." },
-      ] },
-      earnings: { titleLine1: "Drie manieren", titleLine2: "om meer te verdienen.", items: [
-        { number: "01", label: "Basis", title: "Gewoon fietsen", description: "Kilometers leveren direct MOVRR Points op. Geen doelen, geen minimum. Alleen geverifieerde beweging.", note: "Voor elke rijder, vanaf dag één" },
-        { number: "02", label: "Boost", title: "Draag een merk", description: "Kies een campagne en neem die mee door de stad. Elke geverifieerde kilometer vermenigvuldigt je punten boven het basistarief.", note: "Elke keer jouw keuze" },
-        { number: "03", label: "Campagne", title: "Doe mee aan een campagnerit", description: "Doe mee aan routes van steden of merken in jouw omgeving. Met je ritgeschiedenis ontgrendel je waardevollere campagnes.", note: "Open voor iedereen · of op uitnodiging naarmate je historie groeit" },
-      ] },
-      cta: { titleLine1: "Je volgende rit", titleLine2: "verdient.", description: "Fiets door jouw stad. Verdien MOVRR Points met elke geverifieerde kilometer. Draag een merk wanneer je ze wilt vermenigvuldigen.", primary: "Download de app", secondary: "Bekijk beloningen" },
+      hero: {
+        titleLine1: "Jij fietst.",
+        titleLine2: "Je punten lopen op.",
+        description:
+          "Elke geverifieerde kilometer levert MOVRR Points op. Wissel ze in voor fietsartikelen, eten, vouchers en meer.",
+        primary: "Meld je aan",
+        secondary: "Bekijk de beloningen",
+        imageAlt: "Fietser onderweg met MOVRR",
+      },
+      proposition: {
+        titleLine1: "Jouw rit.",
+        titleLine2: "Jij bepaalt.",
+        items: [
+          {
+            title: "Op basis van echte kilometers",
+            description:
+              "Je MOVRR Points zijn gekoppeld aan de afstand die je daadwerkelijk fietst.",
+          },
+          {
+            title: "Meedoen is jouw keuze",
+            description:
+              "Je kiest zelf of je een merkcampagne op je fiets wilt. Doe je mee, dan verdien je extra.",
+          },
+          {
+            title: "Je routes blijven privé",
+            description:
+              "MOVRR anonimiseert ritgegevens. Merken zien alleen patronen en totalen, nooit jouw persoonlijke route.",
+          },
+        ],
+      },
+      earnings: {
+        titleLine1: "Drie manieren",
+        titleLine2: "om punten te verdienen.",
+        items: [
+          {
+            number: "01",
+            label: "Basis",
+            title: "Je dagelijkse rit",
+            description:
+              "Elke geverifieerde kilometer levert MOVRR Points op. Geen doel en geen minimale afstand.",
+            note: "Voor iedere fietser, vanaf de eerste rit",
+          },
+          {
+            number: "02",
+            label: "Extra",
+            title: "Kies een merkcampagne",
+            description:
+              "Neem een campagne mee door de stad en verdien meer punten per geverifieerde kilometer.",
+            note: "Meedoen is altijd jouw keuze",
+          },
+          {
+            number: "03",
+            label: "Samen",
+            title: "Fiets een campagneroute",
+            description:
+              "Doe mee aan een route van een stad of merk. Met meer ritervaring krijg je toegang tot nieuwe campagnes.",
+            note: "Open deelname of op uitnodiging",
+          },
+        ],
+      },
+      cta: {
+        titleLine1: "Laat je volgende rit",
+        titleLine2: "meetellen.",
+        description:
+          "Verdien MOVRR Points met elke geverifieerde kilometer. Een campagne meenemen is altijd jouw keuze.",
+        primary: "Meld je aan",
+        secondary: "Bekijk de beloningen",
+      },
     },
     about: {
       hero: {
-        titleLine1: "Gebouwd rondom",
-        titleLine2: "de rit.",
+        titleLine1: "Begonnen bij",
+        titleLine2: "de dagelijkse rit.",
         description:
-          "Een platform voor rijders en de merken die met hen meebewegen.",
+          "Een platform dat fietsen beloont en merken aantoonbaar bereik geeft.",
       },
       origin: {
-        titleLine1: "Beweging was",
-        titleLine2: "altijd het uitgangspunt.",
-        body:
-          "Steden zitten vol mensen die onderweg zijn. Fietsers bewegen elke dag door het verkeer en leggen stedelijke routes af. Wij zagen wat reclame had gemist: een doelgroep die al beweegt, al aanwezig is, maar geen reden heeft om aandacht te geven aan de reclame die ze passeert. MOVRR is gebouwd op één inzicht: beloon de reis en het bereik volgt vanzelf. Niet door advertenties vóór mensen te plaatsen, maar door onderdeel te worden van de rit zelf.",
+        titleLine1: "De stad beweegt al.",
+        titleLine2: "Wij laten dat tellen.",
+        body: "Elke dag fietsen mensen door de stad naar hun werk, de winkel of vrienden. Die kilometers hebben waarde. Voor de fietser én voor merken die op een geloofwaardige manier zichtbaar willen zijn. Daarom beloont MOVRR de rit en maakt het bereik aantoonbaar. Niet met nog een scherm, maar als onderdeel van de route.",
       },
       beliefsLabel: "Waar we in geloven",
       beliefs: [
         {
-          statement: "Beweging verdient.\nDat deed het altijd al.",
+          statement: "Elke rit heeft waarde.\nOok de gewone.",
           elaboration:
-            "Wij maken die verdienste echt, verifieerbaar en gekoppeld aan elke geverifieerde kilometer.",
+            "MOVRR maakt die waarde zichtbaar en koppelt beloningen aan daadwerkelijk gereden kilometers.",
         },
         {
-          statement: "Reclame werkt wanneer mensen ervoor kiezen.",
+          statement: "Een campagne werkt beter als mensen bewust meedoen.",
           elaboration:
-            "Elke fietser die een merkcampagne draagt, heeft daar zelf voor gekozen. Geen passieve blootstelling of veronderstelde aandacht. Alleen bereik met toestemming.",
+            "Iedere fietser kiest zelf welke campagne op de fiets meegaat. Zo ontstaat bereik met draagvlak.",
         },
         {
-          statement: "Elke statistiek is echt.",
+          statement: "Elk resultaat moet te herleiden zijn.",
           elaboration:
-            "Geen simulaties, geen geschatte impressies. Elk getal in MOVRR is gekoppeld aan geverifieerde bewegingsdata.",
+            "Onze rapportages zijn gebaseerd op geverifieerde ritgegevens, niet op opgeblazen schattingen.",
         },
       ],
       model: {
         titleLine1: "Eén platform.",
-        titleLine2: "Twee ingangen.",
+        titleLine2: "Twee kanten.",
         description:
-          "MOVRR is een tweezijdig platform. Fietsers verdienen met elke geverifieerde kilometer. Merken bereiken doelgroepen die bewust kiezen voor fysieke zichtbaarheid. Geen van beide kanten levert in voor de ander.",
-        ridersLabel: "Rijders",
+          "Fietsers verdienen MOVRR Points met hun kilometers. Merken bereiken mensen die bewust kiezen voor een campagne. Beide kanten houden zelf de regie.",
+        ridersLabel: "Fietsers",
         ridersBody:
-          "Elke geverifieerde kilometer levert iets op. Draag een merk en verdien meer, of niet; het basistarief blijft altijd gelden. Jouw route, jouw tempo, jouw keuze.",
-        ridersCta: "Bekijk hoe rijders verdienen",
+          "Elke geverifieerde kilometer levert punten op. Met een merkcampagne verdien je extra, maar meedoen is nooit verplicht.",
+        ridersCta: "Bekijk hoe je verdient",
         brandsLabel: "Merken",
         brandsBody:
-          "Jouw merk beweegt door de stad, gedragen door fietsers die ervoor kozen. Geverifieerd bereik, niet geschat. Een doelgroep in beweging, niet aan het scrollen.",
-        brandsCta: "Werk samen met MOVRR",
+          "Je merk reist door de stad met fietsers die daar bewust voor kiezen. Het resultaat wordt onderbouwd met ritgegevens.",
+        brandsCta: "Bekijk de mogelijkheden",
       },
-      ctaTitle: "Waar ga je nu heen?",
+      ctaTitle: "Waar wil je beginnen?",
       ctaLinks: [
-        { audience: "Rijders", label: "Download de app", description: "Begin vandaag met verdienen", href: "/riders" },
-        { audience: "Merken", label: "Werk samen met MOVRR", description: "Praat met het team", href: "/brands" },
+        {
+          audience: "Fietsers",
+          label: "Meld je aan",
+          description: "Krijg als eerste toegang",
+          href: "/riders",
+        },
+        {
+          audience: "Merken",
+          label: "Bekijk de mogelijkheden",
+          description: "Bespreek een campagne",
+          href: "/brands",
+        },
       ],
     },
     blog: {
-      titleLine1: "Vanaf het", titleLine2: "platform.", read: "Lees", readArticle: "Lees artikel", imageAlt: "MOVRR-platform — uitgelicht artikel",
-      featured: { category: "Product", date: "12 mrt 2025", readTime: "6 min lezen", title: "Waarom bewegingsdata het enige eerlijke signaal in stedelijke reclame is", excerpt: "Impressies, klikratio's en view-through-attributie meten nabijheid, geen deelname. MOVRR vertrekt vanuit een ander uitgangspunt.", href: "#" },
+      titleLine1: "Verhalen van",
+      titleLine2: "onderweg.",
+      read: "Lees verder",
+      readArticle: "Lees het artikel",
+      imageAlt: "Uitgelicht artikel van MOVRR",
+      featured: {
+        category: "Product",
+        date: "12 mrt 2025",
+        readTime: "6 min leestijd",
+        title: "Waarom ritgegevens meer zeggen dan een geschat bereik",
+        excerpt:
+          "Kliks en impressies vertellen wie in de buurt was. Ritgegevens laten zien wat er werkelijk gebeurde.",
+        href: "#",
+      },
       secondary: [
-        { category: "Steden", date: "28 feb 2025", readTime: "4 min lezen", title: "Wat Amsterdam ons leerde over bouwen voor mensen die fietsen, niet alleen voor wie zichzelf fietser noemt" },
-        { category: "Platform", date: "14 feb 2025", readTime: "5 min lezen", title: "Hoe we een kilometer verifiëren, en waarom gps alleen niet genoeg is" },
-        { category: "Merken", date: "31 jan 2025", readTime: "3 min lezen", title: "De briefing die eindelijk klopte: bereik mensen terwijl ze bewegen" },
+        {
+          category: "Steden",
+          date: "28 feb 2025",
+          readTime: "4 min leestijd",
+          title:
+            "Wat Amsterdam ons leerde over bouwen voor iedereen die fietst",
+        },
+        {
+          category: "Platform",
+          date: "14 feb 2025",
+          readTime: "5 min leestijd",
+          title:
+            "Hoe we een kilometer verifiëren — en waarom gps alleen niet genoeg is",
+        },
+        {
+          category: "Merken",
+          date: "31 jan 2025",
+          readTime: "3 min leestijd",
+          title: "Een betere briefing begint bij de route",
+        },
       ],
       posts: [
-        { category: "Community", date: "17 jan 2025", readTime: "4 min lezen", title: "De rijders die vroegen: wat als de route zelf je betaalt?", excerpt: "Early-accessrijders gaven communityritten meer vorm dan welk productdocument ook. Dit leerden we." },
-        { category: "Platform", date: "9 jan 2025", readTime: "5 min lezen", title: "Een beloningssysteem bouwen dat niet te manipuleren is", excerpt: "Bewegingsverificatie bestand maken tegen misbruik zonder echte rijders te benadelen kostte meer tijd dan verwacht." },
-        { category: "Merken", date: "22 dec 2024", readTime: "3 min lezen", title: "Waarom we geverifieerd bereik prijzen, niet geschat bereik", excerpt: "De meeste advertentieplatforms verkopen beloften. Wij verkopen bewijs. Dat verandert structuur, prijs en meting." },
-        { category: "Steden", date: "10 dec 2024", readTime: "4 min lezen", title: "Eén verificatielaag voor elke vervoersvorm", excerpt: "Fietsen, e-steps en lopen. Eén laag bouwen voor elke stedelijke mix liet ons anders denken." },
-        { category: "Product", date: "27 nov 2024", readTime: "6 min lezen", title: "De keuzes die we vóór de lancering vastlegden", excerpt: "Sommige architectuurkeuzes zijn saai om uit te leggen en duur om terug te draaien. Dit zijn de onze." },
-        { category: "Community", date: "14 nov 2024", readTime: "3 min lezen", title: "Waarom ritbegeleiders zich aanmelden in plaats van door een algoritme te worden gekozen", excerpt: "Communityritten hebben organisatoren nodig. Selectie op criteria in plaats van engagement verandert wie opstaat." },
+        {
+          category: "Fietsers",
+          date: "17 jan 2025",
+          readTime: "4 min leestijd",
+          title: "Wat als je dagelijkse route iets oplevert?",
+          excerpt:
+            "De eerste testfietsers hielpen onze groepsritten vormgeven. Dit namen we daarvan mee.",
+        },
+        {
+          category: "Platform",
+          date: "9 jan 2025",
+          readTime: "5 min leestijd",
+          title: "Een beloningssysteem dat tegen misbruik kan",
+          excerpt:
+            "Misbruik tegengaan zonder eerlijke fietsers in de weg te zitten vroeg om zorgvuldige keuzes.",
+        },
+        {
+          category: "Merken",
+          date: "22 dec 2024",
+          readTime: "3 min leestijd",
+          title: "Waarom we alleen onderbouwd bereik rapporteren",
+          excerpt:
+            "Een campagne heeft meer aan bewijs dan aan beloften. Dat verandert hoe we opzetten, prijzen en meten.",
+        },
+        {
+          category: "Steden",
+          date: "10 dec 2024",
+          readTime: "4 min leestijd",
+          title: "Eén verificatielaag voor elke manier van reizen",
+          excerpt:
+            "Fietsen, e-steps en lopen vragen om één systeem dat verschillende vormen van stedelijke mobiliteit begrijpt.",
+        },
+        {
+          category: "Product",
+          date: "27 nov 2024",
+          readTime: "6 min leestijd",
+          title: "De keuzes die we vóór de lancering maakten",
+          excerpt:
+            "Sommige technische keuzes zie je nooit, maar bepalen wel wat een platform aankan. Dit zijn de onze.",
+        },
+        {
+          category: "Fietsers",
+          date: "14 nov 2024",
+          readTime: "3 min leestijd",
+          title: "Waarom een goede groepsrit begint bij de begeleider",
+          excerpt:
+            "Groepsritten hebben mensen nodig die verantwoordelijkheid nemen. Daarom kiezen we begeleiders op heldere criteria.",
+        },
       ],
     },
     press: {
-      title: "Pers & Media",
-      facts: [{ label: "Opgericht", value: "2024" }, { label: "Hoofdkantoor", value: "Rotterdam, Nederland" }, { label: "Categorie", value: "Beloningen op basis van beweging" }, { label: "Markten", value: "Europa — in lancering" }],
-      coverageTitle: "Publicaties", selectedCoverage: "Selectie uit de media",
-      coverage: [
-        { outlet: "TechCrunch", date: "mrt 2025", headline: "MOVRR wil van elke fietsrit een merkcontact maken. Zonder de ruis.", type: "Achtergrond", href: "#" },
-        { outlet: "The Economic Times", date: "feb 2025", headline: "Rotterdamse startup voor beloningen aan stadsfietsers haalt pre-seedronde op", type: "Nieuws", href: "#" },
-        { outlet: "Forbes", date: "jan 2025", headline: "Reclame op basis van beweging is de volgende stap voor stedelijke mobiliteitsmerken", type: "Opinie", href: "#" },
-        { outlet: "Sifted", date: "dec 2024", headline: "Vijf Europese mobiliteitsstartups om in 2025 te volgen", type: "Overzicht", href: "#" },
-        { outlet: "Cycling Weekly", date: "nov 2024", headline: "Kan geverifieerde bewegingsdata sponsoring voor dagelijkse rijders verbeteren?", type: "Analyse", href: "#" },
+      title: "Pers en media",
+      facts: [
+        { label: "Opgericht", value: "2024" },
+        { label: "Hoofdkantoor", value: "Rotterdam, Nederland" },
+        { label: "Categorie", value: "Beloningen voor fietsritten" },
+        { label: "Markten", value: "Start in Europa" },
       ],
-      kit: { label: "Perskit", title: "Alles wat je nodig hebt om over MOVRR te publiceren.", description: "Logo's, screenshots, fotografie en merkrichtlijnen, klaar voor gebruik onder een standaard perslicentie.", briefings: "Briefings op aanvraag", assets: [
-        { label: "Merklogo's", description: "SVG en PNG, lichte en donkere varianten", file: "movrr-logos.zip" },
-        { label: "Productscreenshots", description: "App-UI van kernflows in hoge resolutie", file: "movrr-screenshots.zip" },
-        { label: "Persfotografie", description: "Oprichters, product en lifestyle. Klaar voor drukwerk.", file: "movrr-photography.zip" },
-        { label: "Merkrichtlijnen", description: "Lettertype, kleurenpalet en gebruiksregels", file: "movrr-brand-guidelines.pdf" },
-      ] },
+      coverageTitle: "In de media",
+      selectedCoverage: "Een selectie van publicaties",
+      coverage: [
+        {
+          outlet: "TechCrunch",
+          date: "mrt 2025",
+          headline: "MOVRR maakt van elke fietsrit aantoonbaar merkbereik",
+          type: "Achtergrond",
+          href: "#",
+        },
+        {
+          outlet: "The Economic Times",
+          date: "feb 2025",
+          headline:
+            "Rotterdamse startup voor fietsbeloningen haalt pre-seedfinanciering op",
+          type: "Nieuws",
+          href: "#",
+        },
+        {
+          outlet: "Forbes",
+          date: "jan 2025",
+          headline:
+            "Waarom merken steeds vaker kiezen voor zichtbaarheid op straat",
+          type: "Opinie",
+          href: "#",
+        },
+        {
+          outlet: "Sifted",
+          date: "dec 2024",
+          headline: "Vijf Europese mobiliteitsstartups om in 2025 te volgen",
+          type: "Overzicht",
+          href: "#",
+        },
+        {
+          outlet: "Cycling Weekly",
+          date: "nov 2024",
+          headline:
+            "Wat geverifieerde ritgegevens kunnen betekenen voor dagelijkse fietsers",
+          type: "Analyse",
+          href: "#",
+        },
+      ],
+      kit: {
+        label: "Perskit",
+        title: "Alles voor een publicatie over MOVRR.",
+        description:
+          "Download logo's, screenshots, fotografie en merkrichtlijnen voor redactioneel gebruik.",
+        briefings: "Toelichting op aanvraag",
+        assets: [
+          {
+            label: "Merklogo's",
+            description: "SVG en PNG, lichte en donkere varianten",
+            file: "movrr-logos.zip",
+          },
+          {
+            label: "Productscreenshots",
+            description: "App-UI van kernflows in hoge resolutie",
+            file: "movrr-screenshots.zip",
+          },
+          {
+            label: "Persfotografie",
+            description:
+              "Oprichters, product en gebruiksbeelden voor print en online",
+            file: "movrr-photography.zip",
+          },
+          {
+            label: "Merkrichtlijnen",
+            description: "Lettertype, kleurenpalet en gebruiksregels",
+            file: "movrr-brand-guidelines.pdf",
+          },
+        ],
+      },
     },
     help: {
-      title: "Hoe kunnen we helpen?", searchPlaceholder: "Zoek naar antwoorden…", topicsLabel: "Onderwerpen", notFound: "Niet gevonden wat je zoekt?", contact: "Neem contact op.",
+      title: "Waar kunnen we mee helpen?",
+      searchPlaceholder: "Zoek een antwoord…",
+      topicsLabel: "Onderwerpen",
+      notFound: "Staat je vraag er niet bij?",
+      contact: "Neem contact op",
       topics: [
-        { id: "aan-de-slag", category: "Aan de slag", faqs: [
-          { q: "Wat is MOVRR?", a: "MOVRR is een beloningsplatform op basis van beweging. Je verdient beloningen wanneer je binnen ondersteunde stadszones fietst. Merken financieren die voor geverifieerd bereik." },
-          { q: "Hoe word ik lid van MOVRR?", a: "Download de MOVRR-app en maak een account aan. Na verificatie kun je vanaf je eerste kilometer verdienen." },
-          { q: "In welke steden is MOVRR beschikbaar?", a: "MOVRR lanceert in Europa, te beginnen met Rotterdam en Den Haag. Nieuwe steden kondigen we aan voordat ze live gaan." },
-        ] },
-        { id: "beloningen-verdienen", category: "Beloningen verdienen", faqs: [
-          { q: "Hoe worden beloningen berekend?", a: "Je verdient per geverifieerde kilometer. Het basistarief geldt voor geschikte beweging. Gesponsorde campagnes en communityritten kunnen meer opleveren." },
-          { q: "Wat telt als geverifieerde kilometer?", a: "De MOVRR-app verifieert beweging. Ritten moeten voldoen aan snelheids- en duurgrenzen. Stilstaan en ritten buiten geschikte zones tellen niet." },
-          { q: "Wanneer staan beloningen op mijn account?", a: "Beloningen verschijnen na elke rit als in behandeling. Na een campagne worden ze meestal binnen 24–72 uur bevestigd." },
-          { q: "Is er een minimum voor uitbetaling?", a: "Ja. De minimale inwisseldrempel is € 5,00. Kleinere saldi blijven staan tot je die bereikt." },
-        ] },
-        { id: "communityritten", category: "Communityritten", faqs: [
-          { q: "Wat zijn communityritten?", a: "Communityritten zijn groepsroutes van goedgekeurde MOVRR-rijders. Dezelfde verificatieregels gelden en campagnes kunnen een hoger tarief bieden." },
-          { q: "Hoe word ik een goedgekeurde rijder?", a: "Voltooi voldoende geverifieerde ritten, behoud een goede accountstatus en meld je aan via Community in de app." },
-          { q: "Kan ik meedoen zonder goedkeuring?", a: "Ja. Elke rijder kan deelnemen. Goedkeuring is alleen nodig om ritten te maken en leiden." },
-        ] },
-        { id: "account-privacy", category: "Account en privacy", faqs: [
-          { q: "Welke gegevens verzamelt MOVRR?", a: "We verzamelen bewegings-, account- en interactiedata voor verificatie en beloningen. Individuele locatiegeschiedenis delen we nooit met merken." },
-          { q: "Kan ik mijn account verwijderen?", a: "Ja. Vraag verwijdering aan via Instellingen in de app. We verwerken dit binnen 30 dagen en bevestigen per e-mail." },
-          { q: "Hoe wijzig ik mijn betaalgegevens?", a: "Ga in de app naar Instellingen → Betaling. Wijzigingen gelden vanaf de volgende uitbetalingscyclus." },
-        ] },
-        { id: "voor-merken", category: "Voor merken", faqs: [
-          { q: "Hoe werkt MOVRR voor merken?", a: "Merken financieren campagnes rond routes, zones of gedrag en betalen voor geverifieerde betrokkenheid in plaats van geschatte impressies." },
-          { q: "Welke rapportage krijgen merken?", a: "Campagnedashboards tonen realtime en achteraf geverifieerd bereik, routedekking en betrokkenheid per zone." },
-        ] },
+        {
+          id: "aan-de-slag",
+          category: "Aan de slag",
+          faqs: [
+            {
+              q: "Wat is MOVRR?",
+              a: "MOVRR beloont je voor geverifieerde fietsritten. Je verdient MOVRR Points met je dagelijkse kilometers. Merken financieren extra beloningen via vrijwillige campagnes.",
+            },
+            {
+              q: "Hoe kan ik MOVRR gebruiken?",
+              a: "Meld je aan en maak een account zodra MOVRR in jouw stad beschikbaar is. Vanaf je eerste geverifieerde kilometer verdien je MOVRR Points.",
+            },
+            {
+              q: "In welke steden is MOVRR beschikbaar?",
+              a: "MOVRR begint in Rotterdam en Den Haag en breidt daarna uit naar andere Europese steden. Als je op de wachtlijst staat, krijg je bericht zodra jouw stad aan de beurt is.",
+            },
+          ],
+        },
+        {
+          id: "beloningen-verdienen",
+          category: "Beloningen verdienen",
+          faqs: [
+            {
+              q: "Hoe berekent MOVRR mijn beloning?",
+              a: "Je verdient MOVRR Points per geverifieerde kilometer. Voor sommige merkcampagnes en groepsritten geldt een hoger tarief.",
+            },
+            {
+              q: "Wanneer telt een kilometer mee?",
+              a: "De MOVRR-app controleert of je rit voldoet aan de voorwaarden voor snelheid, duur en gebied. Stilstand en kilometers buiten actieve zones tellen niet mee.",
+            },
+            {
+              q: "Wanneer zie ik mijn MOVRR Points?",
+              a: "Na je rit verschijnen de punten eerst als ‘in behandeling’. Meestal zijn ze binnen 24 tot 72 uur definitief.",
+            },
+            {
+              q: "Geldt er een minimumbedrag voor inwisselen?",
+              a: "Ja. Je kunt je saldo inwisselen vanaf € 5,00. Een lager saldo blijft gewoon staan tot je de grens bereikt.",
+            },
+          ],
+        },
+        {
+          id: "communityritten",
+          category: "Groepsritten",
+          faqs: [
+            {
+              q: "Wat zijn groepsritten?",
+              a: "Groepsritten zijn routes die fietsers samen afleggen. De gewone verificatieregels blijven gelden. Soms hoort er een extra campagnebeloning bij.",
+            },
+            {
+              q: "Hoe word ik ritbegeleider?",
+              a: "Bouw eerst een goede ritgeschiedenis op en meld je daarna in de app aan als begeleider. We beoordelen elke aanvraag afzonderlijk.",
+            },
+            {
+              q: "Kan ik zonder goedkeuring meefietsen?",
+              a: "Ja. Iedere fietser kan aan een openbare groepsrit deelnemen. Goedkeuring is alleen nodig om zelf een rit te organiseren of begeleiden.",
+            },
+          ],
+        },
+        {
+          id: "account-privacy",
+          category: "Account en privacy",
+          faqs: [
+            {
+              q: "Welke gegevens verzamelt MOVRR?",
+              a: "We gebruiken account- en ritgegevens om kilometers te verifiëren en punten toe te kennen. We delen je persoonlijke route of locatiegeschiedenis nooit met merken.",
+            },
+            {
+              q: "Kan ik mijn account verwijderen?",
+              a: "Ja. Vraag verwijdering aan via Instellingen in de app. Je ontvangt een e-mail zodra de aanvraag is verwerkt. Dat gebeurt binnen 30 dagen.",
+            },
+            {
+              q: "Hoe wijzig ik mijn betaalgegevens?",
+              a: "Ga in de app naar Instellingen → Betaling. Je wijziging geldt vanaf de volgende uitbetaling.",
+            },
+          ],
+        },
+        {
+          id: "voor-merken",
+          category: "Voor merken",
+          faqs: [
+            {
+              q: "Hoe werkt MOVRR voor merken?",
+              a: "Merken voeren campagnes in gekozen steden, zones en periodes. Fietsers bepalen zelf of ze meedoen. De rapportage is gebaseerd op geverifieerde ritgegevens.",
+            },
+            {
+              q: "Welke resultaten krijgen merken te zien?",
+              a: "Het campagnedashboard toont gereden kilometers, dekking per zone, deelname en onderbouwd bereik tijdens en na de campagne.",
+            },
+          ],
+        },
       ],
     },
     careers: {
       hero: {
-        titleLine1: "We bouwen het platform",
-        titleLine2: "waarop steden bewegen.",
+        titleLine1: "Bouw mee aan",
+        titleLine2: "de stad op de fiets.",
         description:
-          "MOVRR staat aan het begin. De keuzes van nu bepalen wat MOVRR wordt. We zoeken mensen die op de lange termijn denken.",
+          "MOVRR staat aan het begin. Wat we nu kiezen, bepaalt wat het platform straks kan. Daarom zoeken we mensen die verder kijken dan de volgende release.",
       },
       valuesLabel: "Hoe we werken",
       values: [
-        { title: "Werk dat echt is.", description: "Het platform verifieert beweging. Beloningen worden verdiend. Het bereik is authentiek. Voor onszelf geldt dezelfde norm: geen theater, geen vage roadmaps." },
-        { title: "Bouw het één keer, bouw het goed.", description: "We optimaliseren niet voor de demo. We bouwen infrastructuur voor hoe steden bewegen en nemen het onzichtbare werk net zo serieus als wat iedereen ziet." },
-        { title: "Klein team, volledig eigenaarschap.", description: "Iedereen draagt een betekenisvol deel van het platform. Er zit geen laag mensen tussen jouw werk en de impact ervan op het product." },
+        {
+          title: "Doe werk dat ergens over gaat.",
+          description:
+            "We beloven alleen wat we kunnen onderbouwen. Dat geldt voor ons product, onze planning en hoe we samenwerken.",
+        },
+        {
+          title: "Bouw voor de lange termijn.",
+          description:
+            "We bouwen niet voor een mooie demo, maar voor dagelijks gebruik in echte steden. Ook het werk achter de schermen moet kloppen.",
+        },
+        {
+          title: "Neem verantwoordelijkheid.",
+          description:
+            "In een klein team heeft je werk direct invloed op het product. Je krijgt de ruimte én de verantwoordelijkheid die daarbij horen.",
+        },
       ],
       rolesTitle: "Openstaande vacatures",
       positionsOpen: "vacatures open",
       roles: [
-        { department: "Engineering", title: "Senior Full-Stack Engineer", location: "Rotterdam / Remote", type: "Fulltime" },
-        { department: "Engineering", title: "Mobile Engineer (React Native)", location: "Rotterdam / Remote", type: "Fulltime" },
-        { department: "Product", title: "Product Designer", location: "Rotterdam / Remote", type: "Fulltime" },
-        { department: "Operations", title: "Rider Community Lead", location: "Rotterdam", type: "Fulltime" },
-        { department: "Growth", title: "Brand Partnerships Manager", location: "Rotterdam / Amsterdam", type: "Fulltime" },
+        {
+          department: "Engineering",
+          title: "Senior Full-Stack Engineer",
+          location: "Rotterdam / op afstand",
+          type: "Fulltime",
+        },
+        {
+          department: "Engineering",
+          title: "Mobile Engineer (React Native)",
+          location: "Rotterdam / op afstand",
+          type: "Fulltime",
+        },
+        {
+          department: "Product",
+          title: "Product Designer",
+          location: "Rotterdam / op afstand",
+          type: "Fulltime",
+        },
+        {
+          department: "Operations",
+          title: "Community Lead Fietsers",
+          location: "Rotterdam",
+          type: "Fulltime",
+        },
+        {
+          department: "Growth",
+          title: "Manager Merkpartnerschappen",
+          location: "Rotterdam / Amsterdam",
+          type: "Fulltime",
+        },
       ],
       openApplication: "Staat jouw rol er niet bij?",
-      openApplicationCta: "Stuur ons toch een bericht.",
+      openApplicationCta: "Stuur een open sollicitatie",
     },
     contact: {
       header: {
         titleLine1: "Neem",
         titleLine2: "contact op.",
         description:
-          "Het juiste contact hangt af van wie je bent. Vind jouw route hieronder.",
+          "Kies hieronder waarvoor je contact opneemt. Dan komt je bericht meteen bij het juiste team terecht.",
       },
       paths: [
-        { audience: "Merken & bureaus", index: "01", heading: "Voer een campagne met MOVRR", description: "Of je nu een campagne voert of plant, ons team behandelt merkvragen rechtstreeks. Bereik, prijs en campagnestructuur bespreken we in één gesprek.", channel: "hello@movrr.nl", action: "Stuur een bericht", href: "mailto:hello@movrr.nl", note: "We reageren binnen één werkdag." },
-        { audience: "Rijders", index: "02", heading: "Support voor rijders", description: "Vragen over inkomsten, verificatie of campagnes: ons supportteam behandelt ze allemaal rechtstreeks.", channel: "support@movrr.nl", action: "Neem contact op met support", href: "mailto:support@movrr.nl", note: "We reageren meestal binnen 24 uur." },
-        { audience: "Pers & media", index: "03", heading: "Persvragen", description: "Schrijf je over MOVRR, reclame op basis van beweging of stedelijke mobiliteit? Ons persteam reageert snel en de perskit staat klaar.", channel: "press@movrr.nl", action: "Mail het persteam", href: "mailto:press@movrr.nl", note: "Perskit beschikbaar op aanvraag." },
+        {
+          audience: "Merken en bureaus",
+          index: "01",
+          heading: "Bespreek een campagne",
+          description:
+            "Vertel ons wat je wilt bereiken. In één gesprek bespreken we de stad, campagnevorm, planning en kosten.",
+          channel: "hello@movrr.nl",
+          action: "Neem contact op",
+          href: "mailto:hello@movrr.nl",
+          note: "Je krijgt binnen één werkdag antwoord.",
+        },
+        {
+          audience: "Fietsers",
+          index: "02",
+          heading: "Hulp voor fietsers",
+          description:
+            "Heb je een vraag over MOVRR Points, ritverificatie, campagnes of je account? Ons supportteam helpt je verder.",
+          channel: "support@movrr.nl",
+          action: "Mail het supportteam",
+          href: "mailto:support@movrr.nl",
+          note: "Meestal krijg je binnen 24 uur antwoord.",
+        },
+        {
+          audience: "Pers en media",
+          index: "03",
+          heading: "Persvragen",
+          description:
+            "Werk je aan een verhaal over MOVRR, buitenreclame of stedelijke mobiliteit? Ons persteam helpt met informatie, beeld en interviews.",
+          channel: "press@movrr.nl",
+          action: "Mail het persteam",
+          href: "mailto:press@movrr.nl",
+          note: "Persmateriaal is op aanvraag beschikbaar.",
+        },
       ],
       credentialsIntro:
-        "Elk bericht komt bij het team terecht, niet in een ticketsysteem.",
+        "Je bericht komt rechtstreeks bij het juiste team terecht.",
     },
     partners: {
-      hero: { titleLine1: "Bouw op de", titleLine2: "bewegingslaag.", description: "MOVRR is de infrastructuur onder geverifieerde stedelijke beweging. Raakt jouw platform aan hoe mensen door steden bewegen? Dan moeten we praten.", imageAlt: "MOVRR-platform" },
+      hero: {
+        titleLine1: "Koppel aan",
+        titleLine2: "elke fietsrit.",
+        description:
+          "MOVRR verifieert stedelijke ritten en koppelt daar beloningen aan. Werk je aan mobiliteit, gezondheid of zakelijke fietsprogramma's? Laten we de mogelijkheden bespreken.",
+        imageAlt: "Het MOVRR-platform",
+      },
       typesTitle: "Met wie we samenwerken",
       types: [
-        { index: "01", title: "Mobiliteitsplatforms", description: "Elke reis wordt een verdienmoment. MOVRR regelt verificatie en merkinfrastructuur — jij behoudt de ervaring.", fit: "API-integratie", cta: "Ontdek de API", href: "mailto:partners@movrr.nl" },
-        { index: "02", title: "Steden en vervoersautoriteiten", description: "Geverifieerde bewegingsdata laat zien waar een stad heen gaat — en waar niet. Ontwerp betere infrastructuur en versnel actieve mobiliteit.", fit: "Data & inzichten", cta: "Praat met ons", href: "mailto:partners@movrr.nl" },
-        { index: "03", title: "Fitness- en gezondheidsplatforms", description: "Jouw gebruikers bewegen al. Beloon die beweging zonder je product opnieuw te hoeven bouwen.", fit: "SDK + beloningen", cta: "Vraag toegang aan", href: "mailto:partners@movrr.nl" },
-        { index: "04", title: "Zakelijke mobiliteitsprogramma's", description: "Koppel woon-werkbeloningen aan geverifieerde kilometers, niet aan zelfgerapporteerde ritten. Prikkels die betekenis hebben.", fit: "B2B-programma", cta: "Neem contact op", href: "mailto:partners@movrr.nl" },
+        {
+          index: "01",
+          title: "Mobiliteitsplatforms",
+          description:
+            "Voeg ritverificatie en beloningen toe zonder je eigen gebruikerservaring uit handen te geven.",
+          fit: "API-integratie",
+          cta: "Bespreek de API",
+          href: "mailto:partners@movrr.nl",
+        },
+        {
+          index: "02",
+          title: "Steden en vervoersregio's",
+          description:
+            "Geanonimiseerde ritgegevens laten zien waar mensen fietsen en waar routes tekortschieten. Gebruik die inzichten voor beter beleid en betere infrastructuur.",
+          fit: "Data en inzichten",
+          cta: "Neem contact op",
+          href: "mailto:partners@movrr.nl",
+        },
+        {
+          index: "03",
+          title: "Gezondheids- en fitnessplatforms",
+          description:
+            "Beloon de kilometers die je gebruikers toch al maken, zonder zelf ritverificatie te hoeven bouwen.",
+          fit: "SDK en beloningen",
+          cta: "Vraag toegang aan",
+          href: "mailto:partners@movrr.nl",
+        },
+        {
+          index: "04",
+          title: "Zakelijke fietsprogramma's",
+          description:
+            "Koppel woon-werkbeloningen aan daadwerkelijk gereden kilometers in plaats van handmatige opgaven.",
+          fit: "Zakelijk programma",
+          cta: "Neem contact op",
+          href: "mailto:partners@movrr.nl",
+        },
       ],
-      contactIntro: "We zijn selectief in onze partnerships. We bouwen liever enkele diepe integraties dan een lange lijst oppervlakkige. Als het past, schakelen we snel.",
+      contactIntro:
+        "We kiezen bewust voor een beperkt aantal samenwerkingen waarin we echt waarde kunnen toevoegen. Is er een goede match, dan kunnen we snel schakelen.",
       process: [
-        { step: "01", text: "Stuur ons een bericht over je platform, toepassing en globale schaal." },
-        { step: "02", text: "We reageren binnen twee werkdagen. Bij een goede match plannen we een gesprek van 30 minuten." },
-        { step: "03", text: "Technische en commerciële voorwaarden bespreken we parallel, zonder lange inkooptrajecten." },
-        { step: "04", text: "De integratie wordt afgebakend, afgesproken en live gezet. Zodra er afstemming is, gaan we snel." },
+        {
+          step: "01",
+          text: "Vertel ons kort over je platform, de toepassing en het verwachte gebruik.",
+        },
+        {
+          step: "02",
+          text: "Je krijgt binnen twee werkdagen antwoord. Zien we een goede match, dan plannen we een gesprek van 30 minuten.",
+        },
+        {
+          step: "03",
+          text: "We bespreken techniek en commerciële afspraken naast elkaar, zodat er snel duidelijkheid is.",
+        },
+        {
+          step: "04",
+          text: "We leggen de inhoud en planning vast en werken samen toe naar de start.",
+        },
       ],
     },
     accessibility: {
-      statement: { titleLine1: "Toegang is geen", titleLine2: "bijzaak.", targetLabel: "Conformiteitsdoel", target: "WCAG 2.1 niveau AA. Doorlopend. Geen eenmalige audit." },
+      statement: {
+        titleLine1: "Toegankelijkheid",
+        titleLine2: "hoort erbij.",
+        targetLabel: "Onze norm",
+        target: "WCAG 2.1 niveau AA, blijvend getoetst.",
+      },
       commitmentsLabel: "Onze toezeggingen",
       commitments: [
-        { id: "01", title: "Toetsenbordnavigatie", description: "Elke pagina en functie is volledig met alleen een toetsenbord te bedienen. Een muis is niet nodig om te browsen, een rit af te ronden of beloningen in te wisselen." },
-        { id: "02", title: "Ondersteuning voor schermlezers", description: "We gebruiken semantische HTML en ARIA-landmarks. Volgorde, labels en live-regio's worden getest met VoiceOver en NVDA." },
-        { id: "03", title: "Kleurcontrast", description: "Alle tekst voldoet aan WCAG AA. Informatieve UI voldoet aan AAA. Contrast wordt bij elke designreview gecontroleerd." },
-        { id: "04", title: "Minder beweging", description: "Animaties respecteren prefers-reduced-motion. Elk bewegend element heeft een statisch alternatief met dezelfde informatie." },
-        { id: "05", title: "Focusbeheer", description: "Zichtbare focusindicatoren zijn overal aanwezig. Modals en overlays beheren focus correct, zonder toetsenbordvallen." },
-        { id: "06", title: "Tekstalternatieven", description: "Betekenisvolle afbeeldingen hebben beschrijvende alt-tekst. Decoratieve beelden zijn als zodanig gemarkeerd. Grafieken bevatten tekstsamenvattingen." },
+        {
+          id: "01",
+          title: "Bediening met het toetsenbord",
+          description:
+            "Elke pagina en functie is volledig met het toetsenbord te gebruiken. Je hebt geen muis nodig om door de site te gaan, een rit af te ronden of beloningen in te wisselen.",
+        },
+        {
+          id: "02",
+          title: "Ondersteuning voor schermlezers",
+          description:
+            "We gebruiken semantische HTML en ARIA-herkenningspunten. Leesvolgorde, labels en livegebieden testen we met VoiceOver en NVDA.",
+        },
+        {
+          id: "03",
+          title: "Kleurcontrast",
+          description:
+            "Alle tekst voldoet aan WCAG AA. Informatieve onderdelen voldoen aan AAA. Bij iedere ontwerpbeoordeling controleren we het contrast.",
+        },
+        {
+          id: "04",
+          title: "Minder animatie",
+          description:
+            "We respecteren de instelling ‘verminder beweging’. Elk bewegend onderdeel heeft een stil alternatief met dezelfde informatie.",
+        },
+        {
+          id: "05",
+          title: "Zichtbare focus",
+          description:
+            "Je ziet altijd welk onderdeel actief is. Dialoogvensters en lagen houden de toetsenbordfocus op de juiste plek.",
+        },
+        {
+          id: "06",
+          title: "Tekstalternatieven",
+          description:
+            "Betekenisvolle afbeeldingen hebben beschrijvende alt-tekst. Decoratieve beelden zijn als zodanig gemarkeerd. Grafieken bevatten tekstsamenvattingen.",
+        },
       ],
-      contact: { label: "Een drempel gevonden?", description: "Vormt iets op het platform een drempel — een ontbrekend label, navigatieprobleem of contrastfout — dan horen we dat graag. Meldingen gaan rechtstreeks naar het team en krijgen prioriteit.", responseTitle: "Reactietijd", responseBody: "We bevestigen meldingen binnen 2 werkdagen en geven binnen 5 werkdagen een planning voor de oplossing.", complaintTitle: "Formele klacht", complaintBeforeLink: "Ben je niet tevreden met onze reactie, dan kun je contact opnemen met de Irish Human Rights and Equality Commission via", standardTitle: "Technische norm", standardBody: "We streven naar WCAG 2.1 niveau AA op het hele platform en deze website. Elk kwartaal voeren we een audit uit." },
+      contact: {
+        label: "Loop je ergens tegenaan?",
+        description:
+          "Kun je iets niet goed lezen, vinden of bedienen? Laat het ons weten. Je melding gaat rechtstreeks naar het team en krijgt voorrang.",
+        responseTitle: "Wanneer hoor je van ons?",
+        responseBody:
+          "We bevestigen je melding binnen 2 werkdagen. Binnen 5 werkdagen laten we weten wanneer we het oplossen.",
+        complaintTitle: "Een klacht indienen",
+        complaintBeforeLink:
+          "Ben je niet tevreden met onze reactie? Neem dan contact op met de Irish Human Rights and Equality Commission via",
+        standardTitle: "Technische norm",
+        standardBody:
+          "Voor het platform en deze website hanteren we WCAG 2.1 niveau AA. Elk kwartaal controleren we of we daaraan voldoen.",
+      },
     },
     sitemapPage: {
       title: "Alles op één plek.",
       description: "Alle pagina's op movrr.nl",
       sections: [
-        { id: "01", category: "Platform", description: "Hoe MOVRR werkt en voor wie", primary: true, links: [{ label: "Zo werkt het", href: "/how-it-works" }, { label: "Beloningen", href: "/rewards" }, { label: "Merken", href: "/brands" }, { label: "Rijders", href: "/riders" }] },
-        { id: "02", category: "Bedrijf", description: "Het team, verhaal en vacatures", primary: true, links: [{ label: "Over ons", href: "/about" }, { label: "Werken bij", href: "/careers" }, { label: "Pers & Media", href: "/press" }, { label: "Partners", href: "/partners" }, { label: "Journal", href: "/blog" }] },
-        { id: "03", category: "Support", description: "Hulp en contactmogelijkheden", primary: false, links: [{ label: "Helpcentrum", href: "/help" }, { label: "Contact", href: "/contact" }] },
-        { id: "04", category: "Juridisch", description: "Beleid, voorwaarden en jouw rechten", primary: false, links: [{ label: "Privacybeleid", href: "/privacy" }, { label: "Gebruiksvoorwaarden", href: "/terms" }, { label: "Cookiebeleid", href: "/cookies" }, { label: "Toegankelijkheid", href: "/accessibility" }] },
+        {
+          id: "01",
+          category: "Platform",
+          description: "Hoe MOVRR werkt en voor wie",
+          primary: true,
+          links: [
+            { label: "Zo werkt het", href: "/how-it-works" },
+            { label: "Beloningen", href: "/rewards" },
+            { label: "Merken", href: "/brands" },
+            { label: "Fietsers", href: "/riders" },
+          ],
+        },
+        {
+          id: "02",
+          category: "Bedrijf",
+          description: "Het team, verhaal en vacatures",
+          primary: true,
+          links: [
+            { label: "Over ons", href: "/about" },
+            { label: "Werken bij", href: "/careers" },
+            { label: "Pers & Media", href: "/press" },
+            { label: "Partners", href: "/partners" },
+            { label: "Verhalen", href: "/blog" },
+          ],
+        },
+        {
+          id: "03",
+          category: "Hulp",
+          description: "Antwoorden en contactmogelijkheden",
+          primary: false,
+          links: [
+            { label: "Helpcentrum", href: "/help" },
+            { label: "Contact", href: "/contact" },
+          ],
+        },
+        {
+          id: "04",
+          category: "Juridisch",
+          description: "Beleid, voorwaarden en jouw rechten",
+          primary: false,
+          links: [
+            { label: "Privacybeleid", href: "/privacy" },
+            { label: "Gebruiksvoorwaarden", href: "/terms" },
+            { label: "Cookiebeleid", href: "/cookies" },
+            { label: "Toegankelijkheid", href: "/accessibility" },
+          ],
+        },
       ],
     },
     privacy: {
-      title: "Privacybeleid", effectiveLabel: "Geldig vanaf", effectiveDate: "1 januari 2025", contentsLabel: "Inhoud", relatedLabel: "Gerelateerd",
-      summary: "Hoe we persoonsgegevens verzamelen, gebruiken en beschermen. Bewegings- en locatiegegevens staan centraal in MOVRR; dit beleid legt uit hoe we ermee omgaan.",
+      title: "Privacybeleid",
+      effectiveLabel: "Geldig vanaf",
+      effectiveDate: "1 januari 2025",
+      contentsLabel: "Inhoud",
+      relatedLabel: "Gerelateerd",
+      summary:
+        "Hier lees je welke persoonsgegevens we verzamelen, waarom we dat doen en hoe we ze beschermen. We leggen extra duidelijk uit hoe we omgaan met rit- en locatiegegevens.",
       sections: [
-        { id: "who-we-are", title: "Wie we zijn", paragraphs: ["MOVRR B.V., gevestigd in Rotterdam, exploiteert het MOVRR-platform en is verwerkingsverantwoordelijke voor de persoonsgegevens die hier worden beschreven.", "Vragen over privacy kun je sturen naar privacy@movrr.nl."] },
-        { id: "what-we-collect", title: "Gegevens die we verzamelen", paragraphs: ["We verzamelen alleen gegevens die nodig zijn om MOVRR te exploiteren, beveiligen en verbeteren."], bullets: ["Account-, profiel- en apparaatgegevens van rijders, plus rit- en beloningshistorie", "Bewegings- en locatiegegevens om ritten te verifiëren", "Campagne-, facturatie- en zakelijke contactgegevens van merkpartners", "Website-analytics, toestemmingskeuzes en informatie uit formulieren"] },
-        { id: "movement-data", title: "Bewegings- en locatiegegevens", paragraphs: ["GPS-route, afstand en duur worden alleen verzameld tijdens een actieve rit die je zelf start. De verzameling loopt door wanneer de app gesloten of geminimaliseerd is of het scherm uitstaat, zodat de rit veilig kan worden geverifieerd; Android toont daarbij een permanente melding en de verzameling stopt zodra de rit eindigt.", "We volgen je locatie nooit buiten actieve ritten, verkopen geen individuele routegegevens en delen geen herleidbare locatiegeschiedenis met merken. Merken ontvangen alleen geaggregeerde, geanonimiseerde cijfers zoals geverifieerde impressies, campagneafstand en heatmaps op zoneniveau.", "Bewegingsgegevens verwerken we op basis van jouw uitdrukkelijke toestemming. Je kunt die in je accountinstellingen intrekken; toekomstige ritten worden dan niet meer gevolgd."] },
-        { id: "how-we-use-data", title: "Hoe we je gegevens gebruiken", paragraphs: ["We verwerken gegevens om de dienst te leveren, onze overeenkomst uit te voeren, wettelijke verplichtingen na te komen, gerechtvaardigde belangen te beschermen en toestemming uit te voeren waar vereist.", "We verkopen geen persoonsgegevens en gebruiken ze niet voor geautomatiseerde profilering met juridische of vergelijkbaar ingrijpende gevolgen."], bullets: ["Ritten verifiëren en beloningen berekenen", "Campagnes uitvoeren en geverifieerde bereikcijfers leveren", "Accounts, support en inwisselingen beheren", "Fraude detecteren, beveiligen en prestaties verbeteren", "Serviceberichten en marketing met toestemming versturen"] },
-        { id: "your-rights", title: "Jouw rechten", paragraphs: ["Onder de AVG kun je via privacy@movrr.nl jouw rechten uitoefenen. We kunnen je identiteit controleren en reageren binnen 30 dagen.", "Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens."], bullets: ["Inzage en een kopie van je gegevens", "Onjuiste gegevens corrigeren", "Verwijdering of beperking aanvragen", "Bezwaar maken tegen bepaalde verwerking", "Gegevensoverdraagbaarheid waar van toepassing", "Toestemming altijd intrekken zonder gevolgen voor eerdere rechtmatige verwerking"] },
-        { id: "data-retention", title: "Bewaartermijnen", paragraphs: ["We bewaren persoonsgegevens alleen zolang dat nodig is voor het beschreven doel of wettelijk vereist is."], bullets: ["Accountgegevens zolang het account actief is en 24 maanden na sluiting", "Rit- en bewegingsgegevens 36 maanden voor beloningsverificatie en geschillen", "Inwissel- en voucherrecords 7 jaar voor de wettelijke boekhouding", "Marketinggegevens totdat je je afmeldt of verwijdering aanvraagt"] },
-        { id: "changes", title: "Wijzigingen in dit beleid", paragraphs: ["We kunnen dit beleid aanpassen wanneer het platform verandert. Materiële wijzigingen melden we geregistreerde gebruikers minimaal 14 dagen vóór de ingangsdatum per e-mail.", "Voortgezet gebruik na een wijziging geldt als aanvaarding. Vragen kun je sturen naar privacy@movrr.nl."] },
+        {
+          id: "who-we-are",
+          title: "Wie we zijn",
+          paragraphs: [
+            "MOVRR B.V. is gevestigd in Rotterdam, beheert het MOVRR-platform en is verantwoordelijk voor de verwerking van de persoonsgegevens die in dit beleid staan.",
+            "Vragen over privacy kun je sturen naar privacy@movrr.nl.",
+          ],
+        },
+        {
+          id: "what-we-collect",
+          title: "Gegevens die we verzamelen",
+          paragraphs: [
+            "We verzamelen alleen gegevens die nodig zijn om MOVRR te laten werken, te beveiligen en te verbeteren.",
+          ],
+          bullets: [
+            "Account-, profiel- en apparaatgegevens van fietsers, plus rit- en beloningsgeschiedenis",
+            "Rit- en locatiegegevens om kilometers te verifiëren",
+            "Campagne-, facturatie- en zakelijke contactgegevens van merkpartners",
+            "Gebruiksstatistieken van de website, toestemmingskeuzes en informatie uit formulieren",
+          ],
+        },
+        {
+          id: "movement-data",
+          title: "Rit- en locatiegegevens",
+          paragraphs: [
+            "We verzamelen je gps-route, afstand en ritduur alleen tijdens een actieve rit die je zelf start. Dat gaat door als de app op de achtergrond staat of je scherm uit is, zodat we de rit goed kunnen verifiëren. Op Android zie je daarbij een permanente melding. Zodra de rit eindigt, stopt de verzameling.",
+            "Buiten actieve ritten volgen we je locatie niet. We verkopen geen individuele routegegevens en delen geen herleidbare locatiegeschiedenis met merken. Merken ontvangen alleen geaggregeerde en geanonimiseerde cijfers, zoals contactmomenten, campagnekilometers en heatmaps per zone.",
+            "We verwerken ritgegevens alleen met jouw uitdrukkelijke toestemming. Je kunt die toestemming in je accountinstellingen intrekken. Nieuwe ritten worden daarna niet meer gevolgd.",
+          ],
+        },
+        {
+          id: "how-we-use-data",
+          title: "Waarvoor we je gegevens gebruiken",
+          paragraphs: [
+            "We verwerken gegevens om onze dienst te leveren, afspraken met jou uit te voeren, aan wettelijke verplichtingen te voldoen, gerechtvaardigde belangen te beschermen en — waar nodig — op basis van jouw toestemming.",
+            "We verkopen geen persoonsgegevens. Ook gebruiken we ze niet voor geautomatiseerde profilering met juridische of vergelijkbaar ingrijpende gevolgen.",
+          ],
+          bullets: [
+            "Ritten verifiëren en MOVRR Points berekenen",
+            "Campagnes uitvoeren en onderbouwde bereikcijfers leveren",
+            "Accounts, vragen en inwisselingen afhandelen",
+            "Fraude opsporen, de dienst beveiligen en prestaties verbeteren",
+            "Serviceberichten versturen en, met toestemming, marketingberichten sturen",
+          ],
+        },
+        {
+          id: "your-rights",
+          title: "Jouw rechten",
+          paragraphs: [
+            "Wil je gebruikmaken van je rechten onder de AVG? Mail dan naar privacy@movrr.nl. We mogen je identiteit controleren en reageren binnen 30 dagen.",
+            "Je kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens.",
+          ],
+          bullets: [
+            "Inzage en een kopie van je gegevens",
+            "Onjuiste gegevens corrigeren",
+            "Verwijdering of beperking aanvragen",
+            "Bezwaar maken tegen bepaalde verwerking",
+            "Je gegevens ontvangen of laten overdragen als dat recht van toepassing is",
+            "Je toestemming op elk moment intrekken; dat verandert niets aan de rechtmatigheid van eerdere verwerking",
+          ],
+        },
+        {
+          id: "data-retention",
+          title: "Bewaartermijnen",
+          paragraphs: [
+            "We bewaren persoonsgegevens niet langer dan nodig is voor het genoemde doel of zolang de wet dat voorschrijft.",
+          ],
+          bullets: [
+            "Accountgegevens zolang je account actief is en tot 24 maanden na sluiting",
+            "Rit- en locatiegegevens tot 36 maanden voor verificatie en eventuele geschillen",
+            "Gegevens over ingewisselde punten en vouchers 7 jaar voor de wettelijke administratie",
+            "Marketinggegevens totdat je je afmeldt of om verwijdering vraagt",
+          ],
+        },
+        {
+          id: "changes",
+          title: "Wijzigingen in dit beleid",
+          paragraphs: [
+            "We kunnen dit beleid aanpassen wanneer het platform verandert. Materiële wijzigingen melden we geregistreerde gebruikers minimaal 14 dagen vóór de ingangsdatum per e-mail.",
+            "Blijf je MOVRR na een wijziging gebruiken, dan ga je akkoord met het aangepaste beleid. Vragen kun je mailen naar privacy@movrr.nl.",
+          ],
+        },
       ],
-      relatedLinks: [{ label: "Cookiebeleid", href: "/cookies" }, { label: "Gebruiksvoorwaarden", href: "/terms" }, { label: "Account verwijderen", href: "/account-deletion" }],
+      relatedLinks: [
+        { label: "Cookiebeleid", href: "/cookies" },
+        { label: "Gebruiksvoorwaarden", href: "/terms" },
+        { label: "Account verwijderen", href: "/account-deletion" },
+      ],
     },
     terms: {
-      title: "Gebruiksvoorwaarden", effectiveLabel: "Geldig vanaf", effectiveDate: "1 januari 2025", contentsLabel: "Inhoud", relatedLabel: "Gerelateerd",
-      summary: "De voorwaarden voor het gebruik van MOVRR door rijders die verdienen met geverifieerde beweging en merken die campagnes voeren.",
+      title: "Gebruiksvoorwaarden",
+      effectiveLabel: "Geldig vanaf",
+      effectiveDate: "1 januari 2025",
+      contentsLabel: "Inhoud",
+      relatedLabel: "Gerelateerd",
+      summary:
+        "Deze voorwaarden gelden voor fietsers die MOVRR Points verdienen en voor merken die via MOVRR campagnes voeren.",
       sections: [
-        { id: "platform", title: "Het platform", paragraphs: ["MOVRR verbindt fietsers en merken via geverifieerde beweging. Rijders verdienen beloningen; merken krijgen fysieke zichtbaarheid met toestemming en geverifieerde rapportages.", "Door een account te maken of MOVRR te gebruiken ga je akkoord met deze voorwaarden."] },
-        { id: "rider-accounts", title: "Accounts van rijders", paragraphs: ["Je moet minimaal 18 zijn, correcte informatie verstrekken, je inloggegevens beschermen en bent verantwoordelijk voor activiteit op je account.", "MOVRR kan accounts opschorten of sluiten bij onjuiste informatie, schending van voorwaarden of vermoedelijke fraude."] },
-        { id: "earning-rewards", title: "Verdienen en beloningen", paragraphs: ["Beloningen hangen af van geverifieerde afstand, route en duur. Manipulatie of vervalsing kan leiden tot permanente opschorting.", "Basistarieven en inwisselopties staan in de app en kunnen voor de toekomst wijzigen. Merkcampagnes en gesponsorde communityritten kunnen hogere tarieven bieden."] },
-        { id: "brand-campaigns", title: "Merkcampagnes", paragraphs: ["Voor merkpartners geldt ook de Brand Partner Agreement. Creatief materiaal moet voldoen aan reclameregels; MOVRR kan materiaal weigeren.", "Publieke claims over campagneprestaties moeten de geverifieerde MOVRR-cijfers correct weergeven."] },
-        { id: "acceptable-use", title: "Toegestaan gebruik", paragraphs: ["Je gebruikt MOVRR rechtmatig en verstoort de dienst of andere gebruikers niet."], bullets: ["Geen ritdata vervalsen of geautomatiseerde activiteit genereren", "Geen gegevens van andere gebruikers benaderen", "Geen schadelijke code uploaden of de app reverse-engineeren", "Geen rechten schenden of het platform schadelijk of onrechtmatig gebruiken"] },
-        { id: "platform-rights", title: "Rechten en beschikbaarheid van het platform", paragraphs: ["MOVRR kan functies wijzigen, opschorten of beëindigen en geeft waar praktisch redelijke kennisgeving. Beschikbaarheid is niet gegarandeerd.", "Materiële wijzigingen aan deze voorwaarden worden vooraf gecommuniceerd. Voortgezet gebruik daarna geldt als aanvaarding."] },
-        { id: "governing-law", title: "Toepasselijk recht", paragraphs: ["Op deze voorwaarden is het recht van Ierland van toepassing. Geschillen die uit deze voorwaarden voortvloeien vallen onder de exclusieve bevoegdheid van de Ierse rechtbanken.", "Als een bepaling niet afdwingbaar blijkt, blijven de overige bepalingen volledig van kracht. Vragen kun je sturen naar hello@movrr.nl."] },
+        {
+          id: "platform",
+          title: "Het platform",
+          paragraphs: [
+            "MOVRR verbindt fietsers en merken via geverifieerde ritten. Fietsers verdienen MOVRR Points; merken krijgen fysieke zichtbaarheid met toestemming van de deelnemer en een onderbouwde rapportage.",
+            "Door een account aan te maken of MOVRR te gebruiken, ga je akkoord met deze voorwaarden.",
+          ],
+        },
+        {
+          id: "rider-accounts",
+          title: "Accounts van fietsers",
+          paragraphs: [
+            "Je moet minimaal 18 jaar zijn, juiste informatie verstrekken en je inloggegevens goed beveiligen. Je bent verantwoordelijk voor wat er via jouw account gebeurt.",
+            "MOVRR kan een account opschorten of sluiten bij onjuiste informatie, overtreding van deze voorwaarden of een vermoeden van fraude.",
+          ],
+        },
+        {
+          id: "earning-rewards",
+          title: "MOVRR Points verdienen",
+          paragraphs: [
+            "Je beloning hangt af van de geverifieerde afstand, route en ritduur. Manipulatie of vervalsing kan leiden tot permanente opschorting van je account.",
+            "De actuele basistarieven en inwisselmogelijkheden staan in de app. We kunnen die voor toekomstige ritten aanpassen. Merkcampagnes en gesponsorde groepsritten kunnen een hoger tarief hebben.",
+          ],
+        },
+        {
+          id: "brand-campaigns",
+          title: "Merkcampagnes",
+          paragraphs: [
+            "Voor merkpartners geldt ook de Brand Partner Agreement. Campagnemateriaal moet voldoen aan de reclameregels. MOVRR kan materiaal weigeren.",
+            "Publieke claims over campagneprestaties moeten de geverifieerde MOVRR-cijfers correct weergeven.",
+          ],
+        },
+        {
+          id: "acceptable-use",
+          title: "Toegestaan gebruik",
+          paragraphs: [
+            "Je gebruikt MOVRR rechtmatig en verstoort de dienst of andere gebruikers niet.",
+          ],
+          bullets: [
+            "Geen ritdata vervalsen of geautomatiseerde activiteit genereren",
+            "Geen gegevens van andere gebruikers benaderen",
+            "Geen schadelijke code uploaden of de werking van de app proberen te achterhalen",
+            "Geen rechten schenden of het platform schadelijk of onrechtmatig gebruiken",
+          ],
+        },
+        {
+          id: "platform-rights",
+          title: "Rechten en beschikbaarheid van het platform",
+          paragraphs: [
+            "MOVRR kan functies wijzigen, tijdelijk stopzetten of beëindigen. Waar dat redelijkerwijs kan, laten we dit vooraf weten. We garanderen niet dat het platform altijd beschikbaar is.",
+            "Belangrijke wijzigingen in deze voorwaarden kondigen we vooraf aan. Blijf je MOVRR daarna gebruiken, dan ga je akkoord met de aangepaste voorwaarden.",
+          ],
+        },
+        {
+          id: "governing-law",
+          title: "Toepasselijk recht",
+          paragraphs: [
+            "Op deze voorwaarden is het recht van Ierland van toepassing. Geschillen die uit deze voorwaarden voortvloeien vallen onder de exclusieve bevoegdheid van de Ierse rechtbanken.",
+            "Als een bepaling niet afdwingbaar blijkt, blijven de overige bepalingen volledig van kracht. Vragen kun je sturen naar hello@movrr.nl.",
+          ],
+        },
       ],
-      relatedLinks: [{ label: "Privacybeleid", href: "/privacy" }, { label: "Cookiebeleid", href: "/cookies" }],
+      relatedLinks: [
+        { label: "Privacybeleid", href: "/privacy" },
+        { label: "Cookiebeleid", href: "/cookies" },
+      ],
     },
     cookies: {
-      title: "Cookiebeleid", effectiveLabel: "Geldig vanaf", effectiveDate: "1 januari 2025", contentsLabel: "Inhoud", relatedLabel: "Gerelateerd",
-      summary: "Hoe we cookies op deze website gebruiken, wat elke categorie doet en hoe je voorkeuren beheert.",
+      title: "Cookiebeleid",
+      effectiveLabel: "Geldig vanaf",
+      effectiveDate: "1 januari 2025",
+      contentsLabel: "Inhoud",
+      relatedLabel: "Gerelateerd",
+      summary:
+        "Hoe we cookies op deze website gebruiken, wat elke categorie doet en hoe je voorkeuren beheert.",
       sections: [
-        { id: "what-cookies-are", title: "Wat cookies zijn", paragraphs: ["Cookies zijn kleine tekstbestanden die je browser opslaat. Vergelijkbare technologie kan voor dezelfde doelen identificatoren opslaan of uitlezen.", "Dit beleid geldt voor movrr.nl en hoort bij ons Privacybeleid."] },
-        { id: "cookie-categories", title: "Cookiecategorieën", paragraphs: ["Strikt noodzakelijke cookies ondersteunen beveiliging, toestemming en kernfuncties en kunnen niet via onze tool worden uitgeschakeld.", "Prestatie- en analyticscookies helpen geaggregeerd gebruik begrijpen. Functionele cookies onthouden keuzes. Marketingcookies meten campagne-effectiviteit. Niet-essentiële categorieën gebruiken we alleen met toestemming waar vereist."] },
-        { id: "specific-cookies", title: "Cookies die we gebruiken", paragraphs: ["Noodzakelijke opslag omvat toestemmingsvoorkeuren en essentiële sessie- en beveiligingswaarden. Analytics kan privacyvriendelijke meettools omvatten. Functionele opslag onthoudt instellingen zoals taal.", "Leveranciers en bewaartermijnen kunnen wijzigen; de toestemmingstool toont de actieve categorieën."] },
-        { id: "managing-cookies", title: "Cookies beheren", paragraphs: ["Via de toestemmingsinterface kun je niet-essentiële cookies accepteren, weigeren of instellen. Je kunt je keuze later aanpassen en cookies in je browser verwijderen of blokkeren.", "Het blokkeren van noodzakelijke cookies kan delen van de site onbruikbaar maken. Opt-outtools van leveranciers kunnen extra controle bieden."] },
-        { id: "changes", title: "Wijzigingen in dit beleid", paragraphs: ["We kunnen dit beleid aanpassen wanneer onze technologie of wettelijke verplichtingen wijzigen. De ingangsdatum toont de nieuwste versie.", "Vragen over cookies of toestemming kun je sturen naar privacy@movrr.nl."] },
+        {
+          id: "what-cookies-are",
+          title: "Wat cookies zijn",
+          paragraphs: [
+            "Cookies zijn kleine tekstbestanden die je browser bewaart. Andere technieken kunnen voor hetzelfde doel een kenmerk opslaan of uitlezen.",
+            "Dit beleid geldt voor movrr.nl en hoort bij ons Privacybeleid.",
+          ],
+        },
+        {
+          id: "cookie-categories",
+          title: "Soorten cookies",
+          paragraphs: [
+            "Strikt noodzakelijke cookies zijn nodig voor beveiliging, toestemming en basisfuncties. Je kunt ze daarom niet via onze instellingen uitschakelen.",
+            "Analytische cookies laten op groepsniveau zien hoe de site wordt gebruikt. Functionele cookies onthouden je keuzes. Marketingcookies meten het resultaat van campagnes. We gebruiken niet-noodzakelijke cookies alleen met jouw toestemming als dat wettelijk vereist is.",
+          ],
+        },
+        {
+          id: "specific-cookies",
+          title: "Cookies die we gebruiken",
+          paragraphs: [
+            "Noodzakelijke opslag bewaart onder meer je cookievoorkeuren en essentiële sessie- en beveiligingsgegevens. Voor analyse kunnen we privacyvriendelijke meetdiensten gebruiken. Functionele opslag onthoudt instellingen, zoals je taalkeuze.",
+            "Leveranciers en bewaartermijnen kunnen veranderen. In de cookie-instellingen zie je altijd welke categorieën actief zijn.",
+          ],
+        },
+        {
+          id: "managing-cookies",
+          title: "Cookies beheren",
+          paragraphs: [
+            "Via de toestemmingsinterface kun je niet-essentiële cookies accepteren, weigeren of instellen. Je kunt je keuze later aanpassen en cookies in je browser verwijderen of blokkeren.",
+            "Blokkeer je noodzakelijke cookies, dan werken sommige delen van de site mogelijk niet. Sommige leveranciers bieden daarnaast een eigen mogelijkheid om metingen uit te zetten.",
+          ],
+        },
+        {
+          id: "changes",
+          title: "Wijzigingen in dit beleid",
+          paragraphs: [
+            "We kunnen dit beleid aanpassen wanneer onze technologie of wettelijke verplichtingen wijzigen. De ingangsdatum toont de nieuwste versie.",
+            "Vragen over cookies of toestemming kun je sturen naar privacy@movrr.nl.",
+          ],
+        },
       ],
-      relatedLinks: [{ label: "Privacybeleid", href: "/privacy" }, { label: "Gebruiksvoorwaarden", href: "/terms" }],
+      relatedLinks: [
+        { label: "Privacybeleid", href: "/privacy" },
+        { label: "Gebruiksvoorwaarden", href: "/terms" },
+      ],
     },
     accountDeletion: {
-      title: "Je account verwijderen", effectiveLabel: "Geldig vanaf", effectiveDate: "14 juli 2026", contentsLabel: "Inhoud", relatedLabel: "Gerelateerd",
-      summary: "Zo verwijder je jouw MOVRR-rijdersaccount en gekoppelde persoonsgegevens in de app, of op verzoek als je niet meer kunt inloggen.",
+      title: "Je account verwijderen",
+      effectiveLabel: "Geldig vanaf",
+      effectiveDate: "14 juli 2026",
+      contentsLabel: "Inhoud",
+      relatedLabel: "Gerelateerd",
+      summary:
+        "Zo verwijder je je MOVRR-account en de bijbehorende persoonsgegevens via de app of, als inloggen niet lukt, per e-mail.",
       sections: [
-        { id: "which-app", title: "Voor welke app dit geldt", paragraphs: ["Dit proces geldt voor de MOVRR-rijdersapp, inclusief Android-package nl.movrr.app en de bijbehorende iOS-app. MOVRR B.V. in Rotterdam is verwerkingsverantwoordelijke."] },
-        { id: "delete-in-app", title: "Je account verwijderen in de app", paragraphs: ["De snelste route loopt rechtstreeks via de MOVRR-app. Na bevestiging start de verwijdering."], bullets: ["Open MOVRR en log in", "Ga naar Account → Gegevens & privacy", "Kies Account verwijderen", "Bevestig wanneer daarom wordt gevraagd"] },
-        { id: "delete-by-email", title: "Verwijdering aanvragen per e-mail", paragraphs: ["Kun je niet inloggen, mail dan vanaf het gekoppelde adres naar privacy@movrr.nl met als onderwerp ‘Verzoek tot accountverwijdering’. We kunnen je identiteit controleren en bevestigen de afronding.", "Je hoeft geen reden op te geven."] },
-        { id: "what-we-delete", title: "Wat we verwijderen", paragraphs: ["We verwijderen of anonimiseren gegevens die jou kunnen identificeren onomkeerbaar."], bullets: ["Profiel- en contactgegevens", "Locatie, gps, routes en ritgeschiedenis", "Campagnegegevens, puntensaldo en verdienhistorie", "Geregistreerde apparaten en notificatietokens", "Voorkeuren en instellingen", "Communityritten en geüploade afbeeldingen"] },
-        { id: "what-we-keep", title: "Wat we bewaren, en waarom", paragraphs: ["Beperkte gegevens kunnen blijven bestaan als de wet dat vereist of om het platform te beschermen. Ze worden geminimaliseerd en waar mogelijk gepseudonimiseerd."], bullets: ["Ingewisselde beloningen en transactiegegevens voor de boekhouding", "Beveiligings- en antifraudelogs gedurende een evenredige periode", "Geaggregeerde anonieme statistieken"] },
-        { id: "unredeemed-points", title: "Niet-ingewisselde MOVRR Points", paragraphs: ["Niet-ingewisselde MOVRR Points vervallen definitief bij verwijdering. Ze hebben geen geldwaarde en kunnen niet worden overgedragen of uitbetaald.", "Wissel een beschikbaar saldo in voordat je jouw account verwijdert."] },
-        { id: "how-long", title: "Hoelang verwijdering duurt", paragraphs: ["Je account is niet meer toegankelijk zodra verwijdering is bevestigd of een e-mailverzoek is geverifieerd. Persoonsgegevens worden binnen 30 dagen uit actieve systemen verwijderd.", "Versleutelde back-ups verlopen binnen 90 dagen via normale rotatie."] },
-        { id: "other-rights", title: "Jouw andere privacyrechten", paragraphs: ["Verwijdering is één AVG-recht. Je kunt ook inzage, correctie, overdraagbaarheid of beperking aanvragen en bezwaar maken. Het Privacybeleid legt dit uit.", "Neem contact op via privacy@movrr.nl of dien een klacht in bij de Autoriteit Persoonsgegevens."] },
+        {
+          id: "which-app",
+          title: "Voor welke app dit geldt",
+          paragraphs: [
+            "Dit proces geldt voor de MOVRR-app voor fietsers, inclusief het Android-pakket nl.movrr.app en de bijbehorende iOS-app. MOVRR B.V. in Rotterdam is de verwerkingsverantwoordelijke.",
+          ],
+        },
+        {
+          id: "delete-in-app",
+          title: "Je account verwijderen in de app",
+          paragraphs: [
+            "De snelste route loopt rechtstreeks via de MOVRR-app. Na bevestiging start de verwijdering.",
+          ],
+          bullets: [
+            "Open MOVRR en log in",
+            "Ga naar Account → Gegevens & privacy",
+            "Kies Account verwijderen",
+            "Bevestig wanneer daarom wordt gevraagd",
+          ],
+        },
+        {
+          id: "delete-by-email",
+          title: "Verwijdering aanvragen per e-mail",
+          paragraphs: [
+            "Kun je niet inloggen, mail dan vanaf het gekoppelde adres naar privacy@movrr.nl met als onderwerp ‘Verzoek tot accountverwijdering’. We kunnen je identiteit controleren en bevestigen de afronding.",
+            "Je hoeft geen reden op te geven.",
+          ],
+        },
+        {
+          id: "what-we-delete",
+          title: "Wat we verwijderen",
+          paragraphs: [
+            "We verwijderen gegevens die jou kunnen identificeren of anonimiseren ze blijvend.",
+          ],
+          bullets: [
+            "Profiel- en contactgegevens",
+            "Locatie, gps, routes en ritgeschiedenis",
+            "Campagnegegevens, puntensaldo en verdiengeschiedenis",
+            "Geregistreerde apparaten en notificatietokens",
+            "Voorkeuren en instellingen",
+            "Groepsritten en geüploade afbeeldingen",
+          ],
+        },
+        {
+          id: "what-we-keep",
+          title: "Wat we bewaren, en waarom",
+          paragraphs: [
+            "Sommige gegevens moeten we volgens de wet bewaren of hebben we nodig om het platform te beschermen. We bewaren dan zo min mogelijk en vervangen herkenbare gegevens waar mogelijk door een code.",
+          ],
+          bullets: [
+            "Ingewisselde beloningen en transactiegegevens voor de boekhouding",
+            "Beveiligings- en antifraudelogs gedurende een evenredige periode",
+            "Geaggregeerde anonieme statistieken",
+          ],
+        },
+        {
+          id: "unredeemed-points",
+          title: "Niet-ingewisselde MOVRR Points",
+          paragraphs: [
+            "Niet-ingewisselde MOVRR Points vervallen definitief bij verwijdering. Ze hebben geen geldwaarde en kunnen niet worden overgedragen of uitbetaald.",
+            "Wissel een beschikbaar saldo in voordat je jouw account verwijdert.",
+          ],
+        },
+        {
+          id: "how-long",
+          title: "Hoelang verwijdering duurt",
+          paragraphs: [
+            "Je account is niet meer toegankelijk zodra verwijdering is bevestigd of een e-mailverzoek is geverifieerd. Persoonsgegevens worden binnen 30 dagen uit actieve systemen verwijderd.",
+            "Versleutelde reservekopieën worden binnen 90 dagen automatisch overschreven.",
+          ],
+        },
+        {
+          id: "other-rights",
+          title: "Jouw andere privacyrechten",
+          paragraphs: [
+            "Verwijdering is één AVG-recht. Je kunt ook inzage, correctie, overdraagbaarheid of beperking aanvragen en bezwaar maken. Het Privacybeleid legt dit uit.",
+            "Neem contact op via privacy@movrr.nl of dien een klacht in bij de Autoriteit Persoonsgegevens.",
+          ],
+        },
       ],
-      relatedLinks: [{ label: "Privacybeleid", href: "/privacy" }, { label: "Gebruiksvoorwaarden", href: "/terms" }],
+      relatedLinks: [
+        { label: "Privacybeleid", href: "/privacy" },
+        { label: "Gebruiksvoorwaarden", href: "/terms" },
+      ],
     },
   },
 };

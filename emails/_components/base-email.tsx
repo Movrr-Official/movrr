@@ -59,7 +59,7 @@ export function BaseEmail({
   const footer =
     locale === "nl"
       ? {
-          tagline: "Beweging die loont.",
+          tagline: "Elke rit telt.",
           questions: "Vragen?",
           unsubscribe: "Afmelden",
         }

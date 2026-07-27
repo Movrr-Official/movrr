@@ -6,7 +6,6 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MenuToggle } from "@/components/layout/MenuToggle";
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import { withLocalePath } from "@/lib/i18n/routing";
 
@@ -169,10 +168,6 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             </div>
 
             <div className="hidden items-center gap-2 lg:flex">
-              <LanguageSwitcher
-                labels={copy.languageSwitcher}
-                inverted={!isScrolled && variant !== "light"}
-              />
               <Button
                 variant="ghost"
                 size="sm"

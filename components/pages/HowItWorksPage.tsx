@@ -8,5 +8,5 @@ import { HowItWorksCTA } from "@/components/how-it-works/HowItWorksCTA";
 import { PageCopyProvider } from "@/components/i18n/PageCopyProvider";
 import type { HowItWorksCopy } from "@/locales/types";
 export function HowItWorksPage({ copy }: { copy: HowItWorksCopy }) {
-  return <PageCopyProvider copy={copy}><main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><Navbar /><HowItWorksHero /><ForRiders /><ForBrands /><Platform /><HowItWorksCTA /><Footer cta={false} /></main></PageCopyProvider>;
+  return <PageCopyProvider copy={copy}><Navbar /><main id="main-content" className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><HowItWorksHero /><ForRiders /><ForBrands /><Platform /><HowItWorksCTA /></main><Footer cta={false} /></PageCopyProvider>;
 }

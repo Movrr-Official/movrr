@@ -38,12 +38,11 @@ export function CookieConsentBanner({
               </p>
 
               {/* Body */}
-              <p className="text-xs leading-relaxed text-movrr-text-brand/50">
+              <p className="text-xs leading-relaxed text-movrr-text-brand/75">
                 {copy.consent.body}{" "}
                 <button
                   onClick={onManage}
-                  className="text-movrr-text-brand/70 underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
-                  aria-label={copy.consent.manageAria}
+                  className="text-movrr-text-brand underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
                 >
                   {copy.consent.manage}
                 </button>
@@ -60,7 +59,7 @@ export function CookieConsentBanner({
               {/* Secondary — text weight, no border */}
               <button
                 onClick={onRejectAll}
-                className="mt-2.5 w-full py-1 text-center text-[0.75rem] font-medium text-movrr-text-brand/40 transition-opacity duration-150 hover:text-movrr-text-brand/70"
+                className="mt-2.5 w-full py-1 text-center text-[0.75rem] font-medium text-movrr-text-brand/75 transition-opacity duration-150 hover:text-movrr-text-brand"
               >
                 {copy.consent.reject}
               </button>

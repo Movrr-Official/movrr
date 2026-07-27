@@ -7,4 +7,4 @@ import { RewardsCTA } from "@/components/rewards/RewardsCTA";
 import { RewardsImage } from "@/components/rewards/RewardsImage";
 import { PageCopyProvider } from "@/components/i18n/PageCopyProvider";
 import type { RewardsCopy } from "@/locales/types";
-export function RewardsPage({ copy }: { copy: RewardsCopy }) { return <PageCopyProvider copy={copy}><main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><Navbar /><RewardsHero /><HowRewardsWork /><RewardsImage /><RewardsTiers /><RewardsCTA /><Footer cta={false} /></main></PageCopyProvider>; }
+export function RewardsPage({ copy }: { copy: RewardsCopy }) { return <PageCopyProvider copy={copy}><Navbar /><main id="main-content" className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><RewardsHero /><HowRewardsWork /><RewardsImage /><RewardsTiers /><RewardsCTA /></main><Footer cta={false} /></PageCopyProvider>; }

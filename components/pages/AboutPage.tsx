@@ -11,15 +11,18 @@ import type { AboutCopy } from "@/locales/types";
 export function AboutPage({ copy }: { copy: AboutCopy }) {
   return (
     <PageCopyProvider copy={copy}>
-      <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-        <Navbar />
+      <Navbar />
+      <main
+        id="main-content"
+        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+      >
         <AboutHero />
         <AboutOrigin />
         <AboutBeliefs />
         <AboutModel />
         <AboutCTA />
-        <Footer cta={false} />
       </main>
+      <Footer cta={false} />
     </PageCopyProvider>
   );
 }

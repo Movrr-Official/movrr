@@ -5,6 +5,12 @@ import { headers } from "next/headers";
 import { REQUEST_LOCALE_HEADER, normalizeLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionary";
 import { withLocalePath } from "@/lib/i18n/routing";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: false },
+};
 
 export default async function NotFound() {
   const locale = normalizeLocale(
@@ -12,10 +18,13 @@ export default async function NotFound() {
   );
   const copy = (await getDictionary(locale)).common;
   return (
-    <div className="flex min-h-screen flex-col bg-movrr-bg-ink">
+    <main
+      id="main-content"
+      className="flex min-h-screen flex-col bg-movrr-bg-ink"
+    >
       <div className="movrr-shell flex flex-1 flex-col items-start justify-center py-32">
         <div className="mb-14 flex items-center gap-3">
-          <Image src="/logo/icon-no-bg-white.png" alt={copy.branding.iconAlt} width={30} height={30} className="h-[1.7rem] w-[1.7rem] object-contain" />
+          <Image src="/logo/icon-no-bg-white.png" alt="" width={30} height={30} className="h-[1.7rem] w-[1.7rem] object-contain" />
           <span className="text-lg font-semibold tracking-tight text-movrr-text-inverse">{copy.branding.wordmark}</span>
         </div>
         <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-success">404</p>
@@ -27,6 +36,6 @@ export default async function NotFound() {
           {copy.notFound.backHome}<ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

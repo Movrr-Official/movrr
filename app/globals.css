@@ -88,6 +88,17 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -269,7 +280,7 @@
 .legal-prose p {
   font-size: 0.9375rem;
   line-height: 1.8;
-  color: color-mix(in oklab, var(--movrr-text-brand) 55%, transparent);
+  color: color-mix(in oklab, var(--movrr-text-brand) 75%, transparent);
   margin-bottom: 1rem;
 }
 
@@ -295,7 +306,7 @@
 .legal-prose ul li {
   font-size: 0.9375rem;
   line-height: 1.8;
-  color: color-mix(in oklab, var(--movrr-text-brand) 55%, transparent);
+  color: color-mix(in oklab, var(--movrr-text-brand) 75%, transparent);
   margin-bottom: 0.25rem;
 }
 

@@ -17,7 +17,7 @@ export function RewardsImage() {
         className="relative aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
-          src="/b2b-cyclist-pannier-urban.png"
+          src="/images/movrr-brand-cyclist-pannier.webp"
           alt={copy.imageAlt}
           fill
           quality={90}

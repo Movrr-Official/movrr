@@ -65,13 +65,17 @@ for (const dictionaryPath of ["locales/en.ts", "locales/nl/common.ts"]) {
 const proxy = read("proxy.ts");
 for (const token of [
   "detectPathLocale",
-  "accept-language",
   "LOCALE_COOKIE_NAME",
   "REQUEST_LOCALE_HEADER",
-  "Accept-Language, Cookie",
+  "REQUEST_PATHNAME_HEADER",
+  "DEFAULT_LOCALE",
 ]) {
   assert(proxy.includes(token), `proxy includes ${token}`);
 }
+assert(
+  !proxy.includes("accept-language") && !proxy.includes("NextResponse.redirect"),
+  "explicit locale URLs are stable and are not auto-redirected by browser language",
+);
 
 const metadata = read("lib/i18n/metadata.ts");
 for (const token of ["canonical", "x-default", "alternateLocale", "twitter"]) {
@@ -80,8 +84,8 @@ for (const token of ["canonical", "x-default", "alternateLocale", "twitter"]) {
 
 const sitemap = read("app/sitemap.ts");
 assert(
-  sitemap.includes('withLocalePath("en"') &&
-    sitemap.includes('withLocalePath("nl"') &&
+  sitemap.includes('localizedUrl("en"') &&
+    sitemap.includes('localizedUrl("nl"') &&
     sitemap.includes("alternates"),
   "sitemap emits both locales with language alternates",
 );

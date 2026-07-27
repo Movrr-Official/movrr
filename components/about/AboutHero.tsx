@@ -15,7 +15,7 @@ export function AboutHero() {
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"

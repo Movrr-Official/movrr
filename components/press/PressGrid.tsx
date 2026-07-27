@@ -8,7 +8,11 @@ import type { PressCopy } from "@/locales/types";
 
 export function PressGrid() {
   const copy = usePageCopy<PressCopy>();
-  const coverage = copy.coverage;
+  const coverage = copy.coverage.filter(
+    (item) => item.href && item.href !== "#",
+  );
+  if (coverage.length === 0) return null;
+
   return (
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">

@@ -9,13 +9,16 @@ import type { ContactCopy } from "@/locales/types";
 export function ContactPage({ copy }: { copy: ContactCopy }) {
   return (
     <PageCopyProvider copy={copy}>
-      <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-        <Navbar variant="light" />
+      <Navbar variant="light" />
+      <main
+        id="main-content"
+        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+      >
         <ContactHeader />
         <ContactPaths />
         <ContactCredentials />
-        <Footer cta={false} />
       </main>
+      <Footer cta={false} />
     </PageCopyProvider>
   );
 }

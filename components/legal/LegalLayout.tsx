@@ -41,7 +41,7 @@ export function LegalLayout({
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <motion.h1
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 1, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: 0.08,
@@ -63,10 +63,10 @@ export function LegalLayout({
               }}
               className="lg:text-right"
             >
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/30">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/75">
                 {effectiveLabel}
               </p>
-              <p className="mt-1 text-sm font-medium text-movrr-text-brand/50">
+              <p className="mt-1 text-sm font-medium text-movrr-text-brand/75">
                 {effectiveDate}
               </p>
             </motion.div>
@@ -80,7 +80,7 @@ export function LegalLayout({
               duration: 0.65,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-movrr-text-brand/55"
+            className="mt-8 max-w-2xl text-base leading-relaxed text-movrr-text-brand/75"
           >
             {summary}
           </motion.p>
@@ -93,7 +93,7 @@ export function LegalLayout({
           {/* Sticky sidebar navigation */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
+              <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                 {contentsLabel}
               </p>
               <nav className="flex flex-col">
@@ -101,7 +101,7 @@ export function LegalLayout({
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/40 transition-all duration-150 hover:border-movrr-text-brand/25 hover:text-movrr-text-brand"
+                    className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/75 transition-all duration-150 hover:border-movrr-text-brand/40 hover:text-movrr-text-brand"
                   >
                     {section.title}
                   </a>
@@ -111,7 +111,7 @@ export function LegalLayout({
               {/* Related legal links */}
               {relatedLinks.length > 0 && (
                 <div className="mt-10 border-t border-movrr-border-soft pt-8">
-                  <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
+                  <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                     {relatedLabel}
                   </p>
                   <div className="flex flex-col">
@@ -119,7 +119,7 @@ export function LegalLayout({
                       <Link
                         key={link.href}
                         href={withLocalePath(locale, link.href)}
-                        className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/40 transition-all duration-150 hover:border-movrr-text-brand/25 hover:text-movrr-text-brand"
+                        className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/75 transition-all duration-150 hover:border-movrr-text-brand/40 hover:text-movrr-text-brand"
                       >
                         {link.label}
                       </Link>
@@ -156,7 +156,7 @@ export function LegalLayout({
             {/* Mobile related links */}
             {relatedLinks.length > 0 && (
               <div className="mt-16 border-t border-movrr-border-soft pt-10 lg:hidden">
-                <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/30">
+                <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                   {relatedLabel}
                 </p>
                 <div className="flex flex-col divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
@@ -164,7 +164,7 @@ export function LegalLayout({
                     <Link
                       key={link.href}
                       href={withLocalePath(locale, link.href)}
-                      className="py-3.5 text-sm text-movrr-text-brand/50 transition-opacity duration-150 hover:opacity-100 hover:text-movrr-text-brand"
+                      className="py-3.5 text-sm text-movrr-text-brand/75 transition-opacity duration-150 hover:opacity-100 hover:text-movrr-text-brand"
                     >
                       {link.label}
                     </Link>

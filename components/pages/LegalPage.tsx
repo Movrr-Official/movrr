@@ -24,19 +24,24 @@ export function LegalPage({ copy }: { copy: LegalPageCopy }) {
   }));
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
+    <>
       <Navbar variant="light" />
-      <LegalLayout
-        title={copy.title}
-        effectiveDate={copy.effectiveDate}
-        summary={copy.summary}
-        sections={sections}
-        relatedLinks={copy.relatedLinks}
-        effectiveLabel={copy.effectiveLabel}
-        contentsLabel={copy.contentsLabel}
-        relatedLabel={copy.relatedLabel}
-      />
+      <main
+        id="main-content"
+        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+      >
+        <LegalLayout
+          title={copy.title}
+          effectiveDate={copy.effectiveDate}
+          summary={copy.summary}
+          sections={sections}
+          relatedLinks={copy.relatedLinks}
+          effectiveLabel={copy.effectiveLabel}
+          contentsLabel={copy.contentsLabel}
+          relatedLabel={copy.relatedLabel}
+        />
+      </main>
       <Footer cta={false} />
-    </main>
+    </>
   );
 }

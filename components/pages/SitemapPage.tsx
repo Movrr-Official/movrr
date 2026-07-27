@@ -5,5 +5,5 @@ import { SitemapDirectory } from "@/components/sitemap/SitemapDirectory";
 import { PageCopyProvider } from "@/components/i18n/PageCopyProvider";
 import type { SitemapCopy } from "@/locales/types";
 export function SitemapPage({ copy }: { copy: SitemapCopy }) {
-  return <PageCopyProvider copy={copy}><main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><Navbar variant="light" /><SitemapHeader /><SitemapDirectory /><Footer cta={false} /></main></PageCopyProvider>;
+  return <PageCopyProvider copy={copy}><Navbar variant="light" /><main id="main-content" className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><SitemapHeader /><SitemapDirectory /></main><Footer cta={false} /></PageCopyProvider>;
 }

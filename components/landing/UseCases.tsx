@@ -5,9 +5,9 @@ import Image from "next/image";
 import type { HomeCopy } from "@/locales/types";
 
 const images = [
-  "/urban-cyclist-checking-earnings.png",
-  "/usecase-sponsored-community-rides-aerial.png",
-  "/usecase-city-cycling-waterfront-dusk.png",
+  "/images/movrr-cyclist-checking-rewards.webp",
+  "/images/movrr-sponsored-community-ride.webp",
+  "/images/movrr-city-cycling-waterfront.webp",
 ];
 
 export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {
@@ -54,7 +54,6 @@ export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {
                   alt={useCase.imageAlt}
                   fill
                   quality={88}
-                  loading="eager"
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />

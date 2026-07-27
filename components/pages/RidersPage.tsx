@@ -6,4 +6,4 @@ import { RidersEarnings } from "@/components/riders/RidersEarnings";
 import { RidersCTA } from "@/components/riders/RidersCTA";
 import { PageCopyProvider } from "@/components/i18n/PageCopyProvider";
 import type { RidersCopy } from "@/locales/types";
-export function RidersPage({ copy }: { copy: RidersCopy }) { return <PageCopyProvider copy={copy}><main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><Navbar /><RidersHero /><RidersProposition /><RidersEarnings /><RidersCTA /><Footer cta={false} /></main></PageCopyProvider>; }
+export function RidersPage({ copy }: { copy: RidersCopy }) { return <PageCopyProvider copy={copy}><Navbar /><main id="main-content" className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><RidersHero /><RidersProposition /><RidersEarnings /><RidersCTA /></main><Footer cta={false} /></PageCopyProvider>; }

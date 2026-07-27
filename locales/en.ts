@@ -180,14 +180,14 @@ export const en = {
           "Ride your city. Earn with every kilometre. Carry a brand to earn more. Your movement, your choice.",
       },
       about: {
-        title: "About",
+        title: "Company and mission",
         description:
           "Built around the ride. MOVRR is a movement-based rewards platform for cyclists, and verified reach for brands.",
       },
       blog: {
         title: "Journal",
         description:
-          "Thinking on movement, cities, and building the platform behind them.",
+          "MOVRR perspectives on verified movement, cycling rewards, healthier cities, and the platform behind them.",
       },
       press: {
         title: "Press & Media",
@@ -217,21 +217,22 @@ export const en = {
       accessibility: {
         title: "Accessibility",
         description:
-          "MOVRR's accessibility statement and commitments to WCAG 2.1 AA conformance and inclusive design.",
+          "MOVRR's accessibility statement and commitments to WCAG 2.2 AA conformance and inclusive design.",
       },
       sitemapPage: {
         title: "Sitemap",
-        description: "Every page on movrr.nl, organised by section.",
+        description:
+          "Explore every public MOVRR page, organised by platform, company, resource, and legal sections.",
       },
       privacy: {
         title: "Privacy Policy",
         description:
-          "How MOVRR collects, uses, and protects personal data.",
+          "Learn how MOVRR collects, uses, protects, retains, and enables you to control your personal data.",
       },
       terms: {
         title: "Terms of Service",
         description:
-          "The terms governing use of MOVRR for riders and brand partners.",
+          "Read the terms governing the MOVRR platform, rider accounts, rewards, campaigns, and brand-partner use.",
       },
       cookies: {
         title: "Cookie Policy",
@@ -241,7 +242,7 @@ export const en = {
       accountDeletion: {
         title: "Delete your account",
         description:
-          "How to permanently delete your MOVRR account and associated data.",
+          "Follow the steps to permanently delete your MOVRR account and understand what happens to associated data.",
       },
     },
   },
@@ -259,7 +260,7 @@ export const en = {
       valueStrip: {
         titleLine1: "Real movement.",
         titleLine2: "Real returns.",
-        learnMore: "Learn more",
+        learnMore: "See how MOVRR works",
         description:
           "A rewards platform for cyclists. Earn by riding. Brands reach people already in motion.",
         values: [
@@ -829,17 +830,17 @@ export const en = {
       ],
     },
     accessibility: {
-      statement: { titleLine1: "Access is not", titleLine2: "an afterthought.", targetLabel: "Conformance target", target: "WCAG 2.1 Level AA. Ongoing. Not a one-time audit." },
+      statement: { titleLine1: "Access is not", titleLine2: "an afterthought.", targetLabel: "Conformance target", target: "WCAG 2.2 Level AA. Ongoing, not a one-time audit." },
       commitmentsLabel: "Our commitments",
       commitments: [
-        { id: "01", title: "Keyboard navigation", description: "Every page and feature is fully navigable using only a keyboard. No mouse is required to browse, complete a ride, or redeem rewards." },
-        { id: "02", title: "Screen reader support", description: "We use semantic HTML and ARIA landmarks. Content order, labels, and live regions are tested with VoiceOver and NVDA." },
-        { id: "03", title: "Colour contrast", description: "All text meets WCAG AA contrast ratios. Informational UI meets AAA. Contrast is checked at every design review." },
-        { id: "04", title: "Reduced motion", description: "Animations respect prefers-reduced-motion. Every moving element has a static fallback that communicates the same content." },
-        { id: "05", title: "Focus management", description: "Visible focus indicators are present throughout. Modals and overlays manage focus correctly without keyboard traps." },
-        { id: "06", title: "Text alternatives", description: "Meaningful images have descriptive alt text. Decorative images are presentational. Charts include text summaries." },
+        { id: "01", title: "Keyboard navigation", description: "We design and test website pages and interactive features for keyboard use, with visible focus and no mouse-only controls." },
+        { id: "02", title: "Screen reader support", description: "We use semantic HTML, meaningful labels, and ARIA only where native elements do not communicate enough context." },
+        { id: "03", title: "Colour contrast", description: "Text and informative interface elements are designed to meet WCAG 2.2 AA contrast requirements." },
+        { id: "04", title: "Reduced motion", description: "Website animations respect the prefers-reduced-motion setting while preserving the same information and controls." },
+        { id: "05", title: "Focus management", description: "Interactive elements use visible focus indicators, and overlays are designed to preserve a logical keyboard focus order." },
+        { id: "06", title: "Text alternatives", description: "Meaningful website images include descriptive alternatives, while decorative images are hidden from assistive technology." },
       ],
-      contact: { label: "Found a barrier?", description: "If something on the platform creates a barrier — a missing label, navigation issue, or contrast problem — we want to know. Reports go directly to the team and take priority.", responseTitle: "Response time", responseBody: "We acknowledge reports within 2 business days and provide a resolution timeline within 5.", complaintTitle: "Formal complaint", complaintBeforeLink: "If you are not satisfied with our response, you may contact the Irish Human Rights and Equality Commission at", standardTitle: "Technical standard", standardBody: "We aim for WCAG 2.1 Level AA conformance across the platform and this website. Our audit cycle runs quarterly." },
+      contact: { label: "Found a barrier?", description: "If something on the website creates a barrier — a missing label, navigation issue, or contrast problem — we want to know. Reports go directly to the team.", responseTitle: "What happens next", responseBody: "We aim to acknowledge accessibility reports promptly and share progress while the issue is investigated.", complaintTitle: "Request a review", complaintBeforeLink: "If you are not satisfied with our response, reply to your case and request an internal accessibility review.", standardTitle: "Technical standard", standardBody: "We use WCAG 2.2 Level AA as the target for this website and review accessibility throughout design and engineering work." },
     },
     sitemapPage: {
       title: "Everything in one place.",

@@ -6,5 +6,5 @@ import { PartnersContact } from "@/components/partners/PartnersContact";
 import { PageCopyProvider } from "@/components/i18n/PageCopyProvider";
 import type { PartnersCopy } from "@/locales/types";
 export function PartnersPage({ copy }: { copy: PartnersCopy }) {
-  return <PageCopyProvider copy={copy}><main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><Navbar /><PartnersHero /><PartnerTypes /><PartnersContact /><Footer cta={false} /></main></PageCopyProvider>;
+  return <PageCopyProvider copy={copy}><Navbar /><main id="main-content" className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"><PartnersHero /><PartnerTypes /><PartnersContact /></main><Footer cta={false} /></PageCopyProvider>;
 }

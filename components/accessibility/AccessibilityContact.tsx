@@ -12,21 +12,21 @@ export function AccessibilityContact() {
 
         {/* Top — label + context */}
         <div className="mb-16 lg:mb-20">
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/30"
+            className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-inverse/75"
           >
             {copy.label}
-          </motion.p>
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-xl text-base leading-relaxed text-movrr-text-inverse/45"
+            className="max-w-xl text-base leading-relaxed text-movrr-text-inverse/75"
           >
             {copy.description}
           </motion.p>
@@ -56,7 +56,7 @@ export function AccessibilityContact() {
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
               {copy.responseTitle}
             </p>
-            <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
+            <p className="text-sm leading-relaxed text-movrr-text-inverse/75">
               {copy.responseBody}
             </p>
           </div>
@@ -64,24 +64,15 @@ export function AccessibilityContact() {
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
               {copy.complaintTitle}
             </p>
-            <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
-              {copy.complaintBeforeLink}{" "}
-              <a
-                href="https://www.ihrec.ie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-movrr-text-inverse/60 underline underline-offset-2 hover:text-movrr-text-inverse"
-              >
-                ihrec.ie
-              </a>
-              .
+            <p className="text-sm leading-relaxed text-movrr-text-inverse/75">
+              {copy.complaintBeforeLink}
             </p>
           </div>
           <div className="sm:pl-10">
             <p className="mb-2 text-sm font-medium text-movrr-text-inverse/70">
               {copy.standardTitle}
             </p>
-            <p className="text-sm leading-relaxed text-movrr-text-inverse/40">
+            <p className="text-sm leading-relaxed text-movrr-text-inverse/75">
               {copy.standardBody}
             </p>
           </div>

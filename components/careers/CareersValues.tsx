@@ -16,15 +16,15 @@ export function CareersValues() {
 
           {/* Left — section label pinned to top */}
           <div>
-            <motion.p
+            <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35"
+              className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75"
             >
               {copy.valuesLabel}
-            </motion.p>
+            </motion.h2>
           </div>
 
           {/* Right — values as prose blocks */}
@@ -45,7 +45,7 @@ export function CareersValues() {
                 <h3 className="mb-3 text-[clamp(1.25rem,1.8vw,1.6rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand">
                   {value.title}
                 </h3>
-                <p className="max-w-lg text-base leading-relaxed text-movrr-text-brand/50">
+                <p className="max-w-lg text-base leading-relaxed text-movrr-text-brand/75">
                   {value.description}
                 </p>
               </motion.div>

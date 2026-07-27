@@ -14,11 +14,16 @@ export function WaitlistPage({
 }) {
   const copy = dictionary.pages.waitlist;
   return (
-    <main className="min-h-screen overflow-x-hidden bg-movrr-bg-primary">
+    <>
       <Navbar variant="dark" />
-      <WaitlistHero copy={copy.hero} />
-      <WaitlistForm copy={copy.form} locale={locale} />
+      <main
+        id="main-content"
+        className="min-h-screen overflow-x-hidden bg-movrr-bg-primary"
+      >
+        <WaitlistHero copy={copy.hero} />
+        <WaitlistForm copy={copy.form} locale={locale} />
+      </main>
       <Footer cta={false} />
-    </main>
+    </>
   );
 }

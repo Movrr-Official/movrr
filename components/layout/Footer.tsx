@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
+import { Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SystemStatus } from "./SystemStatus";
@@ -15,16 +15,10 @@ interface FooterProps {
 }
 
 const socialLinks = [
-  { icon: Twitter, href: "https://x.com/movrr", label: "Twitter" },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/company/movrr",
+    href: "https://www.linkedin.com/showcase/movrr.app/",
     label: "LinkedIn",
-  },
-  {
-    icon: Instagram,
-    href: "https://instagram.com/movrr.app",
-    label: "Instagram",
   },
 ];
 
@@ -84,9 +78,9 @@ export function Footer({ cta = true }: FooterProps) {
               className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
             >
               <div>
-                <h3 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
+                <h2 className="text-[clamp(2rem,3.5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-movrr-text-inverse">
                   {copy.footer.ctaTitle}
-                </h3>
+                </h2>
                 <p className="mt-4 max-w-md text-base leading-relaxed text-movrr-text-inverse/55">
                   {copy.footer.ctaBody}
                 </p>
@@ -124,7 +118,7 @@ export function Footer({ cta = true }: FooterProps) {
             <Link href={withLocalePath(locale, "/")} className="flex items-center gap-3 mb-5">
               <Image
                 src="/logo/icon-no-bg-white.png"
-                alt={copy.branding.iconAlt}
+                alt=""
                 width={30}
                 height={30}
                 className="h-[1.7rem] w-[1.7rem] object-contain"
@@ -154,10 +148,10 @@ export function Footer({ cta = true }: FooterProps) {
 
           {/* Link Columns */}
           {footerLinks.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-xs font-semibold text-movrr-text-inverse/80 uppercase tracking-wider mb-4">
+            <nav key={section.title} aria-label={section.title}>
+              <h2 className="text-xs font-semibold text-movrr-text-inverse/80 uppercase tracking-wider mb-4">
                 {section.title}
-              </h4>
+              </h2>
               <ul className="space-y-2.5">
                 {section.links.map(([label, href]) => (
                   <li key={href}>
@@ -170,25 +164,25 @@ export function Footer({ cta = true }: FooterProps) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           ))}
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-movrr-text-inverse/40">
+          <p className="text-xs text-movrr-text-inverse/60">
             &copy; {new Date().getFullYear()} {copy.footer.copyright}
           </p>
           <div className="flex items-center gap-5">
             <Link
               href={withLocalePath(locale, "/accessibility")}
-              className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
+              className="text-xs text-movrr-text-inverse/60 hover:text-movrr-text-inverse/80 transition-colors"
             >
               {copy.footer.accessibility}
             </Link>
             <Link
               href={withLocalePath(locale, "/sitemap-page")}
-              className="text-xs text-movrr-text-inverse/40 hover:text-movrr-text-inverse/60 transition-colors"
+              className="text-xs text-movrr-text-inverse/60 hover:text-movrr-text-inverse/80 transition-colors"
             >
               {copy.footer.sitemap}
             </Link>

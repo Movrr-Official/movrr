@@ -68,7 +68,7 @@ export function PressKit() {
             {assets.map((asset, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={`mailto:press@movrr.nl?subject=${encodeURIComponent(`MOVRR press kit request: ${asset.label}`)}`}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

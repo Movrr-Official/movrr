@@ -13,14 +13,14 @@ export function AccessibilityStatement() {
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2.75rem,6vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"
           >
             {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/40">{copy.titleLine2}</span>
+            <span className="text-movrr-text-inverse/70">{copy.titleLine2}</span>
           </motion.h1>
 
           <motion.div
@@ -29,10 +29,10 @@ export function AccessibilityStatement() {
             transition={{ delay: 0.28, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-2 lg:mb-2 lg:items-end lg:text-right"
           >
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/30">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/75">
               {copy.targetLabel}
             </p>
-            <p className="max-w-xs text-sm leading-relaxed text-movrr-text-inverse/50">
+            <p className="max-w-xs text-sm leading-relaxed text-movrr-text-inverse/75">
               {copy.target}
             </p>
           </motion.div>

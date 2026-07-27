@@ -111,10 +111,15 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
       >
         <div className="movrr-shell">
           <nav
+            aria-label={locale === "nl" ? "Hoofdnavigatie" : "Primary navigation"}
             className={`flex items-center justify-between overflow-hidden rounded-3xl border transition-all duration-400 ${
               isScrolled
                 ? `h-15 ${isMobileMenuOpen ? "max-lg:border-transparent max-lg:shadow-none" : "border-movrr-text-inverse/12"} bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-17 lg:border-movrr-text-inverse/12 lg:shadow-sm lg:px-4`
-                : "h-16 border-transparent bg-transparent px-0 shadow-none backdrop-blur-none lg:h-20"
+                : `h-16 border-transparent px-3 shadow-none lg:h-20 lg:px-4 ${
+                    variant === "dark"
+                      ? "bg-movrr-bg-primary/85 backdrop-blur-md"
+                      : "bg-transparent backdrop-blur-none"
+                  }`
             }`}
           >
             <Link
@@ -128,10 +133,9 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                     ? "/logo/icon-no-bg-green.png"
                     : "/logo/icon-no-bg-white.png"
                 }
-                alt={copy.branding.iconAlt}
+                alt=""
                 width={30}
                 height={30}
-                priority
                 className="h-[1.7rem] w-[1.7rem] object-contain lg:h-[1.9rem] lg:w-[1.9rem]"
               />
               <span
@@ -247,6 +251,11 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             >
               {/* Primary nav links — each rolls up within a clipped container */}
               <motion.nav
+                aria-label={
+                  locale === "nl"
+                    ? "Mobiele hoofdnavigatie"
+                    : "Mobile primary navigation"
+                }
                 variants={navListVariants}
                 className="flex flex-1 flex-col justify-center gap-0"
               >

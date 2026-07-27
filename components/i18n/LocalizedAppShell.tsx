@@ -18,6 +18,12 @@ export async function LocalizedAppShell({
   return (
     <CommonCopyProvider locale={locale} copy={dictionary.common}>
       <DocumentLocale locale={locale} />
+      <a
+        href="#main-content"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-movrr-bg-elevated px-4 py-3 text-sm font-semibold text-movrr-text-brand shadow-lg transition-transform focus:translate-y-0"
+      >
+        {locale === "nl" ? "Ga naar de hoofdinhoud" : "Skip to main content"}
+      </a>
       <EarlyAccessBanner audience="riders" placement="fixed-top" />
       {children}
       <CookieConsentManager />

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import Image from "next/image";
 import {
   VerifiedIcon,
   PrivacyIcon,
@@ -21,25 +20,10 @@ export function Safety({ copy }: { copy: HomeCopy["safety"] }) {
       {/* ── Full-bleed image section ── */}
       <section
         id="safety"
-        className="relative min-h-screen overflow-hidden border-t border-movrr-border-soft bg-movrr-bg-muted lg:min-h-[125vh]"
+        className="relative min-h-screen overflow-hidden border-t border-movrr-border-soft bg-[radial-gradient(circle_at_70%_35%,rgba(184,255,164,0.14),transparent_34%),linear-gradient(160deg,var(--movrr-bg-muted),var(--movrr-bg-canvas))] lg:min-h-[110vh]"
       >
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/app-preview-02.png"
-            alt={copy.imageAlt}
-            fill
-            loading="eager"
-            fetchPriority="high"
-            quality={88}
-            sizes="100vw"
-            className="object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-movrr-bg-backdrop/10 via-transparent to-movrr-bg-backdrop/15" />
-        </div>
-
         {/* Content overlay */}
-        <div className="relative z-10 flex min-h-screen flex-col px-6 lg:min-h-[125vh] lg:px-12">
+        <div className="relative z-10 flex min-h-screen flex-col px-6 lg:min-h-[110vh] lg:px-12">
           {/* Heading — centered, top */}
           <div className="mx-auto w-full max-w-3xl pb-20 pt-20 text-center lg:pb-28 lg:pt-28">
             <motion.h2

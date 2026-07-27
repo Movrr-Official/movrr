@@ -28,10 +28,13 @@ export function ContactPaths() {
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)_minmax(0,0.8fr)] lg:gap-16 lg:items-start">
                 {/* Audience + index */}
                 <div className="flex items-start justify-between lg:flex-col lg:justify-between lg:gap-10">
-                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/40">
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                     {path.audience}
                   </p>
-                  <span className="text-[0.62rem] font-semibold tabular-nums tracking-widest text-movrr-text-brand/18 lg:text-[clamp(3rem,5vw,5rem)] lg:font-semibold lg:leading-none lg:tracking-[-0.04em] lg:text-movrr-text-brand/6">
+                  <span
+                    aria-hidden="true"
+                    className="text-[0.62rem] font-semibold tabular-nums tracking-widest text-movrr-text-brand/70 lg:text-[clamp(3rem,5vw,5rem)] lg:font-semibold lg:leading-none lg:tracking-[-0.04em] lg:text-movrr-text-brand/20"
+                  >
                     {path.index}
                   </span>
                 </div>
@@ -41,7 +44,7 @@ export function ContactPaths() {
                   <h2 className="mb-4 text-[clamp(1.4rem,2vw,2rem)] font-semibold leading-tight tracking-[-0.03em] text-movrr-text-brand">
                     {path.heading}
                   </h2>
-                  <p className="text-base leading-relaxed text-movrr-text-brand/50">
+                  <p className="text-base leading-relaxed text-movrr-text-brand/75">
                     {path.description}
                   </p>
                 </div>
@@ -63,7 +66,7 @@ export function ContactPaths() {
                       {path.action}
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
                     </Link>
-                    <p className="mt-3 text-xs text-movrr-text-brand/50">
+                    <p className="mt-3 text-xs text-movrr-text-brand/75">
                       {path.note}
                     </p>
                   </div>

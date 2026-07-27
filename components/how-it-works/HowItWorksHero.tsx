@@ -16,7 +16,7 @@ export function HowItWorksHero() {
       {/* Heading block */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-[clamp(3rem,8vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-movrr-text-inverse"

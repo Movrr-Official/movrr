@@ -217,21 +217,22 @@ export const nl: Dictionary = {
       accessibility: {
         title: "Toegankelijkheid",
         description:
-          "De toegankelijkheidsverklaring van MOVRR en onze inzet voor WCAG 2.1 AA en inclusief ontwerp.",
+          "De toegankelijkheidsverklaring van MOVRR en onze inzet voor WCAG 2.2 AA en inclusief ontwerp.",
       },
       sitemapPage: {
         title: "Sitemap",
-        description: "Elke pagina op movrr.nl, geordend per onderdeel.",
+        description:
+          "Bekijk alle openbare MOVRR-pagina's, geordend op platform, bedrijf, informatie en juridische onderwerpen.",
       },
       privacy: {
         title: "Privacybeleid",
         description:
-          "Hoe MOVRR persoonsgegevens verzamelt, gebruikt en beschermt.",
+          "Lees hoe MOVRR persoonsgegevens verzamelt, gebruikt, beschermt en bewaart, en hoe je jouw rechten uitoefent.",
       },
       terms: {
         title: "Gebruiksvoorwaarden",
         description:
-          "De voorwaarden voor fietsers en merkpartners die MOVRR gebruiken.",
+          "Lees de voorwaarden voor het MOVRR-platform, accounts, beloningen, campagnes, fietsers en merkpartners.",
       },
       cookies: {
         title: "Cookiebeleid",
@@ -1464,7 +1465,7 @@ export const nl: Dictionary = {
         titleLine1: "Toegankelijkheid",
         titleLine2: "hoort erbij.",
         targetLabel: "Onze norm",
-        target: "WCAG 2.1 niveau AA, blijvend getoetst.",
+        target: "WCAG 2.2 niveau AA, als doorlopend doel.",
       },
       commitmentsLabel: "Onze toezeggingen",
       commitments: [
@@ -1472,37 +1473,37 @@ export const nl: Dictionary = {
           id: "01",
           title: "Bediening met het toetsenbord",
           description:
-            "Elke pagina en functie is volledig met het toetsenbord te gebruiken. Je hebt geen muis nodig om door de site te gaan, een rit af te ronden of beloningen in te wisselen.",
+            "We ontwerpen en testen websitepagina's en interactieve functies voor toetsenbordgebruik, met zichtbare focus en zonder bediening die alleen met een muis werkt.",
         },
         {
           id: "02",
           title: "Ondersteuning voor schermlezers",
           description:
-            "We gebruiken semantische HTML en ARIA-herkenningspunten. Leesvolgorde, labels en livegebieden testen we met VoiceOver en NVDA.",
+            "We gebruiken semantische HTML, duidelijke labels en alleen ARIA wanneer standaard HTML-elementen niet genoeg context geven.",
         },
         {
           id: "03",
           title: "Kleurcontrast",
           description:
-            "Alle tekst voldoet aan WCAG AA. Informatieve onderdelen voldoen aan AAA. Bij iedere ontwerpbeoordeling controleren we het contrast.",
+            "Tekst en informatieve interface-elementen worden ontworpen volgens de contrasteisen van WCAG 2.2 niveau AA.",
         },
         {
           id: "04",
           title: "Minder animatie",
           description:
-            "We respecteren de instelling ‘verminder beweging’. Elk bewegend onderdeel heeft een stil alternatief met dezelfde informatie.",
+            "Animaties op de website respecteren de instelling voor minder beweging en behouden dezelfde informatie en bediening.",
         },
         {
           id: "05",
           title: "Zichtbare focus",
           description:
-            "Je ziet altijd welk onderdeel actief is. Dialoogvensters en lagen houden de toetsenbordfocus op de juiste plek.",
+            "Interactieve onderdelen hebben zichtbare focus. Lagen en dialoogvensters worden ontworpen met een logische toetsenbordvolgorde.",
         },
         {
           id: "06",
           title: "Tekstalternatieven",
           description:
-            "Betekenisvolle afbeeldingen hebben beschrijvende alt-tekst. Decoratieve beelden zijn als zodanig gemarkeerd. Grafieken bevatten tekstsamenvattingen.",
+            "Betekenisvolle websiteafbeeldingen hebben een beschrijvend alternatief. Decoratieve beelden worden verborgen voor hulptechnologie.",
         },
       ],
       contact: {
@@ -1511,13 +1512,13 @@ export const nl: Dictionary = {
           "Kun je iets niet goed lezen, vinden of bedienen? Laat het ons weten. Je melding gaat rechtstreeks naar het team en krijgt voorrang.",
         responseTitle: "Wanneer hoor je van ons?",
         responseBody:
-          "We bevestigen je melding binnen 2 werkdagen. Binnen 5 werkdagen laten we weten wanneer we het oplossen.",
+          "We proberen toegankelijkheidsmeldingen snel te bevestigen en houden je tijdens het onderzoek op de hoogte van de voortgang.",
         complaintTitle: "Een klacht indienen",
         complaintBeforeLink:
-          "Ben je niet tevreden met onze reactie? Neem dan contact op met de Irish Human Rights and Equality Commission via",
+          "Ben je niet tevreden met onze reactie? Antwoord op je melding en vraag om een interne toegankelijkheidsbeoordeling.",
         standardTitle: "Technische norm",
         standardBody:
-          "Voor het platform en deze website hanteren we WCAG 2.1 niveau AA. Elk kwartaal controleren we of we daaraan voldoen.",
+          "We gebruiken WCAG 2.2 niveau AA als doel voor deze website en beoordelen toegankelijkheid tijdens ontwerp en ontwikkeling.",
       },
     },
     sitemapPage: {

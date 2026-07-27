@@ -46,7 +46,7 @@ export function LanguageSwitcher({
 
   const active = inverted ? "text-movrr-text-inverse" : "text-movrr-text-brand";
   const inactive = inverted
-    ? "text-movrr-text-inverse/35 hover:text-movrr-text-inverse/65"
+    ? "text-movrr-text-inverse/60 hover:text-movrr-text-inverse/80"
     : "text-movrr-text-brand/35 hover:text-movrr-text-brand/65";
 
   return (
@@ -69,7 +69,7 @@ export function LanguageSwitcher({
             )}
             <button
               type="button"
-              aria-label={`${labels.ariaLabel}: ${name}`}
+              aria-label={`${label} — ${name}`}
               aria-pressed={currentLocale === locale}
               lang={locale}
               className={`min-h-11 px-2 text-[0.65rem] font-semibold uppercase tracking-[0.14em] transition-colors ${

@@ -9,13 +9,16 @@ import type { CareersCopy } from "@/locales/types";
 export function CareersPage({ copy }: { copy: CareersCopy }) {
   return (
     <PageCopyProvider copy={copy}>
-      <main className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas">
-        <Navbar variant="light" />
+      <Navbar variant="light" />
+      <main
+        id="main-content"
+        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+      >
         <CareersHero />
         <CareersValues />
         <CareersRoles />
-        <Footer cta={false} />
       </main>
+      <Footer cta={false} />
     </PageCopyProvider>
   );
 }

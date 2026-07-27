@@ -113,7 +113,7 @@ export function SystemStatus() {
         />
       </div>
 
-      <span className="text-xs text-movrr-text-inverse/40">{label}</span>
+      <span className="text-xs text-movrr-text-inverse/60">{label}</span>
     </div>
   );
 }

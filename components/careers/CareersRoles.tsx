@@ -28,7 +28,7 @@ export function CareersRoles() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm text-movrr-text-brand/40"
+            className="text-sm text-movrr-text-brand/75"
           >
             {roles.length} {copy.positionsOpen}
           </motion.p>
@@ -50,13 +50,13 @@ export function CareersRoles() {
               }}
               className="group -mx-6 grid grid-cols-1 gap-2 px-6 py-7 transition-colors duration-200 hover:bg-movrr-bg-canvas lg:-mx-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.4fr)_minmax(0,0.7fr)_auto] lg:items-center lg:gap-8 lg:px-12 lg:py-8"
             >
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/35">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-brand/75">
                 {role.department}
               </p>
               <h3 className="text-base font-semibold tracking-[-0.01em] text-movrr-text-brand">
                 {role.title}
               </h3>
-              <p className="text-sm text-movrr-text-brand/45">
+              <p className="text-sm text-movrr-text-brand/75">
                 {role.location}
               </p>
               <ArrowRight className="hidden h-4 w-4 text-movrr-text-brand/25 transition-all duration-200 group-hover:translate-x-1 group-hover:text-movrr-text-brand/60 lg:block" />
@@ -70,12 +70,12 @@ export function CareersRoles() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 text-sm text-movrr-text-brand/40"
+          className="mt-10 text-sm text-movrr-text-brand/75"
         >
           {copy.openApplication}{" "}
           <a
             href="mailto:hello@movrr.nl"
-            className="text-movrr-text-brand/60 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand"
+            className="text-movrr-text-brand underline underline-offset-2 transition-opacity duration-150 hover:opacity-75"
           >
             {copy.openApplicationCta}
           </a>

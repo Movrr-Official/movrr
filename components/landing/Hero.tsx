@@ -14,7 +14,7 @@ export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale 
       {/* Full-width background image */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-bg-bob-on-bike.png"
+          src="/images/movrr-cyclist-urban-ride.webp"
           alt={copy.imageAlt}
           fill
           priority
@@ -39,7 +39,7 @@ export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale 
           <div className="max-w-2xl">
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.15,
@@ -55,7 +55,7 @@ export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale 
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,

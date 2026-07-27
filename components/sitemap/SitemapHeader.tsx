@@ -11,7 +11,7 @@ export function SitemapHeader() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 1, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-[clamp(2rem,4vw,4rem)] font-semibold leading-[0.94] tracking-[-0.04em] text-movrr-text-brand"

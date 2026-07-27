@@ -1,81 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { usePageCopy } from "@/components/i18n/PageCopyProvider";
 import type { BlogCopy } from "@/locales/types";
-
 
 export function BlogMasthead() {
   const copy = usePageCopy<BlogCopy>();
   const lead = copy.featured;
-  return (
-    <section className="relative flex min-h-[80vh] flex-col justify-between overflow-hidden bg-movrr-bg-primary pb-0 pt-40 lg:pt-52">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
-        {/* Journal label + title row */}
-        <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.08,
-                duration: 0.9,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="text-[clamp(4rem,8vw,10rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
-            >
-              {copy.titleLine1}
-              <br />
-              {copy.titleLine2}
-            </motion.h1>
-          </div>
+  const hasPublishedLead = Boolean(lead.href) && lead.href !== "#";
 
-          {/* Lead article teaser — bottom right of header */}
-          <motion.a
-            href={lead.href}
-            initial={{ opacity: 0, y: 12 }}
+  return (
+    <section className="relative flex min-h-[80vh] flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_75%_35%,rgba(184,255,164,0.1),transparent_34%),var(--movrr-bg-primary)] py-40 lg:py-52">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <motion.h1
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.28,
-              duration: 0.7,
+              delay: 0.08,
+              duration: 0.9,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="group flex max-w-sm flex-col gap-3 pb-1 lg:items-end lg:text-right"
+            className="text-[clamp(4rem,8vw,10rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
           >
-            <span className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/35">
-              {lead.category} · {lead.readTime}
-            </span>
-            <p className="text-sm font-medium leading-snug tracking-[-0.01em] text-movrr-text-inverse/70 transition-opacity duration-200 group-hover:text-movrr-text-inverse">
-              {lead.title}
-            </p>
-            <span className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-widest text-movrr-text-inverse/35 transition-all duration-200 group-hover:text-movrr-text-inverse/60 lg:justify-end">
-              {copy.read}
-              <ArrowRight className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:rotate-45" />
-            </span>
-          </motion.a>
+            {copy.titleLine1}
+            <br />
+            {copy.titleLine2}
+          </motion.h1>
+
+          {hasPublishedLead && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.28,
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="flex max-w-sm flex-col gap-3 pb-1 lg:items-end lg:text-right"
+            >
+              <span className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-movrr-text-inverse/50">
+                {lead.category} · {lead.readTime}
+              </span>
+              <p className="text-sm font-medium leading-snug tracking-[-0.01em] text-movrr-text-inverse/75">
+                {lead.title}
+              </p>
+            </motion.div>
+          )}
         </div>
       </div>
-
-      {/* Full-width image — flush to bottom of masthead */}
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.18, duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mt-4 w-full overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-21/9"
-      >
-        <Image
-          src="/app-preview-01.png"
-          alt={copy.imageAlt}
-          fill
-          sizes="100vw"
-          className="object-cover object-top"
-          priority
-        />
-        {/* Gradient fade at bottom to blend into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-movrr-bg-primary/60 to-transparent" />
-      </motion.div>
     </section>
   );
 }

@@ -3,15 +3,19 @@ import {
   DEFAULT_LOCALE,
   LOCALE_COOKIE_NAME,
   REQUEST_LOCALE_HEADER,
-  isLocale,
-  normalizeLocale,
+  REQUEST_PATHNAME_HEADER,
   type Locale,
 } from "@/lib/i18n/config";
 import { detectPathLocale } from "@/lib/i18n/routing";
 
-function withLocaleHeader(request: NextRequest, locale: Locale) {
+function withRequestHeaders(
+  request: NextRequest,
+  locale: Locale,
+  pathname: string,
+) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set(REQUEST_LOCALE_HEADER, locale);
+  requestHeaders.set(REQUEST_PATHNAME_HEADER, pathname);
   return requestHeaders;
 }
 
@@ -22,10 +26,6 @@ function setLocaleCookie(response: NextResponse, locale: Locale) {
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
   });
-}
-
-function setLocaleVary(response: NextResponse) {
-  response.headers.set("Vary", "Accept-Language, Cookie");
 }
 
 function isPublicAsset(pathname: string) {
@@ -45,31 +45,19 @@ export function proxy(request: NextRequest) {
   const localeFromPath = detectPathLocale(pathname);
   if (localeFromPath) {
     const response = NextResponse.next({
-      request: { headers: withLocaleHeader(request, localeFromPath) },
+      request: {
+        headers: withRequestHeaders(request, localeFromPath, pathname),
+      },
     });
     setLocaleCookie(response, localeFromPath);
-    setLocaleVary(response);
-    return response;
-  }
-
-  const cookieValue = request.cookies.get(LOCALE_COOKIE_NAME)?.value;
-  const localeFromCookie = isLocale(cookieValue) ? cookieValue : null;
-  const preferredLocale =
-    localeFromCookie ?? normalizeLocale(request.headers.get("accept-language"));
-
-  if (preferredLocale !== DEFAULT_LOCALE) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = `/nl${pathname === "/" ? "" : pathname}`;
-    const response = NextResponse.redirect(redirectUrl);
-    setLocaleCookie(response, "nl");
-    setLocaleVary(response);
     return response;
   }
 
   const response = NextResponse.next({
-    request: { headers: withLocaleHeader(request, DEFAULT_LOCALE) },
+    request: {
+      headers: withRequestHeaders(request, DEFAULT_LOCALE, pathname),
+    },
   });
-  setLocaleVary(response);
   return response;
 }
 

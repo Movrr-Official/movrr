@@ -22,13 +22,13 @@ export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-10"
           >
-            <span className="movrr-kicker border-movrr-text-inverse/20 text-movrr-text-inverse/40">
+            <span className="movrr-kicker border-movrr-text-inverse/30 text-movrr-text-inverse/70">
               {copy.wave}
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 1, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.15,
@@ -39,7 +39,7 @@ export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
           >
             {copy.titleLine1}
             <br />
-            <span className="text-movrr-text-inverse/30">
+            <span className="text-movrr-text-inverse/50">
               {copy.titleLine2}
             </span>
           </motion.h1>
@@ -52,7 +52,7 @@ export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
               duration: 0.65,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="mt-10 max-w-sm text-base leading-relaxed text-movrr-text-inverse/45"
+            className="mt-10 max-w-sm text-base leading-relaxed text-movrr-text-inverse/70"
           >
             {copy.description}
           </motion.p>
@@ -65,13 +65,13 @@ export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-inverse/28">
+          <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-inverse/70">
             {copy.citiesLabel}
           </p>
           <div className="flex items-center gap-3">
             {cities.map((city, index) => (
               <span key={city} className="flex items-center gap-3">
-                <span className="text-sm font-medium text-movrr-text-inverse/55">
+                <span className="text-sm font-medium text-movrr-text-inverse/70">
                   {city}
                 </span>
                 {index < cities.length - 1 && (

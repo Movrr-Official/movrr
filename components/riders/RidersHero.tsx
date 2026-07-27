@@ -20,7 +20,7 @@ export function RidersHero() {
         <div className="flex flex-col justify-between px-6 pb-20 pt-44 lg:px-12 lg:pb-16 lg:pt-52">
           <div>
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 1, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.1,
@@ -76,7 +76,7 @@ export function RidersHero() {
           className="relative hidden lg:block"
         >
           <Image
-            src="/hero-cyclist-rotterdam-modern-urban.png"
+            src="/images/movrr-cyclist-rotterdam.webp"
             alt={copy.imageAlt}
             fill
             quality={90}

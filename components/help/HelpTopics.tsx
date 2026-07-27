@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { usePageCopy } from "@/components/i18n/PageCopyProvider";
@@ -10,9 +10,11 @@ import type { HelpCopy } from "@/locales/types";
 function Accordion({
   faq,
   index,
+  id,
 }: {
   faq: { q: string; a: string };
   index: number;
+  id: string;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -28,7 +30,10 @@ function Accordion({
       className="border-b border-movrr-border-soft last:border-0"
     >
       <button
+        type="button"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={id}
         className="flex w-full items-start justify-between gap-6 py-6 text-left transition-opacity duration-150 hover:opacity-70"
       >
         <span className="text-sm font-medium text-movrr-text-brand">
@@ -40,36 +45,49 @@ function Accordion({
           <Plus className="mt-0.5 h-3.5 w-3.5 shrink-0 text-movrr-text-brand/40" />
         )}
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 pr-8 text-sm leading-relaxed text-movrr-text-brand/50">
-              {faq.a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        id={id}
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        aria-hidden={!open}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        className="overflow-hidden"
+      >
+        <p className="pb-6 pr-8 text-sm leading-relaxed text-movrr-text-brand/50">
+          {faq.a}
+        </p>
+      </motion.div>
     </motion.div>
   );
 }
 
-export function HelpTopics() {
+export function HelpTopics({ query }: { query: string }) {
   const copy = usePageCopy<HelpCopy>();
-  const topics = copy.topics;
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  const topics = normalizedQuery
+    ? copy.topics
+        .map((topic) => ({
+          ...topic,
+          faqs: topic.faqs.filter((faq) =>
+            `${topic.category} ${faq.q} ${faq.a}`
+              .toLocaleLowerCase()
+              .includes(normalizedQuery),
+          ),
+        }))
+        .filter((topic) => topic.faqs.length > 0)
+    : copy.topics;
   return (
-    <section className="bg-movrr-bg-canvas py-32 lg:py-44">
+    <section
+      id="help-results"
+      aria-live="polite"
+      className="bg-movrr-bg-canvas py-32 lg:py-44"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-0 lg:grid-cols-[280px_1fr] lg:gap-20">
           {/* Sticky topic index */}
           <div className="mb-16 lg:mb-0">
             <nav className="lg:sticky lg:top-28">
-              <p className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/35">
+              <p className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                 {copy.topicsLabel}
               </p>
               <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:space-y-0 lg:divide-y lg:divide-movrr-border-soft lg:border-y lg:border-movrr-border-soft">
@@ -77,18 +95,18 @@ export function HelpTopics() {
                   <li key={topic.category}>
                     <a
                       href={`#${topic.id}`}
-                      className="block text-sm text-movrr-text-brand/40 transition-colors duration-150 hover:text-movrr-text-brand lg:py-3.5"
+                      className="block text-sm text-movrr-text-brand/75 transition-colors duration-150 hover:text-movrr-text-brand lg:py-3.5"
                     >
                       {topic.category}
                     </a>
                   </li>
                 ))}
               </ul>
-              <p className="mt-10 hidden text-[0.75rem] leading-relaxed text-movrr-text-brand/30 lg:block">
+              <p className="mt-10 hidden text-[0.75rem] leading-relaxed text-movrr-text-brand/75 lg:block">
                 {copy.notFound}{" "}
                 <a
                   href="mailto:hello@movrr.nl"
-                  className="text-movrr-text-brand/50 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand"
+                  className="text-movrr-text-brand underline underline-offset-2 transition-colors duration-150 hover:opacity-75"
                 >
                   {copy.contact}
                 </a>
@@ -115,18 +133,35 @@ export function HelpTopics() {
                 </motion.h2>
                 <div className="border-t border-movrr-border-soft">
                   {topic.faqs.map((faq, index) => (
-                    <Accordion key={index} faq={faq} index={index} />
+                    <Accordion
+                      key={faq.q}
+                      faq={faq}
+                      index={index}
+                      id={`${topic.id}-answer-${index + 1}`}
+                    />
                   ))}
                 </div>
               </div>
             ))}
 
+            {topics.length === 0 && (
+              <p className="text-base text-movrr-text-brand/70">
+                {copy.notFound}{" "}
+                <a
+                  href="mailto:hello@movrr.nl"
+                  className="font-medium text-movrr-text-brand underline underline-offset-2"
+                >
+                  {copy.contact}
+                </a>
+              </p>
+            )}
+
             {/* Mobile contact note */}
-            <p className="text-sm text-movrr-text-brand/40 lg:hidden">
+            <p className="text-sm text-movrr-text-brand/75 lg:hidden">
               {copy.notFound}{" "}
               <a
                 href="mailto:hello@movrr.nl"
-                className="text-movrr-text-brand/60 underline underline-offset-2 transition-colors duration-150 hover:text-movrr-text-brand"
+                className="text-movrr-text-brand underline underline-offset-2 transition-opacity duration-150 hover:opacity-75"
               >
                 {copy.contact}
               </a>

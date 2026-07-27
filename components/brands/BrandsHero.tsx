@@ -14,7 +14,7 @@ export function BrandsHero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         {/* Full-width massive headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 1, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-[clamp(3.5rem,8.5vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.04em] text-movrr-text-inverse"
@@ -60,7 +60,7 @@ export function BrandsHero() {
         className="relative mt-14 aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
-          src="/b2b-cyclist-pannier-urban.png"
+          src="/images/movrr-brand-cyclist-pannier.webp"
           alt={copy.imageAlt}
           fill
           quality={90}

@@ -9,6 +9,7 @@ const images = [
   ["hero-bg-bob-on-bike.png", "movrr-cyclist-urban-ride.webp"],
   ["b2b-cyclist-pannier-urban.png", "movrr-brand-cyclist-pannier.webp"],
   ["brands-hero-cyclist.png", "movrr-brands-hero-cyclist.webp"],
+  ["rewards-hero-cyclist.png", "movrr-rewards-hero-cyclist.webp"],
   [
     "hero-cyclist-rotterdam-modern-urban.png",
     "movrr-cyclist-rotterdam.webp",

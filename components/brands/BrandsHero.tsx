@@ -60,7 +60,7 @@ export function BrandsHero() {
         className="relative mt-14 aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
-          src="/images/movrr-brand-cyclist-pannier.webp"
+          src="/images/movrr-brands-hero-cyclist.webp"
           alt={copy.imageAlt}
           fill
           quality={90}

@@ -114,7 +114,7 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
             aria-label={locale === "nl" ? "Hoofdnavigatie" : "Primary navigation"}
             className={`flex items-center justify-between overflow-hidden rounded-3xl border transition-all duration-400 ${
               isScrolled
-                ? `h-15 ${isMobileMenuOpen ? "max-lg:border-transparent max-lg:shadow-none" : "border-movrr-text-inverse/12"} bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-17 lg:border-movrr-text-inverse/12 lg:shadow-sm lg:px-4`
+                ? `h-14 ${isMobileMenuOpen ? "max-lg:border-transparent max-lg:shadow-none" : "border-movrr-text-inverse/12"} bg-movrr-bg-primary/78 px-3 shadow-sm backdrop-blur-xl lg:h-15 lg:border-movrr-text-inverse/12 lg:shadow-sm lg:px-4`
                 : "h-16 border-transparent bg-transparent px-0 shadow-none backdrop-blur-none lg:h-20"
             }`}
           >

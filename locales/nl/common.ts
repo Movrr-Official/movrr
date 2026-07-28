@@ -317,7 +317,7 @@ export const nl: Dictionary = {
             category: "Voor fietsers",
             description:
               "Verdien MOVRR Points met je gewone ritten. Kies zelf of je met een merkcampagne extra wilt verdienen.",
-            imageAlt: "Fietser bekijkt verdiende MOVRR Points",
+            imageAlt: "Fietser kijkt op een telefoon tijdens het fietsen in de stad",
           },
           {
             title: "Dagelijks zichtbaar of één groot moment",

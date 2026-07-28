@@ -316,7 +316,7 @@ export const en = {
             category: "Rider rewards",
             description:
               "Ride to earn. Opt in to brand campaigns for more. Your movement, your choice.",
-            imageAlt: "Cyclist checking MOVRR earnings",
+            imageAlt: "Cyclist checking a phone while riding through a modern city",
           },
           {
             title: "Always on, or all at once.",

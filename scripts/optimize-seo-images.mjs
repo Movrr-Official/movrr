@@ -25,6 +25,10 @@ const images = [
     "movrr-cyclist-checking-rewards.webp",
   ],
   [
+    "usecase-rider-rewards.png",
+    "movrr-usecase-rider-rewards.webp",
+  ],
+  [
     "usecase-brand-activations-swarm.png",
     "movrr-brand-activations-swarm.webp",
   ],

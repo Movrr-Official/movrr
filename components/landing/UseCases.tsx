@@ -5,7 +5,7 @@ import Image from "next/image";
 import type { HomeCopy } from "@/locales/types";
 
 const images = [
-  "/images/movrr-cyclist-checking-rewards.webp",
+  "/images/movrr-usecase-rider-rewards.webp",
   "/images/movrr-usecase-brand-activations.webp",
   "/images/movrr-usecase-urban-partnerships.webp",
 ];

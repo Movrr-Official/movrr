@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import type { HomeCopy } from "@/locales/types";
 import type { Locale } from "@/lib/i18n/config";
 import { withLocalePath } from "@/lib/i18n/routing";
+import { waitlistHref } from "@/lib/waitlist/prefill";
 
 export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale }) {
   return (
@@ -80,7 +81,7 @@ export function Hero({ copy, locale }: { copy: HomeCopy["hero"]; locale: Locale 
             >
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href={withLocalePath(locale, "/waitlist")}
+                  href={waitlistHref(locale, "rider")}
                   className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-inverse/30 bg-movrr-bg-surface px-7 text-sm font-semibold text-movrr-text-brand transition-colors duration-200 hover:bg-movrr-bg-elevated"
                 >
                   {copy.riderCta}

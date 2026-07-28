@@ -7,6 +7,7 @@ import { usePageCopy } from "@/components/i18n/PageCopyProvider";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import type { RidersCopy } from "@/locales/types";
 import { withLocalePath } from "@/lib/i18n/routing";
+import { waitlistHref } from "@/lib/waitlist/prefill";
 
 export function RidersCTA() {
   const copy = usePageCopy<RidersCopy>().cta;
@@ -42,7 +43,7 @@ export function RidersCTA() {
           className="mt-10 flex flex-wrap justify-center gap-3"
         >
           <Link
-            href={withLocalePath(locale, "/waitlist")}
+            href={waitlistHref(locale, "rider")}
             className="group inline-flex h-12 items-center gap-2.5 rounded-xl border border-movrr-text-brand/25 bg-movrr-bg-primary px-7 text-sm font-semibold text-movrr-text-inverse transition-colors duration-200 hover:bg-movrr-bg-secondary"
           >
             {copy.primary}

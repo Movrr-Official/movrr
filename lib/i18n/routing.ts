@@ -11,9 +11,19 @@ export function stripLocalePrefix(pathname: string): string {
 }
 
 export function withLocalePath(locale: Locale, pathname: string): string {
-  const normalizedPath = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const hashIndex = pathname.indexOf("#");
+  const queryIndex = pathname.indexOf("?");
+  const cutAt = [hashIndex, queryIndex]
+    .filter((i) => i >= 0)
+    .reduce((min, i) => Math.min(min, i), pathname.length);
+  const pathOnly = pathname.slice(0, cutAt) || "/";
+  const suffix = pathname.slice(cutAt);
+
+  const normalizedPath = pathOnly.startsWith("/") ? pathOnly : `/${pathOnly}`;
   if (locale === DEFAULT_LOCALE) {
-    return normalizedPath === "/index" ? "/" : normalizedPath;
+    const base = normalizedPath === "/index" ? "/" : normalizedPath;
+    return `${base}${suffix}`;
   }
-  return normalizedPath === "/" ? "/nl" : `/nl${normalizedPath}`;
+  const base = normalizedPath === "/" ? "/nl" : `/nl${normalizedPath}`;
+  return `${base}${suffix}`;
 }

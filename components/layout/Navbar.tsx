@@ -215,12 +215,12 @@ export function Navbar({ variant = "dark" }: { variant?: "dark" | "light" }) {
                 }
                 className={`p-2.5 transition-colors ${
                   isMobileMenuOpen
-                    ? "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                    ? "text-movrr-text-inverse"
                     : isScrolled
-                      ? "text-movrr-green-text hover:bg-movrr-green-text/8"
+                      ? "text-movrr-green-text"
                       : variant === "light"
-                        ? "text-movrr-text-brand hover:bg-movrr-text-brand/8"
-                        : "text-movrr-text-inverse hover:bg-movrr-text-inverse/10"
+                        ? "text-movrr-text-brand"
+                        : "text-movrr-text-inverse"
                 }`}
               />
             </motion.div>

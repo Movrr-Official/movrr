@@ -13,13 +13,13 @@ export const earlyAccessConfigs: Record<
         headline:
           "MOVRR is launching in Rotterdam and The Hague. Join the waitlist.",
         cta: "Join waitlist",
-        href: "/waitlist",
+        href: "/waitlist?audience=rider",
       },
       {
         id: "riders-b",
         headline: "Earn on every kilometre. Early rider access now open.",
         cta: "Get early access",
-        href: "/waitlist",
+        href: "/waitlist?audience=rider",
       },
     ],
     reappearAfterDays: 7,

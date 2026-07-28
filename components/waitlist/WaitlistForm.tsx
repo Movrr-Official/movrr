@@ -1,25 +1,39 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { track } from "@vercel/analytics";
 import { createWaitlistSchema, type WaitlistInput } from "@/lib/waitlist/schema";
 import { submitWaitlist } from "@/app/actions/waitlist";
+import {
+  audienceFromPath,
+  clearWaitlistDraft,
+  matchLaunchCity,
+  readWaitlistDraft,
+  writeWaitlistDraft,
+  type WaitlistAudience,
+} from "@/lib/waitlist/prefill";
 import type { WaitlistCopy } from "@/locales/types";
 import type { Locale } from "@/lib/i18n/config";
-
-// ─── Static data ─────────────────────────────────────────────────────────────
-
-// ─── Component ───────────────────────────────────────────────────────────────
 
 export function WaitlistForm({
   copy,
   locale,
+  initialAudience = null,
+  initialCity = "",
+  cityFromQuery = false,
+  launchCities = [],
 }: {
   copy: WaitlistCopy["form"];
   locale: Locale;
+  initialAudience?: WaitlistAudience | null;
+  initialCity?: string;
+  /** When true, draft must not override the URL ?city= value. */
+  cityFromQuery?: boolean;
+  /** Used to localize IP city labels when they match a launch market. */
+  launchCities?: string[];
 }) {
   const audiences = copy.audiences;
   const benefits = copy.benefits;
@@ -31,6 +45,9 @@ export function WaitlistForm({
   const [serverError, setServerError] = useState<string | null>(null);
   const [showBikeField, setShowBikeField] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [draftReady, setDraftReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const draftHydrated = useRef(false);
 
   const schema = useMemo(
     () => createWaitlistSchema(copy.validation),
@@ -38,12 +55,13 @@ export function WaitlistForm({
   );
   const form = useForm<WaitlistInput>({
     resolver: zodResolver(schema),
-    mode: "onBlur",
+    mode: "onSubmit",
+    reValidateMode: "onChange",
     defaultValues: {
-      audience: "rider",
+      audience: initialAudience ?? "rider",
       name: "",
       email: "",
-      city: "",
+      city: initialCity,
     },
   });
 
@@ -52,12 +70,100 @@ export function WaitlistForm({
     handleSubmit,
     control,
     setValue,
+    getValues,
     formState: { errors },
   } = form;
 
-  const audience = useWatch({ control, name: "audience" });
+  const audience =
+    useWatch({
+      control,
+      name: "audience",
+      defaultValue: initialAudience ?? "rider",
+    }) ??
+    initialAudience ??
+    "rider";
   const bikeOwnership = useWatch({ control, name: "bikeOwnership" });
-  const currentAudience = audiences.find((a) => a.id === audience)!;
+  const city = useWatch({ control, name: "city", defaultValue: initialCity });
+  const name = useWatch({ control, name: "name", defaultValue: "" });
+  const email = useWatch({ control, name: "email", defaultValue: "" });
+  const currentAudience =
+    audiences.find((a) => a.id === audience) ?? audiences[0];
+
+  // Defer interactive fields until after mount so password-manager extensions
+  // (e.g. attributes like data-sharkid / fdprocessedid) cannot mutate SSR HTML
+  // before React hydrates.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || draftHydrated.current) return;
+    draftHydrated.current = true;
+
+    const draft = readWaitlistDraft();
+    let referrerAudience: WaitlistAudience | null = null;
+    try {
+      if (document.referrer) {
+        referrerAudience = audienceFromPath(
+          new URL(document.referrer).pathname,
+        );
+      }
+    } catch {
+      referrerAudience = null;
+    }
+
+    if (!initialAudience) {
+      const next = draft?.audience ?? referrerAudience;
+      if (next && next !== getValues("audience")) {
+        setValue("audience", next);
+      }
+    }
+
+    if (draft?.name) setValue("name", draft.name);
+    if (draft?.email) setValue("email", draft.email);
+
+    if (draft?.city && !cityFromQuery) {
+      setValue("city", draft.city);
+    }
+
+    setDraftReady(true);
+
+    // Soft IP city fill when nothing else set the field (no GPS permission prompt).
+    if (!cityFromQuery && !(draft?.city || initialCity)) {
+      void (async () => {
+        try {
+          const res = await fetch("/api/geo", { cache: "no-store" });
+          if (!res.ok) return;
+          const data = (await res.json()) as { city?: string | null };
+          const geoCity = data.city?.trim();
+          if (!geoCity || getValues("city")?.trim()) return;
+          const localized =
+            matchLaunchCity(geoCity, launchCities) ?? geoCity;
+          setValue("city", localized, { shouldDirty: false });
+        } catch {
+          // Ignore — city stays blank for the user to fill.
+        }
+      })();
+    }
+  }, [
+    cityFromQuery,
+    getValues,
+    initialAudience,
+    initialCity,
+    launchCities,
+    mounted,
+    setValue,
+  ]);
+
+  useEffect(() => {
+    if (!draftReady || submitted) return;
+    writeWaitlistDraft({
+      audience,
+      name: name ?? "",
+      email: email ?? "",
+      city: city ?? "",
+    });
+  }, [audience, city, draftReady, email, name, submitted]);
 
   const onSubmit = handleSubmit((data) => {
     setServerError(null);
@@ -67,18 +173,21 @@ export function WaitlistForm({
     });
     startTransition(async () => {
       const params = new URLSearchParams(window.location.search);
-      const result = await submitWaitlist({
-        ...data,
-        utm_source: params.get("utm_source") ?? undefined,
-        utm_medium: params.get("utm_medium") ?? undefined,
-        utm_campaign: params.get("utm_campaign") ?? undefined,
-        utm_content: params.get("utm_content") ?? undefined,
-        utm_term: params.get("utm_term") ?? undefined,
-        referrer: document.referrer
-          ? document.referrer.slice(0, 500)
-          : undefined,
-        landing_path: window.location.pathname.slice(0, 500),
-      }, locale);
+      const result = await submitWaitlist(
+        {
+          ...data,
+          utm_source: params.get("utm_source") ?? undefined,
+          utm_medium: params.get("utm_medium") ?? undefined,
+          utm_campaign: params.get("utm_campaign") ?? undefined,
+          utm_content: params.get("utm_content") ?? undefined,
+          utm_term: params.get("utm_term") ?? undefined,
+          referrer: document.referrer
+            ? document.referrer.slice(0, 500)
+            : undefined,
+          landing_path: window.location.pathname.slice(0, 500),
+        },
+        locale,
+      );
       if (!result.success) {
         track("waitlist_submit_error", {
           audience: data.audience,
@@ -90,6 +199,7 @@ export function WaitlistForm({
           audience: data.audience,
           city: data.city,
         });
+        clearWaitlistDraft();
         setSubmittedData(data);
         setSubmitted(true);
       }
@@ -100,7 +210,6 @@ export function WaitlistForm({
     <section className="border-b border-movrr-border-soft bg-movrr-bg-canvas">
       <div className="movrr-shell py-24 lg:py-32">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1fr] lg:gap-28">
-          {/* Left — context */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +224,6 @@ export function WaitlistForm({
               {copy.introduction}
             </p>
 
-            {/* Benefits */}
             <div className="space-y-6 border-t border-movrr-border-soft pt-10">
               {benefits.map((b, i) => (
                 <motion.div
@@ -144,16 +252,17 @@ export function WaitlistForm({
             </div>
           </motion.div>
 
-          {/* Right — form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
+            {!mounted ? (
+              <div className="min-h-80" aria-hidden />
+            ) : (
             <AnimatePresence mode="wait">
               {submitted ? (
-                /* ── Success state ── */
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, y: 16 }}
@@ -169,20 +278,17 @@ export function WaitlistForm({
                   </h3>
                   <p className="mb-8 max-w-xs text-base leading-relaxed text-movrr-text-brand/50">
                     {copy.success.cityPrefix}{" "}
-                    {submittedData?.city || copy.success.cityFallback}
-                    .
+                    {submittedData?.city || copy.success.cityFallback}.
                   </p>
                   <p className="text-xs text-movrr-text-brand/25">
                     {copy.success.registeredAs}{" "}
                     {submittedData?.audience
                       ? copy.success.audienceNames[submittedData.audience]
                       : ""}{" "}
-                    ·{" "}
-                    {submittedData?.email}
+                    · {submittedData?.email}
                   </p>
                 </motion.div>
               ) : (
-                /* ── Form ── */
                 <motion.form
                   key="form"
                   onSubmit={onSubmit}
@@ -191,7 +297,6 @@ export function WaitlistForm({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Audience selector */}
                   <div className="mb-9">
                     <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-brand/30">
                       {copy.audienceLabel}
@@ -237,9 +342,7 @@ export function WaitlistForm({
                     </AnimatePresence>
                   </div>
 
-                  {/* Fields */}
                   <div className="space-y-5">
-                    {/* Name + City row */}
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label
@@ -285,7 +388,6 @@ export function WaitlistForm({
                       </div>
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label
                         htmlFor="wl-email"
@@ -308,7 +410,6 @@ export function WaitlistForm({
                       )}
                     </div>
 
-                    {/* Bike status — rider only, hidden by default */}
                     <AnimatePresence>
                       {audience === "rider" && (
                         <motion.div
@@ -385,7 +486,6 @@ export function WaitlistForm({
                     </AnimatePresence>
                   </div>
 
-                  {/* Submit */}
                   <div className="mt-8">
                     {serverError && (
                       <p className="mb-4 text-xs text-movrr-error">
@@ -415,6 +515,7 @@ export function WaitlistForm({
                 </motion.form>
               )}
             </AnimatePresence>
+            )}
           </motion.div>
         </div>
       </div>

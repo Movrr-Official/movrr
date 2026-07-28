@@ -386,6 +386,7 @@ export interface BlogCopy {
   featured: BlogPost & { excerpt: string; href: string };
   secondary: BlogPost[];
   posts: Array<BlogPost & { excerpt: string }>;
+  empty: { title: string; description: string };
 }
 export interface HelpCopy {
   title: string; searchPlaceholder: string; topicsLabel: string; notFound: string; contact: string;

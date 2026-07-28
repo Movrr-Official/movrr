@@ -1129,6 +1129,11 @@ export const nl: Dictionary = {
             "Groepsritten hebben mensen nodig die verantwoordelijkheid nemen. Daarom kiezen we begeleiders op heldere criteria.",
         },
       ],
+      empty: {
+        title: "Verhalen komen eraan.",
+        description:
+          "We schrijven de eerste stukken vanaf het platform. Kom snel terug voor productnotities, stedenlessen en wat we van fietsers leren.",
+      },
     },
     press: {
       title: "Pers en media",

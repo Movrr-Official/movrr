@@ -706,6 +706,10 @@ export const en = {
         { category: "Product", date: "27 Nov 2024", readTime: "6 min read", title: "The decisions we locked in before launch", excerpt: "Some architectural choices are boring to explain and expensive to undo. These are ours." },
         { category: "Community", date: "14 Nov 2024", readTime: "3 min read", title: "Why ride leaders use an application process, not an algorithm", excerpt: "Community rides need organisers. Choosing them by criteria rather than engagement score changes who steps up." },
       ],
+      empty: {
+        title: "Stories are on the way.",
+        description: "We're writing the first pieces from the platform. Check back soon for product notes, city lessons, and what we're learning from riders.",
+      },
     },
     press: {
       title: "Press & Media",

@@ -2,7 +2,6 @@ import { getDictionary } from "@/lib/i18n/dictionary";
 import { getGeoFromHeaders } from "@/lib/geo";
 import type { Locale } from "@/lib/i18n/config";
 import {
-  matchLaunchCity,
   parseAudience,
   resolvePrefillCity,
   type WaitlistAudience,
@@ -22,10 +21,9 @@ export async function loadWaitlistPageProps(
     : searchParams.city;
   const cityFromQuery = Boolean(cityParam?.trim());
   const geo = await getGeoFromHeaders();
-  const suggestedCity = matchLaunchCity(geo.geo_city, launchCities);
   const initialCity = resolvePrefillCity(
     cityParam,
-    suggestedCity,
+    geo.geo_city,
     launchCities,
   );
 

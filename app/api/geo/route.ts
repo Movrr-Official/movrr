@@ -3,7 +3,7 @@ import { getGeoFromHeaders } from "@/lib/geo";
 
 export const dynamic = "force-dynamic";
 
-/** Soft IP-derived city for waitlist prefill. Never invents a city. */
+/** Soft IP-derived city for waitlist prefill. Client matches launch markets only. */
 export async function GET() {
   const geo = await getGeoFromHeaders();
   const city = geo.geo_city?.trim() || null;

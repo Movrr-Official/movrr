@@ -71,7 +71,7 @@ export function WaitlistForm({
     control,
     setValue,
     getValues,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = form;
 
   const audience =
@@ -122,14 +122,27 @@ export function WaitlistForm({
     if (draft?.name) setValue("name", draft.name);
     if (draft?.email) setValue("email", draft.email);
 
-    if (draft?.city && !cityFromQuery) {
-      setValue("city", draft.city);
+    // Draft must not override URL or server geo. Also drop stale soft-IP
+    // towns that are not launch markets (legacy drafts like Oost-Souburg).
+    const draftCity = draft?.city?.trim() ?? "";
+    const draftLaunchCity = draftCity
+      ? matchLaunchCity(draftCity, launchCities)
+      : null;
+    if (!cityFromQuery && !initialCity && draftLaunchCity) {
+      setValue("city", draftLaunchCity);
+    } else if (draftCity && !draftLaunchCity) {
+      writeWaitlistDraft({
+        audience: draft?.audience,
+        name: draft?.name ?? "",
+        email: draft?.email ?? "",
+        city: "",
+      });
     }
 
     setDraftReady(true);
 
-    // Soft IP city fill when nothing else set the field (no GPS permission prompt).
-    if (!cityFromQuery && !(draft?.city || initialCity)) {
+    // Soft IP city fill: launch markets only (no GPS permission prompt).
+    if (!cityFromQuery && !initialCity && !draftLaunchCity) {
       void (async () => {
         try {
           const res = await fetch("/api/geo", { cache: "no-store" });
@@ -137,8 +150,8 @@ export function WaitlistForm({
           const data = (await res.json()) as { city?: string | null };
           const geoCity = data.city?.trim();
           if (!geoCity || getValues("city")?.trim()) return;
-          const localized =
-            matchLaunchCity(geoCity, launchCities) ?? geoCity;
+          const localized = matchLaunchCity(geoCity, launchCities);
+          if (!localized) return;
           setValue("city", localized, { shouldDirty: false });
         } catch {
           // Ignore — city stays blank for the user to fill.
@@ -157,13 +170,27 @@ export function WaitlistForm({
 
   useEffect(() => {
     if (!draftReady || submitted) return;
+    // Persist free-text city only after the user edits it. Soft IP launch
+    // matches may be stored; raw ISP towns must never land in the draft.
+    const cityToStore = dirtyFields.city
+      ? (city ?? "")
+      : (matchLaunchCity(city ?? "", launchCities) ?? "");
     writeWaitlistDraft({
       audience,
       name: name ?? "",
       email: email ?? "",
-      city: city ?? "",
+      city: cityToStore,
     });
-  }, [audience, city, draftReady, email, name, submitted]);
+  }, [
+    audience,
+    city,
+    dirtyFields.city,
+    draftReady,
+    email,
+    launchCities,
+    name,
+    submitted,
+  ]);
 
   const onSubmit = handleSubmit((data) => {
     setServerError(null);

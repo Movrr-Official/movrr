@@ -70,12 +70,8 @@ export function resolvePrefillCity(
   const raw = Array.isArray(cityParam) ? cityParam[0] : cityParam;
   const fromQuery = matchLaunchCity(raw, launchCities) ?? raw?.trim() ?? "";
   if (fromQuery) return fromQuery;
-  // Prefer localized launch label when IP city matches; otherwise use the geo city as-is.
-  return (
-    matchLaunchCity(suggestedCity, launchCities) ??
-    suggestedCity?.trim() ??
-    ""
-  );
+  // Soft IP: launch markets only — never raw ISP towns (e.g. Oost-Souburg).
+  return matchLaunchCity(suggestedCity, launchCities) ?? "";
 }
 
 export function audienceFromPath(pathname: string): WaitlistAudience | null {

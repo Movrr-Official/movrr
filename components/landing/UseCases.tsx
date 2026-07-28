@@ -6,8 +6,8 @@ import type { HomeCopy } from "@/locales/types";
 
 const images = [
   "/images/movrr-cyclist-checking-rewards.webp",
-  "/images/movrr-brand-activations-swarm.webp",
-  "/images/movrr-city-brand-initiatives-rotterdam.webp",
+  "/images/movrr-usecase-brand-activations.webp",
+  "/images/movrr-usecase-urban-partnerships.webp",
 ];
 
 export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {

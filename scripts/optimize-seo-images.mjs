@@ -29,8 +29,16 @@ const images = [
     "movrr-brand-activations-swarm.webp",
   ],
   [
+    "usecase-brand-activations-swarm.png",
+    "movrr-usecase-brand-activations.webp",
+  ],
+  [
     "usecase-city-brand-initiatives-rotterdam.png",
     "movrr-city-brand-initiatives-rotterdam.webp",
+  ],
+  [
+    "usecase-city-brand-initiatives-rotterdam.png",
+    "movrr-usecase-urban-partnerships.webp",
   ],
   ["app-preview-01.png", "movrr-app-preview-handlebar.webp"],
   ["app-preview-02.png", "movrr-app-preview-device.webp"],

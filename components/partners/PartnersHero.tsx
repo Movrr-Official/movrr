@@ -7,8 +7,12 @@ import type { PartnersCopy } from "@/locales/types";
 export function PartnersHero() {
   const copy = usePageCopy<PartnersCopy>().hero;
   return (
-    <section className="relative flex min-h-[72vh] flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_75%_35%,rgba(184,255,164,0.12),transparent_32%),var(--movrr-bg-primary)] py-40 lg:py-52">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+    <section className="relative flex min-h-[72vh] flex-col justify-center overflow-hidden bg-movrr-bg-primary py-40 lg:py-52">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(184,255,164,0.12),transparent_32%)]"
+      />
+      <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-12">
 
         <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <motion.h1

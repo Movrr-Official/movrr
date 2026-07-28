@@ -324,14 +324,14 @@ export const nl: Dictionary = {
             category: "Voor merken",
             description:
               "Kies een Destination Ride voor doorlopend bereik of een Swarm voor een opvallend moment in de stad.",
-            imageAlt: "Gesponsorde groepsrit door de stad",
+            imageAlt: "Gesynchroniseerde MOVRR-merkswarm van fietsers door een moderne stad",
           },
           {
             title: "Meer mensen op de fiets",
             category: "Voor steden en partners",
             description:
               "Bouw programma's die fietsen aantrekkelijker maken voor buurten, werkgevers en hele steden.",
-            imageAlt: "Fietsers langs een stedelijke waterkant",
+            imageAlt: "Communityfietsinitiatief op de Erasmusbrug in Rotterdam",
           },
         ],
       },

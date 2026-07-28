@@ -9,7 +9,9 @@ const images = [
   ["hero-bg-bob-on-bike.png", "movrr-cyclist-urban-ride.webp"],
   ["b2b-cyclist-pannier-urban.png", "movrr-brand-cyclist-pannier.webp"],
   ["brands-hero-cyclist.png", "movrr-brands-hero-cyclist.webp"],
+  ["brands-hero-cyclist.png", "movrr-brands-hero.webp"],
   ["rewards-hero-cyclist.png", "movrr-rewards-hero-cyclist.webp"],
+  ["rewards-hero-cyclist.png", "movrr-rewards-hero.webp"],
   [
     "hero-cyclist-rotterdam-modern-urban.png",
     "movrr-cyclist-rotterdam.webp",
@@ -23,12 +25,12 @@ const images = [
     "movrr-cyclist-checking-rewards.webp",
   ],
   [
-    "usecase-city-cycling-waterfront-dusk.png",
-    "movrr-city-cycling-waterfront.webp",
+    "usecase-brand-activations-swarm.png",
+    "movrr-brand-activations-swarm.webp",
   ],
   [
-    "usecase-sponsored-community-rides-aerial.png",
-    "movrr-sponsored-community-ride.webp",
+    "usecase-city-brand-initiatives-rotterdam.png",
+    "movrr-city-brand-initiatives-rotterdam.webp",
   ],
   ["app-preview-01.png", "movrr-app-preview-handlebar.webp"],
   ["app-preview-02.png", "movrr-app-preview-device.webp"],

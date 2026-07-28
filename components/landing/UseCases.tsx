@@ -6,8 +6,8 @@ import type { HomeCopy } from "@/locales/types";
 
 const images = [
   "/images/movrr-cyclist-checking-rewards.webp",
-  "/images/movrr-sponsored-community-ride.webp",
-  "/images/movrr-city-cycling-waterfront.webp",
+  "/images/movrr-brand-activations-swarm.webp",
+  "/images/movrr-city-brand-initiatives-rotterdam.webp",
 ];
 
 export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {
@@ -56,6 +56,7 @@ export function UseCases({ copy }: { copy: HomeCopy["useCases"] }) {
                   quality={88}
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  priority={index < 2}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/28 via-transparent to-transparent" />
                 {/* Category badge — top left overlay */}

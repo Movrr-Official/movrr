@@ -323,14 +323,14 @@ export const en = {
             category: "Brand activations",
             description:
               "Destination Ride for daily route presence. Swarm for moments that stop a city.",
-            imageAlt: "Sponsored community ride through the city",
+            imageAlt: "Synchronised MOVRR brand swarm of cyclists through a modern city",
           },
           {
             title: "City and brand initiatives",
             category: "Urban partnerships",
             description:
               "Programs that move entire communities. Built for cities that dare to lead.",
-            imageAlt: "Cyclists riding along an urban waterfront",
+            imageAlt: "Community cycling initiative on Rotterdam’s Erasmus Bridge",
           },
         ],
       },

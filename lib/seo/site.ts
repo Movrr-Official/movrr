@@ -53,14 +53,14 @@ export const SEO_ROUTES: Record<PageKey, SeoRouteConfig> = {
     indexable: true,
     changeFrequency: "monthly",
     priority: 0.85,
-    image: "/images/movrr-rewards-hero-cyclist.webp",
+    image: "/images/movrr-rewards-hero.webp",
     schemaType: "WebPage",
   },
   brands: {
     indexable: true,
     changeFrequency: "monthly",
     priority: 0.85,
-    image: "/images/movrr-brands-hero-cyclist.webp",
+    image: "/images/movrr-brands-hero.webp",
     schemaType: "WebPage",
   },
   riders: {

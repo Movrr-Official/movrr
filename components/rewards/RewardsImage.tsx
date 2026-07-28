@@ -23,6 +23,7 @@ export function RewardsImage() {
           quality={90}
           sizes="100vw"
           className="object-cover object-center"
+          priority
         />
         <div className="absolute inset-0 bg-linear-to-t from-movrr-bg-backdrop/20 via-transparent to-transparent" />
       </motion.div>

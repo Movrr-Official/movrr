@@ -17,10 +17,10 @@ export function RewardsImage() {
         className="relative aspect-4/3 w-full overflow-hidden sm:aspect-video lg:aspect-21/9"
       >
         <Image
-          src="/images/movrr-rewards-hero.webp"
+          src="/images/movrr-rewards-phone-bike-square.webp"
           alt={copy.imageAlt}
           fill
-          quality={90}
+          quality={100}
           sizes="100vw"
           className="object-cover object-center"
           priority

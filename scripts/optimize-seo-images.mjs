@@ -44,17 +44,17 @@ const images = [
     "usecase-city-brand-initiatives-rotterdam.png",
     "movrr-usecase-urban-partnerships.webp",
   ],
-  ["app-preview-01.png", "movrr-app-preview-handlebar.webp"],
+  ["app-preview-01.png", "movrr-app-preview-handlebar-v2.webp", 95],
   ["app-preview-02.png", "movrr-app-preview-device.webp"],
   ["metrics-bike-tire.png", "movrr-branded-bicycle-wheel.webp"],
 ];
 
 await mkdir(outputDir, { recursive: true });
 
-for (const [input, output] of images) {
+for (const [input, output, quality = 82] of images) {
   await sharp(path.join(publicDir, input))
     .rotate()
-    .webp({ quality: 82, effort: 5, smartSubsample: true })
+    .webp({ quality, effort: 5, smartSubsample: true })
     .toFile(path.join(outputDir, output));
-  console.log(`${input} -> images/${output}`);
+  console.log(`${input} -> images/${output} (q${quality})`);
 }

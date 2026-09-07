@@ -171,3 +171,52 @@ export function WaitlistConfirmation({ data, locale }: Props) {
     </BaseEmail>
   );
 }
+
+export function waitlistConfirmationText({ data, locale }: Props) {
+  const firstName = data.name.split(" ")[0];
+  const isDutch = locale === "nl";
+  const cityContext = data.city ? ` in ${data.city}` : "";
+  const englishBody = audienceBody[data.audience];
+  const dutchBody: typeof audienceBody = {
+    rider:
+      "Je staat op de wachtlijst. Zodra MOVRR in jouw stad start, krijg je als een van de eersten bericht en toegang.",
+    brand:
+      "Je merk staat op onze lijst. Zodra er ruimte is voor een passende campagne, nemen we contact op met de mogelijkheden.",
+    partner:
+      "Je aanmelding is binnen. Zodra er in jouw regio ruimte is voor een technische of commerciële samenwerking, nemen we rechtstreeks contact op.",
+  };
+  const dutchSteps: typeof whatHappensNext = {
+    rider: [
+      "MOVRR start stad voor stad. Zodra jouw stad aan de beurt is, krijg je vóór de openbare aankondiging een e-mail.",
+      "Je krijgt als eerste toegang, zodat je rustig je account kunt instellen en MOVRR kunt uitproberen.",
+      "Vanaf je eerste geverifieerde kilometer verdien je MOVRR Points. Zonder minimale afstand.",
+    ],
+    brand: [
+      "We bekijken iedere merkaanmelding afzonderlijk. Een goede match gaat voor zoveel mogelijk campagnes.",
+      "Zodra er ruimte is, ontvang je als eerste informatie over tarieven, formats en planning.",
+      "De campagnerapportage is gebaseerd op geverifieerde ritgegevens.",
+    ],
+    partner: [
+      "We bekijken iedere partneraanmelding afzonderlijk en bespreken techniek en commerciële afspraken rechtstreeks.",
+      "Zodra het integratieprogramma start, benaderen we aangemelde partners vóór de openbare aankondiging.",
+      "Je ontvangt de technische documentatie en voorwaarden zodra jouw stad of regio binnen de planning valt.",
+    ],
+  };
+  const steps = (isDutch ? dutchSteps : whatHappensNext)[data.audience];
+  const title = isDutch ? `Je bent erbij, ${firstName}.` : `You're in, ${firstName}.`;
+  const lines = [
+    title,
+    "",
+    isDutch ? dutchBody[data.audience] : englishBody,
+    "",
+    isDutch ? "Hoe gaat het verder?" : "What happens next",
+    ...steps.map((step, index) => `${index + 1}. ${step}`),
+    "",
+    isDutch
+      ? `Bekijk hoe MOVRR werkt: ${appUrl(withLocalePath(locale, "/how-it-works"))}`
+      : `See how MOVRR works: ${appUrl(withLocalePath(locale, "/how-it-works"))}`,
+    "",
+    isDutch ? `Aangemeld${cityContext}: ${data.email}` : `Registered${cityContext}: ${data.email}`,
+  ];
+  return lines.join("\n");
+}

@@ -70,3 +70,38 @@ export function WaitlistNotification({ data, geo }: Props) {
     </BaseEmail>
   );
 }
+
+export function waitlistNotificationText({ data, geo }: Props) {
+  const geoLocation = [geo.country_code, geo.geo_region_code, geo.geo_city]
+    .filter(Boolean)
+    .join(" · ");
+  const utmLine = [
+    data.utm_source,
+    data.utm_medium,
+    data.utm_campaign,
+    data.utm_content,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const lines = [
+    `New ${formatAudience(data.audience)} · ${data.city}`,
+    "",
+    `Audience: ${formatAudience(data.audience)}`,
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `City (entered): ${data.city}`,
+  ];
+  if (data.audience === "rider" && data.bikeOwnership) {
+    lines.push(`Bike status: ${bikeStatusLabel[data.bikeOwnership]}`);
+  }
+  if (geoLocation) {
+    lines.push(`Geo location: ${geoLocation}${geo.timezone ? ` · ${geo.timezone}` : ""}`);
+  }
+  if (data.landing_path) lines.push(`Landing page: ${data.landing_path}`);
+  if (utmLine) lines.push(`UTM: ${utmLine}`);
+  if (data.utm_term) lines.push(`Search term: ${data.utm_term}`);
+  if (data.referrer) lines.push(`Referrer: ${data.referrer}`);
+  lines.push(`Submitted at: ${new Date().toUTCString()}`);
+  lines.push("", "Internal MOVRR notification. Do not reply.");
+  return lines.join("\n");
+}

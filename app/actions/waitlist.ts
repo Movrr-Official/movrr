@@ -2,8 +2,14 @@
 
 import { Resend } from "resend";
 import { waitlistSchema } from "@/lib/waitlist/schema";
-import { WaitlistConfirmation } from "@/emails/waitlist-confirmation";
-import { WaitlistNotification } from "@/emails/waitlist-notification";
+import {
+  WaitlistConfirmation,
+  waitlistConfirmationText,
+} from "@/emails/waitlist-confirmation";
+import {
+  WaitlistNotification,
+  waitlistNotificationText,
+} from "@/emails/waitlist-notification";
 import type { WaitlistInput } from "@/lib/waitlist/schema";
 import { getGeoFromHeaders } from "@/lib/geo";
 import { createSupabaseServerClient } from "@/supabase/server";
@@ -86,12 +92,14 @@ export async function submitWaitlist(
             ? "Je bent geregistreerd — MOVRR"
             : "You're registered — MOVRR",
         react: WaitlistConfirmation({ data, locale }),
+        text: waitlistConfirmationText({ data, locale }),
       }),
       resend.emails.send({
         from: FROM,
         to: NOTIFY_TO,
         subject: `New registration · ${data.audience} · ${data.city}`,
         react: WaitlistNotification({ data, geo }),
+        text: waitlistNotificationText({ data, geo }),
       }),
     ]);
   } catch (emailErr) {

@@ -40,8 +40,8 @@ export function appUrl(path: string) {
 }
 
 const PREVIEW_PADDING = "\u200C\u00A0".repeat(90);
-const LOGO_URL =
-  "https://res.cloudinary.com/dgy9bf37b/image/upload/f_png,q_auto:good,w_420/v1769860718/movrr_logo_icon_green_no_bg_pycuih.png";
+const MOVRR_ICON_URL =
+  "https://cdn.jsdelivr.net/gh/Movrr-Official/movrr-new-@main/public/logo/icon-no-bg-white.png";
 
 const EMAIL_CSS = `
   :root { color-scheme: light dark; supported-color-schemes: light dark; }
@@ -108,9 +108,28 @@ export function BaseEmail({
         <Container className="email-card" style={styles.container}>
           {/* Header */}
           <Section className="email-header" style={styles.header}>
-            <Link href={appBaseUrl} style={styles.logoLink}>
-              <Img src={LOGO_URL} alt="MOVRR" width={140} height={50} style={styles.logo} />
-            </Link>
+            <table role="presentation" cellPadding={0} cellSpacing={0} border={0} width="100%">
+              <tbody>
+                <tr>
+                  <td style={styles.logoWrap}>
+                    <Link href={appBaseUrl} style={styles.logoLink}>
+                      <table role="presentation" cellPadding={0} cellSpacing={0} border={0} style={styles.logoTable}>
+                        <tbody>
+                          <tr>
+                            <td style={styles.logoIconCell}>
+                              <Img src={MOVRR_ICON_URL} alt="" width={30} height={30} style={styles.logoIcon} />
+                            </td>
+                            <td style={styles.logoWordmarkCell}>
+                              <span style={styles.logoWordmark}>MOVRR</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             <Text className="email-title" style={styles.heroTitle}>{title}</Text>
             <Text style={styles.heroIntro}>{intro}</Text>
             {actionLabel && actionUrl ? (
@@ -214,9 +233,22 @@ const styles = {
     padding: "42px 48px 52px",
     backgroundColor: "#003415",
   },
+  logoWrap: { padding: "0 0 48px" },
   logoLink: { display: "inline-block", textDecoration: "none" },
-  logo: { display: "block", width: "140px", height: "50px", border: "0", outline: "none" },
-  heroTitle: { margin: "46px 0 20px", color: "#fcfcfc", fontSize: "46px", fontWeight: "600", lineHeight: "47px", letterSpacing: "-0.045em" },
+  logoTable: { borderCollapse: "collapse" as const },
+  logoIconCell: { padding: "0 12px 0 0", verticalAlign: "middle" },
+  logoIcon: { display: "block", width: "30px", height: "30px", border: "0", outline: "none" },
+  logoWordmarkCell: { verticalAlign: "middle" },
+  logoWordmark: {
+    color: "#fcfcfc",
+    fontFamily:
+      'Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+    fontSize: "18px",
+    fontWeight: "600",
+    letterSpacing: "-0.025em",
+    lineHeight: "30px",
+  },
+  heroTitle: { margin: "0 0 20px", color: "#fcfcfc", fontSize: "46px", fontWeight: "600", lineHeight: "47px", letterSpacing: "-0.045em" },
   heroIntro: { margin: "0", color: "#8ba294", fontSize: "16px", lineHeight: "26px" },
   content: {
     padding: "42px 48px 46px",

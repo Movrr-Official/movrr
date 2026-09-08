@@ -1,15 +1,12 @@
 import {
   Body,
   Button,
-  Column,
   Container,
   Head,
-  Hr,
   Html,
   Img,
   Link,
   Preview,
-  Row,
   Section,
   Text,
 } from "@react-email/components";
@@ -43,26 +40,28 @@ export function appUrl(path: string) {
 }
 
 const PREVIEW_PADDING = "\u200C\u00A0".repeat(90);
+const LOGO_URL =
+  "https://res.cloudinary.com/dgy9bf37b/image/upload/f_png,q_auto:good,w_420/v1769860718/movrr_logo_icon_green_no_bg_pycuih.png";
 
 const EMAIL_CSS = `
   :root { color-scheme: light dark; supported-color-schemes: light dark; }
   a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; }
   @media (prefers-color-scheme: dark) {
     .email-bg { background-color: #101512 !important; }
-    .email-card { background-color: #19201b !important; border-color: #344238 !important; }
-    .email-heading, .email-wordmark, .email-value { color: #f1f5f2 !important; }
+    .email-card, .email-content { background-color: #0c2d1c !important; border-color: #365142 !important; }
+    .email-heading, .email-value { color: #f5f5ef !important; }
     .email-body { color: #d1ddd4 !important; }
     .email-muted { color: #a8b6ac !important; }
-    .email-panel { background-color: #202b23 !important; border-color: #3a4a3e !important; }
+    .email-panel { background-color: transparent !important; border-color: #365142 !important; }
     .email-rule { border-color: #344238 !important; }
     .email-link { color: #8fd1a5 !important; }
   }
   @media only screen and (max-width: 600px) {
-    .email-card { width: auto !important; margin: 16px !important; }
-    .email-header { padding: 22px 22px 18px !important; }
-    .email-content { padding: 24px 22px 22px !important; }
-    .email-footer { padding: 18px 22px 22px !important; }
-    .email-title { font-size: 23px !important; line-height: 29px !important; }
+    .email-card { width: 100% !important; margin: 0 !important; }
+    .email-header { padding: 28px 24px 30px !important; }
+    .email-content { padding: 34px 24px 38px !important; }
+    .email-footer { padding: 24px !important; }
+    .email-title { font-size: 36px !important; line-height: 37px !important; }
     .email-button { display: block !important; text-align: center !important; }
   }
 `;
@@ -109,40 +108,20 @@ export function BaseEmail({
         <Container className="email-card" style={styles.container}>
           {/* Header */}
           <Section className="email-header" style={styles.header}>
-            <Row>
-              <Column style={{ width: "36px", verticalAlign: "middle" }}>
-                <Link href={appBaseUrl}>
-                  <Img
-                    src={appUrl("/logo/icon-no-bg-green.png")}
-                    alt="MOVRR"
-                    width={28}
-                    height={28}
-                  />
-                </Link>
-              </Column>
-              <Column style={{ verticalAlign: "middle" }}>
-                <Link href={appBaseUrl} style={{ textDecoration: "none" }}>
-                  <Text className="email-wordmark" style={styles.logoWordmark}>MOVRR</Text>
-                </Link>
-              </Column>
-            </Row>
+            <Link href={appBaseUrl} style={styles.logoLink}>
+              <Img src={LOGO_URL} alt="MOVRR" width={140} height={50} style={styles.logo} />
+            </Link>
+            <Text className="email-title" style={styles.heroTitle}>{title}</Text>
+            <Text style={styles.heroIntro}>{intro}</Text>
+            {actionLabel && actionUrl ? (
+              <Section style={styles.actionSection}>
+                <Button className="email-button" href={actionUrl} aria-label={actionLabel} style={styles.actionButton}>{actionLabel} &nbsp;&#8594;</Button>
+              </Section>
+            ) : null}
           </Section>
 
-          <Hr className="email-rule" style={styles.divider} />
-
           <Section className="email-content" style={styles.content}>
-            <Text className="email-heading email-title" style={styles.title}>{title}</Text>
-            <Text className="email-body" style={styles.intro}>{intro}</Text>
-
             {children}
-
-            {actionLabel && actionUrl && (
-              <Section style={styles.actionSection}>
-                <Button className="email-button" href={actionUrl} aria-label={actionLabel} style={styles.actionButton}>
-                  {actionLabel}
-                </Button>
-              </Section>
-            )}
 
             {actionLabel && actionUrl ? (
               <Text className="email-muted" style={styles.fallbackText}>
@@ -160,7 +139,7 @@ export function BaseEmail({
 
           <Section className="email-footer email-rule" style={styles.footer}>
             <Text className="email-muted" style={styles.footerText}>
-              MOVRR &middot; {footer.tagline}
+              {footer.tagline}
             </Text>
             {footerNote ? (
               <Text className="email-muted" style={styles.footerText}>{footerNote}</Text>
@@ -206,23 +185,16 @@ export function MutedNote({ children }: { children: React.ReactNode }) {
 
 // Email-safe hex approximations of MOVRR oklch design tokens
 export const colors = {
-  textBrand: "#1e3a2c",
-  textMuted: "#4d6358",
-  textFaint: "#7a8e82",
-  accentGreen: "#3a7d52",
-  bgCanvas: "#f4f7f5",
-  bgCard: "#ffffff",
-  bgSoft: "#f4f7f5",
-  bgPanel: "#ecf0ec",
-  borderSoft: "#e2e8e0",
-  borderMuted: "#cdd8ca",
+  textBrand: "#0a3d2e", textMuted: "#405b51", textFaint: "#737373",
+  accentGreen: "#10c259", bgCanvas: "#003415", bgCard: "#ffffff",
+  bgSoft: "#f5f5f3", bgPanel: "#ffffff", borderSoft: "#e5e5e4", borderMuted: "#cccccc",
 } as const;
 
 const styles = {
   main: {
     backgroundColor: colors.bgCanvas,
     fontFamily:
-      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,sans-serif',
+      'Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
     color: colors.textBrand,
     margin: "0",
     padding: "0",
@@ -231,50 +203,31 @@ const styles = {
   },
   container: {
     width: "100%",
-    margin: "40px auto",
-    maxWidth: "560px",
+    margin: "24px auto",
+    maxWidth: "640px",
     backgroundColor: colors.bgCard,
-    border: `1px solid ${colors.borderSoft}`,
-    borderRadius: "14px",
+    border: "0",
+    borderRadius: "0",
     overflow: "hidden" as const,
   },
   header: {
-    padding: "26px 30px 22px",
+    padding: "42px 48px 52px",
+    backgroundColor: "#003415",
   },
-  logoWordmark: {
-    margin: "0",
-    fontSize: "15px",
-    fontWeight: "700",
-    letterSpacing: "-0.03em",
-    color: colors.textBrand,
-  },
-  divider: {
-    borderColor: colors.borderSoft,
-    margin: "0",
-  },
+  logoLink: { display: "inline-block", textDecoration: "none" },
+  logo: { display: "block", width: "140px", height: "50px", border: "0", outline: "none" },
+  heroTitle: { margin: "46px 0 20px", color: "#fcfcfc", fontSize: "46px", fontWeight: "600", lineHeight: "47px", letterSpacing: "-0.045em" },
+  heroIntro: { margin: "0", color: "#8ba294", fontSize: "16px", lineHeight: "26px" },
   content: {
-    padding: "30px 30px 26px",
-  },
-  title: {
-    fontSize: "26px",
-    lineHeight: "32px",
-    fontWeight: "700",
-    letterSpacing: "-0.03em",
-    color: colors.textBrand,
-    margin: "0 0 14px",
-  },
-  intro: {
-    fontSize: "15px",
-    lineHeight: "24px",
-    color: colors.textMuted,
-    margin: "0 0 20px",
+    padding: "42px 48px 46px",
+    backgroundColor: colors.bgCard,
   },
   block: {
-    margin: "0 0 10px",
-    padding: "12px 16px",
-    borderRadius: "10px",
-    backgroundColor: colors.bgSoft,
-    border: `1px solid ${colors.borderSoft}`,
+    margin: "0",
+    padding: "15px 0",
+    borderRadius: "0",
+    backgroundColor: colors.bgPanel,
+    borderTop: `1px solid ${colors.borderSoft}`,
   },
   blockLabel: {
     margin: "0 0 3px",
@@ -293,25 +246,25 @@ const styles = {
     whiteSpace: "pre-wrap" as const,
   },
   actionSection: {
-    margin: "24px 0 14px",
-    textAlign: "center" as const,
+    margin: "32px 0 0",
+    textAlign: "left" as const,
   },
   actionButton: {
-    backgroundColor: "#2f6844",
-    border: "1px solid #2f6844",
-    borderRadius: "8px",
-    color: "#ffffff",
+    backgroundColor: "#fafafa",
+    border: "1px solid #567260",
+    borderRadius: "12px",
+    color: colors.textBrand,
     display: "inline-block",
     fontSize: "14px",
     fontWeight: "700",
     textDecoration: "none",
-    padding: "13px 28px",
+    padding: "15px 28px",
     letterSpacing: "-0.01em",
     minWidth: "210px",
     textAlign: "center" as const,
   },
   fallbackText: {
-    margin: "0",
+    margin: "8px 0 0",
     fontSize: "12px",
     lineHeight: "19px",
     color: colors.textFaint,
@@ -328,14 +281,15 @@ const styles = {
     color: colors.textFaint,
   },
   footer: {
-    borderTop: `1px solid ${colors.borderSoft}`,
-    padding: "20px 30px 24px",
+    borderTop: "1px solid #214a35",
+    padding: "26px 48px 30px",
+    backgroundColor: "#072419",
   },
   footerText: {
     margin: "0 0 6px",
     fontSize: "12px",
     lineHeight: "18px",
-    color: colors.textFaint,
+    color: "#91a69a",
   },
   link: {
     color: colors.accentGreen,

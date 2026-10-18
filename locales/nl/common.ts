@@ -146,7 +146,7 @@ export const nl: Dictionary = {
           key: "analytics",
           label: "Analyse en prestaties",
           description:
-            "Laten zien hoe bezoekers de site gebruiken, welke pagina's populair zijn en hoe bezoekers ons vinden. We bekijken deze gegevens alleen op groepsniveau.",
+            "Vercel Analytics meet na je analysekeuze paginagebruik en ondersteunde gebeurtenissen. Het Cookiebeleid beschrijft gegevens en bediening.",
         },
         {
           key: "marketing",
@@ -439,7 +439,7 @@ export const nl: Dictionary = {
           {
             title: "Privacy als uitgangspunt",
             description:
-              "Je persoonlijke routes blijven privé. Merken zien alleen geanonimiseerde resultaten.",
+              "Kies je trackingmodus. Het Privacybeleid licht locatieverwerking en campagnerapportages toe.",
           },
           {
             title: "Merkveilige plaatsingen",
@@ -623,7 +623,7 @@ export const nl: Dictionary = {
             number: "02",
             title: "Privacy als uitgangspunt",
             description:
-              "Je persoonlijke routes blijven privé. Merken zien patronen en totalen, geen individuele fietsers.",
+              "Het Privacybeleid beschrijft ritgegevens, campagnerapportages en ontvangers. Bespreek de toegestane gegevensverstrekking voor jouw campagne.",
           },
           {
             number: "03",
@@ -938,9 +938,9 @@ export const nl: Dictionary = {
               "Je kiest zelf of je een merkcampagne op je fiets wilt. Doe je mee, dan verdien je extra.",
           },
           {
-            title: "Je routes blijven privé",
+            title: "Jouw trackingkeuzes",
             description:
-              "MOVRR anonimiseert ritgegevens. Merken zien alleen patronen en totalen, nooit jouw persoonlijke route.",
+              "Jij kiest je trackingmodus. Het Privacybeleid legt ritgegevens, campagnerapportages en ontvangers uit.",
           },
         ],
       },
@@ -1288,15 +1288,15 @@ export const nl: Dictionary = {
           faqs: [
             {
               q: "Welke gegevens verzamelt MOVRR?",
-              a: "We gebruiken account- en ritgegevens om kilometers te verifiëren en punten toe te kennen. We delen je persoonlijke route of locatiegeschiedenis nooit met merken.",
+              a: "MOVRR verwerkt account-, rit-, locatie-, belonings- en relevante technische gegevens. Het Privacybeleid beschrijft trackingmodi, verificatie, ontvangers, bewaring en je rechten.",
             },
             {
               q: "Kan ik mijn account verwijderen?",
-              a: "Ja. Vraag verwijdering aan via Instellingen in de app. Je ontvangt een e-mail zodra de aanvraag is verwerkt. Dat gebeurt binnen 30 dagen.",
+              a: "Vraag verwijdering aan via Account → Privacy en beveiliging of privacy@movrr.nl. Acceptatie en afronding zijn afzonderlijk. Zie Accountverwijdering en gegevensrechten voor status, bewaring en procedures.",
             },
             {
-              q: "Hoe wijzig ik mijn betaalgegevens?",
-              a: "Ga in de app naar Instellingen → Betaling. Je wijziging geldt vanaf de volgende uitbetaling.",
+              q: "Waar bekijk ik mijn punten en verzilveringen?",
+              a: "Open Wallet in de app voor je punten en beloningsactiviteit. Mail support@movrr.nl over een onjuiste transactie of openstaande verzilvering.",
             },
           ],
         },
@@ -1446,7 +1446,7 @@ export const nl: Dictionary = {
           index: "02",
           title: "Steden en vervoersregio's",
           description:
-            "Geanonimiseerde ritgegevens laten zien waar mensen fietsen en waar routes tekortschieten. Gebruik die inzichten voor beter beleid en betere infrastructuur.",
+            "Bespreek inzichten uit geverifieerd fietsen voor mobiliteitsbeleid en infrastructuur. Gegevensverstrekking en privacyvoorwaarden moeten per samenwerking worden afgesproken.",
           fit: "Data en inzichten",
           cta: "Neem contact op",
           href: "mailto:partners@movrr.nl",

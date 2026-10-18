@@ -146,7 +146,7 @@ export const en = {
           key: "analytics",
           label: "Performance & analytics",
           description:
-            "Help us understand how visitors interact with the website, which pages are visited most and where people navigate from. All data is aggregated and anonymised.",
+            "Help us understand page use and supported events through Vercel Analytics after your analytics choice. See the Cookie Policy for the data and controls.",
         },
         {
           key: "marketing",
@@ -436,7 +436,7 @@ export const en = {
           },
           {
             title: "Privacy-first design",
-            description: "What you ride stays yours. Anonymised by default.",
+            description: "Choose your tracking mode. Our Privacy Policy explains location processing and campaign reporting.",
           },
           {
             title: "Brand-safe placements",
@@ -621,7 +621,7 @@ export const en = {
       proposition: { titleLine1: "Your ride.", titleLine2: "Your terms.", items: [
         { title: "Verified, not estimated", description: "Every ride authenticated. Your rewards are tied to real, verified kilometres. Not guesses." },
         { title: "Your choice, always", description: "Carrying a brand is entirely your call. Choose it when you want more. Ride clean when you don't. As your ride history builds, higher-value campaigns become available." },
-        { title: "Private by design", description: "Your individual routes stay yours. MOVRR anonymises movement data. Brands see patterns, not people." },
+        { title: "Your tracking choices", description: "You control your tracking mode. Our Privacy Policy explains ride data, campaign reporting and who receives information." },
       ] },
       earnings: { titleLine1: "Three ways", titleLine2: "to earn more.", items: [
         { number: "01", label: "Base", title: "Just ride", description: "Kilometres earn MOVRR Points the moment you ride. No targets, no minimums. Just verified movement.", note: "Every rider, from day one" },
@@ -750,9 +750,9 @@ export const en = {
           { q: "Can I join without being approved?", a: "Yes. Any rider can participate. Approved status is only required to create and lead rides." },
         ] },
         { id: "account-privacy", category: "Account and privacy", faqs: [
-          { q: "What data does MOVRR collect?", a: "We collect movement, account, and interaction data needed to verify rides and calculate rewards. Individual location histories are never shared with brands." },
-          { q: "Can I delete my account?", a: "Yes. Request deletion from Settings in the app. We process requests within 30 days and confirm by email." },
-          { q: "How do I update my payment details?", a: "Go to Settings → Payment in the app. Changes take effect from the next payout cycle." },
+          { q: "What data does MOVRR collect?", a: "MOVRR processes account, ride, location, reward and relevant technical information. The Privacy Policy explains tracking modes, verification, recipients, retention and your rights." },
+          { q: "Can I delete my account?", a: "Request deletion in Account → Privacy & Security or email privacy@movrr.nl. Acceptance and completion are separate; see Account Deletion and Data Rights for status, retention and request procedures." },
+          { q: "Where can I check my points and redemptions?", a: "Open Wallet in the app to review your points and reward activity. Contact support@movrr.nl about an incorrect transaction or outstanding redemption." },
         ] },
         { id: "for-brands", category: "For brands", faqs: [
           { q: "How does MOVRR work for brands?", a: "Brands fund campaigns tied to routes, zones, or behaviours and pay for verified engagement rather than estimated impressions." },

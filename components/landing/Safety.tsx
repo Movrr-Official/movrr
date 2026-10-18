@@ -25,7 +25,7 @@ export function Safety({ copy }: { copy: HomeCopy["safety"] }) {
       >
         <div className="absolute inset-0">
           <Image
-            src="/images/movrr-app-preview-device.webp"
+            src="/images/movrr-app-preview-device.webp?v=2126b9030630"
             alt={copy.imageAlt}
             fill
             quality={88}

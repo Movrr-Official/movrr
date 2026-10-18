@@ -13,7 +13,7 @@ export function AppPreview({ copy }: { copy: HomeCopy["appPreview"] }) {
     >
       <div className="absolute inset-0">
         <Image
-          src="/images/movrr-app-preview-handlebar-v2.webp"
+          src="/images/movrr-app-preview-handlebar-v2.webp?v=5805fa560c67"
           alt={copy.imageAlt}
           fill
           quality={95}

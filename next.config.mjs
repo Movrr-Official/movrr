@@ -9,9 +9,20 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400,
+    localPatterns: [
+      { pathname: "/**", search: "" },
+      {
+        pathname: "/images/movrr-app-preview-handlebar-v2.webp",
+        search: "?v=5805fa560c67",
+      },
+      {
+        pathname: "/images/movrr-app-preview-device.webp",
+        search: "?v=2126b9030630",
+      },
+    ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    qualities: [25, 50, 75, 88, 90, 100],
+    qualities: [25, 50, 75, 88, 90, 95, 100],
     remotePatterns: [
       {
         protocol: "https",

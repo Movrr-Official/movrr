@@ -30,6 +30,13 @@ export interface SeoRouteConfig {
 }
 
 export const SEO_ROUTES: Record<PageKey, SeoRouteConfig> = {
+  app: {
+    indexable: true,
+    changeFrequency: "monthly",
+    priority: 0.85,
+    image: "/images/app/studio-ride.webp",
+    schemaType: "WebPage",
+  },
   home: {
     indexable: true,
     changeFrequency: "weekly",

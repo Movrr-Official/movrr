@@ -19,7 +19,7 @@ assert(Boolean(pagePathsBlock), "PAGE_PATHS is discoverable");
 
 const pagePaths = [...(pagePathsBlock ?? "").matchAll(/(\w+):\s*"([^"]+)"/g)]
   .map(([, key, pathname]) => ({ key, pathname }));
-assert(pagePaths.length === 19, "exactly 19 canonical page paths are registered");
+assert(pagePaths.length === 20, "exactly 20 canonical page paths are registered");
 
 const legalKeys = new Set(["privacy", "terms", "cookies", "accountDeletion"]);
 for (const { key, pathname } of pagePaths) {
@@ -56,7 +56,7 @@ for (const dictionaryPath of ["locales/en.ts", "locales/nl/common.ts"]) {
   );
   for (const { key } of pagePaths) {
     assert(
-      new RegExp(`\\b${key}:\\s*\\{`).test(source),
+      new RegExp(`\\b${key}:\\s*(?:\\{|appShowcaseCopy\\.)`).test(source),
       `${dictionaryPath} contains the ${key} namespace`,
     );
   }

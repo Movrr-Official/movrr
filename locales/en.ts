@@ -1,3 +1,4 @@
+import { appShowcaseCopy } from "@/lib/app-showcase/copy";
 import type { Dictionary } from "@/locales/types";
 
 export const en = {
@@ -174,6 +175,7 @@ export const en = {
       "cycling rewards",
     ],
     pages: {
+      app: appShowcaseCopy.en.metadata,
       home: {
         title: "Movement Rewards Platform",
         description:
@@ -272,6 +274,7 @@ export const en = {
     },
   },
   pages: {
+    app: appShowcaseCopy.en,
     home: {
       hero: {
         imageAlt: "Cyclists in motion through an urban environment",

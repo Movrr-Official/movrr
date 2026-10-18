@@ -1,0 +1,148 @@
+{
+  "sourceRepository": "movrr-mobile",
+  "captured": "2026-10-18",
+  "treatment": "Native captures are lossless WebP; badge PNG bytes are unchanged. Full native UI and attribution are preserved. CSS excerpts are identified by captions and alternatives. Checked-in lossless captures preserve temporary native source pixels after cleanup. Studio derivatives are resized/cropped from approved masters, with their own provenance records.",
+  "records": [
+    {
+      "source": "docs/store-assets/device-framed-2026-10-18/captures/ios/ride-map.png",
+      "context": "iOS, reviewed native capture",
+      "sourceSha256": "5da931b556e433f8b4fc67279816f201dfbbe87ab46d8952e396ca09e1454bb5",
+      "destination": "public/images/app/ride-map.webp",
+      "outputSha256": "45664373ddcabc0fdda3375bd677d1ef7145cd2c394aa3b6549eb3d6c8f069f3",
+      "pixelSha256": "fd981d07a757ec9d9ad9535e96956905ee44c4c68bb980663e4c7c457dc607c8",
+      "width": 828,
+      "height": 1792,
+      "bytes": 203256
+    },
+    {
+      "source": "docs/store-assets/ios-submission-review-2026-10-18/screenshots/captures/iphone/wallet.png",
+      "context": "iOS, owner-approved Store Asset Mode preview",
+      "sourceSha256": "bea188e9130fe786d23f8d56f205220656bbdbfb38073d621969d6e646e89f28",
+      "destination": "public/images/app/wallet.webp",
+      "outputSha256": "7f7f9cade7049f983551c1a54aa45a022a1c11e8d71b8f701ba25e5e46489f50",
+      "pixelSha256": "44e4eb80e75b1ff3d9c1cc761db54cfc879b58f8c5b3de29dfdbf121ec059525",
+      "width": 828,
+      "height": 1792,
+      "bytes": 200876
+    },
+    {
+      "source": "docs/store-assets/ios-submission-review-2026-10-18/screenshots/captures/iphone/campaigns.png",
+      "context": "iOS, owner-approved Store Asset Mode preview",
+      "sourceSha256": "12decd7b61981afa4ae276d9bda8f5d52da7c2be8d32cecabfe81a8ae7c06a29",
+      "destination": "public/images/app/campaigns.webp",
+      "outputSha256": "61f0b2134d5d3568776cbb9fd28e6d8a3792f4d012949ad6fa21c5e9b7b5f454",
+      "pixelSha256": "a1f0dcd822a19fb72de4713a0da21126f87659e65f523775f6e7f6f2d6a22cdb",
+      "width": 828,
+      "height": 1792,
+      "bytes": 684744
+    },
+    {
+      "source": "docs/store-assets/ios-submission-review-2026-10-18/screenshots/captures/iphone/heatmap.png",
+      "context": "iOS, owner-approved Store Asset Mode preview",
+      "sourceSha256": "68674f0fb3d28ebcc8c6c424bccfd6b38956705b9209f96b9dfb9e6d4a6a5256",
+      "destination": "public/images/app/heatmap.webp",
+      "outputSha256": "dff613416f4202b00a21c92f94a1fc6131a3b6473b8aee90841e2eaeae4bab7c",
+      "pixelSha256": "60b1e5194d903a6180e517604b8fb71178870f3b0d50f796465adeebe5ce8e0f",
+      "width": 828,
+      "height": 1792,
+      "bytes": 91930
+    },
+    {
+      "source": "docs/store-assets/ios-submission-review-2026-10-18/screenshots/captures/iphone/home.png",
+      "context": "iOS, owner-approved Store Asset Mode preview",
+      "sourceSha256": "e537fc040bdb22ed9c1fad597f329803b68618e0e753192c09706eabc0f88e70",
+      "destination": "public/images/app/home.webp",
+      "outputSha256": "e712cea10b0f87517ac90c7b1bc0f3b562b763a07f6b2b79357a881d731be0d7",
+      "pixelSha256": "8363ae9050b61c463594a459c2318ba675d18c40bd7c21c74797d38c01b557bf",
+      "width": 828,
+      "height": 1792,
+      "bytes": 298038
+    },
+    {
+      "source": ".tmp/final-audit-earnings-settled.png",
+      "context": "Android native Earnings Performance capture; example history, not promised results",
+      "sourceSha256": "211f4b200e35c535cd77ec6ca93503133de1521f4ea1fb4eb42d70553c305704",
+      "destination": "public/images/app/earnings.webp",
+      "outputSha256": "e448fd3cda2c2de20095382e5f215bc289bbd6bf785de8d28392e2d554bc12ad",
+      "pixelSha256": "4c05fcb24512341454901d9a4dd693d23684cf6473af019fa86ccc649df23264",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 70008
+    },
+    {
+      "source": ".tmp/loading-evidence/native/audit-community-loaded-07.png",
+      "context": "Android native capture; anonymous preview, no participant identities",
+      "sourceSha256": "aa4201645958d2cc159f29610e2f231442ac49771b1760e1f667f1265412b714",
+      "destination": "public/images/app/community.webp",
+      "outputSha256": "55574c5d048c8a38390fc13ae8ecb5e9a78bee3a79f8b7f12221695b0b6d6cdb",
+      "pixelSha256": "6d2b6e9ab4c3471293021f4022c17ec6138ed60505890eacda593437909e9708",
+      "width": 1080,
+      "height": 2424,
+      "bytes": 1173850
+    },
+    {
+      "source": "assets/images/badges/first-ride@2x.png",
+      "context": "Existing native achievement artwork; no unlock claim",
+      "sourceSha256": "9170083d603396b20d3f2fa22a583da4acd7f689037ba8842f301be77c9c3654",
+      "destination": "public/images/app/first-ride.png",
+      "outputSha256": "9170083d603396b20d3f2fa22a583da4acd7f689037ba8842f301be77c9c3654",
+      "pixelSha256": "5586fd3ed330ce45f7f78f1c930080ded93591079e7d3ca7e726e86e89cb48a0",
+      "width": 256,
+      "height": 256,
+      "bytes": 96953
+    },
+    {
+      "source": "assets/images/badges/city-explorer@2x.png",
+      "context": "Existing native achievement artwork; no unlock claim",
+      "sourceSha256": "1b4ac2fcd80492253891829f56100de8fcf27437cbbf5dbd9a6c2aac46017653",
+      "destination": "public/images/app/city-explorer.png",
+      "outputSha256": "1b4ac2fcd80492253891829f56100de8fcf27437cbbf5dbd9a6c2aac46017653",
+      "pixelSha256": "ab9d2588550ef81ca570e657f91d5af41dcfcb240c17a012f9baa9e195cf7e93",
+      "width": 256,
+      "height": 256,
+      "bytes": 97093
+    },
+    {
+      "source": "assets/images/badges/streak-starter@2x.png",
+      "context": "Existing native achievement artwork; no unlock claim",
+      "sourceSha256": "553a7bd19fd0a16a6e2a4209531ab29bde322cd669ba52bd9072befa9d138683",
+      "destination": "public/images/app/streak-starter.png",
+      "outputSha256": "553a7bd19fd0a16a6e2a4209531ab29bde322cd669ba52bd9072befa9d138683",
+      "pixelSha256": "8e28c9e66f800f42c93e62f6afbd13d3f3605d50f702efd9201c2870a0cb190a",
+      "width": 256,
+      "height": 256,
+      "bytes": 101642
+    },
+    {
+      "source": "public/app-preview-01.png",
+      "sourceRepository": "movrr-website-new",
+      "sourceCommit": "ca187fad4ac3e4bfaee41617ee82aa4805db2de4",
+      "context": "Owner-approved studio master; resized for responsive page use; native UI unchanged",
+      "crop": null,
+      "sourceSha256": "627e724c4122b9a2976be466d01ba7d037ba71ec5cb7da6a44516e39fff13cbb",
+      "destination": "public/images/app/studio-ride.webp",
+      "outputSha256": "3199691e7978b9fd928578e00e85ed34c757cb5257446d811197620c4f109b79",
+      "width": 1800,
+      "height": 1199,
+      "bytes": 74038
+    },
+    {
+      "source": "public/app-preview-02.png",
+      "sourceRepository": "movrr-website-new",
+      "sourceCommit": "ca187fad4ac3e4bfaee41617ee82aa4805db2de4",
+      "context": "Owner-approved studio master; resized for responsive page use; native UI unchanged",
+      "crop": {
+        "left": 2900,
+        "top": 1100,
+        "width": 2900,
+        "height": 3784
+      },
+      "sourceSha256": "d709f40f9a4682979bb9b8dd280a7400e5801c1c031305da649e2e0fbfc4aaa9",
+      "destination": "public/images/app/studio-campaign.webp",
+      "outputSha256": "cf223c0ad20fee83441185bd01a662d852ddfc18f1f3e3d44c6facaa4171ae23",
+      "width": 1000,
+      "height": 1305,
+      "bytes": 57162
+    }
+  ]
+}

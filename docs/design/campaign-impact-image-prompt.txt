@@ -1,0 +1,29 @@
+MOVRR campaign impact image
+
+Master: public/metrics-campaign-impact.png
+Website: public/images/movrr-campaign-front-banner-full-height.webp
+Base fixture: docs/design/campaign-impact-base.png
+Genuine logo source: public/logo/icon-no-bg-green.png
+
+Creation: built-in image_gen produced the photographic base and full-height panel art. The genuine icon was then projected directly from the repository asset, and the lower divider was straightened deterministically. Generative attempts to redraw the symbol are not used in the final logo.
+
+Reproduce the final master (Pillow, numpy, opencv-python required):
+python scripts/compose-campaign-banner-artwork.py --base docs/design/campaign-impact-base.png --icon public/logo/icon-no-bg-green.png --output public/metrics-campaign-impact.png
+
+WebP encoding is lossless in scripts/optimize-seo-images.mjs. Metrics.tsx requests quality 100 from Next.js.
+
+Verification: enlarged panel checked against the supplied artwork and genuine logo. The final compositor asserts zero changes outside its printed-symbol and lower-divider masks.
+
+Photographic base / full-height artwork prompt:
+Use case: precise-object-edit.
+Edit only the printed artwork on the tapered FRONT-WHEEL advertising banner in this photograph.
+The user has identified a specific layout error at the bottom of the artwork: a sweeping pale peach/cream band cuts across the lower panel, interrupting the green-left / pattern-right division. Fix exactly this.
+REQUIRED ARTWORK LAYOUT:
+- The panel has TWO CONTINUOUS full-height halves, clipped only by its existing tapered physical shape.
+- LEFT HALF: a single clean fresh green field, uninterrupted from the very top all the way to the very bottom tip. No peach, cream or pattern may sweep across into this green half at the bottom.
+- RIGHT HALF: the existing cream, peach and dark-green geometric artwork must fill its half from the top edge ALL THE WAY DOWN to the bottom tip. Extend the same geometric composition downward; no blank lower band, unprinted margin, plain peach footer or empty triangle.
+- The dividing edge between the green half and the patterned half is one STRAIGHT line on the panel surface running from the upper edge to the lower tip, aligned with the existing top-to-middle division. Perspective-project it naturally, but it must remain straight and continuous. It must NOT curve sideways, end halfway down or be interrupted by a large cream/peach sweep.
+- Keep the black outlined MOVRR symbol and bold exact MOVRR wordmark in the same clear upper-middle position, with clean edges and good padding. Retain the reference-inspired saturated green, cream, peach and dark-green palette.
+- The geometric forms on the right continue down to the physical lower edge in a coherent full-bleed print. Both halves reach the panel perimeter with no internal blank border.
+STRICT INVARIANTS: preserve the banner's exact existing shape, size, FRONT-WHEEL mounting position, orientation, black border and supports. Do not move it. Preserve the black bicycle and tires, black puffer jacket, silver metal, cyclist identity, anatomy, pose, beige trousers and shoes; same Dutch brick street, parked vehicles, pedestrians, buildings, camera angle, framing, daylight and shadows. No changes outside the printed face.
+Return the complete portrait photograph, not a close-up, with only the corrected full-height split artwork.

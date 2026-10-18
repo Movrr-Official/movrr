@@ -46,13 +46,13 @@ const images = [
   ],
   ["app-preview-01.png", "movrr-app-preview-handlebar-v2.webp", 95],
   ["app-preview-02.png", "movrr-app-preview-device.webp"],
-  ["metrics-bike-tire.png", "movrr-branded-bicycle-wheel.webp"],
+  ["metrics-campaign-impact.png", "movrr-campaign-front-banner-full-height.webp"],
 ];
 
 await mkdir(outputDir, { recursive: true });
 
 for (const [input, output, quality = 82] of images) {
-  const lossless = input === "app-preview-01.png" || input === "app-preview-02.png";
+  const lossless = input === "app-preview-01.png" || input === "app-preview-02.png" || input === "metrics-campaign-impact.png";
   await sharp(path.join(publicDir, input))
     .rotate()
     .webp({ quality, effort: 5, smartSubsample: true, lossless })

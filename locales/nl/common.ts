@@ -344,7 +344,7 @@ export const nl: Dictionary = {
         titleLine2: "kan opleveren.",
         description:
           "Een onderbouwde prognose van het bereik binnen actieve fietsnetwerken in de stad.",
-        imageAlt: "Close-up van een fietswiel met MOVRR-branding in de avond",
+        imageAlt: "Fietser met een MOVRR-reclamepaneel naast het voorwiel in een Nederlandse klinkerstraat",
         items: [
           {
             value: "400K — 1,2M",

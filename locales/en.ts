@@ -343,7 +343,7 @@ export const en = {
         titleLine2: "campaign impact.",
         description:
           "The scale of movement-based campaigns. Estimated reach across active urban networks.",
-        imageAlt: "Close-up of a MOVRR-branded bicycle wheel at night",
+        imageAlt: "Cyclist with a MOVRR banner mounted beside the front wheel on a Dutch brick street",
         items: [
           {
             value: "400K — 1.2M",

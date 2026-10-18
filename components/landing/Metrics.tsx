@@ -50,10 +50,10 @@ export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
               style={{ y: imageY }}
             >
               <Image
-                src="/images/movrr-branded-bicycle-wheel.webp"
+                src="/images/movrr-campaign-front-banner-full-height.webp"
                 alt={copy.imageAlt}
                 fill
-                quality={88}
+                quality={100}
                 sizes="(min-width: 1280px) 616px, (min-width: 1024px) calc(50vw - 58px), calc(100vw - 48px)"
                 className="object-cover"
               />

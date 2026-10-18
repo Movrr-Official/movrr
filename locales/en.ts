@@ -1,3 +1,4 @@
+import { legalPage } from "@/lib/legal/pages";
 import type { Dictionary } from "@/locales/types";
 
 export const en = {
@@ -68,7 +69,7 @@ export const en = {
       deleteAccount: "Delete account",
       accessibility: "Accessibility",
       sitemap: "Sitemap",
-      copyright: "MOVRR B.V. All rights reserved.",
+      copyright: "MOVRR All rights reserved.",
     },
     systemStatus: {
       unavailable: "Status unavailable",
@@ -881,61 +882,10 @@ export const en = {
         { id: "04", category: "Legal", description: "Policies, terms, and your rights", primary: false, links: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Service", href: "/terms" }, { label: "Cookie Policy", href: "/cookies" }, { label: "Accessibility", href: "/accessibility" }] },
       ],
     },
-    privacy: {
-      title: "Privacy Policy", effectiveLabel: "Effective", effectiveDate: "1 January 2025", contentsLabel: "Contents", relatedLabel: "Related",
-      summary: "How we collect, use, and protect your personal data. Movement and location data is central to MOVRR, and this policy explains how we handle it.",
-      sections: [
-        { id: "who-we-are", title: "Who we are", paragraphs: ["MOVRR B.V., based in Rotterdam, Netherlands, operates the MOVRR platform and is the controller for the personal data described here.", "Questions about privacy can be sent to privacy@movrr.nl."] },
-        { id: "what-we-collect", title: "Data we collect", paragraphs: ["We collect only the data needed to operate, secure, and improve MOVRR."], bullets: ["Rider account details, profile information, device data, ride and reward history", "Movement and location data needed to verify rides", "Brand-partner campaign, billing, and business-contact details", "Website analytics, consent choices, and information submitted through forms"] },
-        { id: "movement-data", title: "Movement and location data", paragraphs: ["GPS route, distance, and duration are collected only during an active ride that you explicitly start. Collection continues while the app is closed, minimised, or the screen is off so the ride can be verified safely; Android displays a persistent notification, and collection stops when the ride ends.", "We never track location outside active rides, sell individual route data, or share identifiable location history with brands. Brands receive only aggregated, anonymised metrics such as verified impressions, campaign distance, and zone-level heat data.", "Movement data is processed with your explicit consent. You can withdraw consent in account settings, which prevents future rides from being tracked."] },
-        { id: "how-we-use-data", title: "How we use your data", paragraphs: ["We process data to provide the service, perform our contract, meet legal obligations, protect legitimate interests, and act on consent where required.", "We do not sell personal data or use it for automated profiling that produces legal or similarly significant effects."], bullets: ["Verify rides and calculate rewards", "Operate campaigns and deliver verified reach metrics", "Manage accounts, support, and redemptions", "Detect fraud, secure the platform, and improve performance", "Send service messages and consented marketing"] },
-        { id: "your-rights", title: "Your rights", paragraphs: ["Under the GDPR you can contact privacy@movrr.nl to exercise your rights. We may verify your identity and respond within 30 days.", "You can also complain to the Dutch Data Protection Authority, the Autoriteit Persoonsgegevens."], bullets: ["Access and receive a copy of your data", "Correct inaccurate data", "Request deletion or restriction", "Object to certain processing", "Receive portable data where applicable", "Withdraw consent at any time without affecting earlier lawful processing"] },
-        { id: "data-retention", title: "Data retention", paragraphs: ["We keep personal data only as long as necessary for the stated purpose or as required by law."], bullets: ["Account data while the account is active and for 24 months after closure", "Ride and movement data for 36 months for reward verification and dispute resolution", "Reward redemption and voucher records for 7 years for statutory accounting", "Marketing communication data until you unsubscribe or request deletion"] },
-        { id: "changes", title: "Changes to this policy", paragraphs: ["We may update this policy as the platform evolves. Material changes are communicated to registered users by email at least 14 days before they take effect, and the effective date is updated.", "Continued use after an update constitutes acceptance of the revised policy. Contact privacy@movrr.nl with questions."] },
-      ],
-      relatedLinks: [{ label: "Cookie Policy", href: "/cookies" }, { label: "Terms of Service", href: "/terms" }, { label: "Delete account", href: "/account-deletion" }],
-    },
-    terms: {
-      title: "Terms of Service", effectiveLabel: "Effective", effectiveDate: "1 January 2025", contentsLabel: "Contents", relatedLabel: "Related",
-      summary: "The terms governing use of MOVRR by riders earning through verified movement and brands running campaigns.",
-      sections: [
-        { id: "platform", title: "The platform", paragraphs: ["MOVRR connects cyclists and brands through verified movement. Riders earn rewards for authenticated rides; brands receive consent-based physical campaign exposure and verified reporting.", "By creating an account or using MOVRR, you agree to these terms."] },
-        { id: "rider-accounts", title: "Rider accounts", paragraphs: ["You must be at least 18, provide accurate information, protect your credentials, and remain responsible for activity under your account.", "MOVRR may suspend or close accounts that contain false information, breach these terms, or show suspected fraud."] },
-        { id: "earning-rewards", title: "Earning and rewards", paragraphs: ["Rewards depend on verified distance, route, and duration. Manipulating or falsifying movement data can lead to permanent suspension.", "Base rates and redemption options appear in the app and may change prospectively. Brand campaigns and sponsored community rides may offer elevated rates. Rewards have no cash value outside the available redemption options."] },
-        { id: "brand-campaigns", title: "Brand campaigns", paragraphs: ["Brand partners are also subject to the Brand Partner Agreement. Creative must comply with advertising standards and MOVRR may reject non-compliant material.", "Campaign performance claims must accurately reflect the verified metrics MOVRR provides."] },
-        { id: "acceptable-use", title: "Acceptable use", paragraphs: ["You must use MOVRR lawfully and must not interfere with the service or other users."], bullets: ["Do not falsify ride data or generate automated activity", "Do not access another user's data", "Do not upload malicious material or reverse-engineer the app", "Do not infringe rights or use the platform for harmful or unlawful purposes"] },
-        { id: "platform-rights", title: "Platform rights and availability", paragraphs: ["MOVRR may modify, suspend, or discontinue features with reasonable notice where practical. Availability is not guaranteed.", "Material changes to these terms will be communicated before they take effect. Continued use after that date constitutes acceptance."] },
-        { id: "governing-law", title: "Governing law", paragraphs: ["These terms are governed by the laws of Ireland. Disputes arising under these terms are subject to the exclusive jurisdiction of the courts of Ireland.", "If a provision is unenforceable, the remaining terms continue in full force. Questions can be sent to hello@movrr.nl."] },
-      ],
-      relatedLinks: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Cookie Policy", href: "/cookies" }],
-    },
-    cookies: {
-      title: "Cookie Policy", effectiveLabel: "Effective", effectiveDate: "1 January 2025", contentsLabel: "Contents", relatedLabel: "Related",
-      summary: "How we use cookies on this website, what each category does, and how to manage your preferences.",
-      sections: [
-        { id: "what-cookies-are", title: "What cookies are", paragraphs: ["Cookies are small text files stored by your browser. Similar technologies can store or read identifiers for the same purposes.", "This policy applies to movrr.nl and should be read with our Privacy Policy."] },
-        { id: "cookie-categories", title: "Cookie categories", paragraphs: ["Strictly necessary cookies support security, consent, and core functions and cannot be disabled through our tool.", "Performance and analytics cookies help us understand aggregated use. Functional cookies remember choices. Marketing cookies measure campaign effectiveness. Non-essential categories are used only with consent where required."] },
-        { id: "specific-cookies", title: "Cookies we use", paragraphs: ["Our necessary storage includes consent preferences and essential session/security values. Analytics may include privacy-conscious measurement tools configured to minimise data. Functional storage remembers settings such as language.", "The exact providers and retention periods can change as our platform develops; the consent tool reflects the active categories."] },
-        { id: "managing-cookies", title: "Managing cookies", paragraphs: ["You can accept, reject, or configure non-essential cookies through the consent interface. You can revisit your choice and can also delete or block cookies in your browser.", "Blocking necessary cookies may prevent parts of the site from working. Provider opt-out tools may offer additional controls."] },
-        { id: "changes", title: "Changes to this policy", paragraphs: ["We may update this policy when our technology or legal obligations change. The effective date shows the latest version.", "Contact privacy@movrr.nl with questions about cookies or consent."] },
-      ],
-      relatedLinks: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Service", href: "/terms" }],
-    },
-    accountDeletion: {
-      title: "Delete Your Account", effectiveLabel: "Effective", effectiveDate: "14 July 2026", contentsLabel: "Contents", relatedLabel: "Related",
-      summary: "How to delete your MOVRR rider account and linked personal data in the app, or by request if you can no longer sign in.",
-      sections: [
-        { id: "which-app", title: "Which app this applies to", paragraphs: ["This process applies to the MOVRR rider app, including Android package nl.movrr.app and the corresponding iOS app. MOVRR B.V. in Rotterdam is the data controller."] },
-        { id: "delete-in-app", title: "Delete your account from inside the app", paragraphs: ["The fastest route is directly in the MOVRR app. Deletion begins after confirmation."], bullets: ["Open MOVRR and sign in", "Go to Account → Data & Privacy", "Choose Delete account", "Confirm when prompted"] },
-        { id: "delete-by-email", title: "Request deletion by email", paragraphs: ["If you cannot sign in, email privacy@movrr.nl with the subject ‘Account deletion request’ from the address linked to your account. We may verify your identity and will confirm completion.", "You do not need to give a reason."] },
-        { id: "what-we-delete", title: "What we delete", paragraphs: ["We delete or irreversibly anonymise data that can identify you."], bullets: ["Profile and contact details", "Location, GPS, routes, and ride history", "Campaign data, points balance, and earning history", "Registered devices and notification tokens", "Preferences and settings", "Community rides and uploaded images"] },
-        { id: "what-we-keep", title: "What we keep, and why", paragraphs: ["Limited records may remain where law requires them or to protect the platform. They are minimised, pseudonymised where possible, and not used to rebuild your profile."], bullets: ["Redeemed rewards and transaction records required by accounting law", "Security and anti-fraud logs for a proportionate period", "Aggregated anonymous statistics"] },
-        { id: "unredeemed-points", title: "Unredeemed MOVRR Points", paragraphs: ["Unredeemed MOVRR Points expire permanently on deletion. They have no cash value and cannot be transferred or paid out.", "Redeem any available balance before deleting your account."] },
-        { id: "how-long", title: "How long deletion takes", paragraphs: ["Your account becomes inaccessible when deletion is confirmed or an email request is verified. Personal data is removed from active systems within 30 days.", "Encrypted backup copies expire through normal rotation within 90 days."] },
-        { id: "other-rights", title: "Your other privacy rights", paragraphs: ["Deletion is one GDPR right. You can also request access, correction, portability, restriction, or object to processing. The Privacy Policy explains these rights.", "Contact privacy@movrr.nl or complain to the Dutch Data Protection Authority."] },
-      ],
-      relatedLinks: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Service", href: "/terms" }],
-    },
+    privacy: legalPage("privacy", "en"),
+    terms: legalPage("terms", "en"),
+    cookies: legalPage("cookies", "en"),
+    accountDeletion: legalPage("accountDeletion", "en"),
   },
 } satisfies Dictionary;
 

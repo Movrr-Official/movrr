@@ -4,7 +4,7 @@ import { stripLocalePrefix, withLocalePath } from "@/lib/i18n/routing";
 
 export const SITE_URL = "https://movrr.nl";
 export const SITE_NAME = "MOVRR";
-export const LEGAL_NAME = "MOVRR B.V.";
+export const LEGAL_NAME = "MOVRR";
 export const DEFAULT_SOCIAL_IMAGE = "/opengraph-image";
 export const DEFAULT_SOCIAL_IMAGE_ALT =
   "MOVRR — movement rewarded for riders, brands, and cities";

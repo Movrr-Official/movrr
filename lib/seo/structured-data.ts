@@ -22,6 +22,7 @@ const organization: JsonLdNode = {
   "@id": organizationId,
   name: SITE_NAME,
   legalName: LEGAL_NAME,
+  identifier: { "@type": "PropertyValue", propertyID: "KvK", value: "93383738" },
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -35,6 +36,8 @@ const organization: JsonLdNode = {
   foundingDate: "2024",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Luzacstraat 7 01 A",
+    postalCode: "3038 VT",
     addressLocality: "Rotterdam",
     addressCountry: "NL",
   },

@@ -41,7 +41,7 @@ export function LegalLayout({
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <motion.h1
-                initial={{ opacity: 1, y: 16 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: 0.08,
@@ -54,7 +54,7 @@ export function LegalLayout({
               </motion.h1>
             </div>
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{
                 delay: 0.2,
@@ -73,7 +73,7 @@ export function LegalLayout({
           </div>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.18,
@@ -91,8 +91,8 @@ export function LegalLayout({
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[220px_1fr] lg:gap-20">
           {/* Sticky sidebar navigation */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-28">
+          <aside aria-label={contentsLabel} className="block">
+            <div className="lg:sticky lg:top-28">
               <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
                 {contentsLabel}
               </p>
@@ -136,7 +136,7 @@ export function LegalLayout({
               <motion.section
                 key={section.id}
                 id={section.id}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 1, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{

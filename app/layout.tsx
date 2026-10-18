@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "MOVRR rewards verified cycling and gives brands measurable, movement-based reach across cities.",
   authors: [{ name: "MOVRR" }],
   creator: "MOVRR",
-  publisher: "MOVRR B.V.",
+  publisher: "MOVRR",
   category: "technology",
   referrer: "origin-when-cross-origin",
   formatDetection: {

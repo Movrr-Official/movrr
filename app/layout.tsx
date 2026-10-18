@@ -7,6 +7,8 @@ import {
   normalizeLocale,
 } from "@/lib/i18n/config";
 import { JsonLd } from "@/components/seo/JsonLd";
+import Script from "next/script";
+import { legacySignupRedirectScript } from "@/lib/waitlist/legacy-signup-redirect";
 import { ReducedMotionProvider } from "@/components/motion/ReducedMotionProvider";
 import { getDictionary } from "@/lib/i18n/dictionary";
 import { buildStructuredData } from "@/lib/seo/structured-data";
@@ -127,6 +129,11 @@ export default async function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="font-sans antialiased">
+        <Script
+          id="legacy-signup-redirect"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: legacySignupRedirectScript() }}
+        />
         <JsonLd data={structuredData} />
         <ReducedMotionProvider>{children}</ReducedMotionProvider>
       </body>

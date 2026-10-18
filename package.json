@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "test:legacy-signup-redirect": "node --test scripts/tests/legacy-signup-redirect.test.mjs",
     "verify:i18n": "node scripts/verify-i18n.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "seo:indexnow": "node scripts/submit-indexnow.mjs",

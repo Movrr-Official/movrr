@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { SystemStatus } from "./SystemStatus";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import { withLocalePath } from "@/lib/i18n/routing";
@@ -199,7 +198,6 @@ export function Footer({ cta = true }: FooterProps) {
             >
               {copy.footer.sitemap}
             </Link>
-            <SystemStatus />
             <LanguageSwitcher labels={copy.languageSwitcher} inverted />
             <ViewSelector
               current="human"

@@ -4,12 +4,11 @@ import type { LegalPageCopy } from "@/locales/types";
 export function legalPage(key: "privacy" | "terms" | "cookies" | "accountDeletion", locale: "en" | "nl"): LegalPageCopy {
   const nl = locale === "nl";
   const doc = documents[locale][key];
-  const review = documents.status !== "approved";
   return {
     ...doc,
-    effectiveLabel: review ? (nl ? "Beoordelingsdatum" : "Review date") : (nl ? "Van kracht" : "Effective"),
-    effectiveDate: review ? documents.reviewDate : (documents.effectiveDate ?? ""),
-    summary: (review ? (nl ? "CONCEPT — ter goedkeuring en juridische beoordeling; niet van kracht. " : "REVIEW DRAFT — awaiting approval and legal review; not effective. ") : "") + doc.summary,
+    effectiveLabel: documents.effectiveDate ? (nl ? "Van kracht" : "Effective") : (nl ? "Laatst bijgewerkt" : "Last updated"),
+    effectiveDate: documents.effectiveDate ?? documents.reviewDate,
+    summary: doc.summary,
     contentsLabel: nl ? "Inhoud" : "Contents",
     relatedLabel: nl ? "Gerelateerd" : "Related",
     relatedLinks: [

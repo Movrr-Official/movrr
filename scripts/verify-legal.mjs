@@ -20,7 +20,7 @@ for (const locale of ["en", "nl"]) {
     for (const lang of ["en", "nl", "x-default"]) assert.ok(html.includes(`hrefLang="${lang}"`), `${pathname} hreflang ${lang}`);
     assert.equal((main.match(/<h1\b/g) || []).length, 1, 'One main heading');
     assert.ok(main.includes(escape(source[locale][key].title)));
-    if (source.status !== "approved") assert.ok(main.includes(locale === "nl" ? "CONCEPT" : "REVIEW DRAFT"));
+    assert.ok(!/REVIEW DRAFT|CONCEPT —|Review blocker:|Publicatieblokkade:|awaiting approval|this draft|deze beoordelingsversie/i.test(main), `${pathname} has no internal drafting commentary`);
     for (const section of source[locale][key].sections) {
       assert.ok(main.includes(`id="${section.id}"`), `${pathname} anchor ${section.id}`);
       for (const paragraph of section.paragraphs) assert.ok(main.includes(escape(paragraph)), `${pathname} exact ${section.id} paragraph`);

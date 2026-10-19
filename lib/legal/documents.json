@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-19-review.2",
-  "status": "review-required",
+  "version": "2026-10-19.1",
+  "status": "approved",
   "reviewDate": "2026-10-19",
-  "effectiveDate": null,
+  "effectiveDate": "2026-10-19",
   "operator": {
     "name": "MOVRR",
     "address": "Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands",
@@ -37,10 +37,10 @@
           "paragraphs": [
             "During a recorded ride, MOVRR processes precise GPS coordinates, route points, timestamps, distance, speed, duration and location-quality signals. Recording can continue in the background when the app is minimised or the screen is locked, subject to permissions, operating-system restrictions and battery settings. A ride can be started explicitly; Automatic mode can also start a Standard ride as described below. Campaign or Boosted rides always require an explicit start.",
             "Manual mode disables passive background ride detection. Smart Prompt uses location and motion signals between recordings to recognise possible cycling and ask whether to start a Standard ride. Automatic uses those signals and can start a Standard ride after sustained high-confidence detection. These optional modes require the relevant permissions and can be changed in Account → Ride Preferences. Choosing Manual stops passive detection; it does not itself finish an already recorded ride.",
-            "The current account preference defaults to Smart Prompt. A device without a saved local detection flag falls back to Manual until preferences are applied. These defaults are not evidence that you gave GDPR consent. Review blocker: the optional-detection notice, affirmative choice and consent record must be validated before the proposed consent basis can be used.",
+            "The account preference defaults to Smart Prompt. A device without a saved local detection setting falls back to Manual until account preferences are applied. A default setting or operating-system permission alone does not establish GDPR consent to optional processing.",
             "Finishing a ride ends that recording. Pausing a ride is not a promise that every location listener has stopped: location may still be used to detect movement or resume the ride. Optional detection may resume after a recording ends according to your selected mode. To stop both activities, finish the ride and choose Manual, or revoke location access in device settings. Revoking access affects tracking and verification; it does not delete previously stored data.",
             "Recent passive samples are buffered on the device, including a rolling buffer of up to 20 samples. Active ride paths and recovery records are also stored locally, including SQLite and offline synchronisation storage. Recorded ride data is sent to MOVRR services for history, verification, rewards and campaign functions. Do not assume passive detection makes an entire route permanently device-only once a recorded ride starts. We do not promise that every local location record is encrypted or cleared immediately on logout.",
-            "Location permission is a device access control, not a blanket GDPR legal basis. The purposes and proposed legal bases below distinguish requested ride processing from optional detection, security and campaign reporting.",
+            "Location permission controls access on your device. It is distinct from the GDPR legal basis for using information. The purposes below distinguish requested ride processing, optional detection, security and campaign reporting.",
             "Recorded GPS points, a separate complete route path and ride summaries are stored with your rider and session records. Summaries include distance, speed, duration and verification information. Deleting individual GPS points alone does not remove the route path or summary. Riders can access their own history; authorised operational administrators can also access ride-session records for their tasks."
           ]
         },
@@ -49,9 +49,8 @@
           "title": "4. Purposes and legal bases",
           "paragraphs": [
             "Account management, authentication, requested ride recording and history, participation in a selected campaign, points accounting and reward fulfilment: Article 6(1)(b) GDPR, where objectively necessary to provide the service you request. Optional details and optional detection must not be made compulsory merely by describing them in these terms.",
-            "Optional background detection: proposed basis is freely given, specific consent under Article 6(1)(a), separately from operating-system permission. Choosing Manual stops passive detection prospectively. The current Smart Prompt default and saved preference do not by themselves demonstrate an informed affirmative opt-in. Review blocker: the consent journey and supporting records require validation before this basis can be relied on. Website optional analytics and optional marketing use consent where required; withdrawal must be as easy as giving consent, but a persistent website preference-reopen control is not currently implemented.",
-            "Proportionate security, preventing false rides and reward abuse, investigating errors, handling disputes and maintaining service reliability: proposed basis is Article 6(1)(f), subject to a documented necessity and balancing assessment. Campaign reporting needs its own necessity assessment and recipient limits; it is not automatically covered by consent to location access. Compliance with a specific applicable legal duty uses Article 6(1)(c); a possible future duty is not a basis for unrestricted retention.",
-            "These are proposed purpose-specific bases for legal review. No reliance on vital interests or special-category health-data consent is asserted. Whether the particular exercise and motion processing requires Article 9 safeguards must be assessed before publication; store fitness classifications alone do not answer that legal question."
+            "Optional background detection: Article 6(1)(a) applies only where you have given freely given, specific, informed consent through an affirmative choice, separately from operating-system permission. A default Smart Prompt setting or saved preference alone is not that consent. Choosing Manual stops passive detection prospectively. Optional website analytics and marketing use consent where required. Withdrawing consent does not affect earlier processing that was lawful; the Cookie Policy explains the available website controls.",
+            "Proportionate security, preventing fabricated rides or reward abuse, investigating errors, resolving disputes and maintaining reliability serve legitimate interests under Article 6(1)(f), limited by necessity and your interests and rights. Campaign reporting is limited to its specific purpose and necessary recipients; permission to access location does not authorise unrestricted reporting. Article 6(1)(c) applies to processing required by a specific applicable legal duty. A possible future duty does not justify unrestricted retention."
           ]
         },
         {
@@ -60,7 +59,7 @@
           "paragraphs": [
             "We associate ride sessions with your account and assess movement quality, distance, speed, timing, route or zone compliance and signals relevant to detecting fabricated activity. Hot Zones use geographic boundaries and eligible time windows to assess campaign participation and potential bonuses. Verification and settlement determine whether points are credited; live estimates are not final awards.",
             "Automated rules can leave a ride pending, reject an activity or affect a points award. Contact support@movrr.nl to contest an outcome and request review by a person. We do not describe all decision-making as anonymous or certify that no decision can have a significant effect. Significant automated decisions require a separate Article 22 assessment and safeguards.",
-            "Authorised operational staff and relevant authenticated reporting services can access records needed for their tasks. Campaign metrics may be derived from rider-linked information. Removing a name or aggregating a small number of riders does not necessarily make information anonymous. The exact advertiser/partner projections and access roles must be verified before any claim that brands receive only anonymous data is published."
+            "Authorised operational staff and authenticated reporting services can access records needed for their tasks. Campaign metrics can be derived from rider-linked information. Removing a name or combining a small number of riders does not necessarily make information anonymous. Access to identifiable operational records is distinct from publishing community content or providing aggregate campaign metrics."
           ]
         },
         {
@@ -77,7 +76,7 @@
           "paragraphs": [
             "The inspected integrations include Supabase for authentication, database and file storage; MOVRR’s authenticated backend for rides, campaigns, wallets and fulfilment; Apple and Google for the sign-in and native map/platform services you use; Expo and the applicable Apple/Google push delivery services for notifications; and Sentry for enabled crash diagnostics and tracing. The website uses Vercel hosting/consented analytics, Supabase registration storage and Resend email delivery.",
             "Reward fulfilment can involve the selected partner, including entitlement, redemption, token or collection-status information needed to deliver or validate the reward. Campaign and organisation users receive information according to their authorised roles. Staff and support access must be limited to their duties. Any disclosure required by a specific law or necessary for a legal claim must be limited to that purpose.",
-            "This is an integration inventory, not confirmation that every provider is enabled in every release. Production processor entities, subprocessors, regions, contractual roles, recipient fields and access limits require the owner’s approval. No sale, advertising-tracking or exclusively anonymous-sharing assurance is made without that verification.",
+            "The recipients involved depend on the feature you use and the services enabled for it. A provider may process data on MOVRR’s behalf or act independently for its own sign-in, map or platform service. This policy does not treat rider-linked operational information as anonymous merely because a name is omitted. Contact privacy@movrr.nl for information about recipients and applicable processing safeguards.",
             "When you request place search or cycling directions, the maps-proxy service forwards your search text, relevant origin/destination coordinates and request parameters to Google Places/Routes. The proxy is designed not to log or persist those search queries or coordinates itself; that does not establish Google’s retention or exclude storage of the resulting route elsewhere. Native map rendering also uses the applicable platform map service.",
             "Email, Apple and Google authentication are enabled; phone sign-in is not currently enabled. MOVRR’s Resend sending domain has email-open and click tracking disabled. Verified EU service endpoints or an EU email-sending region do not establish that all provider processing remains within the EU; international processing is addressed below."
           ]
@@ -95,11 +94,11 @@
           "id": "retention",
           "title": "9. Retention, security and international transfers",
           "paragraphs": [
-            "Data should be kept only for a justified purpose and no longer than necessary. Account and requested service records support the continuing account; ride evidence supports verification and a proportionate dispute period; fulfilment and financial records support outstanding obligations and specific accounting duties; support/security records support resolution and a proportionate investigation period. These criteria are not approved numerical retention periods.",
-            "Review blocker: a complete retention schedule and its operational execution have not been approved and verified. Existing settings and cleanup helpers are not deletion guarantees. Individual GPS-point cleanup does not remove separate route paths, summaries or local copies; successful scheduled cleanup has not been established. The retention rules for account deletion still await legal and operational decisions. MOVRR must approve category-specific periods or objective end criteria, necessary exceptions and responsibility for erasure across these copies, registrations, images, support, diagnostics, audit records and backups before this notice takes effect.",
+            "Data should be kept only for a justified purpose and no longer than necessary. Account and requested service records support the continuing account; ride evidence supports verification and a proportionate dispute period; fulfilment and financial records support outstanding obligations and specific accounting duties; support/security records support resolution and a proportionate investigation period. These purposes do not establish that any particular retention period is currently enforced.",
+            "Automated cleanup does not currently provide a verified deletion deadline for every copy of ride and location data. Individual GPS-point cleanup does not remove separate route paths, summaries or device copies. Requests for erasure therefore need assessment across those copies and relevant providers. Necessary financial, redemption, support, security and legal evidence can require separate retention; only the records needed for the applicable obligation or documented claim should remain, with restricted use and an appropriate end criterion. An accounting duty does not justify keeping an entire profile or GPS trace. For the retention applicable to your records, contact privacy@movrr.nl.",
             "Local cleanup depends on the storage type and the app running: the passive buffer holds up to 20 samples and is removed when consumed; offline foreground GPS cleanup applies a seven-day age limit when invoked; synced background GPS cleanup uses a 24-hour threshold when invoked. Recovery paths are cleared on the relevant completion/cancellation paths on a best-effort basis. Cache expiry is checked during app operations, and unsuccessful synchronisation records have no verified general expiry. These mechanisms are not a promise that every device copy disappears at a fixed elapsed time, on logout or when permissions are revoked.",
             "Network requests use HTTPS and access controls are intended to restrict authenticated data. Some offline cache records use application encryption; this is not a statement that all local or server records are encrypted. No security measure guarantees that a service cannot be compromised.",
-            "Review blocker: EU-region hosting does not exclude international processing. Supabase describes global support and content delivery and transfers involving Singapore and the United States; Resend describes United States processing notwithstanding the EU sending region. Their published terms include transfer safeguards, but MOVRR’s applicable agreement, account entity and safeguards must be recorded. Sentry, Expo, Vercel and maps/platform services require the same service-specific verification. MOVRR must identify restricted transfers and the applicable Chapter V mechanism and assessment, and make information about safeguards available on request. This draft does not assert that EU-only processing, executed DPAs or transfer assessments have been verified."
+            "Using an EU hosting or email-sending region does not exclude international processing. Supabase describes global support and content delivery and processing involving Singapore and the United States; Resend describes United States processing. Other providers may also involve access or processing outside the EEA. Where a transfer is not covered by an applicable adequacy decision, GDPR requires appropriate safeguards, such as applicable standard contractual clauses and the necessary assessment and supplementary measures. Contact privacy@movrr.nl for information about destinations and applicable safeguards or to request a copy. An EU service endpoint alone is not an assurance of EU-only processing."
           ]
         },
         {
@@ -107,7 +106,7 @@
           "title": "10. Your rights and requests",
           "paragraphs": [
             "Subject to the GDPR conditions, you may request access and a copy, correction, erasure, restriction, portability for qualifying consent/contract processing, and object to legitimate-interest processing. You may object to direct marketing at any time and withdraw consent prospectively. A refusal of consent does not remove rights in existing records.",
-            "Account → Privacy & Security contains privacy/export and deletion controls, but production self-service deletion request acceptance and execution are currently disabled. Do not treat pressing Delete Account or receiving a review-required response as acceptance or erasure. Email privacy@movrr.nl, including if you cannot sign in; monitoring and manual fulfilment of that route still require owner confirmation. The in-app export covers selected account, route, ride-session, ledger and preference records; it is not an exhaustive access response. We may ask for proportionate verification; never send passwords, sign-in codes or an unsolicited identity-document copy.",
+            "Account → Privacy & Security contains privacy/export and deletion controls. Self-service deletion request acceptance and execution are currently unavailable; pressing Delete Account or receiving a review-required response does not establish that an account has been erased. Email the monitored privacy@movrr.nl address for a manually handled request, including if you cannot sign in. The in-app export covers selected account, route, ride-session, ledger and preference records; it is not an exhaustive access response. We may ask for proportionate verification; never send passwords, sign-in codes or an unsolicited identity-document copy.",
             "GDPR requests must be answered without undue delay and normally within one month of receipt. A necessary extension of up to two further months must be explained within the first month. A response deadline is not a guarantee that all erasure or backups finish within that period. Requests are normally free, subject to the GDPR’s narrow exceptions.",
             "You may complain to the Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl) or another competent supervisory authority, and pursue available remedies. The Account Deletion and Data Rights notice explains request status, unfinished obligations and retention limits."
           ]
@@ -116,8 +115,8 @@
           "id": "changes",
           "title": "11. Age and changes",
           "paragraphs": [
-            "The intended rider service is for adults aged 18 or over under the draft Terms. The owner must confirm the eligibility rule and release enforcement before publication. If a child’s information has been provided, contact the privacy address so it can be assessed.",
-            "We will identify the effective date of an approved policy and explain material changes through an appropriate channel. A privacy notice provides information; merely continuing to use MOVRR is not consent to new processing. New purposes or consent-dependent changes require the appropriate legal basis and choice."
+            "The MOVRR rider service is intended for adults aged 18 or over. If a child’s information has been provided, contact privacy@movrr.nl so it can be assessed.",
+            "The date shown with this policy identifies its current version. We will explain material changes through an appropriate channel. A privacy notice provides information; merely continuing to use MOVRR is not consent to new processing. New purposes or consent-dependent changes require the appropriate legal basis and choice."
           ]
         }
       ]
@@ -130,7 +129,7 @@
           "id": "operator",
           "title": "1. Operator and scope",
           "paragraphs": [
-            "These proposed terms are between you and MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands, KvK 93383738. Contact support@movrr.nl for the service and privacy@movrr.nl for privacy matters.",
+            "These terms are between you and MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands, KvK 93383738. Contact support@movrr.nl for the service and privacy@movrr.nl for privacy matters.",
             "They apply to the rider app, movrr.nl and related consumer account services. They do not create an advertiser, employer, partnership or employment agreement. Any separately agreed business contract governs its own subject matter. The Privacy Policy explains processing and is not a request for blanket consent."
           ]
         },
@@ -138,7 +137,7 @@
           "id": "accounts",
           "title": "2. Eligibility and account security",
           "paragraphs": [
-            "The proposed rider eligibility is 18 or over. Before these terms take effect the owner must confirm that rule. Provide accurate information, use only accounts you are entitled to use, keep credentials secure and report suspected compromise promptly. You are responsible for your own misuse; you are not automatically liable for every unauthorised use regardless of fault.",
+            "You must be at least 18 years old to use the rider service. Provide accurate information, use only accounts you are entitled to use, keep credentials secure and report suspected compromise promptly. You are responsible for your own misuse; you are not automatically liable for every unauthorised use regardless of fault.",
             "Apple/Google sign-in depends on the relevant provider and release configuration. Do not share sign-in codes or use another person’s account. You may read the public legal pages without creating an account."
           ]
         },
@@ -156,7 +155,7 @@
           "paragraphs": [
             "MOVRR Points are loyalty units recorded in the platform, not a deposit account or a promise of cash payment. The displayed balance and transaction history reflect credits, redemptions and authorised adjustments. The available catalogue defines what a balance can be used for; no universal cash conversion or transferable value is promised.",
             "Only eligible, verified and settled activity earns points. Campaign, promotional and referral awards apply only where actually offered and subject to their stated conditions. MOVRR may correct demonstrable errors or abuse after proportionate review, explain a material adjustment and provide a way to contest it.",
-            "No general point-expiry period, automatic forfeiture on account closure or unrestricted confiscation right is established by these terms. Closure treatment and outstanding redemptions require reconciliation and the applicable approved process. A change to future earning rates must not silently remove an existing valid entitlement."
+            "These terms establish no general point-expiry period or automatic forfeiture of earned points on closure. Before irreversible account deletion, MOVRR must explain the consequences for your balance, pending requests and valid redemptions. Existing valid redemption obligations must be preserved and pending requests resolved according to their verified status, applicable offer terms and consumer rights. No cash conversion or automatic payout of unused points is promised. A change to future earning rates must not silently remove an existing valid entitlement."
           ]
         },
         {
@@ -172,7 +171,7 @@
           "title": "6. Redemptions and fulfilment",
           "paragraphs": [
             "Review the reward description, points cost, availability, provider, regional/age restrictions and expiry or use conditions shown for the specific offer before confirming. A request may reserve or debit points and pass through pending, fulfilment, cancellation, failure or refund states. The actual transaction status determines the outcome; tapping redeem is not proof of completed delivery.",
-            "Some rewards use a voucher, digital token or physical collection. Keep redemption tokens private and follow the selected partner’s disclosed instructions. Contact support if a valid reward is missing, unusable or incorrectly charged. Any cancellation, restoration or refund must follow the applicable reward process and mandatory consumer law; these terms do not exclude statutory remedies or impose a blanket no-refund rule.",
+            "Supported rewards can use a voucher, digital token or collection process. Keep redemption tokens private and follow the selected partner’s disclosed instructions. Contact support if a valid reward is missing, unusable or incorrectly charged, or to request cancellation. Cancellation and points restoration are distinct operations; neither a cancellation request nor a cancelled status proves that points have been restored. The applicable offer, verified fulfilment status and mandatory consumer law determine the remedy. These terms impose no blanket no-refund rule and do not promise self-service cancellation or cash reimbursement.",
             "These terms do not introduce a paid subscription, cash payout, banking service or purchase of points. Additional conditions for any future paid product must be disclosed before an order, including applicable withdrawal rights and any lawful exception."
           ]
         },
@@ -190,7 +189,7 @@
           "title": "8. Service changes, suspension and closure",
           "paragraphs": [
             "MOVRR may restrict misuse or insecure access using proportionate measures. Where lawful and practicable, we will explain a material restriction and allow you to challenge an error through support. Urgent protection of users or systems may require action before notice. Suspension is not automatic proof of fraud and is not a substitute for handling a deletion request.",
-            "Features can be unavailable or change. Material changes affecting an existing consumer entitlement require an appropriate reason, notice and the remedies applicable under mandatory law. These terms do not give MOVRR an unlimited right to change them retrospectively. An approved effective date and any necessary acceptance or termination option must accompany material contractual changes.",
+            "Features can be unavailable or change. Material changes affecting an existing consumer entitlement require an appropriate reason, notice and the remedies applicable under mandatory law. These terms do not give MOVRR an unlimited right to change them retrospectively. An effective date and any necessary acceptance or termination option must accompany material contractual changes.",
             "You can stop using MOVRR and request account closure through Account → Privacy & Security or the published contact route. Resolve or ask support about pending rewards, equipment and claims. Uninstalling the app does not close the account. See the Account Deletion and Data Rights notice; it does not guarantee that every production deletion prerequisite is already enabled."
           ]
         },
@@ -199,8 +198,8 @@
           "title": "9. Responsibility, complaints and applicable law",
           "paragraphs": [
             "Use reasonable care, lawful cycling and safe device handling. MOVRR must also exercise the care required by the agreement and applicable law. No clause excludes mandatory consumer protections, liability that cannot lawfully be excluded, or your right to an effective remedy. No blanket indemnity or nominal liability cap is imposed.",
-            "Send a complaint to support@movrr.nl with the relevant account or transaction reference. For this Dutch operating model, Dutch law is proposed, subject to confirmation of the contracting operator. Consumers retain mandatory protections of their habitual residence where applicable and may bring proceedings before any court available under mandatory jurisdiction rules. No compulsory US arbitration, Irish exclusive jurisdiction or waiver of collective/statutory rights applies.",
-            "If one provision is invalid, the remaining provisions apply to the extent lawful. Before publication, qualified Dutch/EU counsel should review the operator wording, eligibility, digital-service/consumer rights, reward obligations and campaign model."
+            "Send a complaint to support@movrr.nl with the relevant account or transaction reference. Dutch law applies to these terms. Consumers retain the mandatory protections of their habitual residence where applicable and may bring proceedings before any court available under mandatory jurisdiction rules.",
+            "If one provision is invalid, the remaining provisions apply to the extent lawful."
           ]
         },
         {
@@ -246,37 +245,37 @@
         },
         {
           "id": "inventory",
-          "title": "2. Storage found in the website implementation",
+          "title": "2. Website storage",
           "paragraphs": [
             "movrr_lang: a first-party language-preference cookie with a one-year maximum age, also saved in localStorage when you choose a language. The localStorage copy has no coded time expiry. The preference supports Dutch/English navigation; you can remove it using browser settings.",
             "movrr_consent: first-party localStorage containing the consent-policy version, necessary/analytics/marketing choices, timestamp and choice source. No timed expiry is implemented. It remains until replaced or cleared by you/the site, subject to browser eviction. A changed consent-policy version is intended to prompt again. It is used to remember and apply your choice.",
-            "movrr-waitlist-draft: first-party sessionStorage holding a registration draft, such as audience, name, email and city, to support the form journey. It is session-scoped and can be cleared by the form or browser. Do not enter details on a shared device unless you are comfortable with that session storage.",
-            "The inspected public routes do not establish a rider login session. Essential authentication or security storage in a separate authenticated experience must be inventoried for that deployed service before this notice is used to cover it. An unused UI component’s cookie definition is not proof that visitors receive that cookie."
+            "movrr-waitlist-draft: first-party sessionStorage holding unsent registration details, such as audience, name, email and city, to support the form journey. It is session-scoped and can be cleared by the form or browser. Consider this session storage when using a shared device.",
+            "The public website routes covered here do not create a rider login session. A separate authenticated service can use necessary authentication and security storage for its own session; this public-site inventory does not describe such a session as active on these pages."
           ]
         },
         {
           "id": "analytics",
           "title": "3. Analytics and marketing",
           "paragraphs": [
-            "The website mounts Vercel Web Analytics only in production and after an affirmative analytics choice. It measures page use and supported events such as registration or Machine View interactions. Vercel describes Web Analytics as not using analytics cookies; absence of a cookie is not itself an exemption from privacy or device-access rules.",
-            "The consent interface includes a marketing category, but the inspected website does not wire an advertising pixel or marketing-cookie provider to that category. Enabling that switch does not prove a marketing integration exists. We do not describe Google Analytics, Meta Pixel or OneTrust as installed services.",
-            "Server hosting, request handling and IP-derived registration geography are separate from optional browser analytics. The Privacy Policy explains registration and service-provider processing. Provider-side logs, regions and retention require verification; this draft does not invent their expiry periods."
+            "The production website enables Vercel Web Analytics after an analytics choice saved in your browser. It measures page use and supported events such as registration or Machine View interactions. An older saved analytics choice can remain active while a new consent-version banner is displayed. Vercel describes Web Analytics as not using analytics cookies; absence of a cookie is not itself an exemption from privacy or device-access rules.",
+            "The consent interface includes a marketing category, but no advertising pixel or marketing-cookie provider is currently connected to it. Enabling that category does not by itself activate a marketing integration.",
+            "Server hosting, request handling and IP-derived registration geography are separate from optional browser analytics. The Privacy Policy explains registration, service providers and international processing. Contact privacy@movrr.nl for information about provider-side records and retention."
           ]
         },
         {
           "id": "choices",
           "title": "4. Choosing and changing consent",
           "paragraphs": [
-            "You can reject non-essential categories, accept them or save individual choices through the banner/preferences interface while it is visible. The inspected website does not currently expose a persistent footer control to reopen preferences after dismissal. Clearing this site’s browser storage and reloading makes the banner available again. Review blocker: an equally easy ongoing withdrawal route must be provided and tested before approval; clearing storage alone is not presented as meeting that requirement. Refusing optional analytics must not block legal pages or ordinary public content.",
+            "You can reject non-essential categories, accept them or save individual choices through the banner/preferences interface while it is visible. There is currently no persistent footer control to reopen preferences after dismissal. Clearing this site’s browser storage and reloading makes the banner available again. You can read legal pages and ordinary public content without accepting optional analytics.",
             "You may also remove or block storage using your browser settings. Removing the consent record will cause a new prompt and may erase your saved rejection as well as an acceptance. Changing a preference controls future activation; it does not retrospectively erase analytics already sent. For a deletion request contact privacy@movrr.nl.",
-            "Before publication, verify that first visits, rejection, reloads, withdrawal and both language versions enforce the stated choices in the production build. Any new provider, purpose or storage requires an updated inventory and the appropriate choice before activation. Continuing to browse is not consent."
+            "Continuing to browse is not consent. A new provider, purpose or storage technology requires appropriate information and any legally required choice before activation."
           ]
         },
         {
           "id": "changes",
           "title": "5. Changes",
           "paragraphs": [
-            "The approved notice will show its effective date. Review it with the Privacy Policy for rights, recipients, transfers and retention. This review version has no effective date."
+            "The date shown with this notice identifies its current version. Read it with the Privacy Policy for information about rights, recipients, international processing and retention."
           ]
         }
       ]
@@ -289,16 +288,16 @@
           "id": "request",
           "title": "1. Request in the app or outside it",
           "paragraphs": [
-            "MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands, KvK 93383738, is responsible for account and privacy requests. The app contains Account → Privacy & Security → Delete Account, including disclosure and confirmation, but production request acceptance and managed deletion execution are currently disabled. The installed workflow must not be represented as an operational self-service deletion service. You do not need to give a reason for exercising an erasure right.",
-            "If you cannot use the app, email privacy@movrr.nl with the subject “MOVRR account deletion request”, preferably from the account email. Identify the account and whether you want the whole account closed or a specific data-rights request. Proportionate identity verification may be needed. Do not send passwords, sign-in codes, full GPS history or an unsolicited passport copy. This external route must be monitored and tested before it is submitted to a store."
+            "MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands, KvK 93383738, is responsible for account and privacy requests. The app contains Account → Privacy & Security → Delete Account, but self-service request acceptance and execution are currently unavailable. Email privacy@movrr.nl for manual handling. You do not need to give a reason for exercising an erasure right.",
+            "Email the monitored privacy@movrr.nl address with the subject “MOVRR account deletion request”, preferably from the account email. Identify the account and whether you want the whole account closed or a specific data-rights request. This route is also available if you cannot sign in. Proportionate identity verification may be needed. Do not send passwords, sign-in codes, full GPS history or an unsolicited passport copy. Receiving your email is distinct from completing deletion."
           ]
         },
         {
           "id": "status",
           "title": "2. Request acceptance is not completion",
           "paragraphs": [
-            "The account-deletion workflow has been installed, but production checks on 19 October 2026 confirmed that request acceptance and managed execution are disabled. Legal, finance and partner approvals for the deletion policy and retained records remain pending. An unavailable or review-required response does not mean that your request has been accepted or your data erased.",
-            "If enabled in a later approved release, the implemented workflow can review a request, issue a receipt and process provider revocation, storage erasure, application records and the authentication identity. Those are implemented capabilities, not confirmation of present availability or completion. Keep any status reference and contact privacy@movrr.nl if a request fails. Owner confirmation of a monitored manual intake, lawful retention and fulfilment procedure is required before this notice can be submitted as a working external deletion route."
+            "A request may need identity verification and assessment of unfinished obligations or lawful retention before it can be completed. An unavailable, failed or review-required in-app response is not confirmation that the account has been erased. Contact privacy@movrr.nl to have the request handled manually.",
+            "Keep any request or status reference. Account erasure involves the authentication identity, application records, personal uploads and relevant provider copies, with limited exceptions explained below. A status receipt records the reported outcome; it is not a promise that every justified retained record or backup copy disappears at the same moment. Contact the privacy address if completion or retained data is unclear."
           ]
         },
         {
@@ -314,7 +313,7 @@
           "id": "rewards",
           "title": "4. Points, existing redemptions and equipment",
           "paragraphs": [
-            "Ask support about outstanding balances, pending verification, valid redemptions and equipment before closure. Do not assume unredeemed points automatically expire on request or that every pending redemption must be cancelled. Reconciliation, applicable rights and approved disposition determine the outcome. The draft does not create a general forfeiture rule or require you to redeem before exercising an erasure right."
+            "A closure request does not automatically cancel valid existing redemption obligations. MOVRR must resolve pending requests according to their verified status and applicable terms and explain balance, redemption and equipment consequences before irreversible deletion. Unused points are not promised a cash conversion or automatic payout; no automatic forfeiture of earned points is introduced. You do not have to redeem points before exercising an erasure right. Outstanding obligations may require limited, lawful records, not unrestricted retention of your profile or location history."
           ]
         },
         {
@@ -357,10 +356,10 @@
           "paragraphs": [
             "Tijdens een geregistreerde rit verwerkt MOVRR nauwkeurige GPS-coördinaten, routepunten, tijdstippen, afstand, snelheid, duur en locatiekwaliteit. Registratie kan doorgaan op de achtergrond bij een geminimaliseerde app of vergrendeld scherm, afhankelijk van rechten, besturingssysteem en batterijinstellingen. Je kunt een rit zelf starten; Automatisch kan ook een standaardrit starten zoals hieronder beschreven. Campagne- en Boosted-ritten vereisen altijd een uitdrukkelijke start.",
             "Handmatig schakelt passieve ritdetectie op de achtergrond uit. Slimme melding gebruikt locatie- en bewegingssignalen tussen registraties om mogelijk fietsen te herkennen en te vragen of je een standaardrit wilt starten. Automatisch kan na aanhoudende detectie met hoge zekerheid een standaardrit starten. Deze optionele modi vereisen passende rechten en zijn aan te passen via Account → Ritvoorkeuren. Handmatig stopt passieve detectie, maar beëindigt niet zelfstandig een lopende ritregistratie.",
-            "De huidige accountvoorkeur staat standaard op Slimme melding. Zonder lokaal opgeslagen detectievoorkeur valt het apparaat terug op Handmatig totdat voorkeuren worden toegepast. Deze standaardinstellingen bewijzen geen AVG-toestemming. Publicatieblokkade: de toelichting, actieve keuze en vastlegging voor optionele detectie moeten worden gecontroleerd voordat de voorgestelde toestemmingsgrondslag kan worden gebruikt.",
+            "De accountvoorkeur staat standaard op Slimme melding. Zonder lokaal opgeslagen detectie-instelling valt het apparaat terug op Handmatig totdat accountvoorkeuren zijn toegepast. Een standaardinstelling of apparaatrecht vormt op zichzelf geen AVG-toestemming voor optionele verwerking.",
             "Een rit beëindigen stopt die registratie. Pauzeren garandeert niet dat alle locatieverwerking stopt: signalen kunnen nog nodig zijn om beweging of hervatting te herkennen. Optionele detectie kan na beëindiging weer actief worden volgens de gekozen modus. Beëindig de rit en kies Handmatig om beide te stoppen, of trek locatierechten in via het apparaat. Dat beïnvloedt registratie en verificatie, maar verwijdert eerder opgeslagen gegevens niet.",
             "Recente passieve signalen worden op het apparaat gebufferd, waaronder een voortschrijdende buffer van maximaal 20 signalen. Actieve routes en herstelgegevens staan ook lokaal, onder meer in SQLite en offline synchronisatieopslag. Geregistreerde ritgegevens gaan naar MOVRR-diensten voor geschiedenis, verificatie, beloningen en campagnes. Een gestarte registratie blijft niet volledig op het apparaat doordat deze uit detectie voortkomt. Wij beloven niet dat alle lokale locatiegegevens versleuteld zijn of direct bij afmelden verdwijnen.",
-            "Apparaattoestemming voor locatie is een toegangsinstelling en geen algemene AVG-grondslag. De hierna voorgestelde grondslagen maken onderscheid tussen gevraagde ritverwerking, optionele detectie, beveiliging en campagnerapportages.",
+            "Locatierechten regelen toegang op je apparaat. Dit staat los van de AVG-grondslag voor het gebruik van gegevens. De onderstaande doelen maken onderscheid tussen gevraagde ritverwerking, optionele detectie, beveiliging en campagnerapportages.",
             "Geregistreerde GPS-punten, een afzonderlijk volledig routepad en ritsamenvattingen worden gekoppeld aan je rijdersprofiel en ritsessie bewaard. Samenvattingen bevatten afstand, snelheid, duur en verificatiegegevens. Alleen afzonderlijke GPS-punten verwijderen wist het routepad of de samenvatting niet. Rijders kunnen hun eigen geschiedenis inzien; bevoegde operationele beheerders hebben voor hun taken ook toegang tot ritsessies."
           ]
         },
@@ -369,9 +368,8 @@
           "title": "4. Doelen en grondslagen",
           "paragraphs": [
             "Accountbeheer, authenticatie, gevraagde ritregistratie en geschiedenis, deelname aan een gekozen campagne, puntenadministratie en levering van beloningen: artikel 6 lid 1 onder b AVG, voor zover objectief noodzakelijk voor de gevraagde dienst. Optionele gegevens of detectie worden niet noodzakelijk door ze alleen in voorwaarden op te nemen.",
-            "Voor optionele achtergronddetectie is vrij gegeven, specifieke toestemming volgens artikel 6 lid 1 onder a voorgesteld, los van apparaatrechten. Handmatig stopt passieve detectie voor de toekomst. De huidige standaard Slimme melding en opgeslagen voorkeur bewijzen op zichzelf geen geïnformeerde actieve instemming. Publicatieblokkade: de toestemmingsroute en bijbehorende vastlegging moeten worden gecontroleerd voordat deze grondslag kan worden gebruikt. Optionele websiteanalyse en marketing gebruiken toestemming waar vereist; intrekken moet even eenvoudig zijn als geven, maar een blijvende knop om websitevoorkeuren opnieuw te openen ontbreekt momenteel.",
-            "Evenredige beveiliging, bestrijding van valse ritten en beloningsmisbruik, foutonderzoek, geschillen en betrouwbaarheid: voorgesteld gerechtvaardigd belang volgens artikel 6 lid 1 onder f, met een vastgelegde noodzaak- en belangenafweging. Campagnerapportages vereisen een eigen noodzakelijkheidstoets en ontvangersbeperking; locatierechten dekken die niet vanzelf. Een concrete wettelijke plicht gebruikt artikel 6 lid 1 onder c; een mogelijke toekomstige plicht rechtvaardigt geen onbeperkte bewaring.",
-            "Dit zijn voorgestelde doelgebonden grondslagen voor juridische beoordeling. Er wordt geen beroep op vitale belangen of toestemming voor bijzondere gezondheidsgegevens gedaan. Of de specifieke sport- en bewegingsverwerking waarborgen uit artikel 9 vereist, moet voor publicatie worden beoordeeld. De fitnesscategorie van een appwinkel beslist dat niet."
+            "Optionele achtergronddetectie: artikel 6 lid 1 onder a geldt alleen als je vrij, specifiek en geïnformeerd toestemming hebt gegeven door een actieve keuze, los van apparaatrechten. Een standaard Slimme melding-instelling of opgeslagen voorkeur is op zichzelf niet die toestemming. Handmatig stopt passieve detectie voor de toekomst. Optionele websiteanalyse en marketing gebruiken toestemming waar vereist. Intrekken tast eerdere rechtmatige verwerking niet aan; het Cookiebeleid beschrijft de beschikbare websitebediening.",
+            "Evenredige beveiliging, het voorkomen van verzonnen ritten of beloningsmisbruik, foutonderzoek, geschilafhandeling en betrouwbaarheid dienen gerechtvaardigde belangen volgens artikel 6 lid 1 onder f, begrensd door noodzaak en jouw belangen en rechten. Campagnerapportages zijn beperkt tot hun specifieke doel en noodzakelijke ontvangers; locatierechten staan geen onbeperkte rapportage toe. Artikel 6 lid 1 onder c geldt voor verwerking die een concrete toepasselijke wettelijke plicht vereist. Een mogelijke toekomstige plicht rechtvaardigt geen onbeperkte bewaring."
           ]
         },
         {
@@ -380,7 +378,7 @@
           "paragraphs": [
             "Wij koppelen ritsessies aan je account en beoordelen bewegingskwaliteit, afstand, snelheid, tijdstippen, route- of zonevoorwaarden en signalen van gefabriceerde activiteit. Hot Zones gebruiken gebieden en geldige tijdvensters voor campagnedeelname en mogelijke bonussen. Verificatie en afwikkeling bepalen de punten; live schattingen zijn geen definitieve toekenning.",
             "Automatische regels kunnen een rit in behandeling houden, afwijzen of de puntentoekenning beïnvloeden. Vraag bij support@movrr.nl om uitleg en menselijke beoordeling als je het niet eens bent met een uitkomst. Wij stellen niet dat alle besluitvorming anoniem is of nooit een aanzienlijk effect heeft. Ingrijpende automatische besluiten vragen een afzonderlijke artikel 22-beoordeling en waarborgen.",
-            "Bevoegde medewerkers en ingelogde rapportagediensten kunnen gegevens inzien voor hun taken. Campagnemaatstaven kunnen uit persoonsgebonden gegevens voortkomen. Een naam verwijderen of enkele fietsers samenvoegen maakt informatie niet vanzelf anoniem. Voor publicatie van een claim over uitsluitend anonieme merkrapportages moeten de precieze partner-/adverteerdersvelden en toegangsrollen worden geverifieerd."
+            "Bevoegde operationele medewerkers en ingelogde rapportagediensten kunnen voor hun taken noodzakelijke gegevens inzien. Campagnecijfers kunnen uit aan rijders gekoppelde gegevens worden afgeleid. Namen weglaten of een klein aantal rijders samenvoegen maakt informatie niet vanzelf anoniem. Inzage in herleidbare operationele gegevens staat los van communitypublicatie of het verstrekken van samengevoegde campagnecijfers."
           ]
         },
         {
@@ -397,7 +395,7 @@
           "paragraphs": [
             "De onderzochte koppelingen omvatten Supabase voor authenticatie, database en bestanden; de MOVRR-backend voor ritten, campagnes, wallets en levering; Apple en Google voor gekozen aanmeld- en kaart-/platformdiensten; Expo en Apple-/Google-pushdiensten voor meldingen; en Sentry voor ingeschakelde foutdiagnostiek en tracing. De website gebruikt Vercel-hosting en analyse na toestemming, Supabase-registratieopslag en Resend-e-mailbezorging.",
             "Bij levering kan de gekozen beloningspartner informatie ontvangen over aanspraak, verzilvering, token of afhaalstatus die daarvoor nodig is. Campagne- en organisatiegebruikers ontvangen gegevens volgens hun bevoegde rol. Medewerkers mogen alleen voor hun taak toegang hebben. Verstrekking wegens een concrete wet of noodzakelijke rechtsvordering moet tot dat doel beperkt blijven.",
-            "Deze inventaris bevestigt niet dat elke provider in elke release actief is. De eigenaar moet productie-entiteiten, subverwerkers, regio’s, contractuele rollen, verstrekte velden en toegangsgrenzen goedkeuren. Zonder verificatie geven wij geen garantie over verkoop, advertentietracking of uitsluitend anoniem delen.",
+            "Welke ontvangers betrokken zijn hangt af van de gebruikte functie en de daarvoor ingeschakelde diensten. Een aanbieder kan namens MOVRR verwerken of zelfstandig handelen voor een eigen aanmeld-, kaart- of platformdienst. Aan rijders gekoppelde operationele informatie wordt niet als anoniem behandeld enkel doordat een naam ontbreekt. Vraag privacy@movrr.nl naar ontvangers en toepasselijke verwerkingswaarborgen.",
             "Bij plaatszoeken of fietsaanwijzingen stuurt maps-proxy zoektekst, relevante vertrek-/bestemmingscoördinaten en verzoekparameters door naar Google Places/Routes. De proxy is ontworpen deze zoekvragen en coördinaten zelf niet te loggen of bewaren. Dat stelt Googles bewaring niet vast en sluit opslag van de berekende route elders niet uit. Kaartweergave gebruikt daarnaast de toepasselijke platformkaartdienst.",
             "E-mail-, Apple- en Google-authenticatie zijn ingeschakeld; aanmelden via telefoon is momenteel niet ingeschakeld. Het MOVRR-verzenddomein bij Resend heeft registratie van het openen en aanklikken van e-mails uitgeschakeld. Gecontroleerde EU-diensteindpunten of een EU-verzendregio betekenen niet dat alle providerverwerking binnen de EU blijft; internationale verwerking staat hieronder."
           ]
@@ -415,11 +413,11 @@
           "id": "retention",
           "title": "9. Bewaring, beveiliging en doorgifte",
           "paragraphs": [
-            "Gegevens mogen alleen voor een gerechtvaardigd doel en niet langer dan nodig worden bewaard. Account- en dienstgegevens ondersteunen het account; ritbewijs verificatie en een evenredige geschilperiode; financiële en leveringsgegevens openstaande verplichtingen en concrete administratieplichten; support- en beveiligingsgegevens afhandeling en evenredig onderzoek. Dit zijn criteria, geen goedgekeurde numerieke termijnen.",
-            "Publicatieblokkade: een volledig bewaarschema en de operationele uitvoering zijn niet goedgekeurd en gecontroleerd. Bestaande instellingen en opruimfuncties zijn geen verwijdergaranties. Opruimen van afzonderlijke GPS-punten verwijdert geen aparte routepaden, samenvattingen of lokale kopieën; succesvolle geplande opruiming is niet vastgesteld. De bewaarregels voor accountverwijdering wachten nog op juridische en operationele beslissingen. Vóór inwerkingtreding moet MOVRR per categorie termijnen of objectieve eindcriteria, noodzakelijke uitzonderingen en verantwoordelijkheid voor verwijdering goedkeuren, inclusief alle kopieën, aanmeldingen, afbeeldingen, support, diagnostiek, auditregistraties en back-ups.",
+            "Gegevens mogen alleen voor een gerechtvaardigd doel en niet langer dan nodig worden bewaard. Account- en gevraagde dienstgegevens ondersteunen het lopende account; ritbewijs ondersteunt verificatie en een evenredige geschilperiode; leverings- en financiële gegevens ondersteunen openstaande verplichtingen en specifieke administratieplichten; support- en beveiligingsgegevens ondersteunen afhandeling en een evenredig onderzoek. Deze doelen bewijzen niet dat een bepaalde bewaartermijn momenteel wordt gehandhaafd.",
+            "Automatisch opruimen biedt momenteel geen gecontroleerde verwijdertermijn voor iedere kopie van rit- en locatiegegevens. Opruimen van afzonderlijke GPS-punten verwijdert geen aparte routepaden, samenvattingen of apparaatkopieën. Een verwijderverzoek vraagt daarom beoordeling van die kopieën en betrokken providers. Noodzakelijk financieel, verzilverings-, support-, beveiligings- en juridisch bewijs kan afzonderlijke bewaring vragen; alleen gegevens die nodig zijn voor de toepasselijke verplichting of vastgelegde rechtsvordering mogen met beperkt gebruik en passende eindcriteria blijven. Een administratieplicht rechtvaardigt geen volledig profiel of GPS-route. Vraag privacy@movrr.nl naar de bewaring van jouw gegevens.",
             "Lokaal opruimen hangt af van het opslagtype en het uitvoeren van de app: de passieve buffer bevat maximaal 20 signalen en verdwijnt bij uitlezen; opruimen van offline GPS op de voorgrond gebruikt bij uitvoering een grens van zeven dagen; opruimen van gesynchroniseerde achtergrond-GPS gebruikt bij uitvoering een grens van 24 uur. Herstelpaden worden bij de relevante afrondings-/annuleringsstappen zo goed mogelijk gewist. Cacheverval wordt tijdens apphandelingen gecontroleerd; voor mislukte synchronisatieregistraties is geen algemene vervaltermijn vastgesteld. Dit garandeert geen vaste verwijdertijd voor alle apparaatkopieën, bij afmelden of bij intrekken van rechten.",
             "Netwerkverzoeken gebruiken HTTPS en toegangscontroles beogen ingelogde gegevens af te schermen. Sommige offline caches gebruiken applicatieversleuteling; dat betekent niet dat alle lokale en servergegevens versleuteld zijn. Geen maatregel garandeert dat een dienst nooit wordt aangevallen.",
-            "Publicatieblokkade: hosting in een EU-regio sluit internationale verwerking niet uit. Supabase beschrijft wereldwijde ondersteuning en contentlevering en doorgiften met Singapore en de Verenigde Staten; Resend beschrijft verwerking in de Verenigde Staten ondanks de EU-verzendregio. Hun openbare voorwaarden bevatten doorgiftewaarborgen, maar MOVRR moet de toepasselijke overeenkomst, accountpartij en waarborgen vastleggen. Sentry, Expo, Vercel en kaart-/platformdiensten vereisen dezelfde dienstspecifieke controle. MOVRR moet beperkte doorgiften en de toepasselijke hoofdstuk V-grondslag en beoordeling benoemen en informatie over waarborgen op verzoek beschikbaar stellen. Dit concept bevestigt geen uitsluitend Europese verwerking, gesloten verwerkersovereenkomsten of uitgevoerde doorgiftebeoordelingen."
+            "Een EU-hosting- of e-mailverzendregio sluit internationale verwerking niet uit. Supabase beschrijft wereldwijde ondersteuning, contentlevering en verwerking met Singapore en de Verenigde Staten; Resend beschrijft verwerking in de Verenigde Staten. Ook andere providers kunnen toegang of verwerking buiten de EER meebrengen. Zonder toepasselijk adequaatheidsbesluit vereist de AVG passende waarborgen, zoals toepasselijke standaardcontractbepalingen met noodzakelijke beoordeling en aanvullende maatregelen. Vraag privacy@movrr.nl naar bestemmingen, toepasselijke waarborgen of een kopie daarvan. Een EU-diensteindpunt garandeert geen uitsluitend Europese verwerking."
           ]
         },
         {
@@ -427,7 +425,7 @@
           "title": "10. Rechten en verzoeken",
           "paragraphs": [
             "Onder de AVG-voorwaarden kun je inzage en een kopie, correctie, verwijdering, beperking, overdraagbaarheid bij geschikte toestemming-/overeenkomstverwerking en bezwaar tegen gerechtvaardigd belang vragen. Bezwaar tegen direct marketing kan altijd; toestemming intrekken werkt voor de toekomst. Weigering van toestemming doet bestaande rechten niet vervallen.",
-            "Account → Privacy en beveiliging bevat privacy-, export- en verwijderopties, maar acceptatie en uitvoering van accountverwijdering via zelfbediening zijn in productie momenteel uitgeschakeld. Account verwijderen indrukken of een melding dat beoordeling nodig is, geldt niet als acceptatie of verwijdering. Mail privacy@movrr.nl, ook als aanmelden niet lukt; bemanning en handmatige afhandeling via die route vereisen nog bevestiging van de eigenaar. De appexport bevat geselecteerde account-, route-, rit-, grootboek- en voorkeursgegevens en is geen volledige inzagereactie. Evenredige verificatie kan nodig zijn; stuur geen wachtwoorden, aanmeldcodes of ongevraagde identiteitskopie.",
+            "Account → Privacy en beveiliging bevat privacy-, export- en verwijderopties. Acceptatie en uitvoering van accountverwijdering via zelfbediening zijn momenteel niet beschikbaar; Account verwijderen indrukken of een melding dat beoordeling nodig is, bewijst geen verwijdering. Mail het bemande adres privacy@movrr.nl voor handmatige afhandeling, ook als aanmelden niet lukt. De appexport bevat geselecteerde account-, route-, rit-, grootboek- en voorkeursgegevens en is geen volledige inzagereactie. Evenredige verificatie kan nodig zijn; stuur geen wachtwoorden, aanmeldcodes of ongevraagde identiteitskopie.",
             "AVG-verzoeken moeten zonder onnodige vertraging en normaal binnen één maand na ontvangst worden beantwoord. Een noodzakelijke verlenging met maximaal twee maanden moet binnen de eerste maand worden uitgelegd. Deze antwoordtermijn garandeert niet dat alle verwijdering of back-ups dan zijn afgerond. Verzoeken zijn normaal gratis, behoudens de beperkte AVG-uitzonderingen.",
             "Je kunt klagen bij de Autoriteit Persoonsgegevens (autoriteitpersoonsgegevens.nl) of een andere bevoegde toezichthouder en beschikbare rechtsmiddelen gebruiken. Accountverwijdering en gegevensrechten beschrijft verzoekstatus, openstaande verplichtingen en grenzen aan bewaring."
           ]
@@ -436,8 +434,8 @@
           "id": "changes",
           "title": "11. Leeftijd en wijzigingen",
           "paragraphs": [
-            "De beoogde fietsersdienst is volgens de conceptvoorwaarden voor volwassenen vanaf 18 jaar. De eigenaar moet die grens en toepassing in de release bevestigen. Meld gegevens van een kind bij het privacyadres voor beoordeling.",
-            "Een goedgekeurd beleid krijgt een ingangsdatum; wezenlijke wijzigingen worden passend toegelicht. Een privacyverklaring informeert: verder gebruik is geen toestemming voor nieuwe verwerking. Nieuwe doelen of toestemmingsafhankelijke wijzigingen vereisen een passende grondslag en keuze."
+            "De MOVRR-fietsersdienst is bedoeld voor volwassenen vanaf 18 jaar. Meld gegevens van een kind via privacy@movrr.nl voor beoordeling.",
+            "De datum bij dit beleid identificeert de huidige versie. Wezenlijke wijzigingen worden via een passend kanaal toegelicht. Een privacyverklaring informeert: verder gebruik is geen toestemming voor nieuwe verwerking. Nieuwe doelen of toestemmingsafhankelijke wijzigingen vereisen een passende grondslag en keuze."
           ]
         }
       ]
@@ -450,7 +448,7 @@
           "id": "operator",
           "title": "1. Exploitant en toepassingsgebied",
           "paragraphs": [
-            "Deze voorgestelde voorwaarden gelden tussen jou en MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Nederland, KvK 93383738. Ondersteuning: support@movrr.nl. Privacy: privacy@movrr.nl.",
+            "Deze voorwaarden gelden tussen jou en MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Nederland, KvK 93383738. Ondersteuning: support@movrr.nl. Privacy: privacy@movrr.nl.",
             "Ze gelden voor de fietsersapp, movrr.nl en bijbehorende consumentendiensten met account. Ze vormen geen adverteerders-, arbeids-, werkgevers- of samenwerkingsovereenkomst. Een afzonderlijk overeengekomen zakelijk contract regelt zijn eigen onderwerp. Het Privacybeleid informeert over verwerking en vraagt geen algemene toestemming."
           ]
         },
@@ -458,7 +456,7 @@
           "id": "accounts",
           "title": "2. Toegang en accountbeveiliging",
           "paragraphs": [
-            "De voorgestelde minimumleeftijd is 18 jaar; de eigenaar moet deze regel vóór inwerkingtreding bevestigen. Geef juiste informatie, gebruik alleen een bevoegd account, bescherm je aanmeldgegevens en meld vermoedelijk misbruik snel. Je bent verantwoordelijk voor eigen misbruik, niet automatisch voor ieder onbevoegd gebruik ongeacht schuld.",
+            "Je moet minimaal 18 jaar zijn om de fietsersdienst te gebruiken. Geef juiste informatie, gebruik alleen een bevoegd account, bescherm je aanmeldgegevens en meld vermoedelijk misbruik snel. Je bent verantwoordelijk voor eigen misbruik, niet automatisch voor ieder onbevoegd gebruik ongeacht schuld.",
             "Apple-/Google-aanmelding hangt af van provider en releaseconfiguratie. Deel geen codes en gebruik geen account van een ander. Openbare juridische pagina’s zijn zonder account leesbaar."
           ]
         },
@@ -476,7 +474,7 @@
           "paragraphs": [
             "MOVRR Points zijn loyaliteitseenheden in het platform, geen banktegoed of belofte van contante betaling. Saldo en geschiedenis bevatten bijschrijvingen, verzilveringen en bevoegde correcties. De beschikbare catalogus bepaalt de besteding; algemene geldconversie of overdraagbare waarde wordt niet beloofd.",
             "Alleen geldige, geverifieerde en afgewikkelde activiteit levert punten op. Campagne-, promotie- en verwijzingsbeloningen gelden alleen als ze daadwerkelijk worden aangeboden met hun vermelde voorwaarden. MOVRR kan aantoonbare fouten of misbruik na evenredige beoordeling corrigeren, licht wezenlijke aanpassingen toe en biedt een betwistingsroute.",
-            "Deze voorwaarden stellen geen algemene vervaltermijn, automatisch puntenverlies bij sluiting of onbeperkt afpakrecht vast. Openstaande verzilveringen en sluiting vereisen afstemming en het toepasselijke goedgekeurde proces. Gewijzigde toekomstige tarieven mogen bestaande geldige aanspraken niet stilzwijgend wegnemen."
+            "Deze voorwaarden stellen geen algemene vervaltermijn of automatisch verlies van verdiende punten bij sluiting vast. Vóór onomkeerbare accountverwijdering moet MOVRR de gevolgen voor je saldo, lopende aanvragen en geldige verzilveringen uitleggen. Bestaande geldige leveringsverplichtingen blijven behouden en lopende aanvragen worden volgens hun gecontroleerde status, toepasselijke aanbiedingsvoorwaarden en consumentenrechten afgehandeld. Geldconversie of automatische uitbetaling van ongebruikte punten wordt niet beloofd. Gewijzigde toekomstige tarieven mogen bestaande geldige aanspraken niet stilzwijgend wegnemen."
           ]
         },
         {
@@ -492,7 +490,7 @@
           "title": "6. Verzilvering en levering",
           "paragraphs": [
             "Controleer beschrijving, puntenprijs, voorraad, aanbieder, regionale/leeftijdsgrenzen en verval-/gebruiksvoorwaarden vóór bevestiging. Een aanvraag kan punten reserveren of afboeken en fasen zoals behandeling, levering, annulering, fout of terugboeking doorlopen. De werkelijke transactiestatus bepaalt de uitkomst; aantikken van verzilveren bewijst geen levering.",
-            "Sommige beloningen gebruiken een voucher, digitaal token of afhaling. Houd codes geheim en volg de bekendgemaakte partnerinstructies. Meld een ontbrekende, onbruikbare of onjuist afgeboekte geldige beloning bij support. Annulering, herstel en terugbetaling volgen het toepasselijke proces en dwingend consumentenrecht; er is geen algemene uitsluiting van wettelijke remedies of terugbetaling.",
+            "Ondersteunde beloningen kunnen een voucher, digitaal token of afhaalproces gebruiken. Houd codes geheim en volg de bekendgemaakte partnerinstructies. Meld een ontbrekende, onbruikbare of onjuist afgeboekte geldige beloning bij support, of vraag daar annulering aan. Annulering en puntenherstel zijn verschillende handelingen; een annuleringsverzoek of geannuleerde status bewijst niet dat punten zijn teruggeboekt. De aanbieding, gecontroleerde leveringsstatus en dwingend consumentenrecht bepalen de oplossing. Deze voorwaarden bevatten geen algemene uitsluiting van terugbetaling en beloven geen zelfbedieningsannulering of vergoeding in geld.",
             "Deze voorwaarden introduceren geen betaald abonnement, geldopname, bankdienst of puntenverkoop. Een later betaald product vereist vooraf eigen informatie, waaronder toepasselijk herroepingsrecht en eventuele wettelijke uitzondering."
           ]
         },
@@ -519,8 +517,8 @@
           "title": "9. Zorgvuldigheid, klachten en recht",
           "paragraphs": [
             "Gebruik de dienst zorgvuldig en fiets wettig en veilig. MOVRR moet zelf de overeengekomen en wettelijk vereiste zorg betrachten. Dwingend consumentenrecht, niet-uitsluitbare aansprakelijkheid en effectieve rechtsbescherming blijven gelden. Er is geen algemene vrijwaring of symbolisch aansprakelijkheidsplafond.",
-            "Mail klachten met account- of transactiereferentie naar support@movrr.nl. Voor deze Nederlandse bedrijfsvoering wordt Nederlands recht voorgesteld, onder bevestiging van de contracterende exploitant. Waar toepasselijk behouden consumenten dwingende bescherming van hun gewone verblijfplaats en toegang tot de rechter volgens verplichte bevoegdheidsregels. Geen verplichte Amerikaanse arbitrage, exclusieve Ierse rechter of afstand van wettelijke/collectieve rechten.",
-            "Bij ongeldigheid blijft het overige gelden voor zover wettig. Nederlandse/EU-juristen moeten vóór publicatie exploitant, leeftijd, digitale diensten, consumentenrechten, beloningsplichten en campagnemodel beoordelen."
+            "Mail klachten met account- of transactiereferentie naar support@movrr.nl. Op deze voorwaarden is Nederlands recht van toepassing. Waar toepasselijk behouden consumenten de dwingende bescherming van hun gewone verblijfplaats en toegang tot iedere rechter die volgens de verplichte bevoegdheidsregels beschikbaar is.",
+            "Bij ongeldigheid van een bepaling blijven de overige bepalingen gelden voor zover wettig."
           ]
         },
         {
@@ -566,37 +564,37 @@
         },
         {
           "id": "inventory",
-          "title": "2. Gevonden websiteopslag",
+          "title": "2. Websiteopslag",
           "paragraphs": [
             "movrr_lang: eigen taalvoorkeurcookie met maximaal één jaar geldigheid, tevens in localStorage bij taalkeuze. De localStorage-kopie heeft geen geprogrammeerde tijdslimiet. De voorkeur ondersteunt Nederlands/Engels en is via browserinstellingen te verwijderen.",
             "movrr_consent: eigen localStorage met beleidsversie, noodzakelijke-/analyse-/marketingkeuzes, tijdstip en keuzeherkomst. Er is geen tijdsgebonden verval geïmplementeerd. Het blijft tot vervanging of verwijdering, behoudens browseropruiming. Een gewijzigde beleidsversie beoogt opnieuw te vragen. De opslag onthoudt en past je keuze toe.",
-            "movrr-waitlist-draft: eigen sessionStorage met een registratieconcept zoals doelgroep, naam, e-mail en stad. Het ondersteunt het formulier en geldt voor de sessie; formulier of browser kunnen het wissen. Houd bij gedeelde apparaten rekening met deze sessieopslag.",
-            "De onderzochte openbare routes stellen geen fietsersaanmeldsessie vast. Noodzakelijke authenticatie-/beveiligingsopslag van een afzonderlijke ingelogde omgeving moet voor die productieomgeving apart worden geïnventariseerd. Een cookiedefinitie in een ongebruikte component bewijst niet dat bezoekers die cookie krijgen."
+            "movrr-waitlist-draft: eigen sessionStorage met nog niet verzonden registratiegegevens zoals doelgroep, naam, e-mail en stad. Dit ondersteunt het formulier en geldt voor de sessie; formulier of browser kunnen het wissen. Houd bij gedeelde apparaten rekening met deze sessieopslag.",
+            "De hier beschreven openbare websitepagina’s maken geen fietsersaanmeldsessie aan. Een afzonderlijke ingelogde dienst kan noodzakelijke authenticatie- en beveiligingsopslag voor de eigen sessie gebruiken; deze openbare website-inventaris beschrijft zo’n sessie niet als actief op deze pagina’s."
           ]
         },
         {
           "id": "analytics",
           "title": "3. Analyse en marketing",
           "paragraphs": [
-            "De website activeert Vercel Web Analytics alleen in productie na een bevestigende analysekeuze. Het meet paginagebruik en ondersteunde gebeurtenissen zoals registratie en Machine View-interacties. Vercel beschrijft deze analyse als zonder analysecookies; afwezigheid van cookies betekent niet vanzelf vrijstelling van privacy- of apparaattoegangsregels.",
-            "Het keuzescherm heeft een marketingcategorie, maar de onderzochte website koppelt daaraan geen advertentiepixel of marketingcookieprovider. De schakelaar bewijst dus geen actieve koppeling. Google Analytics, Meta Pixel en OneTrust worden niet als geïnstalleerde diensten beschreven.",
-            "Serverhosting, verzoekafhandeling en IP-afgeleide registratiegeografie staan los van optionele browseranalyse. Het Privacybeleid licht registratie en dienstverleners toe. Providerlogs, regio’s en bewaartermijnen vereisen verificatie; deze versie verzint geen vervaltermijnen."
+            "De productiewebsite activeert Vercel Web Analytics na een in je browser opgeslagen analysekeuze. Dit meet paginagebruik en ondersteunde gebeurtenissen zoals registratie en Machine View-interacties. Een oudere opgeslagen analysekeuze kan actief blijven terwijl een banner voor een nieuwe toestemmingsversie wordt getoond. Vercel beschrijft deze analyse als zonder analysecookies; afwezigheid van cookies betekent niet vanzelf vrijstelling van privacy- of apparaattoegangsregels.",
+            "Het keuzescherm bevat een marketingcategorie, maar daaraan is momenteel geen advertentiepixel of marketingcookieprovider gekoppeld. Deze categorie inschakelen activeert op zichzelf geen marketingkoppeling.",
+            "Serverhosting, verzoekafhandeling en IP-afgeleide registratiegeografie staan los van optionele browseranalyse. Het Privacybeleid licht registratie, dienstverleners en internationale verwerking toe. Vraag privacy@movrr.nl naar providerregistraties en bewaring."
           ]
         },
         {
           "id": "choices",
           "title": "4. Toestemming kiezen en wijzigen",
           "paragraphs": [
-            "Via de zichtbare banner en voorkeuren kun je niet-noodzakelijke categorieën weigeren, accepteren of afzonderlijk opslaan. De onderzochte website heeft na sluiten geen blijvende footerknop om voorkeuren te heropenen. Websiteopslag wissen en herladen toont de banner opnieuw. Publicatieblokkade: vóór goedkeuring moet een even eenvoudige blijvende intrekkingsroute worden aangeboden en getest; alleen opslag wissen wordt niet als naleving voorgesteld. Weigeren van analyse mag juridische pagina’s en gewone openbare inhoud niet blokkeren.",
+            "Via de zichtbare banner en voorkeuren kun je niet-noodzakelijke categorieën weigeren, accepteren of afzonderlijk opslaan. Na sluiten is er momenteel geen blijvende footerknop om voorkeuren te heropenen. Websiteopslag wissen en herladen toont de banner opnieuw. Juridische pagina’s en gewone openbare inhoud zijn zonder aanvaarding van optionele analyse leesbaar.",
             "Je kunt opslag ook blokkeren of verwijderen via je browser. Verwijdering van het keuzebewijs veroorzaakt opnieuw vragen en kan zowel weigering als toestemming wissen. Wijziging regelt toekomstige activering, niet het achteraf wissen van verzonden analyse. Vraag verwijdering via privacy@movrr.nl.",
-            "Controleer vóór publicatie eerste bezoek, weigering, herladen, intrekken en beide talen in de productiebuild. Een nieuwe provider, doel of opslag vereist een bijgewerkte inventaris en passende keuze vóór activering. Verder browsen is geen toestemming."
+            "Verder browsen is geen toestemming. Een nieuwe provider, doel of opslagtechniek vereist passende informatie en een wettelijk vereiste keuze vóór activering."
           ]
         },
         {
           "id": "changes",
           "title": "5. Wijzigingen",
           "paragraphs": [
-            "Een goedgekeurde versie krijgt een ingangsdatum. Lees het Privacybeleid voor rechten, ontvangers, doorgifte en bewaring. Deze beoordelingsversie heeft geen ingangsdatum."
+            "De datum bij dit beleid identificeert de huidige versie. Lees het samen met het Privacybeleid voor rechten, ontvangers, internationale verwerking en bewaring."
           ]
         }
       ]
@@ -609,16 +607,16 @@
           "id": "request",
           "title": "1. Aanvragen in of buiten de app",
           "paragraphs": [
-            "MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Nederland, KvK 93383738, is verantwoordelijk voor account- en privacyverzoeken. De app bevat Account → Privacy en beveiliging → Account verwijderen, inclusief toelichting en bevestiging, maar acceptatie en uitvoering van het beheerde verwijderproces zijn in productie momenteel uitgeschakeld. De gebouwde route mag niet als werkende zelfbedieningsdienst worden voorgesteld. Je hoeft geen reden te geven om je verwijderrecht uit te oefenen.",
-            "Kun je de app niet gebruiken, mail privacy@movrr.nl met onderwerp “MOVRR accountverwijdering”, bij voorkeur vanaf je accountadres. Benoem het account en volledige sluiting of een specifiek gegevensverzoek. Evenredige identiteitscontrole kan nodig zijn. Stuur geen wachtwoorden, codes, volledige GPS-geschiedenis of ongevraagde paspoortkopie. Deze externe route moet vóór winkelopgave worden bemand en getest."
+            "MOVRR, Luzacstraat 7 01 A, 3038 VT Rotterdam, Nederland, KvK 93383738, is verantwoordelijk voor account- en privacyverzoeken. De app bevat Account → Privacy en beveiliging → Account verwijderen, maar acceptatie en uitvoering via zelfbediening zijn momenteel niet beschikbaar. Mail privacy@movrr.nl voor handmatige afhandeling. Je hoeft geen reden te geven om je verwijderrecht uit te oefenen.",
+            "Mail het bemande adres privacy@movrr.nl met onderwerp “MOVRR accountverwijdering”, bij voorkeur vanaf je accountadres. Benoem het account en volledige sluiting of een specifiek gegevensverzoek. Deze route is ook beschikbaar als aanmelden niet lukt. Evenredige identiteitscontrole kan nodig zijn. Stuur geen wachtwoorden, codes, volledige GPS-geschiedenis of ongevraagde paspoortkopie. Ontvangst van je e-mail is geen afgeronde verwijdering."
           ]
         },
         {
           "id": "status",
           "title": "2. Acceptatie is geen afronding",
           "paragraphs": [
-            "Het accountverwijderproces is geïnstalleerd, maar productiecontrole op 19 oktober 2026 bevestigt dat acceptatie en beheerde uitvoering uitgeschakeld zijn. Juridische, financiële en partnergoedkeuring voor het verwijderbeleid en de te bewaren gegevens wachten nog. Een melding dat de dienst niet beschikbaar is of beoordeling nodig is, betekent niet dat je verzoek is geaccepteerd of je gegevens zijn gewist.",
-            "Na inschakeling in een later goedgekeurde release kan het gebouwde proces een verzoek beoordelen, een ontvangstbewijs uitgeven en providerintrekking, bestandsverwijdering, applicatiegegevens en de aanmeldidentiteit afhandelen. Dit beschrijft gebouwde mogelijkheden, geen huidige beschikbaarheid of afronding. Bewaar een statusreferentie en mail privacy@movrr.nl bij fouten. Vóór opgave als werkende externe verwijderroute moet de eigenaar bemande handmatige intake, rechtmatige bewaring en een uitvoerbare afhandelprocedure bevestigen."
+            "Vóór afronding kan een verzoek identiteitscontrole en beoordeling van openstaande verplichtingen of rechtmatige bewaring vereisen. Een appmelding dat de dienst niet beschikbaar is, een fout optreedt of beoordeling nodig is, bevestigt geen accountverwijdering. Mail privacy@movrr.nl voor handmatige afhandeling.",
+            "Bewaar een verzoek- of statusreferentie. Accountverwijdering betreft de aanmeldidentiteit, applicatiegegevens, persoonlijke uploads en betrokken providerkopieën, met de hieronder beschreven beperkte uitzonderingen. Een statusbewijs vermeldt de gerapporteerde uitkomst; het belooft niet dat iedere gerechtvaardigd bewaarde registratie of back-upkopie gelijktijdig verdwijnt. Mail het privacyadres als afronding of resterende bewaring onduidelijk is."
           ]
         },
         {
@@ -634,7 +632,7 @@
           "id": "rewards",
           "title": "4. Punten, verzilveringen en materiaal",
           "paragraphs": [
-            "Bespreek openstaande saldi, verificatie, geldige verzilveringen en materiaal met support. Ga niet uit van automatisch puntenverval op aanvraag of annulering van iedere lopende verzilvering. Afstemming, toepasselijke rechten en goedgekeurde afhandeling bepalen de uitkomst. Dit concept voert geen algemeen verval in en verplicht niet tot verzilveren vóór uitoefening van het verwijderrecht."
+            "Een sluitingsverzoek annuleert bestaande geldige leveringsverplichtingen niet automatisch. MOVRR moet lopende aanvragen volgens hun gecontroleerde status en toepasselijke voorwaarden afhandelen en vóór onomkeerbare verwijdering de gevolgen voor saldo, verzilveringen en materiaal uitleggen. Geldconversie of automatische uitbetaling van ongebruikte punten wordt niet beloofd; automatisch verlies van verdiende punten wordt niet ingevoerd. Je hoeft geen punten te verzilveren vóór uitoefening van je verwijderrecht. Openstaande verplichtingen kunnen beperkte, rechtmatige bewaring vereisen, geen onbeperkte bewaring van je profiel of locatiegeschiedenis."
           ]
         },
         {
@@ -648,5 +646,10 @@
         }
       ]
     }
+  },
+  "approval": {
+    "publication": "Owner explicitly authorised publication on 19 October 2026",
+    "professionalLegalReview": "Pending; publication approval is not a compliance certification",
+    "retentionTargets": "Provisionally approved business targets; not represented as implemented automatic deletion"
   }
 }

@@ -77,7 +77,6 @@ export function AppShowcase({
                   <ArrowDown aria-hidden="true" size={16} />
                 </a>
               </div>
-              <p className={styles.availability}>{c.availability}</p>
             </div>
             <figure className={styles.heroVisual}>
               <Image
@@ -106,7 +105,6 @@ export function AppShowcase({
           <div className="movrr-shell">
             <header className={styles.mapHeader}>
               <div>
-                <p className={styles.eyebrow}>{c.map.label}</p>
                 <h2 id="map-title">{c.map.title}</h2>
               </div>
               <p className={styles.body}>{c.map.body}</p>
@@ -152,7 +150,6 @@ export function AppShowcase({
         <section className={styles.wallet} aria-labelledby="wallet-title">
           <div className="movrr-shell">
             <header className={styles.walletHeader}>
-              <p className={styles.eyebrow}>{c.wallet.label}</p>
               <h2 id="wallet-title">{c.wallet.title}</h2>
               <p className={styles.body}>{c.wallet.body}</p>
             </header>
@@ -194,7 +191,6 @@ export function AppShowcase({
         <section className={styles.campaigns} aria-labelledby="campaigns-title">
           <div className={`movrr-shell ${styles.campaignLayout}`}>
             <header className={styles.campaignHeader}>
-              <p className={styles.eyebrow}>{c.campaigns.label}</p>
               <h2 id="campaigns-title">{c.campaigns.title}</h2>
               <p className={styles.body}>{c.campaigns.body}</p>
             </header>
@@ -232,7 +228,6 @@ export function AppShowcase({
         <section className={styles.progress} aria-labelledby="progress-title">
           <div className="movrr-shell">
             <div className={styles.progressHeading}>
-              <p className={styles.eyebrow}>{c.progress.label}</p>
               <h2 id="progress-title">{c.progress.title}</h2>
               <p className={styles.body}>{c.progress.body}</p>
             </div>
@@ -284,7 +279,6 @@ export function AppShowcase({
         <section className={styles.community} aria-labelledby="community-title">
           <div className={`movrr-shell ${styles.communityLayout}`}>
             <div className={styles.communityStory}>
-              <p className={styles.eyebrow}>{c.community.label}</p>
               <h2 id="community-title">{c.community.title}</h2>
               <p className={styles.body}>{c.community.body}</p>
               <p className={styles.communityDetail}>{c.community.detail}</p>
@@ -312,7 +306,6 @@ export function AppShowcase({
         <section className={styles.closing} aria-labelledby="closing-title">
           <div className={`movrr-shell ${styles.closingLayout}`}>
             <div>
-              <p className={styles.eyebrow}>{c.closing.label}</p>
               <h2 id="closing-title">{c.closing.title}</h2>
             </div>
             <div>
@@ -328,7 +321,6 @@ export function AppShowcase({
                 {c.closing.secondary}
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>
-              <p className={styles.availability}>{c.availability}</p>
             </div>
           </div>
         </section>

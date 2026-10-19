@@ -8,16 +8,14 @@ export const appShowcaseCopy = {
     eyebrow: "The MOVRR rider app",
     title: ["Movement", "that earns."],
     intro:
-      "Your everyday ride has more to give. Track your cycling, follow your progress and earn MOVRR Points for eligible, verified movement.",
+      "Track your daily rides and progress. Earn MOVRR Points for eligible, verified movement.",
     primary: "Join rider early access",
     secondary: "Explore the app",
-    availability: "Early access. Join the waitlist for launch updates.",
     preview:
       "Real app captures. Preview data illustrates the experience; balances, rides and campaigns shown are examples, not live offers or promised results.",
     heroAlt:
       "Approved MOVRR studio image of the Ride Map on a handlebar-mounted iPhone",
     map: {
-      label: "01 / Out in the city",
       title: "Your city. Your ride.",
       body: "Open the map. Find your position. Start a standard ride and let GPS record your movement.",
       steps: [
@@ -41,7 +39,6 @@ export const appShowcaseCopy = {
       alt: "Genuine MOVRR Ride Map with GPS Active, current position and Start Standard Ride; Google attribution retained",
     },
     wallet: {
-      label: "02 / Movement, accounted for",
       title: "Make your movement count.",
       body: "A clear view of your MOVRR Points, from eligible riding to your earning history.",
       balance: "Your Wallet, at a glance",
@@ -56,7 +53,6 @@ export const appShowcaseCopy = {
       note: "Example balance and earning history. Rewards and redemption remain subject to eligibility, availability and applicable terms.",
     },
     campaigns: {
-      label: "03 / A little more to explore",
       title: "More ways to ride.",
       body: "Campaigns are optional. Discover what is available, read the details and decide whether a campaign fits your riding.",
       topics: [
@@ -80,7 +76,6 @@ export const appShowcaseCopy = {
         "Campaign discovery + Campaign Details · preview examples, not live opportunities",
     },
     progress: {
-      label: "04 / Build your own momentum",
       title: "Every ride moves you forward.",
       body: "There is more to a ride than a balance. Follow your daily goals, see your level develop and discover the milestones along the way.",
       steps: [
@@ -103,7 +98,6 @@ export const appShowcaseCopy = {
         "Daily progress · iOS preview. Achievement artwork illustrates the collection, not unlocked status.",
     },
     community: {
-      label: "05 / Better with company",
       title: "Ride together.",
       body: "Join a community ride organized by MOVRR or an approved rider. Explore the details and find a group that suits your pace.",
       note: "Community Ride preview · sample ride details, not a scheduled public event.",
@@ -113,7 +107,6 @@ export const appShowcaseCopy = {
       detail: "Discover. Choose. Join.",
     },
     closing: {
-      label: "Your next ride starts here",
       title: "Make room for more movement.",
       body: "Be part of what comes next. Join the rider waitlist to hear about early access and launch availability.",
       secondary: "Questions? Get in touch",
@@ -128,16 +121,14 @@ export const appShowcaseCopy = {
     eyebrow: "De MOVRR fietsapp",
     title: ["Beweging", "die beloont."],
     intro:
-      "Er zit meer in je dagelijkse fietsrit. Houd je ritten bij, volg je voortgang en verdien MOVRR Points voor beweging die aan de voorwaarden voldoet en is geverifieerd.",
+      "Volg je dagelijkse ritten en voortgang. Verdien MOVRR Points voor beweging die aan de voorwaarden voldoet en is geverifieerd.",
     primary: "Meld je aan voor vroege toegang",
     secondary: "Ontdek de app",
-    availability: "Vroege toegang. Ontvang updates via de wachtlijst.",
     preview:
       "Echte appbeelden. Voorbeeldgegevens laten de werking zien; getoonde saldi, ritten en campagnes zijn geen actuele aanbiedingen of beloofde resultaten.",
     heroAlt:
       "Goedgekeurde MOVRR studiofoto van de ritkaart op een iPhone aan een fietsstuur",
     map: {
-      label: "01 / De stad in",
       title: "Jouw stad. Jouw rit.",
       body: "Open de kaart. Bekijk je positie. Start een standaardrit en laat GPS je beweging vastleggen.",
       steps: [
@@ -161,7 +152,6 @@ export const appShowcaseCopy = {
       alt: "Echte MOVRR ritkaart met actieve GPS, huidige positie en Start Standard Ride; Google-bronvermelding behouden",
     },
     wallet: {
-      label: "02 / Inzicht in je beweging",
       title: "Laat je beweging meetellen.",
       body: "Een helder overzicht van je MOVRR Points, van geldige ritten tot je verdiengeschiedenis.",
       balance: "Je Wallet in één oogopslag",
@@ -176,7 +166,6 @@ export const appShowcaseCopy = {
       note: "Voorbeeldsaldo en verdiengeschiedenis. Beloningen en inwisseling blijven afhankelijk van geschiktheid, beschikbaarheid en toepasselijke voorwaarden.",
     },
     campaigns: {
-      label: "03 / Meer om te ontdekken",
       title: "Meer manieren om te fietsen.",
       body: "Campagnes zijn optioneel. Ontdek wat beschikbaar is, lees de details en bepaal of een campagne bij jouw ritten past.",
       topics: [
@@ -200,7 +189,6 @@ export const appShowcaseCopy = {
         "Campagnes ontdekken + Campaign Details · voorbeelden, geen actuele mogelijkheden",
     },
     progress: {
-      label: "04 / Bouw je eigen ritme op",
       title: "Elke rit brengt je verder.",
       body: "Een rit is meer dan een saldo. Volg je dagelijkse doelen, zie je niveau groeien en ontdek de mijlpalen onderweg.",
       steps: [
@@ -223,7 +211,6 @@ export const appShowcaseCopy = {
         "Dagelijkse voortgang · iOS-voorbeeld. Het artwork toont de collectie, geen ontgrendelde status.",
     },
     community: {
-      label: "05 / Samen op weg",
       title: "Fiets samen.",
       body: "Sluit je aan bij een groepsrit die MOVRR of een goedgekeurde fietser organiseert. Bekijk de ritdetails en vind een groep die bij jouw tempo past.",
       note: "Community Ride-voorbeeld · voorbeeldrit, geen gepland openbaar evenement.",
@@ -233,7 +220,6 @@ export const appShowcaseCopy = {
       detail: "Ontdek. Kies. Sluit aan.",
     },
     closing: {
-      label: "Je volgende rit begint hier",
       title: "Maak ruimte voor meer beweging.",
       body: "Doe mee met wat hierna komt. Meld je aan als fietser voor updates over vroege toegang en beschikbaarheid bij de lancering.",
       secondary: "Vragen? Neem contact op",

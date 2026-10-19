@@ -28,7 +28,7 @@ export function LegalPage({ copy }: { copy: LegalPageCopy }) {
       <Navbar variant="light" />
       <main
         id="main-content"
-        className="min-h-screen overflow-x-hidden bg-movrr-bg-canvas"
+        className="min-h-screen overflow-x-clip bg-movrr-bg-canvas"
       >
         <LegalLayout
           title={copy.title}

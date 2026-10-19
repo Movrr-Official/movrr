@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { usePageCopy } from "@/components/i18n/PageCopyProvider";
 import type { HelpCopy } from "@/locales/types";
+import { SectionNavigation } from "@/components/navigation/SectionNavigation";
 
 
 function Accordion({
@@ -79,48 +80,27 @@ export function HelpTopics({ query }: { query: string }) {
   return (
     <section
       id="help-results"
-      aria-live="polite"
       className="bg-movrr-bg-canvas py-32 lg:py-44"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid grid-cols-1 gap-0 lg:grid-cols-[280px_1fr] lg:gap-20">
+        <div className="flex flex-col gap-16 lg:grid lg:grid-cols-[280px_1fr] lg:gap-20">
           {/* Sticky topic index */}
-          <div className="mb-16 lg:mb-0">
-            <nav className="lg:sticky lg:top-28">
-              <p className="mb-6 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
-                {copy.topicsLabel}
-              </p>
-              <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:space-y-0 lg:divide-y lg:divide-movrr-border-soft lg:border-y lg:border-movrr-border-soft">
-                {topics.map((topic) => (
-                  <li key={topic.category}>
-                    <a
-                      href={`#${topic.id}`}
-                      className="block text-sm text-movrr-text-brand/75 transition-colors duration-150 hover:text-movrr-text-brand lg:py-3.5"
-                    >
-                      {topic.category}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-10 hidden text-[0.75rem] leading-relaxed text-movrr-text-brand/75 lg:block">
-                {copy.notFound}{" "}
-                <a
-                  href="mailto:hello@movrr.nl"
-                  className="text-movrr-text-brand underline underline-offset-2 transition-colors duration-150 hover:opacity-75"
-                >
-                  {copy.contact}
-                </a>
-              </p>
-            </nav>
-          </div>
+          <SectionNavigation
+            title={copy.topicsLabel}
+            items={topics.map((topic) => ({ id: topic.id, label: topic.category }))}
+            footer={<>
+              {copy.notFound}{" "}
+              <a href="mailto:hello@movrr.nl" className="text-movrr-text-brand underline underline-offset-2 transition-colors duration-150 hover:opacity-75">{copy.contact}</a>
+            </>}
+          />
 
           {/* FAQ sections */}
-          <div className="space-y-20">
+          <div className="min-w-0 space-y-20" aria-live="polite">
             {topics.map((topic) => (
               <div
                 key={topic.category}
                 id={topic.id}
-                className="scroll-mt-28"
+                className="scroll-mt-[calc(var(--movrr-banner-height,0px)+10rem)] lg:scroll-mt-[calc(var(--movrr-banner-height,0px)+7rem)]"
               >
                 <motion.h2
                   initial={{ opacity: 0, y: 12 }}

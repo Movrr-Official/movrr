@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { SectionNavigation } from "@/components/navigation/SectionNavigation";
 import { useCommonCopy } from "@/components/i18n/CommonCopyProvider";
 import { withLocalePath } from "@/lib/i18n/routing";
 
@@ -89,46 +89,14 @@ export function LegalLayout({
 
       {/* Body — sticky sidebar + prose column */}
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[220px_1fr] lg:gap-20">
+        <div className="flex flex-col gap-16 lg:grid lg:grid-cols-[220px_1fr] lg:gap-20">
           {/* Sticky sidebar navigation */}
-          <aside aria-label={contentsLabel} className="block">
-            <div className="lg:sticky lg:top-28">
-              <p className="mb-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
-                {contentsLabel}
-              </p>
-              <nav className="flex flex-col">
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/75 transition-all duration-150 hover:border-movrr-text-brand/40 hover:text-movrr-text-brand"
-                  >
-                    {section.title}
-                  </a>
-                ))}
-              </nav>
-
-              {/* Related legal links */}
-              {relatedLinks.length > 0 && (
-                <div className="mt-10 border-t border-movrr-border-soft pt-8">
-                  <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
-                    {relatedLabel}
-                  </p>
-                  <div className="flex flex-col">
-                    {relatedLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={withLocalePath(locale, link.href)}
-                        className="border-l border-movrr-border-soft py-2 pl-4 text-sm text-movrr-text-brand/75 transition-all duration-150 hover:border-movrr-text-brand/40 hover:text-movrr-text-brand"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </aside>
+          <SectionNavigation
+            title={contentsLabel}
+            items={sections.map((section) => ({ id: section.id, label: section.title }))}
+            relatedTitle={relatedLabel}
+            relatedLinks={relatedLinks.map((link) => ({ ...link, href: withLocalePath(locale, link.href) }))}
+          />
 
           {/* Prose content column */}
           <div className="min-w-0">
@@ -144,7 +112,7 @@ export function LegalLayout({
                   duration: 0.55,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mb-14 scroll-mt-28 border-b border-movrr-border-soft pb-14 last:mb-0 last:border-0 last:pb-0 lg:mb-16 lg:pb-16"
+                className="mb-14 scroll-mt-[calc(var(--movrr-banner-height,0px)+10rem)] border-b border-movrr-border-soft pb-14 last:mb-0 last:border-0 last:pb-0 lg:mb-16 lg:scroll-mt-[calc(var(--movrr-banner-height,0px)+7rem)] lg:pb-16"
               >
                 <h2 className="mb-6 text-[clamp(1.15rem,1.6vw,1.4rem)] font-semibold leading-tight tracking-[-0.02em] text-movrr-text-brand">
                   {section.title}
@@ -152,26 +120,6 @@ export function LegalLayout({
                 <div className="legal-prose">{section.content}</div>
               </motion.section>
             ))}
-
-            {/* Mobile related links */}
-            {relatedLinks.length > 0 && (
-              <div className="mt-16 border-t border-movrr-border-soft pt-10 lg:hidden">
-                <p className="mb-4 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-movrr-text-brand/75">
-                  {relatedLabel}
-                </p>
-                <div className="flex flex-col divide-y divide-movrr-border-soft border-t border-movrr-border-soft">
-                  {relatedLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={withLocalePath(locale, link.href)}
-                      className="py-3.5 text-sm text-movrr-text-brand/75 transition-opacity duration-150 hover:opacity-100 hover:text-movrr-text-brand"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>

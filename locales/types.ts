@@ -1,3 +1,5 @@
+import type { AppShowcaseCopy } from "@/lib/app-showcase/copy";
+
 export interface PageMetadataCopy {
   title: string;
   description: string;
@@ -123,6 +125,7 @@ export interface CommonDictionary {
 }
 
 export const PAGE_PATHS = {
+  app: "/app",
   home: "/",
   waitlist: "/waitlist",
   howItWorks: "/how-it-works",
@@ -429,6 +432,7 @@ export interface Dictionary {
     pages: Record<PageKey, PageMetadataCopy>;
   };
   pages: {
+    app: AppShowcaseCopy;
     home: HomeCopy;
     waitlist: WaitlistCopy;
     contact: ContactCopy;
@@ -449,7 +453,7 @@ export interface Dictionary {
     cookies: LegalPageCopy;
     accountDeletion: LegalPageCopy;
   } & Record<
-    Exclude<PageKey, "home" | "waitlist" | "contact" | "careers" | "about" | "accessibility" | "partners" | "sitemapPage" | "howItWorks" | "rewards" | "riders" | "blog" | "help" | "press" | "brands" | "privacy" | "terms" | "cookies" | "accountDeletion">,
+    Exclude<PageKey, "app" | "home" | "waitlist" | "contact" | "careers" | "about" | "accessibility" | "partners" | "sitemapPage" | "howItWorks" | "rewards" | "riders" | "blog" | "help" | "press" | "brands" | "privacy" | "terms" | "cookies" | "accountDeletion">,
     Record<string, unknown>
   >;
 }

@@ -55,3 +55,6 @@ __v0_jsx-dev-runtime.ts
 .snowflake/
 .v0-trash/
 next.user-config.*
+
+# Disposable task tooling and browser verification artifacts
+.tmp/

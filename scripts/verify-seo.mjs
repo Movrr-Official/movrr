@@ -13,6 +13,7 @@ const routes = [
   "/rewards",
   "/brands",
   "/riders",
+  "/app",
   "/about",
   "/blog",
   "/press",

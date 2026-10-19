@@ -1,4 +1,5 @@
 import { legalPage } from "@/lib/legal/pages";
+import { appShowcaseCopy } from "@/lib/app-showcase/copy";
 import type { Dictionary } from "@/locales/types";
 
 export const nl: Dictionary = {
@@ -175,6 +176,7 @@ export const nl: Dictionary = {
       "fietsbeloningen",
     ],
     pages: {
+      app: appShowcaseCopy.nl.metadata,
       home: {
         title: "Beloningen voor fietsers, bereik voor merken",
         description:
@@ -273,6 +275,7 @@ export const nl: Dictionary = {
     },
   },
   pages: {
+    app: appShowcaseCopy.nl,
     home: {
       hero: {
         imageAlt: "Fietsers onderweg door de stad",

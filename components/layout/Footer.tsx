@@ -44,6 +44,7 @@ export function Footer({ cta = true }: FooterProps) {
         [copy.navigation.rewards, "/rewards"],
         [copy.navigation.brands, "/brands"],
         [copy.navigation.riders, "/riders"],
+        [locale === "nl" ? "De MOVRR app" : "The MOVRR app", "/app"],
       ],
     },
     {

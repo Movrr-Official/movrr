@@ -411,7 +411,8 @@
   padding-top: 3px;
 }
 .page .progressCapture {
-  aspect-ratio: 1.4;
+  /* Include the streak shadow, ending before the next row of native UI. */
+  aspect-ratio: 828 / 616;
   overflow: hidden;
   border-radius: 24px;
 }

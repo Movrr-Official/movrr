@@ -14,7 +14,7 @@ The page is a server component; native disclosures work without JavaScript.
 | Wallet      | Two-column editorial spread: a full framed Wallet capture and a wide Earnings Performance detail, each with its own caption  | Framed Wallet followed by the compact earnings detail                                                   |
 | Campaigns   | Three-part magazine layout: tall discovery capture, header and studio Campaign Details image, native explanatory disclosures | Header, focused studio image and discovery capture, followed by full-width disclosures on narrow phones |
 | Progress    | Ruled progression list beside a daily-progress excerpt and original achievement medallions                                   | Progress and artwork lead into the numbered progression list                                            |
-| Community   | Broad existing cycling photograph below an editorial introduction; a narrow real Community Ride capture spans the side       | Photograph and overlapping app capture retain the photography-led composition                           |
+| Community   | Illustrative group-ride scene below an editorial introduction; a narrow real Community Ride capture spans the side           | Photograph and overlapping app capture retain the photography-led composition                           |
 | Closing CTA | Short, image-free conversion band with a large statement and separate action column                                          | Concise statement, explanation and comfortable full-height actions                                      |
 
 No screenshot carousel, scroll interception, new client-side animation dependency,
@@ -139,3 +139,5 @@ client JavaScript is required. The seven existing legacy-signup redirect tests
 also pass after fast-forwarding the isolated branch to concurrent remote main.
 
 Full-screen captures share the hero-matched slim graphite presentation frame. Its Dynamic Island hardware is a presentation treatment; the native source device remains recorded accurately. Earnings and daily progress remain labelled detail excerpts. The closing CTA uses `--movrr-bg-primary`, matching the hero. CTA arrows shift and rotate on hover and keyboard focus (the explore arrow shifts downward); reduced motion disables these effects.
+
+Community Rides can be organized by MOVRR or an approved rider. The unbranded recreational group-ride image is AI-generated illustrative imagery, not a record of an actual MOVRR event or its participants. Its master and generation prompt are retained in `docs/design/`; the importer reproduces the responsive WebP derivative. The original shared commuting image remains unchanged on other pages.

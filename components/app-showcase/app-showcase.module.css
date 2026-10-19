@@ -466,6 +466,7 @@
 .communityPhoto img {
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
 }
 .communityCapture {
   grid-column: 3;

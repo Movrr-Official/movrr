@@ -105,11 +105,11 @@ export const appShowcaseCopy = {
     community: {
       label: "05 / Better with company",
       title: "Ride together.",
-      body: "Find community rides, explore the ride details and join a ride that suits you. A familiar route can become a shared one.",
+      body: "Join a community ride organized by MOVRR or an approved rider. Explore the details and find a group that suits your pace.",
       note: "Community Ride preview · sample ride details, not a scheduled public event.",
       alt: "Genuine MOVRR Community Rides screen with Ride Together, discovery filters and a sample group ride",
       photoAlt:
-        "MOVRR’s existing urban cycling photograph of riders travelling together",
+        "A group of young adults cycling together on a riverside cycle path",
       detail: "Discover. Choose. Join.",
     },
     closing: {
@@ -225,11 +225,11 @@ export const appShowcaseCopy = {
     community: {
       label: "05 / Samen op weg",
       title: "Fiets samen.",
-      body: "Ontdek groepsritten, bekijk de ritdetails en sluit aan bij een rit die bij je past. Een bekende route wordt zo een gedeelde ervaring.",
+      body: "Sluit je aan bij een groepsrit die MOVRR of een goedgekeurde fietser organiseert. Bekijk de ritdetails en vind een groep die bij jouw tempo past.",
       note: "Community Ride-voorbeeld · voorbeeldrit, geen gepland openbaar evenement.",
       alt: "Echt MOVRR Community Rides-scherm met Ride Together, zoekfilters en een voorbeeldgroepsrit",
       photoAlt:
-        "Bestaande MOVRR stadsfoto van fietsers die samen onderweg zijn",
+        "Een groep jongvolwassenen die samen over een fietspad langs het water fietst",
       detail: "Ontdek. Kies. Sluit aan.",
     },
     closing: {

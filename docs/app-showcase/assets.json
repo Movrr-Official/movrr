@@ -154,6 +154,17 @@
       "width": 884,
       "height": 1848,
       "bytes": 1232
+    },
+    {
+      "source": "docs/design/community-rides-master.png",
+      "sourceRepository": "movrr-website-new",
+      "context": "AI-generated illustrative recreational group ride, muted documentary style; unbranded bicycles, no campaign participation implied; not a photograph of actual MOVRR participants",
+      "sourceSha256": "e012985c7774c9f3afd78bd67735c8e0d5ef8b0e7b8081d102d9ae49ec00030c",
+      "destination": "public/images/app/community-ride-together.webp",
+      "outputSha256": "9cca2e3f0e7780ae9738d4bfd4e9a9c31cdfa8de5dee43f5feda63db5a622dcd",
+      "width": 1440,
+      "height": 960,
+      "bytes": 212784
     }
   ]
 }

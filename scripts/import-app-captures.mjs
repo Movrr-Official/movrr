@@ -144,8 +144,33 @@ if (websiteRoot) {
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
 }
 
+// Retain the illustrative Community Rides master and reproduce its web delivery.
+const communityMasterPath = "docs/design/community-rides-master.png";
+const communityMaster = await readFile(communityMasterPath);
+const communityPhoto = await sharp(communityMaster)
+  .resize({ width: 1440, withoutEnlargement: true })
+  .webp({ quality: 88, effort: 6 })
+  .toBuffer();
+const communityPhotoPath = "public/images/app/community-ride-together.webp";
+await writeFile(communityPhotoPath, communityPhoto);
+const communityMetadata = await sharp(communityPhoto).metadata();
+records.push({
+  source: communityMasterPath,
+  sourceRepository: "movrr-website-new",
+  context:
+    "AI-generated illustrative recreational group ride, muted documentary style; unbranded bicycles, no campaign participation implied; not a photograph of actual MOVRR participants",
+  sourceSha256: digest(communityMaster),
+  destination: communityPhotoPath,
+  outputSha256: digest(communityPhoto),
+  width: communityMetadata.width,
+  height: communityMetadata.height,
+  bytes: communityPhoto.length,
+});
+
 const framePath = "public/images/app/iphone-frame.svg";
-const frame = await readFile(framePath);
+const frame = Buffer.from(
+  (await readFile(framePath, "utf8")).replace(/\r\n/g, "\n"),
+);
 records.push({
   source: framePath,
   sourceRepository: "movrr-website-new",

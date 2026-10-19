@@ -16,11 +16,15 @@ assert.equal(community.width, 828);
 assert.equal(community.height, 1792);
 for (const record of manifest.records) {
   const bytes = await readFile(record.destination);
-  assert.equal(
-    createHash("sha256").update(bytes).digest("hex"),
-    record.outputSha256,
-    record.destination,
-  );
+  const hashes = [createHash("sha256").update(bytes).digest("hex")];
+  // Git may check out text SVGs with CRLF on Windows; retain the LF provenance.
+  if (record.destination.endsWith(".svg"))
+    hashes.push(
+      createHash("sha256")
+        .update(bytes.toString("utf8").replace(/\r\n/g, "\n"))
+        .digest("hex"),
+    );
+  assert(hashes.includes(record.outputSha256), record.destination);
   const metadata = await sharp(bytes).metadata();
   assert.equal(metadata.width, record.width);
   assert.equal(metadata.height, record.height);

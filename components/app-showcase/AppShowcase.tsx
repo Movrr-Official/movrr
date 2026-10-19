@@ -291,7 +291,7 @@ export function AppShowcase({
             </div>
             <figure className={styles.communityPhoto}>
               <Image
-                src="/images/movrr-cyclists-urban-commute.webp"
+                src="/images/app/community-ride-together.webp"
                 alt={c.community.photoAlt}
                 fill
                 sizes="(min-width: 1024px) 62vw, 100vw"

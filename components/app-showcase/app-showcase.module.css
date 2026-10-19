@@ -205,11 +205,6 @@
   );
   font-size: 0.875rem;
 }
-.mapCapture img {
-  width: 100%;
-  border-radius: 24px;
-  border: 1px solid var(--movrr-border-soft);
-}
 .mapCapture figcaption,
 .communityCapture figcaption {
   font-size: 0.7rem;
@@ -262,11 +257,8 @@
 .heatmap summary {
   border-bottom: 1px solid var(--movrr-border-muted);
 }
-.heatmap img {
-  width: 100%;
+.heatmap .phone {
   margin-top: 20px;
-  border: 1px solid var(--movrr-border-soft);
-  border-radius: 16px;
 }
 .wallet {
   padding: 104px 0 80px;
@@ -291,19 +283,16 @@
   min-width: 0;
 }
 .walletImage {
-  padding: 36px 52px 0;
+  padding: 28px 40px;
   background: var(--movrr-bg-card-dark);
   border: 1px solid
     color-mix(in oklab, var(--movrr-border-inverse) 14%, transparent);
   border-radius: 28px;
-  height: 470px;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
-.walletImage img {
-  width: 100%;
-  max-width: 320px;
-  margin: auto;
-  border-radius: 24px 24px 0 0;
+.walletImage .phone {
+  max-width: 280px;
 }
 .chartImage {
   position: relative;
@@ -348,11 +337,6 @@
   grid-column: 1;
   grid-row: 1 / 3;
   align-self: center;
-}
-.campaignList img {
-  width: 100%;
-  border: 1px solid var(--movrr-border-soft);
-  border-radius: 24px;
 }
 .page .campaignStudio {
   position: relative;
@@ -487,14 +471,9 @@
   grid-row: 1 / 3;
   align-self: end;
 }
-.communityCapture img {
-  width: 100%;
-  border-radius: 20px;
-  border: 1px solid var(--movrr-border-soft);
-}
 .closing {
   padding: 88px 0;
-  background: var(--movrr-bg-secondary);
+  background: var(--movrr-bg-primary);
   color: var(--movrr-text-inverse);
 }
 .closingLayout {
@@ -515,6 +494,56 @@
   width: fit-content;
   margin-top: 16px;
 }
+
+/* One presentation frame, matching the hero. Native screenshot pixels stay intact. */
+.phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 884 / 1848;
+  flex-shrink: 0;
+}
+.phoneScreen {
+  position: absolute;
+  left: 3.1674208%;
+  top: 1.5151515%;
+  width: 93.6651584%;
+  height: 96.969697%;
+  overflow: hidden;
+  border-radius: 13.043478% / 6.026786%;
+}
+.page .phoneScreen img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.page .phoneHardware {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none;
+}
+.primary svg,
+.secondary svg,
+.contact svg {
+  flex-shrink: 0;
+  transition: transform 200ms;
+}
+.primary:is(:hover, :focus-visible) svg,
+.contact:is(:hover, :focus-visible) svg {
+  transform: translateX(2px) rotate(45deg);
+}
+.secondary:is(:hover, :focus-visible) svg {
+  transform: translateY(2px);
+}
+
 @media (min-width: 1280px) {
   .hero {
     padding-top: calc(144px + var(--movrr-banner-height, 0px));
@@ -671,11 +700,7 @@
     grid-template-columns: 1fr;
   }
   .walletImage {
-    height: 390px;
-    padding: 24px 28px 0;
-  }
-  .walletImage img {
-    max-width: 290px;
+    padding: 24px 28px;
   }
   .walletSpread figcaption {
     padding-top: 20px;
@@ -759,8 +784,8 @@
     grid-row: 3;
     margin-top: -100px;
     z-index: 1;
-    border: 5px solid var(--movrr-bg-canvas);
-    border-radius: 24px;
+    border: 0;
+    border-radius: 0;
   }
   .communityCapture figcaption {
     padding: 0 4px;
@@ -796,7 +821,7 @@
     grid-row: 4;
   }
   .walletImage {
-    height: 355px;
+    padding: 20px 24px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -805,5 +830,13 @@
   .page *::after {
     scroll-behavior: auto;
     transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary:is(:hover, :focus-visible) svg,
+  .contact:is(:hover, :focus-visible) svg,
+  .secondary:is(:hover, :focus-visible) svg {
+    transform: none;
   }
 }

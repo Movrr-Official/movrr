@@ -8,6 +8,12 @@ const base = process.env.APP_BASE_URL ?? "http://localhost:3218";
 const manifest = JSON.parse(
   await readFile("docs/app-showcase/assets.json", "utf8"),
 );
+const community = manifest.records.find((r) =>
+  r.destination.endsWith("/community.webp"),
+);
+assert.match(community.context, /iOS.*iPhone/);
+assert.equal(community.width, 828);
+assert.equal(community.height, 1792);
 for (const record of manifest.records) {
   const bytes = await readFile(record.destination);
   assert.equal(
@@ -53,6 +59,14 @@ for (const prefix of ["", "/nl"]) {
   );
   assert.match(main, new RegExp(`href="${prefix}/waitlist\\?audience=rider"`));
   assert.match(main, /href="#ride-map"/);
+  for (const name of [
+    "ride-map",
+    "heatmap",
+    "wallet",
+    "campaigns",
+    "community",
+  ])
+    assert.match(main, new RegExp(`data-app-phone="${name}"`));
   assert.match(main, /<details\b/);
   assert.match(main, /<summary\b/);
   assert.match(main, /fetchPriority="high"/);

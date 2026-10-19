@@ -30,8 +30,8 @@ const sources = [
   ],
   [
     "community",
-    ".tmp/loading-evidence/native/audit-community-loaded-07.png",
-    "Android native capture; anonymous preview, no participant identities",
+    ".tmp/app-showcase-fixes/iphone-current.png",
+    "iOS 18.7.10, iPhone XR (iPhone11,8), captured 2026-10-19; anonymous Community Rides preview, no participant identities",
   ],
   ...["first-ride", "city-explorer", "streak-starter"].map((name) => [
     name,
@@ -143,6 +143,28 @@ if (websiteRoot) {
   manifest.records = records;
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
 }
+
+const framePath = "public/images/app/iphone-frame.svg";
+const frame = await readFile(framePath);
+records.push({
+  source: framePath,
+  sourceRepository: "movrr-website-new",
+  context:
+    "Code-native graphite presentation hardware matching the approved hero; Dynamic Island frame, not the source capture device; no app UI redrawn",
+  sourceSha256: digest(frame),
+  destination: framePath,
+  outputSha256: digest(frame),
+  width: 884,
+  height: 1848,
+  bytes: frame.length,
+});
+const finalManifestPath = "docs/app-showcase/assets.json";
+const finalManifest = JSON.parse(await readFile(finalManifestPath, "utf8"));
+finalManifest.records = records;
+await writeFile(
+  finalManifestPath,
+  JSON.stringify(finalManifest, null, 2) + "\n",
+);
 
 console.log(
   `Imported ${records.length} assets, ${records.reduce((sum, record) => sum + record.bytes, 0)} bytes; native source pixels verified.`,

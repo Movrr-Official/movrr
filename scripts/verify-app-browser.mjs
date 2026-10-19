@@ -81,6 +81,12 @@ for (const route of ["/app", "/nl/app"]) {
           width: i.getBoundingClientRect().width,
         })),
       cls: window.__shifts.reduce((a, b) => a + b, 0),
+      brandClosing:
+        getComputedStyle(document.querySelector("main > section:last-child"))
+          .backgroundColor ===
+        getComputedStyle(document.querySelector("main > section:first-child"))
+          .backgroundColor,
+      phoneFrames: document.querySelectorAll("[data-app-phone]").length,
       fontFamily: getComputedStyle(document.querySelector("main")).fontFamily,
       imageTransferBytes: performance
         .getEntriesByType("resource")
@@ -172,6 +178,51 @@ const motion = await browser.newContext({
 });
 const mp = await motion.newPage();
 await mp.goto(`${baseUrl}/app`, { waitUntil: "networkidle" });
+const rejectMotion = mp.getByRole("button", {
+  name: "Reject non-essential",
+  exact: true,
+});
+if (await rejectMotion.count()) await rejectMotion.click();
+for (const link of [
+  mp.locator("main a").first(),
+  mp.locator("main a[href*=contact]"),
+]) {
+  await link.hover();
+  await mp.waitForTimeout(250);
+  if (
+    await link
+      .locator("svg")
+      .evaluate((el) => getComputedStyle(el).transform === "none")
+  )
+    throw new Error("CTA hover arrow effect missing");
+  await mp.mouse.move(0, 0);
+  await link.focus();
+  if (
+    await link
+      .locator("svg")
+      .evaluate((el) => !el.closest("a").matches(":focus-visible"))
+  ) {
+    await mp.keyboard.press("Tab");
+    await mp.keyboard.press("Shift+Tab");
+  }
+  await mp.waitForTimeout(250);
+  if (
+    await link
+      .locator("svg")
+      .evaluate((el) => getComputedStyle(el).transform === "none")
+  )
+    throw new Error("CTA keyboard arrow effect missing");
+}
+await mp.emulateMedia({ reducedMotion: "reduce" });
+await mp.locator("main a").first().hover();
+if (
+  await mp
+    .locator("main a")
+    .first()
+    .locator("svg")
+    .evaluate((el) => getComputedStyle(el).transform !== "none")
+)
+  throw new Error("CTA arrow ignores reduced motion");
 await mp.screenshot({ path: `${dir}/standard-motion.png` });
 await motion.close();
 await writeFile(`${dir}/report.json`, JSON.stringify(report, null, 2));
@@ -189,6 +240,8 @@ if (
   report.some(
     (r) =>
       r.status !== 200 ||
+      !r.brandClosing ||
+      r.phoneFrames !== 5 ||
       r.scrollWidth > r.width ||
       r.h1 !== 1 ||
       r.sections !== 7 ||

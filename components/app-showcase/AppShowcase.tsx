@@ -11,6 +11,40 @@ import styles from "./app-showcase.module.css";
 
 const asset = (name: string) => `/images/app/${name}.webp`;
 
+function PhoneCapture({
+  name,
+  alt,
+  sizes,
+}: {
+  name: string;
+  alt: string;
+  sizes: string;
+}) {
+  return (
+    <div className={styles.phone} data-app-phone={name}>
+      <div className={styles.phoneScreen}>
+        <Image
+          src={asset(name)}
+          alt={alt}
+          width={828}
+          height={1792}
+          sizes={sizes}
+          quality={90}
+        />
+      </div>
+      <Image
+        src="/images/app/iphone-frame.svg"
+        alt=""
+        aria-hidden="true"
+        width={884}
+        height={1848}
+        className={styles.phoneHardware}
+        unoptimized
+      />
+    </div>
+  );
+}
+
 export function AppShowcase({
   locale,
   copy: c,
@@ -88,13 +122,10 @@ export function AppShowcase({
                 ))}
               </ol>
               <figure className={styles.mapCapture}>
-                <Image
-                  src={asset("ride-map")}
+                <PhoneCapture
+                  name="ride-map"
                   alt={c.map.alt}
-                  width={828}
-                  height={1792}
                   sizes="(min-width: 768px) 300px, 70vw"
-                  quality={90}
                 />
                 <figcaption>{c.map.caption}</figcaption>
               </figure>
@@ -107,13 +138,10 @@ export function AppShowcase({
                     {c.map.heatmap}
                     <Plus aria-hidden="true" size={18} />
                   </summary>
-                  <Image
-                    src={asset("heatmap")}
+                  <PhoneCapture
+                    name="heatmap"
                     alt={c.map.heatmapAlt}
-                    width={828}
-                    height={1792}
                     sizes="(min-width: 768px) 260px, 70vw"
-                    quality={90}
                   />
                 </details>
               </div>
@@ -131,13 +159,10 @@ export function AppShowcase({
             <div className={styles.walletSpread}>
               <figure className={styles.balance}>
                 <div className={styles.walletImage}>
-                  <Image
-                    src={asset("wallet")}
+                  <PhoneCapture
+                    name="wallet"
                     alt={c.wallet.alt}
-                    width={828}
-                    height={1792}
                     sizes="(min-width: 768px) 320px, 72vw"
-                    quality={90}
                   />
                 </div>
                 <figcaption>
@@ -174,13 +199,10 @@ export function AppShowcase({
               <p className={styles.body}>{c.campaigns.body}</p>
             </header>
             <figure className={styles.campaignList}>
-              <Image
-                src={asset("campaigns")}
+              <PhoneCapture
+                name="campaigns"
                 alt={c.campaigns.alt}
-                width={828}
-                height={1792}
                 sizes="(min-width: 1024px) 270px, (min-width: 640px) 240px, 180px"
-                quality={90}
               />
             </figure>
             <figure className={styles.campaignStudio}>
@@ -277,13 +299,10 @@ export function AppShowcase({
               />
             </figure>
             <figure className={styles.communityCapture}>
-              <Image
-                src={asset("community")}
+              <PhoneCapture
+                name="community"
                 alt={c.community.alt}
-                width={1080}
-                height={2424}
                 sizes="(min-width: 768px) 240px, 180px"
-                quality={90}
               />
               <figcaption>{c.community.note}</figcaption>
             </figure>

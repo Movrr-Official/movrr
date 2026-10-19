@@ -11,7 +11,7 @@ The page is a server component; native disclosures work without JavaScript.
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Hero        | Oversized editorial type beside one dominant, approved handlebar studio photograph                                           | Copy and actions lead into a compact, landscape product photograph                                      |
 | Ride Map    | Wide neutral stage with numbered annotations, a full native map capture and an expandable heatmap                            | Annotations follow the map in reading order; the optional heatmap stays collapsed                       |
-| Wallet      | Two-column editorial spread: a tall Wallet excerpt and a wide Earnings Performance detail, each with its own caption         | Two compact image/caption units; full phone lengths do not repeat                                       |
+| Wallet      | Two-column editorial spread: a full framed Wallet capture and a wide Earnings Performance detail, each with its own caption  | Framed Wallet followed by the compact earnings detail                                                   |
 | Campaigns   | Three-part magazine layout: tall discovery capture, header and studio Campaign Details image, native explanatory disclosures | Header, focused studio image and discovery capture, followed by full-width disclosures on narrow phones |
 | Progress    | Ruled progression list beside a daily-progress excerpt and original achievement medallions                                   | Progress and artwork lead into the numbered progression list                                            |
 | Community   | Broad existing cycling photograph below an editorial introduction; a narrow real Community Ride capture spans the side       | Photograph and overlapping app capture retain the photography-led composition                           |
@@ -49,7 +49,7 @@ the approved masters without replacing homepage assets. The Campaign Details
 derivative crops only the surrounding studio composition; it does not redraw UI.
 Its source crop is recorded in the manifest.
 
-The earnings and community captures were existing native Android QA captures.
+Community Rides was captured from the connected iPhone XR on 19 October 2026 (iOS 18.7.10). The earnings chart excerpt remains an existing native Android QA capture.
 Their lossless production files preserve the original decoded pixels after
 temporary source-session files are cleaned. They contain no named participants.
 The iOS images use the reviewed store-asset captures. Preview states need not
@@ -134,6 +134,8 @@ Final production browser pass: 19 October 2026. All ten route/width combinations
 pass. Measured CLS is 0.025?0.048, below the 0.1 test threshold. Optimized image
 transfers are approximately 215?278 KB before optional heatmap expansion in these
 local Chromium checks; these are lab observations, not field Core Web Vitals.
-The original 12 retained assets total 3,149,590 bytes. No additional page-specific
+Asset counts, sizes and capture provenance are recorded in `assets.json`. No additional page-specific
 client JavaScript is required. The seven existing legacy-signup redirect tests
 also pass after fast-forwarding the isolated branch to concurrent remote main.
+
+Full-screen captures share the hero-matched slim graphite presentation frame. Its Dynamic Island hardware is a presentation treatment; the native source device remains recorded accurately. Earnings and daily progress remain labelled detail excerpts. The closing CTA uses `--movrr-bg-primary`, matching the hero. CTA arrows shift and rotate on hover and keyboard focus (the explore arrow shifts downward); reduced motion disables these effects.

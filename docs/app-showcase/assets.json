@@ -70,15 +70,15 @@
       "bytes": 70008
     },
     {
-      "source": ".tmp/loading-evidence/native/audit-community-loaded-07.png",
-      "context": "Android native capture; anonymous preview, no participant identities",
-      "sourceSha256": "aa4201645958d2cc159f29610e2f231442ac49771b1760e1f667f1265412b714",
+      "source": ".tmp/app-showcase-fixes/iphone-current.png",
+      "context": "iOS 18.7.10, iPhone XR (iPhone11,8), captured 2026-10-19; anonymous Community Rides preview, no participant identities",
+      "sourceSha256": "a46f537be46df05b43f9635909e0315bbbf6dee3d030b073c965d153a83ebc5d",
       "destination": "public/images/app/community.webp",
-      "outputSha256": "55574c5d048c8a38390fc13ae8ecb5e9a78bee3a79f8b7f12221695b0b6d6cdb",
-      "pixelSha256": "6d2b6e9ab4c3471293021f4022c17ec6138ed60505890eacda593437909e9708",
-      "width": 1080,
-      "height": 2424,
-      "bytes": 1173850
+      "outputSha256": "8e34a29fdc32fd3089b43624fbc9d5d42e7cc8ad1469e77fb9ce392c4f3e3aef",
+      "pixelSha256": "2f06d70eb3cb52108aaabd2a76f08781236418488032bc3be4d7bc193bf3fa0f",
+      "width": 828,
+      "height": 1792,
+      "bytes": 834984
     },
     {
       "source": "assets/images/badges/first-ride@2x.png",
@@ -143,6 +143,17 @@
       "width": 1000,
       "height": 1305,
       "bytes": 57162
+    },
+    {
+      "source": "public/images/app/iphone-frame.svg",
+      "sourceRepository": "movrr-website-new",
+      "context": "Code-native graphite presentation hardware matching the approved hero; Dynamic Island frame, not the source capture device; no app UI redrawn",
+      "sourceSha256": "ca528b89bcd1e8412655d7b67d5e5e1797b589a0c6fd22226a9c32e34ef3eb05",
+      "destination": "public/images/app/iphone-frame.svg",
+      "outputSha256": "ca528b89bcd1e8412655d7b67d5e5e1797b589a0c6fd22226a9c32e34ef3eb05",
+      "width": 884,
+      "height": 1848,
+      "bytes": 1232
     }
   ]
 }

@@ -80,8 +80,8 @@ export function Footer({ cta = true }: FooterProps) {
     >
       {/* CTA Strip */}
       {cta && (
-        <div className="border-b border-movrr-text-inverse/10">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+        <div>
+          <div className="px-6 py-20 lg:px-12 lg:py-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

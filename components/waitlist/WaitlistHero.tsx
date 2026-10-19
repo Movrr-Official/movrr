@@ -68,14 +68,14 @@ export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
           <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-movrr-text-inverse/70">
             {copy.citiesLabel}
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             {cities.map((city, index) => (
-              <span key={city} className="flex items-center gap-3">
-                <span className="text-sm font-medium text-movrr-text-inverse/70">
+              <span key={city} className="flex shrink-0 items-center gap-3">
+                <span className="whitespace-nowrap text-sm font-medium text-movrr-text-inverse/70">
                   {city}
                 </span>
                 {index < cities.length - 1 && (
-                  <span className="h-px w-3 bg-movrr-text-inverse/20" />
+                  <span aria-hidden="true" className="h-px w-3 shrink-0 bg-movrr-text-inverse/20" />
                 )}
               </span>
             ))}

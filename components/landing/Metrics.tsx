@@ -50,7 +50,7 @@ export function Metrics({ copy }: { copy: HomeCopy["metrics"] }) {
               style={{ y: imageY }}
             >
               <Image
-                src="/images/movrr-campaign-front-banner-full-height.webp"
+                src="/images/movrr-campaign-front-banner-muted.webp"
                 alt={copy.imageAlt}
                 fill
                 quality={100}

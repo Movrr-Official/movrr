@@ -46,7 +46,7 @@ const images = [
   ],
   ["app-preview-01.png", "movrr-app-preview-handlebar-v2.webp", 95],
   ["app-preview-02.png", "movrr-app-preview-device.webp"],
-  ["metrics-campaign-impact.png", "movrr-campaign-front-banner-full-height.webp"],
+  ["metrics-campaign-impact.png", "movrr-campaign-front-banner-muted.webp"],
 ];
 
 await mkdir(outputDir, { recursive: true });

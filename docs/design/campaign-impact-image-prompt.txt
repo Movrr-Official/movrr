@@ -1,13 +1,13 @@
 MOVRR campaign impact image
 
 Master: public/metrics-campaign-impact.png
-Website: public/images/movrr-campaign-front-banner-full-height.webp
+Website: public/images/movrr-campaign-front-banner-muted.webp
 Base fixture: docs/design/campaign-impact-base.png
 Genuine logo source: public/logo/icon-no-bg-green.png
 
 Creation: built-in image_gen produced the photographic base and full-height panel art. The genuine icon was then projected directly from the repository asset, and the lower divider was straightened deterministically. Generative attempts to redraw the symbol are not used in the final logo.
 
-Reproduce the final master (Pillow, numpy, opencv-python required):
+Reproduce the original pre-grade composition (Pillow, numpy, opencv-python required):
 python scripts/compose-campaign-banner-artwork.py --base docs/design/campaign-impact-base.png --icon public/logo/icon-no-bg-green.png --output public/metrics-campaign-impact.png
 
 WebP encoding is lossless in scripts/optimize-seo-images.mjs. Metrics.tsx requests quality 100 from Next.js.
@@ -27,3 +27,17 @@ REQUIRED ARTWORK LAYOUT:
 - The geometric forms on the right continue down to the physical lower edge in a coherent full-bleed print. Both halves reach the panel perimeter with no internal blank border.
 STRICT INVARIANTS: preserve the banner's exact existing shape, size, FRONT-WHEEL mounting position, orientation, black border and supports. Do not move it. Preserve the black bicycle and tires, black puffer jacket, silver metal, cyclist identity, anatomy, pose, beige trousers and shoes; same Dutch brick street, parked vehicles, pedestrians, buildings, camera angle, framing, daylight and shadows. No changes outside the printed face.
 Return the complete portrait photograph, not a close-up, with only the corrected full-height split artwork.
+
+Photographic consistency edit (19 October 2026)
+Tool: built-in image_gen image edit.
+Edit target: the final composited campaign photograph above.
+Tonal reference: public/images/movrr-usecase-urban-partnerships.webp.
+Final graded master: public/metrics-campaign-impact.png.
+Final lossless delivery: public/images/movrr-campaign-front-banner-muted.webp.
+The new delivery filename avoids reusing a cached version of the brighter image.
+The original base fixture and genuine-logo compositor remain available. The compositor reproduces the pre-grade composition; the checked-in graded master is the source for reproducing the final WebP.
+
+Grade prompt:
+Preserve the complete portrait composition, rider identity and pose, street scene, bicycle geometry and exact MOVRR banner artwork. Gently lower exposure and midtone brightness, soften bright highlights, reduce orange/red brick saturation and warmth, and match the cooler neutral, muted documentary photographic grade of Urban Partnerships. No crop, scene changes, blur, object additions/removals or logo redesign. Keep the banner's green and peach colours recognizable.
+
+Verification: full image inspected against the original and tonal reference; native dimensions remain 1086 x 1448. Final WebP decoded pixels match the graded master exactly. Website layout, responsive image sizing, quality and alternative text are unchanged.

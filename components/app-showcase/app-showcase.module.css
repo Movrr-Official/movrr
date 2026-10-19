@@ -344,7 +344,8 @@
   height: 400px;
   overflow: hidden;
   border-radius: 24px;
-  background: var(--movrr-bg-muted);
+  /* Sampled from the studio photograph to continue its neutral backdrop. */
+  background: linear-gradient(#cbcbcb 20%, #cdcdcd 40%);
 }
 .campaignStudio img {
   height: 100%;

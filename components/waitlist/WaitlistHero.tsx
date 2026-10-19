@@ -6,7 +6,7 @@ import type { WaitlistCopy } from "@/locales/types";
 export function WaitlistHero({ copy }: { copy: WaitlistCopy["hero"] }) {
   const cities = copy.cities;
   return (
-    <section className="relative flex min-h-svh flex-col justify-between overflow-hidden bg-movrr-bg-primary pb-14 pt-36 lg:pb-16 lg:pt-52">
+    <section className="relative flex min-h-svh flex-col justify-between gap-12 lg:gap-16 overflow-hidden bg-movrr-bg-primary pb-14 pt-36 lg:pb-16 lg:pt-52">
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}

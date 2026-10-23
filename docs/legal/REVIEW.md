@@ -37,3 +37,7 @@ Final source 2026-10-19.1 passed the production build/type check, 643 translatio
 Existing unrelated full-site checks: WaitlistForm.tsx:96 state-in-effect lint error and /icon SEO check (404 while Next emits /icon.png). Preserve unrelated shared-checkout changes. The local node_modules junction requires webpack in the isolated worktree; no build configuration change is needed.
 
 After the public page is verified, use the location disclosure in the named Play issue response, reconcile Data Safety/background-location and Apple labels against the actual release, and submit store corrections through authorised store workflows. No App Store Connect/Play declaration changes or app-store binary submission is performed by this documentation release.
+
+## Community Safety publication — 23 October 2026
+
+Owner instruction: MOVRR — Final Community Safety Production Rollout & Closure. Publish the finalized EN/NL ordinary-data Safety disclosures when the corresponding backend/private delivery is operational. Version 2026-10-23.1 mirrors Mobile. Only Community privacy paragraphs and corresponding public-cover wording in Terms change. Source: finalized internal Safety assessment. No external legal opinion, guaranteed review SLA, automated moderation or Article 9/10 authority is asserted. Page layout/navigation and unrelated legal rules remain unchanged.

@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-19.1",
+  "version": "2026-10-23.1",
   "status": "approved",
-  "reviewDate": "2026-10-19",
-  "effectiveDate": "2026-10-19",
+  "reviewDate": "2026-10-23",
+  "effectiveDate": "2026-10-23",
   "operator": {
     "name": "MOVRR",
     "address": "Luzacstraat 7 01 A, 3038 VT Rotterdam, Netherlands",
@@ -66,8 +66,12 @@
           "id": "community",
           "title": "6. Community rides and uploaded images",
           "paragraphs": [
-            "When you organise, join or share a community ride, MOVRR processes the ride description, meeting place, schedule, participation and associated public-facing profile information. Content and images you make available through community features can be seen by the audience of that feature. Profile photos and community ride cover images use public asset URLs: people with the URL may be able to view or copy them outside your account.",
-            "Avoid publishing a home address, sensitive route details, images of people without permission or confidential information. Deletion of the original does not recall copies other people have independently saved. Public community content is distinct from your private recorded ride history; do not assume all recorded GPS tracks are public."
+            "When you organise, join or share a community ride, MOVRR processes the ride description, meeting place, schedule, participation and associated public-facing profile information. Content and images you make available through community features can be seen by the audience of that feature. Profile photos use public asset URLs: people with the URL may be able to view or copy them outside your account. Community ride covers use authenticated private delivery.",
+            "Avoid publishing a home address, sensitive route details, images of people without permission or confidential information. Deletion of the original does not recall copies other people have independently saved. Public community content is distinct from your private recorded ride history; do not assume all recorded GPS tracks are public.",
+            "You can report a Community Ride, its text or cover image, or its organizer for harassment, hate, sexual or violent content, spam, impersonation or another safety concern. Blocking limits discovery and new joining or invitations between you and that rider. It does not automatically end existing shared-ride participation; authorized shared-ride access can remain. We do not send block-specific notifications.",
+            "MOVRR processes account/rider references, the relevant ride and content version, report category, necessary evidence references, blocking choices and moderation decisions/timestamps. Authorized internal MOVRR administrators review reports and content. We use this information for our legitimate interests in protecting participants, investigating abuse, honoring blocking choices and reviewing our decisions. We use a legal-obligation basis only for an applicable identified duty, including handling privacy-rights requests. We do not use automated moderation.",
+            "Reports are retained for 12 months after resolution; necessary moderation decisions and evidence for 24 months after case closure. Active blocks remain until unblocked. We minimize unnecessary information sooner. Separately authorized, documented legal or safety holds can delay disposal of necessary evidence. Community covers use authorized private delivery; independently saved copies cannot be recalled. Rider-facing features do not disclose reporter identities or who blocked you.",
+            "You may request access, correction, erasure or restriction and object to processing based on legitimate interests. We review requests individually, including other people's rights and applicable lawful limitations. Contact privacy@movrr.nl for privacy rights or support@movrr.nl for Community Safety help. You can complain to the Autoriteit Persoonsgegevens. Reports use structured categories; please do not send unnecessary personal or sensitive information through support channels."
           ]
         },
         {
@@ -179,7 +183,7 @@
           "id": "community",
           "title": "7. Community content and platform rights",
           "paragraphs": [
-            "Publish only content you have the right to share. Community descriptions, meeting places, photos and public-facing profile information are visible to the feature’s audience; uploaded asset URLs may be publicly accessible. Respect others’ privacy and do not publish their location or image without an appropriate basis.",
+            "Publish only content you have the right to share. Community descriptions, meeting places, photos and public-facing profile information are visible to the feature’s audience; profile-photo URLs may be publicly accessible; Community cover images use authorized private delivery. Respect others’ privacy and do not publish their location or image without an appropriate basis.",
             "You retain your rights in your content. You permit MOVRR to host, reproduce, format and display it only as needed to operate the features you select and address lawful obligations. This is not an unrestricted licence for unrelated advertising. Removal remains subject to necessary shared-record and legal obligations explained in the privacy notice.",
             "MOVRR and its licensors retain rights in the app, brand and service materials. You may use them to access the service lawfully. Do not bypass access controls, distribute malware, scrape private information, spoof GPS, fabricate cycling, manipulate tokens or points, impersonate others, harass users or upload unlawful or infringing material. Statutory interoperability and other mandatory rights remain unaffected."
           ]
@@ -228,6 +232,16 @@
             "Ride honestly: no GPS spoofing, simulated journeys, motor-vehicle substitution, duplicate-account abuse, replayed routes or manipulation of verification, points or redemption codes. Report inaccurate results with the ride reference; do not alter evidence to force an award.",
             "Review campaign boundaries, eligible windows, route and accessory instructions before joining. Keep advertising material lawful and safe and follow disclosed equipment-return arrangements. Avoid blocking roads, nuisance behaviour and unwanted solicitation; a campaign never overrides traffic rules.",
             "For community rides, obtain permission for photos and shared personal information, use appropriate meeting places, respect other participants and report harassment or unlawful content to support@movrr.nl. Do not assume other riders are vetted or that an organiser provides professional supervision. Points depend on verification; pending estimates are not spendable awards."
+          ]
+        },
+        {
+          "id": "community-safety",
+          "title": "Community safety",
+          "paragraphs": [
+            "Community Rides must not contain harassment, bullying, threats, hateful or discriminatory abuse, nudity, sexually explicit content, graphic violence, illegal or exploitative material, spam or impersonation. This applies to titles, descriptions, organiser names and cover images.",
+            "New or changed Community content is reviewed before publication. Use Report or block on a ride to report the ride, its text, cover image or organiser. Choose the category that best fits. Do not include unnecessary personal or sensitive information. Reports are reviewed; violating content may be restricted or removed and authorised staff may take account action. Reports alone do not automatically suspend an account.",
+            "Use Report or block to block a rider organiser. MOVRR and Admin organisers cannot be blocked. Their other rides are hidden and new joins and invites between you are blocked. Existing shared rides, rosters, counts, invitations, history and rewards are preserved. Stored invitations cannot bypass blocking restrictions. Leave a ride through the existing Leave ride action. Manage blocks in Account > Blocked riders. Unblocking does not create participation. Shared access does not reveal block relationships or additional personal or location data. We do not tell the other rider who reported or blocked them.",
+            "For safety concerns, questions or help with a review, contact support@movrr.nl."
           ]
         }
       ]
@@ -385,8 +399,12 @@
           "id": "community",
           "title": "6. Communityritten en afbeeldingen",
           "paragraphs": [
-            "Bij organiseren, deelnemen of delen verwerken wij omschrijving, ontmoetingsplaats, planning, deelname en bijbehorende zichtbare profielgegevens. Inhoud en afbeeldingen zijn zichtbaar voor het publiek van de functie. Profielfoto’s en omslagfoto’s gebruiken openbare bestands-URL’s; wie de URL heeft kan deze mogelijk buiten je account bekijken of kopiëren.",
-            "Publiceer geen woonadres, gevoelige routedetails, vertrouwelijke informatie of beelden van mensen zonder passende toestemming. Het verwijderen van het origineel haalt zelfstandig bewaarde kopieën niet terug. Community-inhoud staat los van privéritgeschiedenis; niet alle geregistreerde GPS-routes zijn openbaar."
+            "Bij organiseren, deelnemen of delen verwerken wij omschrijving, ontmoetingsplaats, planning, deelname en bijbehorende zichtbare profielgegevens. Inhoud en afbeeldingen zijn zichtbaar voor het publiek van de functie. Profielfoto’s gebruiken openbare bestands-URL’s; wie de URL heeft kan deze mogelijk buiten je account bekijken of kopiëren. Omslagfoto’s van communityritten worden privé en na autorisatie aangeboden.",
+            "Publiceer geen woonadres, gevoelige routedetails, vertrouwelijke informatie of beelden van mensen zonder passende toestemming. Het verwijderen van het origineel haalt zelfstandig bewaarde kopieën niet terug. Community-inhoud staat los van privéritgeschiedenis; niet alle geregistreerde GPS-routes zijn openbaar.",
+            "Je kunt een communityrit, de tekst of omslagfoto, of de organisator melden vanwege intimidatie, haat, seksuele of gewelddadige inhoud, spam, identiteitsmisbruik of een ander veiligheidsprobleem. Blokkeren beperkt het ontdekken van ritten en nieuwe deelname of uitnodigingen tussen jou en die fietser. Bestaande deelname aan een gedeelde rit eindigt niet automatisch; toegestane toegang tot die rit kan blijven bestaan. We sturen geen afzonderlijke melding over een blokkering.",
+            "MOVRR verwerkt account- en fietsersverwijzingen, de betreffende rit en inhoudsversie, de meldingscategorie, noodzakelijke bewijsverwijzingen, blokkeerkeuzes en moderatiebesluiten met tijdstippen. Bevoegde interne MOVRR-beheerders beoordelen meldingen en inhoud. We verwerken deze gegevens voor onze gerechtvaardigde belangen: deelnemers beschermen, misbruik onderzoeken, blokkeerkeuzes uitvoeren en onze besluiten kunnen beoordelen. Een wettelijke verplichting gebruiken we alleen als grondslag voor een concrete toepasselijke plicht, waaronder de behandeling van privacyverzoeken. We gebruiken geen geautomatiseerde moderatie.",
+            "Meldingen bewaren we 12 maanden na afhandeling; noodzakelijke moderatiebesluiten en bewijsstukken 24 maanden na sluiting van de zaak. Actieve blokkeringen blijven tot ze worden opgeheven. Onnodige gegevens beperken of verwijderen we eerder. Afzonderlijk bevoegde en vastgelegde juridische of veiligheidsbewaring kan de verwijdering van noodzakelijk bewijs uitstellen. Omslagfoto's van communityritten worden privé en na autorisatie aangeboden; onafhankelijk opgeslagen kopieën kunnen we niet terughalen. Fietsersfuncties tonen niet wie een melding heeft gedaan of wie jou heeft geblokkeerd.",
+            "Je kunt inzage, correctie, verwijdering of beperking vragen en bezwaar maken tegen verwerking op basis van gerechtvaardigde belangen. We beoordelen verzoeken individueel, met aandacht voor de rechten van anderen en toepasselijke wettelijke beperkingen. Mail privacy@movrr.nl voor privacyrechten of support@movrr.nl voor hulp bij communityveiligheid. Je kunt een klacht indienen bij de Autoriteit Persoonsgegevens. Vermeld in een melding geen onnodige persoonlijke of gevoelige details."
           ]
         },
         {
@@ -498,7 +516,7 @@
           "id": "community",
           "title": "7. Community-inhoud en platformrechten",
           "paragraphs": [
-            "Deel alleen inhoud waarvoor je bevoegd bent. Omschrijvingen, ontmoetingsplaatsen, foto’s en zichtbare profielgegevens zijn toegankelijk voor het functiepubliek; bestands-URL’s kunnen openbaar zijn. Respecteer privacy en deel andermans locatie of afbeelding niet zonder passende grond.",
+            "Deel alleen inhoud waarvoor je bevoegd bent. Omschrijvingen, ontmoetingsplaatsen, foto’s en zichtbare profielgegevens zijn toegankelijk voor het functiepubliek; URL’s van profielfoto’s kunnen openbaar zijn; omslagfoto’s van communityritten worden privé en na autorisatie aangeboden. Respecteer privacy en deel andermans locatie of afbeelding niet zonder passende grond.",
             "Jij behoudt je rechten. Je staat MOVRR toe inhoud alleen te hosten, kopiëren, formatteren en tonen voor de gekozen functies en wettelijke plichten. Dit is geen onbeperkte licentie voor andere reclame. Verwijdering houdt rekening met noodzakelijke gedeelde gegevens en wettelijke verplichtingen uit de privacyverklaring.",
             "MOVRR en licentiegevers behouden rechten in app, merk en diensten. Je mag die rechtmatig gebruiken voor toegang. Omzeil geen toegangscontroles; verspreid geen malware; verzamel geen privégegevens; vervals geen GPS of fietsritten; manipuleer geen tokens of punten; doe je niet als een ander voor; intimideer niet; en plaats geen onrechtmatige inhoud. Dwingende rechten, waaronder wettelijke interoperabiliteit, blijven gelden."
           ]
@@ -547,6 +565,16 @@
             "Fiets eerlijk: geen GPS-vervalsing, gesimuleerde ritten, vervanging door motorvoertuigen, misbruik van meerdere accounts, herhaalde routegegevens of manipulatie van verificatie, punten of codes. Meld fouten met de ritreferentie; wijzig geen bewijs om punten af te dwingen.",
             "Bekijk gebieden, tijdvensters, routes en materiaalinstructies vóór campagnedeelname. Houd reclame wettig en veilig en volg bekendgemaakte retourafspraken. Blokkeer geen wegen, veroorzaak geen overlast en benader mensen niet ongewenst; een campagne gaat nooit boven verkeersregels.",
             "Vraag bij communityritten passende toestemming voor foto’s en persoonsgegevens, kies geschikte ontmoetingsplaatsen, respecteer deelnemers en meld intimidatie of onrechtmatige inhoud bij support@movrr.nl. Ga er niet van uit dat deelnemers gescreend zijn of organisatoren professioneel toezicht bieden. Punten volgen verificatie; voorlopige schattingen zijn niet besteedbaar."
+          ]
+        },
+        {
+          "id": "community-safety",
+          "title": "Veiligheid in de community",
+          "paragraphs": [
+            "Community Rides mogen geen intimidatie, pesten, bedreigingen, haat of discriminerend misbruik, naaktheid, seksueel expliciete inhoud, grafisch geweld, illegaal of uitbuitend materiaal, spam of identiteitsmisbruik bevatten. Dit geldt voor titels, beschrijvingen, namen van organisatoren en omslagfoto's.",
+            "Nieuwe of gewijzigde Community-inhoud wordt voor publicatie beoordeeld. Gebruik Melden of blokkeren bij een rit om de rit, tekst, omslagfoto of organisator te melden. Kies de categorie die het beste past. Deel geen onnodige persoonlijke of gevoelige informatie. Meldingen worden beoordeeld; overtredende inhoud kan worden beperkt of verwijderd en bevoegde medewerkers kunnen accountmaatregelen nemen. Een melding leidt niet automatisch tot schorsing.",
+            "Gebruik Melden of blokkeren om een organiserende fietser te blokkeren. MOVRR en Admin kunnen als organisator niet worden geblokkeerd. Andere ritten van deze fietser worden verborgen en nieuwe deelnames en uitnodigingen tussen jullie worden geblokkeerd. Bestaande gezamenlijke ritten, deelnemerslijsten, aantallen, uitnodigingen, geschiedenis en beloningen blijven behouden. Opgeslagen uitnodigingen kunnen een blokkade niet omzeilen. Gebruik Rit verlaten als je niet meer wilt deelnemen. Beheer blokkades via Account > Geblokkeerde fietsers. Deblokkeren maakt geen deelnames aan. Gezamenlijke toegang toont geen blokkaderelaties of extra persoonlijke of locatiegegevens. We vertellen de andere fietser niet wie heeft gemeld of geblokkeerd.",
+            "Mail voor veiligheidszorgen, vragen of hulp bij een beoordeling naar support@movrr.nl."
           ]
         }
       ]
